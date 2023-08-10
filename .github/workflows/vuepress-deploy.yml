@@ -7,10 +7,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - uses: pnpm/action-setup@v2
-      with:
-        version: 8
-
     - name: vuepress-deploy
       uses: jenkey2011/vuepress-deploy@master
       env:
