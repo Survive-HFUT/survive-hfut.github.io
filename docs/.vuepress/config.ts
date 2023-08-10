@@ -3,7 +3,7 @@ import theme from "./theme";
 import { searchPlugin } from '@vuepress/plugin-search'
 
 export default defineUserConfig({
-  base: "/",
+  base: "/docs/",
 
   lang: "zh-CN",
   title: "肥工生存手册",
