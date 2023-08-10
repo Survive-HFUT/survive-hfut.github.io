@@ -1,4 +1,3 @@
 *.code-workspace
 
 node_modules/
-pnpm-lock.yaml

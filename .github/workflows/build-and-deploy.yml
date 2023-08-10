@@ -22,8 +22,6 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-          # 使用 pnpm 安装依赖
-          run_install: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -31,7 +29,10 @@ jobs:
           # 选择要使用的 node 版本
           node-version: 18
           # 缓存 pnpm 依赖
-          cache: pnpm
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
 
       # 运行构建脚本
       - name: Build VuePress site
