@@ -22,7 +22,8 @@ jobs:
           # 选择要使用的 pnpm 版本
           version: 8
           # 使用 pnpm 安装依赖
-          run_install: true
+          run_install: |
+            - recursive: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
