@@ -16,10 +16,6 @@ export default hopeTheme({
   // sidebar
   sidebar,
 
-  footer: "默认页脚",
-
-  displayFooter: true,
-
   // page meta
   metaLocales: {
     editLink: "在 GitHub 上编辑此页",
