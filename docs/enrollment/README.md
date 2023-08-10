@@ -20,7 +20,7 @@
 
 校园卡的充值在支付宝（校园卡小程序）。如图：
 
-![校园卡的充值](./media/campus_card_recharge.png =200x300)
+![校园卡的充值](./media/campus_card_recharge.png =200x)
 
 ## 校园地图
 

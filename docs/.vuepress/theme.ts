@@ -6,11 +6,9 @@ export default hopeTheme({
 
   iconAssets: "fontawesome-with-brands",
 
-  logo: "/logo.svg",
+  repo: "Survive-HFUT/survive-hfut.github.io",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
-
-  docsDir: "src",
+  docsDir: "docs",
 
   // navbar
   navbar,
@@ -42,6 +40,7 @@ export default hopeTheme({
       align: true,
       attrs: true,
       chart: true,
+      card: true,
       codetabs: true,
       demo: true,
       echarts: true,
