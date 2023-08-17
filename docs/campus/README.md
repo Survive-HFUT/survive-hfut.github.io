@@ -101,7 +101,7 @@
 
 #### 武术馆
 
-![武术馆](media/martial_Art.jpg =300x)
+![武术馆](media/martial_art.jpg =300x)
 
 ### 风雨操场
 
