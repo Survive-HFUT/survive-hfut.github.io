@@ -1,7 +1,10 @@
 # 🦢 校园
+
 ## 校园地图
 
-![合工宣校园地图](./media/HFUTXC_map.png)
+![合工宣校园地图](./media/HFUTXC_map.jpg)
+
+自动售货机地图见[自动售货机地图](../life/README.md#自动售货机)
 
 ## 主要建筑
 
@@ -35,6 +38,8 @@
 ![图书馆](media/library_1.jpg =300x)
 
 ![图书馆](media/library_2.jpeg =300x)
+
+![阅览区](media/library_3.jpg =300x)
 
 ### 敬亭学堂
 
@@ -86,7 +91,17 @@
 | 二层 | 健身房                     |
 | 三层 | 室内篮球场、排球场         |
 
+#### 羽毛球馆
+
 ![羽毛球馆](media/badminton_courts.jpg =300x)
+
+#### 乒乓球馆
+
+![乒乓球馆](media/pingpong_tables.jpg =300x)
+
+#### 武术馆
+
+![武术馆](media/martial_Art.jpg =300x)
 
 ### 风雨操场
 

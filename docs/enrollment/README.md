@@ -24,7 +24,9 @@
 
 ## 校园地图
 
-![合工宣校园地图](./media/HFUTXC_map.png)
+![合工宣校园地图](./media/HFUTXC_map.jpg)
+
+自动售货机地图见[自动售货机地图](../life/README.md#自动售货机)
 
 ## 课本与二手书
 
