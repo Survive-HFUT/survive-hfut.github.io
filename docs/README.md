@@ -29,6 +29,8 @@
 
 [快来帮忙！](about/README.md)
 
+欢迎来 Star！[![欢迎 Star](https://img.shields.io/github/stars/Survive-HFUT/survive-hfut.github.io.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Survive-HFUT/survive-hfut.github.io)
+
 ## 版权信息
 
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
