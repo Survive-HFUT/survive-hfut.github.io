@@ -3,6 +3,12 @@
 **Survive-HFUT**
 **你的薰化路 301 号指南**
 
+:::: warning 域名更新
+
+我们的域名即将更换成 [survive-hfut.cc](https://survive-hfut.cc) 。
+
+::::
+
 ![东大门](media/east_gate.jpg)
 
 ---
