@@ -1,39 +1,28 @@
 # 🧱 活在肥宣
 
-**Survive-HFUT**
-**你的薰化路 301 号指南**
+<h1 align="center">Survive-HFUT</h1>
 
-:::: warning 域名更新
-
-我们的域名即将更换成 [survive-hfut.cc](https://survive-hfut.cc) 。
-
-::::
+<p style="text-align:center"> 
+你的薰化路 301 号指南。  
+</p>
 
 ![东大门](media/east_gate.jpg)
 
----
+:::warning 域名更新
 
-:::: info 常用网站
+我们的域名即将更换成 [survive-hfut.cc](https://survive-hfut.cc) 。
 
-- [合肥工业大学官网](https://www.hfut.edu.cn  )
-- [综合信息门户](https://cas.hfut.edu.cn/cas/login )（课表/成绩单/选课/培养方案...)
-- [教务系统](http://jxglstu.hfut.edu.cn/eams5-student/login )（旧版综合信息门户）
-- [服务大厅](http://172.31.248.26:8088 "需要连接校园网访问")（缴网费/缴电费/校园卡相关）
-- [宽带认证系统](http://172.18.3.3 "需要连接校园网访问")（登录校园网）
-- [合肥工业大学WEBVPN系统](https://webvpn.hfut.edu.cn )
-- [合肥工业大学邮件系统](http://email.mail.hfut.edu.cn )
+:::
 
-::::
+:::tip
+移动端可点击左上角汉堡菜单，打开目录
+:::
 
----
-
-移动端可点击左上角汉堡菜单，打开目录，详细问题可以加入qq群941947092询问。
-
----
-
+:::note
 手册持续完善中...
 
 [快来帮忙！](about/README.md)
+:::
 
 欢迎来 Star！[![欢迎 Star](https://img.shields.io/github/stars/Survive-HFUT/survive-hfut.github.io.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Survive-HFUT/survive-hfut.github.io)
 

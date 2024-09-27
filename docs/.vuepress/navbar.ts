@@ -6,6 +6,10 @@ export default navbar([
     link: '/',
   },
   {
+    text: '常用网站',
+    link: '/links/',
+  },
+  {
     text: '关于',
     link: '/about/',
   },
