@@ -2,23 +2,17 @@
 
 ## 常用网站
 
-- [合肥工业大学官网](https://www.hfut.edu.cn )
-
-- [综合信息门户](https://cas.hfut.edu.cn/cas/login )（课表/成绩单/选课/培养方案...)
-
-- [教务系统](http://jxglstu.hfut.edu.cn/eams5-student/login )（旧版综合信息门户）
-
+- [合肥工业大学官网](https://www.hfut.edu.cn)
+- [综合信息门户](https://cas.hfut.edu.cn/cas/login)（课表/成绩单/选课/培养方案...)
+- [教务系统](http://jxglstu.hfut.edu.cn/eams5-student/login)（旧版综合信息门户）
 - [服务大厅](http://172.31.248.26:8088 "需要连接校园网访问")（缴网费/缴电费/校园卡相关）
-
 - [宽带认证系统](http://172.18.3.3 "需要连接校园网访问")（登录校园网）
-
-- [合肥工业大学WEBVPN系统](https://webvpn.hfut.edu.cn )
-
-- [合肥工业大学邮件系统](http://email.mail.hfut.edu.cn )
+- [合肥工业大学WEBVPN系统](https://webvpn.hfut.edu.cn)
+- [合肥工业大学邮件系统](http://email.mail.hfut.edu.cn)
 
 ## 住宿
 
-![宿舍（](./media/dormitory.webp =300x)
+![宿舍](./media/dormitory.webp =300x)
 
 ### 宣区宿舍条件
 
@@ -40,7 +34,6 @@
 
 洗衣机如果嫌弃公用的可以寝室一起买，放在阳台。
 
-
 ## 生活费
 
 看你自己。一个月600能活，大多数同学 1000 到 1500，2000 以上属于比较多了，~~如果达到五位数请包养我~~。
@@ -53,9 +46,9 @@
 
 ### 费用
 
-| 免费额度 | 超出费用  | 限额     |
-| -------- | --------- | -------- |
-| 每月 40G | 0.5元 / G | 每日 20G |
+| 免费额度 | 超出费用 | 限额     |
+| -------- | -------- | -------- |
+| 每月 40G | 0.5元/G  | 每日 20G |
 
 法定节假日和寒暑假免费，这时因为用的人多可能速度慢。
 
