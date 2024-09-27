@@ -48,12 +48,12 @@ jobs:
         with:
           branch: gh-pages
           folder: docs/.vuepress/dist
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ github.token }}
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@master
         env:
-          VERSION: ${{ env.GITHUB_SHA }}
+          VERSION: ${{ github.sha }}
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID}}

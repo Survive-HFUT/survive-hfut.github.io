@@ -1,6 +1,8 @@
 # 第一课堂
 
->以下内容选自：[合肥工业大学本科生学籍管理办法（修订稿） (hfut.edu.cn)](http://zczx.hfut.edu.cn/2021/0916/c1934a264069/page.htm)
+:::info
+以下内容选自[合肥工业大学本科生学籍管理办法（修订稿） (hfut.edu.cn)](http://zczx.hfut.edu.cn/2021/0916/c1934a264069/page.htm)
+:::
 
 ## 第四条  学习年限
 

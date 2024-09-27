@@ -5,16 +5,17 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-	  "docs:build": "vuepress build docs",
-	  "docs:clean-dev": "vuepress dev docs --clean-cache",
-	  "docs:dev": "vuepress dev docs",
-	  "docs:update-package": "pnpm dlx vp-update"
+		"docs:build": "vuepress build docs",
+		"docs:clean-dev": "vuepress dev docs --clean-cache",
+		"docs:dev": "vuepress dev docs",
+		"docs:update-package": "pnpm dlx vp-update"
 	},
 	"devDependencies": {
-	  "@vuepress/client": "2.0.0-beta.66",
-	  "@vuepress/plugin-search": "2.0.0-beta.66",
-	  "vue": "^3.3.4",
-	  "vuepress": "2.0.0-beta.66",
-	  "vuepress-theme-hope": "2.0.0-beta.234"
+		"@vuepress/client": "2.0.0-beta.66",
+		"@vuepress/plugin-search": "2.0.0-beta.66",
+		"mermaid": "^11.2.1",
+		"vue": "^3.3.4",
+		"vuepress": "2.0.0-beta.66",
+		"vuepress-theme-hope": "2.0.0-beta.234"
 	}
-  }
+}
