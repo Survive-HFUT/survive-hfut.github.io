@@ -45,6 +45,7 @@
 - 故梦
 - 麻瓜巫师Akko
 - RyanLane1
+- gforoosge
 
 ### 开发运维
 

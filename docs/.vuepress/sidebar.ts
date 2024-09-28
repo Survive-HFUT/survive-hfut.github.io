@@ -27,6 +27,7 @@ export default sidebar([
       '/campus/playground',
       '/campus/dorm',
       '/campus/cafeterias',
+      '/campus/lost_and_found',
     ],
     collapsible: true
   },
