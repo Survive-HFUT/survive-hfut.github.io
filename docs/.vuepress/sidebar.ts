@@ -2,14 +2,14 @@ import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar([
   '/',
-  '/links/',
+  '/contact/',
   {
     link: '/enrollment/',
     text: '😍 初入肥宣',
     children: [
       '/enrollment/card',
-      '/enrollment/preparation',
       '/enrollment/transport',
+      '/enrollment/preparation',
       '/enrollment/books',
       '/enrollment/military_training',
       '/enrollment/city_center',
@@ -37,6 +37,7 @@ export default sidebar([
     children: [
       '/life/dormitory',
       '/life/alimony',
+      '/life/transport',
       '/life/network',
       '/life/exercise',
       '/life/couriers',
@@ -64,5 +65,4 @@ export default sidebar([
   '/surroundings/',
   '/xuan/',
   '/other/',
-  '/forum/'
 ]);

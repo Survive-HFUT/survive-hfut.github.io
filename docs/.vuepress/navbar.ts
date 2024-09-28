@@ -6,8 +6,8 @@ export default navbar([
     link: '/',
   },
   {
-    text: '常用网站',
-    link: '/links/',
+    text: '黄页',
+    link: '/contact/',
   },
   {
     text: '关于',

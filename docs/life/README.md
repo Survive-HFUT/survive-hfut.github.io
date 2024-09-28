@@ -1,5 +1,5 @@
 # 💈 生活
 
-![合工宣校园地图](../enrollment/media/HFUTXC_map.jpg)
-
-![自动售货机地图](media/vending_map.jpg)
+:::tip
+这里是对于在大学泥宣生活的注意事项和指南
+:::

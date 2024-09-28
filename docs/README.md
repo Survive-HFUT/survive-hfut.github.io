@@ -12,12 +12,14 @@
 
 我们的域名即将更换成 [survive-hfut.cc](https://survive-hfut.cc) 。
 
+{{ console.log(this.$option) }}
+
 :::
 
 :::tip
 
-- 移动端可点击左上角汉堡菜单打开目录
-- 此指南主要针对**宣城校区**而写，但是部分（[校园卡](./enrollment/card)、[入学准备](./enrollment/preparation)）可能也适用于合肥校区甚至其他学校
+- 移动端可点击左上角的 **≡** 打开目录
+- 此指南主要针对**宣城校区**而写，但是部分内容（如[校园卡](./enrollment/card)、[入学准备](./enrollment/preparation)）可能也适用于合肥校区甚至其他学校
 
 :::
 

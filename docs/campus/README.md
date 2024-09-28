@@ -2,9 +2,9 @@
 
 ## 校园地图
 
-![合工宣校园地图](./media/HFUTXC_map.jpg)
+![合工宣校园地图](media/HFUTXC_map.jpg)
 
-自动售货机地图见[自动售货机地图](../life/README.md#自动售货机)
+![自动售货机地图](media/vending_map.jpg)
 
 ## 其他建筑
 
