@@ -8,16 +8,16 @@ Survive-HFUT
 
 ### 如何贡献
 
-1. Pull request
+#### Pull request
 
-   1. fork 后，进行修改。
-   2. 发起 Merge 请求。
+1. fork 后，进行修改。
+2. 发起 Merge 请求。
 
-2. 代理提交
+#### 代理提交
 
-   1. 联系qq1508235894或者加入群聊941947092
-   2. 提交规范编写的Word，Markdown 文件给管理员。
-   3. 管理员整理上传。
+1. 联系qq1508235894
+2. 提交规范编写的Word，Markdown 文件
+3. 由对方整理上传
 
 ### 编写规范
 
@@ -35,3 +35,5 @@ International License][cc-by-sa].
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+
+![Star History Chart](https://api.star-history.com/svg?repos=Survive-HFUT/survive-hfut.github.io&type=Date)

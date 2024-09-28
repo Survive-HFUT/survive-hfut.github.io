@@ -1,8 +1,16 @@
+import { viteBundler } from "@vuepress/bundler-vite";
+import { markdownMathPlugin } from "@vuepress/plugin-markdown-math";
+import { searchPlugin } from "@vuepress/plugin-search";
 import { defineUserConfig } from "vuepress";
 import theme from "./theme";
-import { searchPlugin } from '@vuepress/plugin-search'
+import { markdownImagePlugin } from "@vuepress/plugin-markdown-image";
 
 export default defineUserConfig({
+  bundler: viteBundler({
+    viteOptions: {},
+    vuePluginOptions: {},
+  }),
+
   base: "/",
 
   lang: "zh-CN",
@@ -12,11 +20,13 @@ export default defineUserConfig({
   theme,
 
   plugins: [
-    searchPlugin({
-      // 配置项
+    searchPlugin({}),
+    markdownMathPlugin({}),
+    markdownImagePlugin({
+      figure: true,
+      lazyload: true,
+      mark: true,
+      size: true,
     }),
   ],
-
-  // Enable it with pwa
-  // shouldPrefetch: false,
 });

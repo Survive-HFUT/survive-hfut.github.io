@@ -44,16 +44,17 @@ jobs:
           > docs/.vuepress/dist/.nojekyll
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
+        # 4.6.6 无法运行 https://github.com/JamesIves/github-pages-deploy-action/issues/1698
         with:
           branch: gh-pages
           folder: docs/.vuepress/dist
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ github.token }}
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@master
         env:
-          VERSION: ${{ env.GITHUB_SHA }}
+          VERSION: ${{ github.sha }}
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID}}
