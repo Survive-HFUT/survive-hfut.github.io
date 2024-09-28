@@ -1,6 +1,8 @@
 # 转专业
 
->以下内容经学长同意转载自[【科普贴】转专业需要什么条件？如何转专业？](https://tieba.baidu.com/p/8512145460?share=9105&fr=sharewise&see_lz=0&share_from=post&sfc=copy&client_type=2&client_version=12.44.1.0&st=1689990570&is_video=false&unique=95CF34A25ADA86EDEDF5DC4065213B2E)
+:::info
+以下内容经学长同意转载自[【科普贴】转专业需要什么条件？如何转专业？](https://tieba.baidu.com/p/8512145460?share=9105&fr=sharewise&see_lz=0&share_from=post&sfc=copy&client_type=2&client_version=12.44.1.0&st=1689990570&is_video=false&unique=95CF34A25ADA86EDEDF5DC4065213B2E)
+:::
 
 各位吧友们，考生们好，这几天各省份陆续公布了录取结果，有不少学弟学妹已经查到自己的专业啦这几天看到问转专业的同学比较多，所以单独开个贴讲一下。也欢迎更多亲身经历过转专业的同学来补充更多细节！
 

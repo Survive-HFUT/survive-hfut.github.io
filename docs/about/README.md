@@ -2,11 +2,15 @@
 
 ## 参与进来
 
+### 抓虫指正
+
+[提交Issue](https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new)
+
 ### 如何贡献
 
 #### Pull request
 
-1. fork 后，进行修改
+1. [fork](https://github.com/Survive-HFUT/survive-hfut.github.io/fork) 后，进行修改
 2. 发起 Merge 请求
 
 #### 代理提交
