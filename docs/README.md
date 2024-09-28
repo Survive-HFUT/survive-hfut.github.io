@@ -12,8 +12,6 @@
 
 我们的域名即将更换成 [survive-hfut.cc](https://survive-hfut.cc) 。
 
-{{ console.log(this.$option) }}
-
 :::
 
 :::tip
