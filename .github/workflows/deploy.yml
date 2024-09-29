@@ -67,7 +67,7 @@ jobs:
         # 4.6.6无法运行 https://github.com/JamesIves/github-pages-deploy-action/issues/1698
         with:
           branch: gh-pages
-          folder: dist
+          folder: dist/pages
           token: ${{ github.token }}
 
       - name: Deploy to Vercel
@@ -78,4 +78,4 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}}
-          working-directory: ./dist
+          working-directory: ./dist/pages
