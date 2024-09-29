@@ -51,7 +51,7 @@ jobs:
 
   deploy:
     needs: [build]
-    if: github.event == 'push' || github.event == 'workflow_dispatch'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
 
     steps:
