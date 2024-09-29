@@ -4,12 +4,13 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  pull_request:
 
 permissions:
   contents: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +31,7 @@ jobs:
           # 选择要使用的 node 版本
           node-version: 18
           # 缓存 pnpm 依赖
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install
@@ -43,12 +44,27 @@ jobs:
           pnpm run docs:build
           > docs/.vuepress/dist/.nojekyll
 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pages
+          path: docs/.vuepress/dist/
+
+  deploy:
+    needs: [build]
+    if: github.event == 'push' || github.event == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.6.4
-        # 4.6.6 无法运行 https://github.com/JamesIves/github-pages-deploy-action/issues/1698
+        # 4.6.6无法运行 https://github.com/JamesIves/github-pages-deploy-action/issues/1698
         with:
           branch: gh-pages
-          folder: docs/.vuepress/dist
+          folder: dist
           token: ${{ github.token }}
 
       - name: Deploy to Vercel
@@ -59,4 +75,4 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}}
-          working-directory: ./
+          working-directory: ./dist

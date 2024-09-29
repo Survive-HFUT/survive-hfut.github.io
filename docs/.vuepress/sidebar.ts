@@ -32,7 +32,6 @@ export default sidebar([
     collapsible: true
   },
   {
-    link: '/life/',
     text: '💈 生活',
     children: [
       '/life/dormitory',
