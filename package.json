@@ -1,6 +1,6 @@
 {
   "name": "survive-hfut",
-  "version": "2024.9.28",
+  "version": "2024.10.1",
   "description": "活在肥宣",
   "license": "CC0-1.0",
   "type": "module",
@@ -11,16 +11,15 @@
     "docs:update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.15",
-    "@vuepress/client": "2.0.0-rc.15",
-    "@vuepress/plugin-markdown-image": "2.0.0-rc.47",
-    "@vuepress/plugin-markdown-math": "2.0.0-rc.49",
-    "@vuepress/plugin-search": "2.0.0-rc.47",
+    "@vuepress/bundler-vite": "2.0.0-rc.17",
+    "@vuepress/plugin-markdown-image": "2.0.0-rc.52",
+    "@vuepress/plugin-markdown-math": "2.0.0-rc.52",
+    "@vuepress/plugin-search": "2.0.0-rc.52",
     "katex": "^0.16.11",
     "mermaid": "^11.2.1",
-    "sass-embedded": "^1.79.3",
+    "sass-embedded": "^1.79.4",
     "vue": "^3.5.10",
-    "vuepress": "2.0.0-rc.15",
-    "vuepress-theme-hope": "2.0.0-rc.56"
+    "vuepress": "2.0.0-rc.17",
+    "vuepress-theme-hope": "2.0.0-rc.58"
   }
 }
