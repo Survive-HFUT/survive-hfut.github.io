@@ -57,7 +57,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-          
+
       - uses: actions/download-artifact@v4
         with:
           path: dist
@@ -70,12 +70,12 @@ jobs:
           folder: dist/pages
           token: ${{ github.token }}
 
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@master
-        env:
-          VERSION: ${{ github.sha }}
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.ORG_ID}}
-          vercel-project-id: ${{ secrets.PROJECT_ID}}
-          working-directory: ./dist/pages
+      # - name: Deploy to Vercel
+      #   uses: amondnet/vercel-action@master
+      #   env:
+      #     VERSION: ${{ github.sha }}
+      #   with:
+      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
+      #     vercel-org-id: ${{ secrets.ORG_ID}}
+      #     vercel-project-id: ${{ secrets.PROJECT_ID}}
+      #     working-directory: ./dist/pages
