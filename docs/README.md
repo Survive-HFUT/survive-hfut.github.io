@@ -29,7 +29,7 @@
 
 欢迎来 Star！
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Survive-HFUT/survive-hfut.github.io&type=Date)](https://gitHub.com/Survive-HFUT/survive-hfut.github.io)
+[![Star Chart](https://starchart.cc/Survive-HFUT/survive-hfut.github.io.svg)](https://gitHub.com/Survive-HFUT/survive-hfut.github.io)
 
 ## 版权信息
 

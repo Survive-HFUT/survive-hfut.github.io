@@ -1,15 +1,16 @@
 # 社团
 
+:::important
+此页面需要更多补充。[**帮助我们**](../about/)
+
+- 部分群号可能已过时
+
+:::
+
 学校社团招新统一于百团大战，一般在十月初
 
 :::info
 以下内容来自 [“社”彩缤纷，“团”聚成长 | 2023年社团招新大会暨文化博览会等你来参加！](https://mp.weixin.qq.com/s?__biz=MzI5ODI3NzE2Mw==&mid=2247511107&idx=1&sn=5668c2562ebe2e96b284e975c9a20ea7&chksm=eda2c236518f88de9639aa3c041bf66539b8b220003030e2b5630057a4d705e3b19bcf4e1861&mpshare=1&scene=23&srcid=1003KfwYCaGpgJt45iwxhvzX&sharer_shareinfo=3f03cc487d5368cc6848946c7b0fb72a&sharer_shareinfo_first=3f03cc487d5368cc6848946c7b0fb72a#rd)
-
-:::
-
-:::warning
-
-部分群号可能已过时
 
 :::
 
