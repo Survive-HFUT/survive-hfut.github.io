@@ -4,24 +4,33 @@ Survive-HFUT
 
 你的薰化路 301 号指南
 
+## 运行
+
+确保你已经安装了[NodeJs](https://nodejs.org/)和[pnpm](https://pnpm.io/zh/)
+
+```sh
+# 安装依赖
+pnpm install
+
+# 运行
+pnpm run docs:dev
+```
+
+## 构建文档
+
+```sh
+pnpm run docs:build
+```
+
+## 更新所有包
+
+```sh
+pnpm run docs:update-package
+```
+
 ## 帮助我们完善
 
-### 如何贡献
-
-#### Pull request
-
-1. fork 后，进行修改。
-2. 发起 Merge 请求。
-
-#### 代理提交
-
-1. 联系qq1508235894
-2. 提交规范编写的Word，Markdown 文件
-3. 由对方整理上传
-
-### 编写规范
-
-- 使用 Markdown 和 raw HTML / JavaScript 语言
+详见[关于](./docs/about/README.md)
 
 ## LICENSE
 

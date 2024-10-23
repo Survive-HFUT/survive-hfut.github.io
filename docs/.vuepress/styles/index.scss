@@ -1,0 +1,20 @@
+.edit-link a,
+.theme-hope-content a:not(.header-anchor) {
+  background: linear-gradient(
+    var(--vp-c-accent, #299764),
+    var(--vp-c-accent, #299764)
+  );
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: background-size 0.3s;
+}
+
+.edit-link a:hover,
+.theme-hope-content a:not(.header-anchor):hover {
+  background-position: left bottom;
+  background-size: 100% 1.5px;
+  text-decoration: none;
+}
