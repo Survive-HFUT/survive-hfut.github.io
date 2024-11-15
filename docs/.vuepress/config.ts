@@ -16,7 +16,9 @@ export default defineUserConfig({
   lang: "zh-CN",
   title: "活在肥宣",
   description: "你的薰化路 301 号指南",
-
+  head: [
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+  ],
   theme,
 
   plugins: [

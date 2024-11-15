@@ -45,4 +45,4 @@ International License][cc-by-sa].
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
-![Star History Chart](https://api.star-history.com/svg?repos=Survive-HFUT/survive-hfut.github.io&type=Date)
+[![Star Chart](https://starchart.cc/Survive-HFUT/survive-hfut.github.io.svg)](https://gitHub.com/Survive-HFUT/survive-hfut.github.io)
