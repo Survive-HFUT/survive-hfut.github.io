@@ -33,6 +33,9 @@ importers:
       vitepress-markdown-timeline:
         specifier: ^1.2.2
         version: 1.2.2
+      vitepress-plugin-diagrams:
+        specifier: ^1.0.0
+        version: 1.0.0(vite@5.4.14(@types/node@22.7.4)(less@4.2.2)(sass-embedded@1.79.4))(vitepress@1.6.3(@algolia/client-search@5.20.3)(@types/node@22.7.4)(less@4.2.2)(postcss@8.5.3)(qrcode@1.5.4)(sass-embedded@1.79.4)(search-insights@2.17.3))
       vitepress-sidebar:
         specifier: ^1.31.0
         version: 1.31.0
@@ -1834,6 +1837,12 @@ packages:
   vitepress-markdown-timeline@1.2.2:
     resolution: {integrity: sha512-eDFcvudmTW33pI7XdT+ZeUPvpc4CPXI0LZbsZZ54j36G56AN6qYEBiwZpDHl77E4QvqAIJMc8phXXvm7P/Lc+Q==}
 
+  vitepress-plugin-diagrams@1.0.0:
+    resolution: {integrity: sha512-MoGW8YDwrh7XYjEV5m1IozoyClNofbmOT37d25rvd2OwtVj/7QwxIuBN2uQ3smcrRcyFVWyCzf6cyBNADC/iNA==}
+    peerDependencies:
+      vite: '>= 4.0.0'
+      vitepress: '>= 1.0.0'
+
   vitepress-sidebar@1.31.0:
     resolution: {integrity: sha512-ctdALc8ptXsD0HuOYMM8xjUu3lSBfHGJJZYtKYuixvjhL+q/AipLeSvsvwfUEhDIwRyi46HQlSa/7XsevVA/Mg==}
     engines: {node: '>=18.0.0'}
@@ -3552,6 +3561,11 @@ snapshots:
   vitepress-markdown-timeline@1.2.2:
     dependencies:
       dayjs: 1.11.13
+
+  vitepress-plugin-diagrams@1.0.0(vite@5.4.14(@types/node@22.7.4)(less@4.2.2)(sass-embedded@1.79.4))(vitepress@1.6.3(@algolia/client-search@5.20.3)(@types/node@22.7.4)(less@4.2.2)(postcss@8.5.3)(qrcode@1.5.4)(sass-embedded@1.79.4)(search-insights@2.17.3)):
+    dependencies:
+      vite: 5.4.14(@types/node@22.7.4)(less@4.2.2)(sass-embedded@1.79.4)
+      vitepress: 1.6.3(@algolia/client-search@5.20.3)(@types/node@22.7.4)(less@4.2.2)(postcss@8.5.3)(qrcode@1.5.4)(sass-embedded@1.79.4)(search-insights@2.17.3)
 
   vitepress-sidebar@1.31.0:
     dependencies:

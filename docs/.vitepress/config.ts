@@ -8,6 +8,7 @@ import anchor from 'markdown-it-footnote';
 import taskLists from 'markdown-it-task-checkbox';
 import { defineConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
+import { configureDiagramsPlugin } from 'vitepress-plugin-diagrams';
 import { generateSidebar } from 'vitepress-sidebar';
 import locales from './locales';
 
@@ -50,6 +51,11 @@ export default defineConfig({
 
       md.use(taskLists);
       md.use(timeline);
+
+      configureDiagramsPlugin(md, {
+        diagramsDir: 'docs/public/diagrams', // Optional: custom directory for SVG files
+        publicPath: '/diagrams', // Optional: custom public path for images
+      });
     },
   },
 

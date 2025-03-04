@@ -20,6 +20,7 @@
     "@nolebase/vitepress-plugin-thumbnail-hash": "^2.15.0",
     "vitepress": "^1.6.3",
     "vitepress-markdown-timeline": "^1.2.2",
+    "vitepress-plugin-diagrams": "^1.0.0",
     "vitepress-sidebar": "^1.31.0"
   }
 }
