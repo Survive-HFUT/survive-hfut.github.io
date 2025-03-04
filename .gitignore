@@ -1,4 +1,10 @@
+# Visual Studio Code
+.vscode/
 *.code-workspace
+
+# Node.js
 node_modules/
-.vercel
-package-lock.json
+
+# Vitepress
+docs/.vitepress/dist
+docs/.vitepress/cache

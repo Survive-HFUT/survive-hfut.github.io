@@ -14,7 +14,7 @@
 
 ## HFUTSpace 小程序
 
->GitHub: [hfut-soft-ware/hfut-space-app](https://github.com/hfut-soft-ware/hfut-space-app)
+> GitHub: [hfut-soft-ware/hfut-space-app](https://github.com/hfut-soft-ware/hfut-space-app)
 
 学校课表可以在官网查看，但是官网的太过复杂且麻烦，于是就有了学长开发了课表小程序。
 
@@ -24,41 +24,43 @@
 
 在日程页面与课表页面均可以查看开课教室以及上课时间。
 
-![日程](./media/hfutspace_1.jpeg =200x)
+![日程](./media/hfutspace_1.jpeg)
 
-![课表](./media/hfutspace_2.jpeg =200x)
+![课表](./media/hfutspace_2.jpeg)
 
 点击课程名称都可以看到更加详细的信息。
 
-![课程信息](./media/hfutspace_3.jpeg =200x)
+![课程信息](./media/hfutspace_3.jpeg)
 
 在课程信息下还可以查看同班同学或者查询挂科率。
 
-![同班同学](./media/hfutspace_4.jpeg =200x)
+![同班同学](./media/hfutspace_4.jpeg)
 
-![挂科率](./media/hfutspace_5.jpeg =200x)
+![挂科率](./media/hfutspace_5.jpeg)
 
-在课表界面下点击齿轮图标还可以进行一些课表的设置。（不要问我情侣课表怎么搞，自己去找个男/女朋友和TA试试）
+在课表界面下点击齿轮图标还可以进行一些课表的设置。（不要问我情侣课表怎么搞，自己去找个男/女朋友和 TA 试试）
 
-![课表设置](./media/hfutspace_6.jpeg =200x)
+![课表设置](./media/hfutspace_6.jpeg)
 
 课表界面下点击选择学期，可以查看不同学期的课表。
 
-![学期课表](./media/hfutspace_7.jpeg =200x)
+![学期课表](./media/hfutspace_7.jpeg)
 
 ### 查看成绩
 
 小程序内可以查看自己的总排名、单科分数以及单科排名。（因为只会计入使用小程序的同学的成绩，所以可能会出现专业人数不够或者排名不准的情况）
 
-![总成绩](./media/hfutspace_8.jpeg =200x)
+:::details 图片
 
-![学期成绩](./media/hfutspace_9.jpeg =200x)
+![总成绩](./media/hfutspace_8.jpeg)
 
-![课程成绩](./media/hfutspace_10.jpeg =200x)
+![学期成绩](./media/hfutspace_9.jpeg)
+
+![课程成绩](./media/hfutspace_10.jpeg)
+
+:::
 
 ### 其他功能
-
-大部分没什么好说的或者看名字就知道内容，那这部分我就挑一些我觉得有用的功能来说。
 
 - **最近考试安排**
    能看到最近考试的数量，点击进去可以看到每门考试的地点，起止时间以及给你剩下的复习时间。
@@ -69,15 +71,15 @@
 - **第二课堂**
   点击后会跳转到合工大的"第二课堂成绩单"小程序。第二课堂事关毕业，不过通常来说学校都巴不得你毕业，所以不用担心。想要达到毕业的标准很简单，但如果要当二课战神想要星星点灯的话就得多多参加各类活动了。
 
-![其他功能](./media/hfutspace_11.jpeg =200x)
+![其他功能](./media/hfutspace_11.jpeg)
 
 ## 肥工小宇宙
 
-开发 HFUTSpace 小程序的学长现在正在开发一款集成 HFUTSpace 小程序以及论坛社区为一体的app，目前还处于测试阶段，欢迎各位同学加群了解。
+开发 HFUTSpace 小程序的学长现在正在开发一款集成 HFUTSpace 小程序以及论坛社区为一体的 app，目前还处于测试阶段，欢迎各位同学加群了解。
 
 群号为：813152217。
 
-![肥工小宇宙群聊](./media/hfutuni.jpeg =200x)
+![肥工小宇宙群聊](./media/hfutuni.jpeg)
 
 ## HFUT+ 小程序
 

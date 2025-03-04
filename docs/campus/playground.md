@@ -8,4 +8,4 @@
 
 周围有篮球场、网球场和排球场。
 
-![操场](media/sports_field.jpg =300x)
+![操场](media/sports_field.jpg)

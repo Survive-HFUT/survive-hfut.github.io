@@ -8,6 +8,6 @@
 
 心理辅导室也在这儿。
 
-![傍晚的大活](media/dahuo_1.jpg =300x)
+![傍晚的大活](media/dahuo_1.jpg)
 
-![大活和黑天鹅](media/dahuo_2.jpg =300x)
+![大活和黑天鹅](media/dahuo_2.jpg)

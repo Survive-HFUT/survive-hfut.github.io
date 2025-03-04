@@ -4,14 +4,17 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  pull_request:
 
 permissions:
-  contents: write
-
+  contents: read
+  pages: write
+  id-token: write
+    
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
 
     steps:
       - name: Checkout
@@ -23,7 +26,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -37,45 +40,15 @@ jobs:
         run: pnpm install
 
       # 运行构建脚本
-      - name: Build VuePress site
-        env:
-          NODE_OPTIONS: --max_old_space_size=8192
-        run: |-
+      - name: Build VitePress site
+        run: |
           pnpm run docs:build
-          > docs/.vuepress/dist/.nojekyll
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: pages
-          path: docs/.vuepress/dist/
-
-  deploy:
-    needs: [build]
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/download-artifact@v4
-        with:
-          path: dist
+          path: "./docs/.vitepress/dist"
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.6.4
-        # 4.6.6无法运行 https://github.com/JamesIves/github-pages-deploy-action/issues/1698
-        with:
-          branch: gh-pages
-          folder: dist/pages
-          token: ${{ github.token }}
-
-      # - name: Deploy to Vercel
-      #   uses: amondnet/vercel-action@master
-      #   env:
-      #     VERSION: ${{ github.sha }}
-      #   with:
-      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
-      #     vercel-org-id: ${{ secrets.ORG_ID}}
-      #     vercel-project-id: ${{ secrets.PROJECT_ID}}
-      #     working-directory: ./dist/pages
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: actions/deploy-pages@v4

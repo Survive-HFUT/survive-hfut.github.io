@@ -1,25 +1,25 @@
 {
   "name": "survive-hfut",
-  "version": "2024.10.1",
+  "version": "2025.03",
   "description": "活在肥宣",
   "license": "CC0-1.0",
   "type": "module",
   "scripts": {
-    "docs:build": "vuepress build docs",
-    "docs:clean-dev": "vuepress dev docs --clean-cache",
-    "docs:dev": "vuepress dev docs",
-    "docs:update-package": "pnpm dlx vp-update"
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-task-checkbox": "^1.0.6",
+    "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.17",
-    "@vuepress/plugin-markdown-image": "2.0.0-rc.52",
-    "@vuepress/plugin-markdown-math": "2.0.0-rc.52",
-    "@vuepress/plugin-search": "2.0.0-rc.52",
-    "katex": "^0.16.11",
-    "mermaid": "^11.2.1",
-    "sass-embedded": "^1.79.4",
-    "vue": "^3.5.10",
-    "vuepress": "2.0.0-rc.17",
-    "vuepress-theme-hope": "2.0.0-rc.58"
+    "@nolebase/markdown-it-unlazy-img": "^2.15.0",
+    "@nolebase/vitepress-plugin-git-changelog": "^2.15.0",
+    "@nolebase/vitepress-plugin-thumbnail-hash": "^2.15.0",
+    "vitepress": "^1.6.3",
+    "vitepress-markdown-timeline": "^1.2.2",
+    "vitepress-sidebar": "^1.31.0"
   }
 }
