@@ -10,7 +10,7 @@
 部门和职能介绍来自于 **2024 年 9 月大学生网络文化工作室招新海报**
 :::
 
-![logo](../media/newx.jpg =150x150)
+![logo](../media/newx.jpg)
 
 ![大学生网络文化工作室](../media/newx.webp)
 

@@ -41,4 +41,4 @@
 QQ 群：648535023
 微信公众号：合工宣猫喃犬吠
 
-![合工宣猫喃犬吠](media/maonan_quanfei.jpeg =200x)
+![合工宣猫喃犬吠](media/maonan_quanfei.jpeg)
