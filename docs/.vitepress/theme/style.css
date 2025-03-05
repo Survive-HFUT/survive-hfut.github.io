@@ -137,3 +137,28 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
+/**
+ * Component: Medium Zoom
+ * -------------------------------------------------------------------------- */
+.medium-zoom-overlay {
+  z-index: 20;
+}
+
+.medium-zoom-image {
+  z-index: 9999;
+}
+
+/**
+ * Component: Go To Top
+ * -------------------------------------------------------------------------- */
+.go-to-top {
+  transition: background 0.2s;
+}
+
+.dark .go-to-top {
+  background-color: #333;
+}
+
+.dark .go-to-top:hover {
+  background-color: #444;
+}

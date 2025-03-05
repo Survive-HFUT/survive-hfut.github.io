@@ -9,18 +9,22 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
-  "dependencies": {
-    "markdown-it-footnote": "^4.0.0",
-    "markdown-it-task-checkbox": "^1.0.6",
-    "vue": "^3.5.13"
-  },
   "devDependencies": {
     "@nolebase/markdown-it-unlazy-img": "^2.15.0",
     "@nolebase/vitepress-plugin-git-changelog": "^2.15.0",
     "@nolebase/vitepress-plugin-thumbnail-hash": "^2.15.0",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-mathjax3": "^4.3.2",
+    "markdown-it-task-checkbox": "^1.0.6",
+    "medium-zoom": "^1.1.0",
+    "mermaid": "^11.4.1",
+    "nprogress-v2": "^1.1.10",
     "vitepress": "^1.6.3",
     "vitepress-markdown-timeline": "^1.2.2",
-    "vitepress-plugin-diagrams": "^1.0.0",
-    "vitepress-sidebar": "^1.31.0"
+    "vitepress-plugin-back-to-top": "^1.0.1",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "vitepress-plugin-rss": "^0.3.1",
+    "vitepress-sidebar": "^1.31.0",
+    "vue": "^3.5.13"
   }
 }

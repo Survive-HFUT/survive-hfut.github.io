@@ -4,12 +4,15 @@ import {
   GitChangelogMarkdownSection,
 } from '@nolebase/vitepress-plugin-git-changelog/vite';
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
-import anchor from 'markdown-it-footnote';
+import footnote from 'markdown-it-footnote';
+import mathjax3 from 'markdown-it-mathjax3';
 import taskLists from 'markdown-it-task-checkbox';
 import { defineConfig } from 'vitepress';
+import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss';
 import timeline from 'vitepress-markdown-timeline';
-import { configureDiagramsPlugin } from 'vitepress-plugin-diagrams';
+import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import { generateSidebar } from 'vitepress-sidebar';
+import customElements from './customElements';
 import locales from './locales';
 
 // https://vitepress.dev/reference/site-config
@@ -24,11 +27,13 @@ export default defineConfig({
   markdown: {
     ...locales.markdown,
     config: (md) => {
+      md.use(MermaidMarkdown);
+
       md.use(UnlazyImages(), {
         imgElementTag: 'NolebaseUnlazyImg',
       });
 
-      md.use(anchor);
+      md.use(footnote);
       md.renderer.rules.footnote_anchor = function (
         tokens,
         idx,
@@ -51,11 +56,7 @@ export default defineConfig({
 
       md.use(taskLists);
       md.use(timeline);
-
-      configureDiagramsPlugin(md, {
-        diagramsDir: 'docs/public/diagrams', // Optional: custom directory for SVG files
-        publicPath: '/diagrams', // Optional: custom public path for images
-      });
+      md.use(mathjax3);
     },
   },
 
@@ -63,17 +64,32 @@ export default defineConfig({
     plugins: [
       ThumbnailHashImages(),
       GitChangelog({
-        repoURL: () => 'https://github.com/Survive-HFUT/survive-hfut.github.io',
+        repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
       }),
       GitChangelogMarkdownSection(),
+      MermaidPlugin(),
+      RssPlugin({
+        title: '活在肥宣',
+        copyright: 'CC-BY-SA 4.0',
+        baseUrl: 'https://survive-hfut.cc',
+      }),
     ] as Plugin[],
+
+    optimizeDeps: {
+      include: ['mermaid'],
+    },
+    ssr: {
+      noExternal: ['mermaid'],
+    },
   },
 
   vue: {
     template: {
       transformAssetUrls: {
-        // 其他各种配置...
         NolebaseUnlazyImg: ['src'],
+      },
+      compilerOptions: {
+        isCustomElement: (tag) => customElements.includes(tag),
       },
     },
   },
@@ -83,6 +99,15 @@ export default defineConfig({
     nav: [
       { text: '黄页', link: '/contact' },
       { text: '关于', link: '/about' },
+      {
+        text: '反馈',
+        items: [
+          {
+            text: 'GitHub Issue',
+            link: 'https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new',
+          },
+        ],
+      },
     ],
 
     externalLinkIcon: true,
