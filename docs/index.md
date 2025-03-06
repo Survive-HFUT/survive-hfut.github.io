@@ -6,6 +6,7 @@ hero:
   name: "活在肥宣"
   text: "你的薰化路 301 号指南"
   tagline: "更适合合工大学生的生活指南"
+  image: /book.png
   actions:
     - theme: brand
       text: 📖 开始阅读

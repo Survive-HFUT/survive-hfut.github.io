@@ -8,9 +8,9 @@ import footnote from 'markdown-it-footnote';
 import mathjax3 from 'markdown-it-mathjax3';
 import taskLists from 'markdown-it-task-checkbox';
 import { defineConfig } from 'vitepress';
-import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss';
 import timeline from 'vitepress-markdown-timeline';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
+import { RssPlugin } from 'vitepress-plugin-rss';
 import { generateSidebar } from 'vitepress-sidebar';
 import customElements from './customElements';
 import locales from './locales';
@@ -95,13 +95,16 @@ export default defineConfig({
   },
 
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '黄页', link: '/contact' },
       { text: '关于', link: '/about' },
       {
         text: '反馈',
         items: [
+          {
+            text: '腾讯文档',
+            link: 'https://docs.qq.com/form/page/DTmd5anpGbmJHUGd6',
+          },
           {
             text: 'GitHub Issue',
             link: 'https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new',

@@ -22,12 +22,6 @@ pnpm run docs:dev
 pnpm run docs:build
 ```
 
-## 更新所有包
-
-```sh
-pnpm run docs:update-package
-```
-
 ## 帮助我们完善
 
 详见[关于](./docs/about/README.md)

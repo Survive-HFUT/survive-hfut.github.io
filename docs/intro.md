@@ -16,23 +16,12 @@ Survive-HFUT
 
 ![东大门](media/east_gate.jpg)
 
-:::warning 域名更新
-
-我们的域名即将更换成 [survive-hfut.cc](https://survive-hfut.cc) 。
-
-:::
-
 :::tip
 
-- 移动端可点击左上角的 **≡** 打开目录
+- **这不是合肥工业大学的官方学生文档**，可能与实际情况存在出入，请以学校发布的相关管理办法为准
 - 此指南主要针对**宣城校区**而写，但是部分内容（如[校园卡](./enrollment/campus_card.md)、[入学准备](./enrollment/preparation)）可能也适用于合肥校区甚至其他学校
+- 手册持续完善中...[快来帮忙！](about/contribute.md)
 
-:::
-
-:::info
-手册持续完善中...
-
-[快来帮忙！](about/contribute.md)
 :::
 
 欢迎来 Star！

@@ -2,6 +2,10 @@
 
 使用 Markdown 语言
 
+## 提交反馈
+
+填写[腾讯文档收集表](https://docs.qq.com/form/page/DTmd5anpGbmJHUGd6)
+
 ## 抓虫指正
 
 [提交 Issue](https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new)

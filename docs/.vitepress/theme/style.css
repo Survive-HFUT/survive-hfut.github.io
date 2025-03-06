@@ -3,6 +3,10 @@
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
  */
 
+.VPHomeHero img {
+  image-rendering: pixelated;
+}
+
 /**
  * Colors
  *
@@ -141,7 +145,7 @@
  * Component: Medium Zoom
  * -------------------------------------------------------------------------- */
 .medium-zoom-overlay {
-  z-index: 20;
+  z-index: 9998;
 }
 
 .medium-zoom-image {
@@ -152,7 +156,7 @@
  * Component: Go To Top
  * -------------------------------------------------------------------------- */
 .go-to-top {
-  transition: background 0.2s;
+  transition: 0.2s;
 }
 
 .dark .go-to-top {
