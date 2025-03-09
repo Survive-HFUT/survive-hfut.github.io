@@ -1,0 +1,13 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+@import './colors.css';
+
+@import './blur.css';
+@import './customBlock.css';
+@import './goToTop.css';
+@import './home.css';
+@import './mediumZoom.css';
+@import './search.css';

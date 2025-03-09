@@ -1,0 +1,11 @@
+.go-to-top {
+  transition: 0.2s;
+}
+
+.dark .go-to-top {
+  background-color: #333;
+}
+
+.dark .go-to-top:hover {
+  background-color: #444;
+}

@@ -3,16 +3,17 @@ import { NolebaseUnlazyImg } from '@nolebase/vitepress-plugin-thumbnail-hash/cli
 import mediumZoom from 'medium-zoom';
 import { NProgress } from 'nprogress-v2/dist/index.js';
 import { inBrowser, useRoute, type Theme } from 'vitepress';
-import DefaultTheme from 'vitepress/theme';
 import vitepressBackToTop from 'vitepress-plugin-back-to-top';
+import DefaultTheme from 'vitepress/theme';
 import { h, nextTick, onMounted, watch } from 'vue';
+import HelpUs from '../components/HelpUs.vue';
 
-import 'vitepress-plugin-back-to-top/dist/style.css';
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css';
 import '@nolebase/vitepress-plugin-thumbnail-hash/client/style.css';
 import 'nprogress-v2/dist/index.css';
 import 'vitepress-markdown-timeline/dist/theme/index.css';
-import './style.css';
+import 'vitepress-plugin-back-to-top/dist/style.css';
+import './styles/index.css';
 
 export default {
   extends: DefaultTheme,
@@ -39,6 +40,7 @@ export default {
     });
 
     app.component('NolebaseUnlazyImg', NolebaseUnlazyImg);
+    app.component('HelpUs', HelpUs);
     app.use(NolebaseGitChangelogPlugin);
 
     if (inBrowser) {

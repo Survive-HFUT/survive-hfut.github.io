@@ -16,5 +16,5 @@
 - [大学生创新创业联合会](./federation_for_innovation)
 - [心理健康协会](./mental_health_association)
 - [学风建设中心](./center_for_academic_affairs)
-- 宣区全媒体 ^*需要更多信息^
+- [宣区全媒体](./media_center)
   - 不同于[校级的全媒体中心](../school/media_center)，宣区全媒体仅负责宣区的宣传，二者无从属关系

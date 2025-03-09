@@ -1,6 +1,6 @@
 # 基层组织建设中心
 
-![基层组织建设中心](../media/grassroots_organization_building_center.webp)
+![基层组织建设中心](../media/grassroots_organization_building_center.jpg)
 
 基层组织建设中心在学生工作办公室/团委指导下开展活动，致力于打造一个专属校区团员青年温馨的“家”，增强全体团员青年归属感和成就感，协助校区团委进一步夯实基层团组织规范化建设
 

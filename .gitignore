@@ -8,6 +8,3 @@ node_modules/
 # Vitepress
 docs/.vitepress/dist
 docs/.vitepress/cache
-
-# Mermaid
-diagrams/

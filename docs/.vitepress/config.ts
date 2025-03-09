@@ -6,6 +6,7 @@ import {
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
 import footnote from 'markdown-it-footnote';
 import mathjax3 from 'markdown-it-mathjax3';
+import sup from 'markdown-it-sup';
 import taskLists from 'markdown-it-task-checkbox';
 import { defineConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
@@ -27,36 +28,16 @@ export default defineConfig({
   markdown: {
     ...locales.markdown,
     config: (md) => {
+      md.use(sup);
+      md.use(footnote);
+      md.use(taskLists);
+      md.use(mathjax3);
+      md.use(timeline);
       md.use(MermaidMarkdown);
 
       md.use(UnlazyImages(), {
         imgElementTag: 'NolebaseUnlazyImg',
       });
-
-      md.use(footnote);
-      md.renderer.rules.footnote_anchor = function (
-        tokens,
-        idx,
-        options,
-        env,
-        slf,
-      ) {
-        let id = slf.rules.footnote_anchor_name?.(
-          tokens,
-          idx,
-          options,
-          env,
-          slf,
-        );
-        if (tokens[idx].meta.subId > 0) {
-          id += ':' + tokens[idx].meta.subId;
-        }
-        return ' <a href="#fnref' + id + '" class="footnote-backref">👈🏻</a>';
-      };
-
-      md.use(taskLists);
-      md.use(timeline);
-      md.use(mathjax3);
     },
   },
 

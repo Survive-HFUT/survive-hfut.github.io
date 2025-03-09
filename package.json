@@ -15,6 +15,7 @@
     "@nolebase/vitepress-plugin-thumbnail-hash": "^2.15.0",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",
+    "markdown-it-sup": "^2.0.0",
     "markdown-it-task-checkbox": "^1.0.6",
     "medium-zoom": "^1.1.0",
     "mermaid": "^11.4.1",
