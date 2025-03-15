@@ -2,15 +2,32 @@
 
 ## 今日校园 App
 
-对接[综合信息门户](https://one.hfut.edu.cn/)，主要用于晚自习请假和离宣申请
+对接[综合信息门户](https://one.hfut.edu.cn/)，主要用于晚自习请假、离宣申请、心理测评等
+
+- [Android](market://details?id=com.wisedu.cpdaily)
+- [iOS](https://apps.apple.com/cn/app/id1207509945)
 
 ## 慧新易校 App
 
-查校园卡流水、宿舍电费充值
+查校园卡流水、宿舍电费充值、宿舍浴室充值、校园网费充值
+
+- [Android](market://details?id=com.synjones.mobilegroup.ECampus)
+- [iOS](https://apps.apple.com/cn/app/id1537064222)
 
 ## 云运动 App
 
 校园跑
+
+- [Android](market://details?id=com.yunzhi.tiyu)
+- [iOS](https://apps.apple.com/cn/app/id1563408569)
+
+## EMobile7
+
+学校OA平台，主要给教师使用，不过也可以用来查询校园卡流水、充值网费、电费
+登陆时填入学校服务器地址`https://zjgd.hfut.edu.cn:8999`
+
+- [Android](market://details?id=com.weaver.emobile7)
+- [iOS](https://apps.apple.com/cn/app/id1437702418)
 
 ## HFUTSpace 小程序
 
