@@ -1,27 +1,27 @@
 # 必备小程序 / APP
 
-## 今日校园 App
+## 今日校园 <Badge text="App" />
 
 对接[综合信息门户](https://one.hfut.edu.cn/)，主要用于晚自习请假、离宣申请、心理测评等
 
 - [Android](market://details?id=com.wisedu.cpdaily)
 - [iOS](https://apps.apple.com/cn/app/id1207509945)
 
-## 慧新易校 App
+## 慧新易校 <Badge text="App" />
 
 查校园卡流水、宿舍电费充值、宿舍浴室充值、校园网费充值
 
 - [Android](market://details?id=com.synjones.mobilegroup.ECampus)
 - [iOS](https://apps.apple.com/cn/app/id1537064222)
 
-## 云运动 App
+## 云运动 <Badge text="App" />
 
 校园跑
 
 - [Android](market://details?id=com.yunzhi.tiyu)
 - [iOS](https://apps.apple.com/cn/app/id1563408569)
 
-## EMobile7
+## EMobile7 <Badge text="App" />
 
 学校OA平台，主要给教师使用，不过也可以用来查询校园卡流水、充值网费、电费
 登陆时填入学校服务器地址`https://zjgd.hfut.edu.cn:8999`
@@ -29,7 +29,7 @@
 - [Android](market://details?id=com.weaver.emobile7)
 - [iOS](https://apps.apple.com/cn/app/id1437702418)
 
-## HFUTSpace 小程序
+## HFUTSpace <Badge text="小程序"  type="info"/>
 
 > GitHub: [hfut-soft-ware/hfut-space-app](https://github.com/hfut-soft-ware/hfut-space-app)
 
@@ -90,7 +90,7 @@
 
 ![其他功能](./media/hfutspace_11.jpeg)
 
-## 肥工小宇宙
+## 肥工小宇宙 <Badge text="App" /> <Badge text="开发中" type="warning"/>
 
 开发 HFUTSpace 小程序的学长现在正在开发一款集成 HFUTSpace 小程序以及论坛社区为一体的 app，目前还处于测试阶段，欢迎各位同学加群了解。
 
@@ -98,7 +98,7 @@
 
 ![肥工小宇宙群聊](./media/hfutuni.jpeg)
 
-## HFUT+ 小程序
+## HFUT+ 小程序 <Badge text="小程序"  type="info"/>
 
 **HFUT+** 是一款服务于合肥工业大学学生的小程序，方便查询教务等信息。其功能包含课表查询、一卡通流水查询、考试成绩查询、空教室查询、挂科率查询等
 

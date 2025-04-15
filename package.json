@@ -7,9 +7,15 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "docs:lint": "lint-md docs --fix",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@lint-md/cli": "^2.0.0",
+    "husky": "^9.1.7"
+  },
+  "dependencies": {
     "@nolebase/markdown-it-unlazy-img": "^2.15.0",
     "@nolebase/vitepress-plugin-git-changelog": "^2.15.0",
     "@nolebase/vitepress-plugin-thumbnail-hash": "^2.15.0",
