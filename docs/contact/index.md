@@ -110,4 +110,4 @@ order: 1
 |   快手   |                          [合肥工业大学](https://kuaishou.cn/profile/3x796zuj6zs46i6)                           |
 | 今日头条 | [合肥工业大学](https://www.toutiao.com/c/user/token/MS4wLjABAAAABmfkrKqkYSpxmevlUt10MVvfoRcy9J3Bu8l637A6ycw/?) |
 
-[^1]: 合肥工业大学学生手册 宣城校区学生工作办公室 2024.9
+[^1]: 宣城校区学生工作办公室.合肥工业大学学生手册 (2024.9)\[2024-10-02]

@@ -77,4 +77,5 @@
 
 设有人资组/财务组
 
-[^1]: [@全体 HFUTers，快来 pick 校全媒体中心！](http://mp.weixin.qq.com/s?__biz=MzA3OTQ2MzQzMg==&mid=2651564074&idx=1&sn=ef9e229e3857a076d39e7fbefef9930a&chksm=857f6f81966816a2816d43e71d477f66346b0c0a6ef4b071a92eaa07bf2d003954ff52e00ae2&mpshare=1&scene=23&srcid=1003EDdApfp6bftDTEMCQ2x6&sharer_shareinfo=20e9396f8cc946882ebcf9bedf58b2be&sharer_shareinfo_first=20e9396f8cc946882ebcf9bedf58b2be#rd)
+[^1]: 合肥工业大学.@全体 HFUTers，快来 pick 校全媒体中心！ (2021-03-27)\[2024-10-03]
+<https://mp.weixin.qq.com/s/L6Pv3mONAEVUwZ_dcDJV1g>

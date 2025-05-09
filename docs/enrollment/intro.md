@@ -59,5 +59,8 @@
 - [生态环境系](http://geoscience.hfut.edu.cn/)
 - [食品科学系](http://spysw.hfut.edu.cn/)
 
-[^1]: [合肥工业大学宣城校区_百度百科](https://baike.baidu.com/item/%E5%90%88%E8%82%A5%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%E5%AE%A3%E5%9F%8E%E6%A0%A1%E5%8C%BA/5010408)
-[^2]: [校区简介](https://xc.hfut.edu.cn/1981/)
+[^1]: 百度百科.合肥工业大学宣城校区 (2024-10-16)\[2025-03-06]  
+<https://baike.baidu.com/item/%E5%90%88%E8%82%A5%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%E5%AE%A3%E5%9F%8E%E6%A0%A1%E5%8C%BA/5010408>
+
+[^2]: 校区简介 [2024-09-29]  
+<https://xc.hfut.edu.cn/1981/>

@@ -76,5 +76,8 @@
 [合肥工业大学宣城校区校园网出口带宽服务采购项目（BX22000071）成交结果公告](https://zb.hfut.edu.cn/provider/#/publish/20L63FCEP1WZE3UY)
 :::
 
-[^1]: [校园网使用需知](https://xcxxzx.hfut.edu.cn/86/list.htm)
-[^2]: [关于学生上网流量计费说明](https://xcxxzx.hfut.edu.cn/7d/8b/c81a32139/page.htm)
+[^1]: 合肥工业大学宣城校区信息化建设与发展中心.校园网使用需知 [2025-03-15]  
+<https://xcxxzx.hfut.edu.cn/86/list.htm>
+
+[^2]: 合肥工业大学宣城校区信息化建设与发展中心.关于学生上网流量计费说明 (2022-12-01)\[2025-03-15]  
+<https://xcxxzx.hfut.edu.cn/7d/8b/c81a32139/page.htm>

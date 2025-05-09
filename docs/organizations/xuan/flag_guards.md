@@ -19,4 +19,5 @@
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113232534573164&bvid=BV1Py4PeCEbL&cid=26096306074&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; min-height: 300px; max-height: 400px; height: 50vh"></iframe>
 
-[^1]: [2024 年 9 月国旗护卫队招新](https://mp.weixin.qq.com/s?__biz=MzI5ODI3NzE2Mw==&mid=2247508606&idx=1&sn=09bf8191909cea29e257ae9dc93d379d&chksm=ede040bfb5ad95b64b6681cef32dde78c30b7fbcd87ac7f8c6b76a8c73234f51eb9ec13e1801&mpshare=1&scene=23&srcid=0927VkYcZUVQ8CTRW9N2xeeX&sharer_shareinfo=a5dde9cb86c84a67b145b61cb41b2abc&sharer_shareinfo_first=a5dde9cb86c84a67b145b61cb41b2abc#rd)
+[^1]: 合工大宣城校区学生工作.国旗护卫队招新 | 矢志护卫国旗红，勠力弘扬爱国情 (2023-09-04)\[2024-10-03]  
+<https://mp.weixin.qq.com/s/TFCNMLZpSoX4hg01CzWUnA>
