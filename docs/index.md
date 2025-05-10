@@ -13,6 +13,9 @@ hero:
     - theme: alt
       text: ☎️ 黄页
       link: /contact
+    - theme: alt
+      text: 👮 反诈骗
+      link: /enrollment/anti-fraud
 features:
   - icon: 🔍
     title: 别忘了利用侧边栏和搜索栏查找资料

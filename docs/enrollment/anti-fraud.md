@@ -102,5 +102,5 @@ http://********.com
 - [国家反诈中心：防范电信网络诈骗宣传手册](https://www.mps.gov.cn/n2253534/n2253543/c9257095/content.html)
 - [国家反诈中心App](https://sj.qq.com/appdetail/com.hicorenational.antifraud)
 
-[^1]: 宣城市公安局.宣城市公安局经济技术开发区分局 (2020-03-02)\[2025-05-09]  
+[^1]: 宣城市公安局.宣城市公安局经济技术开发区分局 (2020-03-02)\[2025-05-09].  
 <https://gaj.xuancheng.gov.cn/OpennessContent/show/1824519.html>
