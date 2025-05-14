@@ -15,131 +15,169 @@ import { RssPlugin } from 'vitepress-plugin-rss';
 import { generateSidebar } from 'vitepress-sidebar';
 import customElements from './customElements';
 import locales from './locales';
+import { withPwa } from '@vite-pwa/vitepress';
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
-  title: '活在肥宣',
-  description: '合工大宣生活手册 · 你的薰化路 301 号指南',
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
-  cleanUrls: true,
-  lastUpdated: true,
-  lang: 'zh-CN',
+export default withPwa(
+  defineConfig({
+    title: '活在肥宣',
+    description: '合工大宣生活手册 · 你的薰化路 301 号指南',
+    head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+    cleanUrls: true,
+    lastUpdated: true,
+    lang: 'zh-CN',
 
-  markdown: {
-    ...locales.markdown,
-    config: (md) => {
-      md.use(sup);
-      md.use(footnote);
-      md.use(taskLists);
-      md.use(mathjax3);
-      md.use(timeline);
-      md.use(MermaidMarkdown);
+    markdown: {
+      ...locales.markdown,
+      config: (md) => {
+        md.use(sup);
+        md.use(footnote);
+        md.use(taskLists);
+        md.use(mathjax3);
+        md.use(timeline);
+        md.use(MermaidMarkdown);
 
-      md.use(UnlazyImages(), {
-        imgElementTag: 'NolebaseUnlazyImg',
-      });
-    },
-  },
-
-  vite: {
-    plugins: [
-      ThumbnailHashImages(),
-      GitChangelog({
-        repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
-      }),
-      GitChangelogMarkdownSection(),
-      MermaidPlugin(),
-      RssPlugin({
-        title: '活在肥宣',
-        copyright: 'CC-BY-SA 4.0',
-        baseUrl: 'https://survive-hfut.cc',
-      }),
-    ] as Plugin[],
-
-    optimizeDeps: {
-      include: ['mermaid'],
-    },
-    ssr: {
-      noExternal: ['mermaid'],
-    },
-  },
-
-  vue: {
-    template: {
-      transformAssetUrls: {
-        NolebaseUnlazyImg: ['src'],
-      },
-      compilerOptions: {
-        isCustomElement: (tag) => customElements.includes(tag),
+        md.use(UnlazyImages(), {
+          imgElementTag: 'NolebaseUnlazyImg',
+        });
       },
     },
-  },
 
-  themeConfig: {
-    nav: [
-      { text: '黄页', link: '/contact' },
-      { text: '关于', link: '/about' },
-      {
-        text: '反馈',
-        items: [
+    vite: {
+      plugins: [
+        ThumbnailHashImages(),
+        GitChangelog({
+          repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
+        }),
+        GitChangelogMarkdownSection(),
+        MermaidPlugin(),
+        RssPlugin({
+          title: '活在肥宣',
+          copyright: 'CC-BY-SA 4.0',
+          baseUrl: 'https://survive-hfut.cc',
+        }),
+      ] as Plugin[],
+
+      optimizeDeps: {
+        include: ['mermaid'],
+      },
+      ssr: {
+        noExternal: ['mermaid'],
+      },
+    },
+
+    vue: {
+      template: {
+        transformAssetUrls: {
+          NolebaseUnlazyImg: ['src'],
+        },
+        compilerOptions: {
+          isCustomElement: (tag) => customElements.includes(tag),
+        },
+      },
+    },
+
+    themeConfig: {
+      nav: [
+        { text: '黄页', link: '/contact' },
+        { text: '关于', link: '/about' },
+        {
+          text: '反馈',
+          items: [
+            {
+              text: '腾讯文档',
+              link: 'https://docs.qq.com/form/page/DTmd5anpGbmJHUGd6',
+            },
+            {
+              text: 'GitHub Issue（推荐）',
+              link: 'https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new',
+            },
+          ],
+        },
+      ],
+
+      externalLinkIcon: true,
+
+      sidebar: generateSidebar([
+        {
+          useFolderLinkFromIndexFile: true,
+          useTitleFromFileHeading: true,
+          useFolderTitleFromIndexFile: true,
+          documentRootPath: '/docs',
+          collapsed: false,
+          collapseDepth: 2,
+          resolvePath: '/',
+          manualSortFileNameByPriority: ['intro.md'],
+          sortMenusByFrontmatterOrder: true,
+          frontmatterOrderDefaultValue: 100,
+        },
+      ]),
+
+      socialLinks: [
+        {
+          icon: 'github',
+          link: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
+        },
+      ],
+
+      search: {
+        provider: 'local',
+        options: {
+          translations: locales.search,
+        },
+      },
+
+      footer: {
+        message: 'Built with VitePress.',
+        copyright: '未做特别声明的内容，均按照 CC-BY-SA 4.0 协议进行分发',
+      },
+
+      editLink: {
+        pattern:
+          'https://github.com/Survive-HFUT/survive-hfut.github.io/edit/main/docs/:path',
+        text: '在 GitHub 上编辑此页面',
+      },
+
+      ...locales.main,
+    },
+
+    sitemap: {
+      hostname: 'https://survive-hfut.cc',
+    },
+
+    pwa: {
+      outDir: '.vitepress/dist',
+      registerType: 'autoUpdate',
+      base: '/',
+      scope: '/',
+      includeAssets: ['book.png'],
+      includeManifestIcons: false,
+      manifest: {
+        id: '/',
+        name: '活在肥宣',
+        short_name: '活在肥宣',
+        description: '合工大宣生活手册 · 你的薰化路 301 号指南',
+        theme_color: '#ffffff',
+        icons: [
           {
-            text: '腾讯文档',
-            link: 'https://docs.qq.com/form/page/DTmd5anpGbmJHUGd6',
-          },
-          {
-            text: 'GitHub Issue（推荐）',
-            link: 'https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new',
+            src: '/book.png', // 图标路径
+            sizes: '1024x1024', // 图标尺寸
+            type: 'image/png', // 图标类型
           },
         ],
       },
-    ],
-
-    externalLinkIcon: true,
-
-    sidebar: generateSidebar([
-      {
-        useFolderLinkFromIndexFile: true,
-        useTitleFromFileHeading: true,
-        useFolderTitleFromIndexFile: true,
-        documentRootPath: '/docs',
-        collapsed: false,
-        collapseDepth: 2,
-        resolvePath: '/',
-        manualSortFileNameByPriority: ['intro.md'],
-        sortMenusByFrontmatterOrder: true,
-        frontmatterOrderDefaultValue: 100,
+      workbox: {
+        globPatterns: ['**/*.{css,js,html,svg,jpg,png,ico,txt,woff2}'],
+        maximumFileSizeToCacheInBytes: 7 * 1024 * 1024,
       },
-    ]),
-
-    socialLinks: [
-      {
-        icon: 'github',
-        link: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
+      experimental: {
+        includeAllowlist: true,
       },
-    ],
-
-    search: {
-      provider: 'local',
-      options: {
-        translations: locales.search,
+      devOptions: {
+        enabled: true,
+        suppressWarnings: true,
+        navigateFallback: '/',
       },
     },
-
-    footer: {
-      message: 'Built with VitePress.',
-      copyright: '未做特别声明的内容，均按照 CC-BY-SA 4.0 协议进行分发',
-    },
-
-    editLink: {
-      pattern:
-        'https://github.com/Survive-HFUT/survive-hfut.github.io/edit/main/docs/:path',
-      text: '在 GitHub 上编辑此页面',
-    },
-
-    ...locales.main,
-  },
-
-  sitemap: {
-    hostname: 'https://survive-hfut.cc',
-  },
-});
+  }),
+);
