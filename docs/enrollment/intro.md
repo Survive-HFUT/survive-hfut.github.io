@@ -1,7 +1,7 @@
 # 学校概况
 
 <p align="center">
-<img src='/hfut.svg' width="200"/>
+<img src='/hfut.svg' width="200" alt="logo"/>
 </p>
 
 合肥工业大学宣城校区位于安徽省宣城市，为合肥工业大学坐落于江南的校区，风景秀丽，环境宜人，设施现代化。[^1]

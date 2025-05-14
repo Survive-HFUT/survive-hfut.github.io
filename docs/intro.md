@@ -10,7 +10,7 @@ Survive-HFUT
 活在肥宣
 </h1>
 
-<p style="text-align:center"> 
+<p style="text-align:center">
 你的薰化路 301 号指南。  
 </p>
 

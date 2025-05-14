@@ -22,6 +22,11 @@ features:
     details: 
       · 移动端可点击页面左上角的 ≡ 展开侧边栏<br>
       · 桌面端可直接在页面左侧看到侧边栏
+  - icon: 💡
+    title: 这<span style="text-decoration:line-through">暂时</span>不是合肥工业大学的官方文档
+    details: 
+      · 此文档目前主要由学生维护，所有非引用内容均不代表校方官方观点和意见<br>
+      · 因更新滞后或其他问题，部分内容可能与实际情况存在出入，请以学校发布的相关管理办法为准
   - icon: ⛏️
     title: 快加入我们一起使这个文档变得更好
     details: 

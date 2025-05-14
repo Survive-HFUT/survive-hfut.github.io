@@ -19,7 +19,7 @@ import locales from './locales';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: '活在肥宣',
-  description: '合工大宣学生手册 · 你的薰化路 301 号指南',
+  description: '合工大宣生活手册 · 你的薰化路 301 号指南',
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   cleanUrls: true,
   lastUpdated: true,
@@ -87,7 +87,7 @@ export default defineConfig({
             link: 'https://docs.qq.com/form/page/DTmd5anpGbmJHUGd6',
           },
           {
-            text: 'GitHub Issue',
+            text: 'GitHub Issue（推荐）',
             link: 'https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new',
           },
         ],
