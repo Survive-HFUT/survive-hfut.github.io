@@ -4,6 +4,7 @@ import {
   GitChangelogMarkdownSection,
 } from '@nolebase/vitepress-plugin-git-changelog/vite';
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
+import { withPwa } from '@vite-pwa/vitepress';
 import footnote from 'markdown-it-footnote';
 import mathjax3 from 'markdown-it-mathjax3';
 import sup from 'markdown-it-sup';
@@ -15,14 +16,23 @@ import { RssPlugin } from 'vitepress-plugin-rss';
 import { generateSidebar } from 'vitepress-sidebar';
 import customElements from './customElements';
 import locales from './locales';
-import { withPwa } from '@vite-pwa/vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default withPwa(
   defineConfig({
     title: '活在肥宣',
     description: '合工大宣生活手册 · 你的薰化路 301 号指南',
-    head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+    head: [
+      ['link', { rel: 'icon', href: '/favicon.ico' }],
+      ['link', { rel: 'apple-touch-icon', href: '/book.png' }],
+      ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
+      ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+      ['meta', { name: 'apple-mobile-web-app-title', content: '活在肥宣' }],
+      [
+        'meta',
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+      ],
+    ],
     cleanUrls: true,
     lastUpdated: true,
     lang: 'zh-CN',

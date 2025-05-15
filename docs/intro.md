@@ -21,6 +21,7 @@ Survive-HFUT
 - **这不是合肥工业大学的官方学生文档**，可能与实际情况存在出入，请以学校发布的相关管理办法为准
 - 此指南主要针对**宣城校区**而写，但是部分内容（如[校园卡](./enrollment/campus_card.md)、[入学准备](./enrollment/preparation)）可能也适用于合肥校区甚至其他学校
 - 手册持续完善中...[快来帮忙！](about/contribute.md)
+- 手册支持离线访问啦！➡️[安装教程](https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81)
 
 :::
 
