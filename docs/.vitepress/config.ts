@@ -70,9 +70,18 @@ export default withPwa(
 
       optimizeDeps: {
         include: ['mermaid'],
+        exclude: [
+          '@nolebase/vitepress-plugin-enhanced-readabilities/client',
+          '@nolebase/ui',
+          'vitepress',
+        ],
       },
       ssr: {
-        noExternal: ['mermaid'],
+        noExternal: [
+          '@nolebase/vitepress-plugin-enhanced-readabilities',
+          '@nolebase/ui',
+          'mermaid',
+        ],
       },
     },
 
@@ -170,9 +179,9 @@ export default withPwa(
         theme_color: '#ffffff',
         icons: [
           {
-            src: '/book.png', // 图标路径
-            sizes: '1024x1024', // 图标尺寸
-            type: 'image/png', // 图标类型
+            src: '/book.png',
+            sizes: '1024x1024',
+            type: 'image/png',
           },
         ],
       },
@@ -185,7 +194,6 @@ export default withPwa(
       },
       devOptions: {
         enabled: true,
-        suppressWarnings: true,
         navigateFallback: '/',
       },
     },
