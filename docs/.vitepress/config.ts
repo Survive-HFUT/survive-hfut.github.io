@@ -13,9 +13,9 @@ import { defineConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import { RssPlugin } from 'vitepress-plugin-rss';
-import { generateSidebar } from 'vitepress-sidebar';
 import customElements from './customElements';
 import locales from './locales';
+import { sidebarValue } from './sidebar.data';
 
 // https://vitepress.dev/reference/site-config
 export default withPwa(
@@ -50,6 +50,9 @@ export default withPwa(
         md.use(UnlazyImages(), {
           imgElementTag: 'NolebaseUnlazyImg',
         });
+      },
+      toc: {
+        level: [2, 3, 4],
       },
     },
 
@@ -98,7 +101,8 @@ export default withPwa(
 
     themeConfig: {
       nav: [
-        { text: '黄页', link: '/contact' },
+        { text: '猜你想问', link: '/enrollment/qa' },
+        { text: '随机页面', link: '/_random' },
         { text: '关于', link: '/about' },
         {
           text: '反馈',
@@ -117,20 +121,7 @@ export default withPwa(
 
       externalLinkIcon: true,
 
-      sidebar: generateSidebar([
-        {
-          useFolderLinkFromIndexFile: true,
-          useTitleFromFileHeading: true,
-          useFolderTitleFromIndexFile: true,
-          documentRootPath: '/docs',
-          collapsed: false,
-          collapseDepth: 2,
-          resolvePath: '/',
-          manualSortFileNameByPriority: ['intro.md'],
-          sortMenusByFrontmatterOrder: true,
-          frontmatterOrderDefaultValue: 100,
-        },
-      ]),
+      sidebar: sidebarValue,
 
       socialLinks: [
         {

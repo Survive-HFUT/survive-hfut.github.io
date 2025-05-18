@@ -11,3 +11,5 @@ docs/.vitepress/cache
 
 # PWA
 dev-dist/
+
+sidebar.json

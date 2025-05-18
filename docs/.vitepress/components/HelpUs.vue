@@ -7,7 +7,7 @@ defineProps({
 
 <template>
     <div class="custom-block tip">
-        <p class="custom-block-title">提示</p>
+        <p class="custom-block-title">💡 提示</p>
         <p>
             此页面需要更多补充。
             <a href="/about/contribute">

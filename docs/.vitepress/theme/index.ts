@@ -18,6 +18,7 @@ import '@nolebase/vitepress-plugin-thumbnail-hash/client/style.css';
 import 'nprogress-v2/dist/index.css';
 import 'vitepress-markdown-timeline/dist/theme/index.css';
 import 'vitepress-plugin-back-to-top/dist/style.css';
+import RandomJump from '../components/RandomJump.vue';
 import './styles/index.css';
 
 export default {
@@ -48,6 +49,7 @@ export default {
 
     app.component('NolebaseUnlazyImg', NolebaseUnlazyImg);
     app.component('HelpUs', HelpUs);
+    app.component('RandomJump', RandomJump);
     app.use(NolebaseGitChangelogPlugin);
 
     if (inBrowser) {

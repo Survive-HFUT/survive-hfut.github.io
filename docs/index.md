@@ -11,6 +11,9 @@ hero:
       text: 📖 开始阅读
       link: /intro
     - theme: alt
+      text: 🤔 猜你想问
+      link: /enrollment/qa
+    - theme: alt
       text: ☎️ 黄页
       link: /contact
     - theme: alt
@@ -22,6 +25,8 @@ features:
     details: 
       · 移动端可点击页面左上角的 ≡ 展开侧边栏<br>
       · 桌面端可直接在页面左侧看到侧边栏
+    link: /enrollment/qa
+    linkText: 初入肥宣§猜你想问
   - icon: 💡
     title: 这<span style="text-decoration:line-through">暂时</span>不是合肥工业大学的官方文档
     details: 

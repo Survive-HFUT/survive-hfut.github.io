@@ -1,6 +1,8 @@
 # 编写规范
 
-:::tip 推荐的代码编辑器
+:::tip
+推荐的代码编辑器：
+
 [Visual Studio Code](https://code.visualstudio.com/)
 
 并搭配以下扩展使用
