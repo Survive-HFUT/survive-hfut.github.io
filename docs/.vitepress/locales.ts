@@ -1,8 +1,10 @@
+import { Property } from '@nolebase/vitepress-plugin-page-properties';
 import { DefaultTheme, UserConfig } from 'vitepress';
 
 const main: Partial<DefaultTheme.Config> = {
   outline: {
     label: '页面导航',
+    level: [2, 3],
   },
 
   lastUpdated: {
@@ -17,7 +19,7 @@ const main: Partial<DefaultTheme.Config> = {
     prev: '上一篇',
     next: '下一篇',
   },
-  
+
   darkModeSwitchLabel: '外观',
   returnToTopLabel: '返回顶部',
   sidebarMenuLabel: '菜单',
@@ -52,11 +54,33 @@ const search: DefaultTheme.LocalSearchOptions['translations'] = {
 const markdown: UserConfig<DefaultTheme.Config>['markdown'] = {
   container: {
     tipLabel: '💡 提示',
-    warningLabel: '⚠️ 警告',
-    dangerLabel: '🚫 危险',
+    warningLabel: '⚠️ 注意',
+    dangerLabel: '‼️ 警告',
     infoLabel: '📚 信息',
     detailsLabel: '📜 详细信息',
   },
 };
 
-export default { main, search, markdown };
+const pageProperties: Record<string, Property<'progress'>[]> = {
+  'zh-CN': [
+    {
+      key: 'wordCount',
+      type: 'dynamic',
+      title: '字数',
+      options: {
+        type: 'wordsCount',
+      },
+    },
+    {
+      key: 'readingTime',
+      type: 'dynamic',
+      title: '阅读时间',
+      options: {
+        type: 'readingTime',
+        dateFnsLocaleName: 'zhCN',
+      },
+    },
+  ],
+};
+
+export default { main, search, markdown, pageProperties };

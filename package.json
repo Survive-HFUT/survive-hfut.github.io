@@ -17,8 +17,10 @@
   },
   "dependencies": {
     "@nolebase/markdown-it-unlazy-img": "^2.17.0",
+    "@nolebase/vitepress-plugin-enhanced-mark": "^2.17.0",
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.17.0",
     "@nolebase/vitepress-plugin-git-changelog": "^2.17.0",
+    "@nolebase/vitepress-plugin-page-properties": "^2.17.0",
     "@nolebase/vitepress-plugin-thumbnail-hash": "^2.17.0",
     "@vite-pwa/vitepress": "^1.0.0",
     "markdown-it-footnote": "^4.0.0",

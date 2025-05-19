@@ -1,6 +1,10 @@
 :root {
-  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-border: var(--vp-c-tip-1);
+  --vp-custom-block-warning-border: var(--vp-c-warning-1);
+  --vp-custom-block-danger-border: var(--vp-c-danger-1);
+  --vp-custom-block-info-border: var(--vp-c-border);
+
   --vp-custom-block-tip-text: var(--vp-c-text-1);
-  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
-  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-bg: var(--vp-c-tip-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-tip-soft);
 }

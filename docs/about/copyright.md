@@ -13,7 +13,8 @@ International License][cc-by-sa].
 
 未做特别声明的内容，均按照[CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)协议进行分发。
 
-::: warning 注意事项
+::: warning
+
 CC-BY-SA 协议允许您自由地共享（在任何媒介以任何形式复制、发行本作品），演绎（修改、转换或以本作品为基础进行创作，在任何用途下，甚至商业目的）。
 
 但惟须遵守以下条件：

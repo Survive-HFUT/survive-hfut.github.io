@@ -3,6 +3,7 @@ import {
   GitChangelog,
   GitChangelogMarkdownSection,
 } from '@nolebase/vitepress-plugin-git-changelog/vite';
+import { PageProperties, PagePropertiesMarkdownSection } from '@nolebase/vitepress-plugin-page-properties/vite';
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
 import { withPwa } from '@vite-pwa/vitepress';
 import footnote from 'markdown-it-footnote';
@@ -63,6 +64,8 @@ export default withPwa(
           repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
         }),
         GitChangelogMarkdownSection(),
+        PageProperties(),
+        PagePropertiesMarkdownSection(),
         MermaidPlugin(),
         RssPlugin({
           title: '活在肥宣',
