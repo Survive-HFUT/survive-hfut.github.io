@@ -3,7 +3,10 @@ import {
   GitChangelog,
   GitChangelogMarkdownSection,
 } from '@nolebase/vitepress-plugin-git-changelog/vite';
-import { PageProperties, PagePropertiesMarkdownSection } from '@nolebase/vitepress-plugin-page-properties/vite';
+import {
+  PageProperties,
+  PagePropertiesMarkdownSection,
+} from '@nolebase/vitepress-plugin-page-properties/vite';
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
 import { withPwa } from '@vite-pwa/vitepress';
 import footnote from 'markdown-it-footnote';
@@ -115,8 +118,12 @@ export default withPwa(
               link: 'https://docs.qq.com/form/page/DTmd5anpGbmJHUGd6',
             },
             {
-              text: 'GitHub Issue（推荐）',
+              text: '✨GitHub Issue',
               link: 'https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new',
+            },
+            {
+              text: '✨GitHub Discussion',
+              link: 'https://github.com/orgs/Survive-HFUT/discussions/new?category=%E5%8F%8D%E9%A6%88',
             },
           ],
         },

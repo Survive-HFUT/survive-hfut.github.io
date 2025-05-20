@@ -1,7 +1,7 @@
 :root {
-  --vp-custom-block-tip-border: var(--vp-c-tip-1);
-  --vp-custom-block-warning-border: var(--vp-c-warning-1);
-  --vp-custom-block-danger-border: var(--vp-c-danger-1);
+  --vp-custom-block-tip-border: var(--vp-c-tip-2);
+  --vp-custom-block-warning-border: var(--vp-c-warning-2);
+  --vp-custom-block-danger-border: var(--vp-c-danger-2);
   --vp-custom-block-info-border: var(--vp-c-border);
 
   --vp-custom-block-tip-text: var(--vp-c-text-1);

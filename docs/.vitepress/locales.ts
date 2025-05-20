@@ -56,7 +56,7 @@ const markdown: UserConfig<DefaultTheme.Config>['markdown'] = {
     tipLabel: '💡 提示',
     warningLabel: '⚠️ 注意',
     dangerLabel: '‼️ 警告',
-    infoLabel: '📚 信息',
+    infoLabel: '📖 信息',
     detailsLabel: '📜 详细信息',
   },
 };

@@ -4,6 +4,7 @@
 
 - [腾讯文档收集表](https://docs.qq.com/form/page/DTmd5anpGbmJHUGd6)
 - [GitHub Issue](https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new)
+- [GitHub Discussion](https://github.com/orgs/Survive-HFUT/discussions/new?category=%E5%8F%8D%E9%A6%88)
 
 ## Pull request
 

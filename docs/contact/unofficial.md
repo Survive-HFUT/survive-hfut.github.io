@@ -39,6 +39,10 @@
 | @合肥工业大学万能墙 | 930189313  | *较活跃，多以肥区内容为主，但是广告较多* |
 | 合工大（宣）表白墙  | 2312428731 |                                          |
 
+## GitHub Discussion
+
+[Survive-HFUT · Discussions](https://github.com/orgs/Survive-HFUT/discussions)
+
 ## 水果群
 
 北门外的水果摊老板的群，群内可订水果或外卖到楼下
