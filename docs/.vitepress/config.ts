@@ -1,4 +1,5 @@
 import { UnlazyImages } from '@nolebase/markdown-it-unlazy-img';
+import { type Author } from '@nolebase/vitepress-plugin-git-changelog';
 import {
   GitChangelog,
   GitChangelogMarkdownSection,
@@ -13,6 +14,7 @@ import footnote from 'markdown-it-footnote';
 import mathjax3 from 'markdown-it-mathjax3';
 import sup from 'markdown-it-sup';
 import taskLists from 'markdown-it-task-checkbox';
+import { Octokit } from 'octokit';
 import { defineConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
@@ -43,18 +45,17 @@ export default withPwa(
 
     markdown: {
       ...locales.markdown,
-      config: (md) => {
-        md.use(sup);
-        md.use(footnote);
-        md.use(taskLists);
-        md.use(mathjax3);
-        md.use(timeline);
-        md.use(MermaidMarkdown);
-
-        md.use(UnlazyImages(), {
-          imgElementTag: 'NolebaseUnlazyImg',
-        });
-      },
+      config: (md) =>
+        md
+          .use(sup)
+          .use(footnote)
+          .use(taskLists)
+          .use(mathjax3)
+          .use(timeline)
+          .use(MermaidMarkdown)
+          .use(UnlazyImages(), {
+            imgElementTag: 'NolebaseUnlazyImg',
+          }),
       toc: {
         level: [2, 3, 4],
       },
@@ -65,6 +66,7 @@ export default withPwa(
         ThumbnailHashImages(),
         GitChangelog({
           repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
+          mapAuthors: await getAuthors(),
         }),
         GitChangelogMarkdownSection(),
         PageProperties(),
@@ -100,7 +102,7 @@ export default withPwa(
           NolebaseUnlazyImg: ['src'],
         },
         compilerOptions: {
-          isCustomElement: (tag) => customElements.includes(tag),
+          isCustomElement: customElements.includes,
         },
       },
     },
@@ -189,14 +191,35 @@ export default withPwa(
       workbox: {
         globPatterns: ['**/*.{css,js,html,svg,jpg,png,ico,txt,woff2}'],
         maximumFileSizeToCacheInBytes: 7 * 1024 * 1024,
+        cleanupOutdatedCaches: true,
       },
       experimental: {
         includeAllowlist: true,
       },
-      devOptions: {
-        enabled: true,
-        navigateFallback: '/',
-      },
     },
   }),
 );
+
+async function getAuthors(): Promise<Author[]> {
+  return (
+    await new Octokit().rest.repos.listContributors({
+      repo: 'survive-hfut.github.io',
+      owner: 'Survive-HFUT',
+    })
+  ).data.map((author) => ({
+    name: author.login,
+    links: author.html_url,
+    avatar: author.avatar_url,
+    mapByNameAliases: author.login
+      ? [
+          author.login,
+          author.login.toLowerCase(),
+          author.login.replace(/^[a-z]/, (c) => c.toUpperCase()),
+        ]
+      : [],
+    mapByEmailAliases:
+      author.id && author.login
+        ? [`${author.id}+${author.login}@users.noreply.github.com`]
+        : [],
+  }));
+}
