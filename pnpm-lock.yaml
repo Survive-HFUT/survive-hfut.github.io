@@ -38,9 +38,6 @@ importers:
       markdown-it-sup:
         specifier: ^2.0.0
         version: 2.0.0
-      markdown-it-task-checkbox:
-        specifier: ^1.0.6
-        version: 1.0.6
       medium-zoom:
         specifier: ^1.1.0
         version: 1.1.0
@@ -3506,9 +3503,6 @@ packages:
 
   markdown-it-sup@2.0.0:
     resolution: {integrity: sha512-5VgmdKlkBd8sgXuoDoxMpiU+BiEt3I49GItBzzw7Mxq9CxvnhE/k09HFli09zgfFDRixDQDfDxi0mgBCXtaTvA==}
-
-  markdown-it-task-checkbox@1.0.6:
-    resolution: {integrity: sha512-7pxkHuvqTOu3iwVGmDPeYjQg+AIS9VQxzyLP9JCg9lBjgPAJXGEkChK6A2iFuj3tS0GV3HG2u5AMNhcQqwxpJw==}
 
   markdown-it@14.1.0:
     resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
@@ -9122,8 +9116,6 @@ snapshots:
       - encoding
 
   markdown-it-sup@2.0.0: {}
-
-  markdown-it-task-checkbox@1.0.6: {}
 
   markdown-it@14.1.0:
     dependencies:

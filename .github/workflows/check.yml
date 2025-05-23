@@ -1,0 +1,64 @@
+name: check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-dead-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
+
+      - name: Install dependencies and build site
+        run: |
+          pnpm install
+          pnpm run docs:build
+      
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2.4.1
+        with:
+          jobSummary: true
+          fail: true
+          args: "docs/.vitepress/dist/**.html"
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
+
+      - name: Install dependencies and run lint-md
+        run: |
+          pnpm install
+          pnpm lint-md docs
+
+      - name: Run markdownlint
+        if: failure() || success()
+        uses: DavidAnson/markdownlint-cli2-action@v19

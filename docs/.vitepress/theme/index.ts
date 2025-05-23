@@ -13,6 +13,7 @@ import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import DefaultTheme from 'vitepress/theme';
 import { h, nextTick, onMounted, toRefs, watch } from 'vue';
 import locales from '../locales';
+import BackToTopTip from './components/BackToTopTip.vue';
 import HelpUs from './components/HelpUs.vue';
 import RandomJump from './components/RandomJump.vue';
 
@@ -75,6 +76,7 @@ export default {
 
     app.component('HelpUs', HelpUs);
     app.component('RandomJump', RandomJump);
+    app.component('BackToTopTip', BackToTopTip);
     app.component('NolebaseUnlazyImg', NolebaseUnlazyImg);
 
     app.use(NolebaseGitChangelogPlugin);

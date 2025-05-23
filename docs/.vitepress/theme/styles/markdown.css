@@ -1,0 +1,17 @@
+.vp-doc {
+  :is(ol, ul) ul {
+    list-style-type: circle;
+  }
+
+  :is(ol, ul) :is(ol, ul) ul {
+    list-style-type: square;
+  }
+
+  :is(ol, ul) ol {
+    list-style-type: lower-roman;
+  }
+
+  :is(ol, ul) :is(ol, ul) ol {
+    list-style-type: lower-alpha;
+  }
+}

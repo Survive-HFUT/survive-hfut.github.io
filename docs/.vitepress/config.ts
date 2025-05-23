@@ -13,7 +13,6 @@ import { withPwa } from '@vite-pwa/vitepress';
 import footnote from 'markdown-it-footnote';
 import mathjax3 from 'markdown-it-mathjax3';
 import sup from 'markdown-it-sup';
-import taskLists from 'markdown-it-task-checkbox';
 import { Octokit } from 'octokit';
 import { defineConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
@@ -49,7 +48,6 @@ export default withPwa(
         md
           .use(sup)
           .use(footnote)
-          .use(taskLists)
           .use(mathjax3)
           .use(timeline)
           .use(MermaidMarkdown)
@@ -68,7 +66,7 @@ export default withPwa(
           repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
           mapAuthors: await getAuthors(),
         }),
-        GitChangelogMarkdownSection(),
+        GitChangelogMarkdownSection({ excludes: ['_random.md'] }),
         PageProperties(),
         PagePropertiesMarkdownSection(),
         MermaidPlugin(),
