@@ -66,7 +66,7 @@ export default withPwa(
           repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
           mapAuthors: await getAuthors(),
         }),
-        GitChangelogMarkdownSection({ excludes: ['_random.md'] }),
+        GitChangelogMarkdownSection({ excludes: ['_random.md', 'index.md'] }),
         PageProperties(),
         PagePropertiesMarkdownSection(),
         MermaidPlugin(),

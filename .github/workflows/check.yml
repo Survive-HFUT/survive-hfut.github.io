@@ -33,7 +33,6 @@ jobs:
         uses: lycheeverse/lychee-action@v2.4.1
         with:
           jobSummary: true
-          fail: true
           args: "docs/.vitepress/dist/**.html"
 
   lint:
