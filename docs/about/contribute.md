@@ -12,11 +12,17 @@
 2. [fork](https://github.com/Survive-HFUT/survive-hfut.github.io/fork) 后，进行修改
 3. 发起 Merge 请求
 
-## 代理提交
+:::tip
+
+发起 PR 时请选择合并到`dev`分支而不是`main`分支
+
+:::
+
+<!-- ## 代理提交
 
 1. 联系 qq1508235894
 2. 提交规范编写的 Word，Markdown 文件
-3. 由对方整理上传
+3. 由对方整理上传 -->
 
 ## 联系大学生网络文化工作室代提交
 

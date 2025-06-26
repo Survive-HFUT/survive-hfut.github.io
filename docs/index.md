@@ -11,7 +11,7 @@ hero:
       text: 📖 开始阅读
       link: /intro
     - theme: alt
-      text: 🤔 猜你想问
+      text: 🤔 猜你想问/新生必看
       link: /enrollment/qa
     - theme: alt
       text: ☎️ 黄页
@@ -30,13 +30,22 @@ features:
   - icon: 💡
     title: 这<span style="text-decoration:line-through">暂时</span>不是合肥工业大学的官方文档
     details: 
-      · 此文档目前主要由学生维护，所有非引用内容均不代表校方官方观点和意见<br>
+      · 此文档目前主要由学生维护，所有非引用内容<b>均不代表校方官方观点和意见</b><br>
       · 因更新滞后或其他问题，部分内容可能与实际情况存在出入，请以学校发布的相关管理办法为准
-  - icon: ⛏️
-    title: 快加入我们一起使这个文档变得更好
+  # - icon: ⛏️
+  #   title: 快加入我们一起使这个文档变得更好
+  #   details: 
+  #     此文档还在不断完善中……<br>
+  #     使用右上角导航栏的反馈功能或直接点击此卡片跳转
+  #   link: /about/contribute
+  #   linkText: 关于§参与进来
+
+  # 招生特辑 7月中旬后换下
+  - icon: 🎓
+    title: 欢迎报考合肥工业大学
     details: 
-      此文档还在不断完善中……<br>
-      使用右上角导航栏的反馈功能或直接点击此卡片跳转
-    link: /about/contribute
-    linkText: 关于§参与进来
+      2025 年高考志愿填报在即...<br>
+      期待在金秋九月与你在美丽的工大校园相遇
+    link: https://www.hfut.edu.cn/zsyjyc/
+    linkText: 合肥工业大学 · 招生与就业处
 ---

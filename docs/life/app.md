@@ -23,7 +23,8 @@
 
 ## EMobile7 <Badge text="App" />
 
-学校OA平台，主要给教师使用，不过也可以用来查询校园卡流水、充值网费、电费
+学校 OA 平台，主要给教师使用，不过也可以用来查询校园卡流水、充值网费、电费
+
 登陆时填入学校服务器地址`https://zjgd.hfut.edu.cn:8999`
 
 - [Android](market://details?id=com.weaver.emobile7)
@@ -41,9 +42,13 @@
 
 在日程页面与课表页面均可以查看开课教室以及上课时间。
 
+:::details 图片
+
 ![日程](./media/hfutspace_1.jpeg)
 
 ![课表](./media/hfutspace_2.jpeg)
+
+:::
 
 点击课程名称都可以看到更加详细的信息。
 
@@ -51,9 +56,13 @@
 
 在课程信息下还可以查看同班同学或者查询挂科率。
 
+:::details 图片
+
 ![同班同学](./media/hfutspace_4.jpeg)
 
 ![挂科率](./media/hfutspace_5.jpeg)
+
+:::
 
 在课表界面下点击齿轮图标还可以进行一些课表的设置。（不要问我情侣课表怎么搞，自己去找个男/女朋友和 TA 试试）
 

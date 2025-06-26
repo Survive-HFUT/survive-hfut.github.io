@@ -8,27 +8,26 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "docs:lint": "lint-md docs --fix",
+    "docs:lint": "lint-md docs/** --fix",
     "prepare": "husky"
   },
   "devDependencies": {
     "@lint-md/cli": "^2.0.0",
     "husky": "^9.1.7",
-    "octokit": "^5.0.2"
+    "octokit": "^5.0.3"
   },
   "dependencies": {
-    "@nolebase/markdown-it-unlazy-img": "^2.17.0",
-    "@nolebase/vitepress-plugin-enhanced-mark": "^2.17.0",
-    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.17.0",
-    "@nolebase/vitepress-plugin-git-changelog": "^2.17.0",
-    "@nolebase/vitepress-plugin-page-properties": "^2.17.0",
-    "@nolebase/vitepress-plugin-thumbnail-hash": "^2.17.0",
-    "@vite-pwa/vitepress": "^1.0.0",
+    "@nolebase/markdown-it-unlazy-img": "^2.17.2",
+    "@nolebase/vitepress-plugin-enhanced-mark": "^2.17.2",
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.17.2",
+    "@nolebase/vitepress-plugin-git-changelog": "^2.17.2",
+    "@nolebase/vitepress-plugin-page-properties": "^2.17.2",
+    "@nolebase/vitepress-plugin-thumbnail-hash": "^2.17.2",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-sup": "^2.0.0",
     "medium-zoom": "^1.1.0",
-    "mermaid": "^11.6.0",
+    "mermaid": "^11.7.0",
     "nprogress-v2": "^1.1.10",
     "vitepress": "^1.6.3",
     "vitepress-markdown-timeline": "^1.2.2",
@@ -37,6 +36,6 @@
     "vitepress-plugin-mermaid": "^2.0.17",
     "vitepress-plugin-rss": "^0.3.1",
     "vitepress-sidebar": "^1.31.1",
-    "vue": "^3.5.14"
+    "vue": "^3.5.17"
   }
 }

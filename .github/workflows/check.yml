@@ -56,7 +56,7 @@ jobs:
       - name: Install dependencies and run lint-md
         run: |
           pnpm install
-          pnpm lint-md docs
+          pnpm lint-md docs/**
 
       - name: Run markdownlint
         if: failure() || success()
