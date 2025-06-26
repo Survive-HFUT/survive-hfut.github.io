@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-dead-links:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,11 +29,9 @@ jobs:
           pnpm install
           pnpm run docs:build
       
-      - name: Link Checker
-        uses: lycheeverse/lychee-action@v2.4.1
+      - uses: anishathalye/proof-html@v2
         with:
-          jobSummary: true
-          args: "docs/.vitepress/dist/**.html"
+          directory: ./docs/vitepress/dist
 
   lint:
     runs-on: ubuntu-latest

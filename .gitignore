@@ -1,7 +1,3 @@
-# Visual Studio Code
-.vscode/
-*.code-workspace
-
 # Node.js
 node_modules/
 

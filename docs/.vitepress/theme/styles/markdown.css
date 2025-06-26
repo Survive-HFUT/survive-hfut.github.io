@@ -15,3 +15,10 @@
     list-style-type: lower-alpha;
   }
 }
+
+/* .vp-doc {
+  img {
+    max-height: 60vh;
+    object-fit: contain ;
+  }
+} */
