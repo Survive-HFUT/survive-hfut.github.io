@@ -31,7 +31,7 @@ jobs:
       
       - uses: anishathalye/proof-html@v2
         with:
-          directory: ./docs/vitepress/dist
+          directory: ./docs/.vitepress/dist
 
   lint:
     runs-on: ubuntu-latest
