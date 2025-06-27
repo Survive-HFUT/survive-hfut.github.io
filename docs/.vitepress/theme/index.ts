@@ -49,24 +49,24 @@ export default {
 
     const { frontmatter } = toRefs(useData());
 
-    // giscusTalk(
-    //   {
-    //     repo: 'Survive-HFUT/survive-hfut.github.io',
-    //     repoId: 'R_kgDOKE2TfA',
-    //     category: 'Giscus',
-    //     categoryId: 'DIC_kwDOKE2TfM4CqW7d',
-    //     mapping: 'pathname',
-    //     inputPosition: 'top',
-    //     lang: 'zh-CN',
-    //     lightTheme: 'light',
-    //     darkTheme: 'transparent_dark',
-    //   },
-    //   {
-    //     frontmatter,
-    //     route,
-    //   },
-    //   true,
-    // );
+    giscusTalk(
+      {
+        repo: 'Survive-HFUT/survive-hfut.github.io',
+        repoId: 'R_kgDOKE2TfA',
+        category: 'Giscus',
+        categoryId: 'DIC_kwDOKE2TfM4CqW7d',
+        mapping: 'pathname',
+        inputPosition: 'top',
+        lang: 'zh-CN',
+        lightTheme: 'light',
+        darkTheme: 'transparent_dark',
+      },
+      {
+        frontmatter,
+        route,
+      },
+      true,
+    );
   },
 
   enhanceApp({ app, router }) {
