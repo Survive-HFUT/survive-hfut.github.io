@@ -21,6 +21,9 @@ import customElements from './customElements';
 import locales from './locales';
 import { sidebarValue } from './sidebar.data';
 
+const time =
+  new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) + ' GMT+8:00';
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: '活在肥宣',
@@ -44,6 +47,7 @@ export default defineConfig({
         // dashboard: https://cloud.umami.is/share/TO6zOo7xWbS2gcFF/survive-hfut.cc
       },
     ],
+    ['script', {}, `console.log("Built at ${time}")`],
   ],
   cleanUrls: true,
   lastUpdated: true,
@@ -155,7 +159,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Built with VitePress.',
+      message: '使用 VitePress 构建<br/>' + '最后更新：' + time,
       copyright: '未做特别声明的内容，均按照 CC-BY-SA 4.0 协议进行分发',
     },
 
