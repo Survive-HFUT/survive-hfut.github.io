@@ -110,7 +110,7 @@
 
 ## 难度
 
-<img src="./media/cet_meme.jpg" alt="meme" style="height:300px"/>
+![meme](./media/cet_meme.jpg)
 
 感觉难是正常的🤓
 
