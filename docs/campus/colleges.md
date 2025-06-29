@@ -22,10 +22,13 @@
 
 新安的天井、走廊、屋顶、黑砖白墙青瓦等，无处不展示着徽派建筑的大气与精妙
 
-:::info 相关阅读
-[合肥工业大学宣城二期教学楼——徽派文化元素的探索 / 华南理工大学建筑设计研究院陶郅工作室 | 建筑学院 (archcollege.com)](http://www.archcollege.com/archcollege/2018/03/39655.html)
+:::info
 
-[合肥工业大学宣城二期教学楼 / 华南理工大学建筑设计研究院](https://www.gooood.cn/xuancheng-phase-ii-teaching-building-hefei-university-of-technology-china-by-architectural-design-and-research-institute-of-scut.htm)
+**相关阅读**
+
+- [合肥工业大学宣城二期教学楼——徽派文化元素的探索 / 华南理工大学建筑设计研究院陶郅工作室 | 建筑学院 (archcollege.com)](http://www.archcollege.com/archcollege/2018/03/39655.html)
+- [合肥工业大学宣城二期教学楼 / 华南理工大学建筑设计研究院](https://www.gooood.cn/xuancheng-phase-ii-teaching-building-hefei-university-of-technology-china-by-architectural-design-and-research-institute-of-scut.htm)
+
 :::
 
 ![南入口](./media/xinan_1.jpg)

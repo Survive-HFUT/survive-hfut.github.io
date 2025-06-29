@@ -14,6 +14,16 @@ export const sidebarValue = generateSidebar([
     sortMenusByFrontmatterOrder: true,
     frontmatterOrderDefaultValue: 100,
     excludeFilesByFrontmatterFieldName: 'exclude',
+    excludePattern: ['about/**'],
+  },
+  {
+    documentRootPath: 'docs',
+    scanStartPath: 'about',
+    resolvePath: '/about/',
+    useTitleFromFrontmatter: true,
+    useFolderLinkFromIndexFile: true,
+    useTitleFromFileHeading: true,
+    useFolderTitleFromIndexFile: true,
   },
 ]);
 
@@ -22,9 +32,7 @@ export default {
     const links: string[] = [];
 
     const sidebar = sidebarValue as SidebarMulti;
-    for (const [_, { items }] of Object.entries(sidebar)) {
-      items.forEach(add);
-    }
+    sidebar['/'].items.forEach(add);
 
     function add(item: SidebarItem) {
       if (item.link) {
