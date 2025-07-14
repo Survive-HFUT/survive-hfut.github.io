@@ -89,7 +89,7 @@
 ### 其他功能
 
 - **最近考试安排**
-   能看到最近考试的数量，点击进去可以看到每门考试的地点，起止时间以及给你剩下的复习时间。
+  能看到最近考试的数量，点击进去可以看到每门考试的地点，起止时间以及给你剩下的复习时间。
 - **校历**
   包含每学年的入学时间、校运动会时间、考试周以及部分节假日信息。不过导员也会发每学年的校历，所以并不一定要在小程序上看。
 - **校车查询**
@@ -112,3 +112,13 @@
 **HFUT+** 是一款服务于合肥工业大学学生的小程序，方便查询教务等信息。其功能包含课表查询、一卡通流水查询、考试成绩查询、空教室查询、挂科率查询等
 
 该小程序完全免费，功能强大，界面简洁
+
+## 聚在工大 <Badge text="App" />
+
+> GitHub: [Chiu-xaH/HFUT-Schedule](https://github.com/Chiu-xaH/HFUT-Schedule)
+
+> gitee: [chiu-xah/HFUT-Schedule](https://gitee.com/chiu-xah/HFUT-Schedule)
+
+> F-Droid: [com.hfut.schedule](https://f-droid.org/packages/com.hfut.schedule/)
+
+适用于合肥工业大学(HFUT)的学校服务聚合 APP，查询教务、校园卡、网电费等
