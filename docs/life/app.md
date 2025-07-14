@@ -1,5 +1,7 @@
 # 必备小程序 / APP
 
+[[toc]]
+
 ## 今日校园 <Badge text="App" />
 
 对接[综合信息门户](https://one.hfut.edu.cn/)，主要用于晚自习请假、离宣申请、心理测评等
@@ -29,6 +31,14 @@
 
 - [Android](market://details?id=com.weaver.emobile7)
 - [iOS](https://apps.apple.com/cn/app/id1437702418)
+
+## 聚在工大 <Badge text="App" />
+
+- GitHub: [Chiu-xaH/HFUT-Schedule](https://github.com/Chiu-xaH/HFUT-Schedule)
+- gitee: [chiu-xah/HFUT-Schedule](https://gitee.com/chiu-xah/HFUT-Schedule)
+- F-Droid: [com.hfut.schedule](https://f-droid.org/packages/com.hfut.schedule/)
+
+适用于合肥工业大学(HFUT)的学校服务聚合 APP，查询教务、校园卡、网电费等
 
 ## HFUTSpace <Badge text="小程序"  type="info"/>
 
@@ -112,13 +122,3 @@
 **HFUT+** 是一款服务于合肥工业大学学生的小程序，方便查询教务等信息。其功能包含课表查询、一卡通流水查询、考试成绩查询、空教室查询、挂科率查询等
 
 该小程序完全免费，功能强大，界面简洁
-
-## 聚在工大 <Badge text="App" />
-
-> GitHub: [Chiu-xaH/HFUT-Schedule](https://github.com/Chiu-xaH/HFUT-Schedule)
-
-> gitee: [chiu-xah/HFUT-Schedule](https://gitee.com/chiu-xah/HFUT-Schedule)
-
-> F-Droid: [com.hfut.schedule](https://f-droid.org/packages/com.hfut.schedule/)
-
-适用于合肥工业大学(HFUT)的学校服务聚合 APP，查询教务、校园卡、网电费等
