@@ -11,6 +11,7 @@
 - <mark>找不到想要的内容？</mark>
   - 去[贴吧](https://tieba.baidu.com/f?kw=%E5%90%88%E8%82%A5%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%E5%AE%A3%E5%9F%8E%E6%A0%A1%E5%8C%BA&fr=index)问问
   - 在 [GitHub Discussion](https://github.com/orgs/Survive-HFUT/discussions/new?category=%E5%88%9D%E6%9D%A5%E4%B9%8D%E5%88%B0) 上提问
+  - 直接在相关页面底部的讨论区留言
 
 :::
 
@@ -440,6 +441,7 @@
     <https://xgb.hfut.edu.cn/info/1156/9939.htm>
 
 [^5]: 合肥工业大学体育部.2024-2025 第二学期体育课程课外健身通知 [2025-05-18].
+
 [^6]:
     合肥工业大学宣城校区.关于开展 2024 年宣城校区本科生全校范围内转专业工作的通知 (2024-07-22)\[2025-05-20].  
     <https://xc.hfut.edu.cn/99/8b/c1955a39307/page.htm>

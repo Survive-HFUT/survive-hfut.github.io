@@ -19,5 +19,6 @@
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113232534573164&bvid=BV1Py4PeCEbL&cid=26096306074&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; min-height: 300px; max-height: 400px; height: 50vh"></iframe>
 
-[^1]: 合工大宣城校区学生工作.国旗护卫队招新 | 矢志护卫国旗红，勠力弘扬爱国情 (2023-09-04)\[2024-10-03].  
-<https://mp.weixin.qq.com/s/TFCNMLZpSoX4hg01CzWUnA>
+[^1]:
+    合工大宣城校区学生工作.国旗护卫队招新 | 矢志护卫国旗红，勠力弘扬爱国情 (2023-09-04)\[2024-10-03].  
+    <https://mp.weixin.qq.com/s/TFCNMLZpSoX4hg01CzWUnA>

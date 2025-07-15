@@ -73,5 +73,6 @@
 
 设有<mark>人资组、财务组</mark>
 
-[^1]: 合肥工业大学.@全体 HFUTers，快来 pick 校全媒体中心！ (2021-03-27)\[2024-10-03].
-<https://mp.weixin.qq.com/s/L6Pv3mONAEVUwZ_dcDJV1g>
+[^1]:
+    合肥工业大学.@全体 HFUTers，快来 pick 校全媒体中心！ (2021-03-27)\[2024-10-03].
+    <https://mp.weixin.qq.com/s/L6Pv3mONAEVUwZ_dcDJV1g>

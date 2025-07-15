@@ -27,7 +27,7 @@
 
 ### 上门推销
 
-常自称学长或学姐的人以需要完成实习任务、社会实践等为理由进入宿舍楼敲门要求同学下载 **极速版 等软件
+常自称学长或学姐的人以需要完成实习任务、社会实践等为理由进入宿舍楼敲门要求同学下载 \*\*极速版 等软件
 
 :::warning
 
@@ -104,5 +104,6 @@ http://********.com
 - [国家反诈中心：防范电信网络诈骗宣传手册](https://www.mps.gov.cn/n2253534/n2253543/c9257095/content.html)
 - [国家反诈中心 App](https://sj.qq.com/appdetail/com.hicorenational.antifraud)
 
-[^1]: 宣城市公安局.宣城市公安局经济技术开发区分局 (2020-03-02)\[2025-05-09].  
-<https://gaj.xuancheng.gov.cn/OpennessContent/show/1824519.html>
+[^1]:
+    宣城市公安局.宣城市公安局经济技术开发区分局 (2020-03-02)\[2025-05-09].  
+    <https://gaj.xuancheng.gov.cn/OpennessContent/show/1824519.html>

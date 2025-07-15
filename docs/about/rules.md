@@ -9,6 +9,7 @@
 
 - 💡[**markdownlint**](https://marketplace.visualstudio.com/items/?itemName=DavidAnson.vscode-markdownlint)
 - 💡[**Markdown All in One**](https://marketplace.visualstudio.com/items/?itemName=yzhang.markdown-all-in-one)
+- 💡[**Prettier - Code formatter**](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - 将此扩展作为默认的格式化工具
 - [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items/?itemName=bierner.markdown-mermaid)
 - [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items/?itemName=bierner.markdown-preview-github-styles)
@@ -73,8 +74,9 @@ Markdown 文档应符合基本语法，并参考[推荐规范](#推荐规范)进
 ### 格式
 
 ```md
-[^n]: 发布主体.标题 (发布日期)\[引用日期]
-<链接>
+[^n]:
+    发布主体.标题 (发布日期)\[引用日期]
+    <链接>
 ```
 
 当发布日期或引用日期不明确或缺失时可省略
@@ -84,8 +86,9 @@ Markdown 文档应符合基本语法，并参考[推荐规范](#推荐规范)进
 ```md
 这是一段文本[^1]
 
-[^1]: 合肥工业大学.@全体 HFUTers，快来 pick 校全媒体中心！ (2021-03-27)[2024-10-03]
-<https://mp.weixin.qq.com/s/L6Pv3mONAEVUwZ_dcDJV1g>
+[^1]:
+    合肥工业大学.@全体 HFUTers，快来 pick 校全媒体中心！ (2021-03-27)[2024-10-03]
+    <https://mp.weixin.qq.com/s/L6Pv3mONAEVUwZ_dcDJV1g>
 ```
 
 :::info 解析后如下
@@ -93,6 +96,6 @@ Markdown 文档应符合基本语法，并参考[推荐规范](#推荐规范)进
 这是一段文本<sup><a>[1]</a></sup>
 
 1. 合肥工业大学.@全体 HFUTers，快来 pick 校全媒体中心！ (2021-03-27)\[2024-10-03]  
-<https://mp.weixin.qq.com/s/L6Pv3mONAEVUwZ_dcDJV1g> <a>↩︎</a>
+   <https://mp.weixin.qq.com/s/L6Pv3mONAEVUwZ_dcDJV1g> <a>↩︎</a>
 
 :::
