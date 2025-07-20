@@ -17,7 +17,7 @@
 - [爱国润童心，国旗伴成长 | 校区国旗护卫队受邀前往宣城市第三小学、第九小学开展爱国主义教育活动](https://mp.weixin.qq.com/s?__biz=MzI5ODI3NzE2Mw==&mid=2247523372&idx=1&sn=05be56b8585538f7ce5f0c899beac984&chksm=ed4d410b73a191f1049785465814f262c6541ec882bf11667db577ae0a5932bcc18485e1f1bc&mpshare=1&scene=23&srcid=0930fM2cRQinOHzGxV8sjRNv&sharer_shareinfo=6c13ce76d0dbc9003e8c97044e7a53c3&sharer_shareinfo_first=6c13ce76d0dbc9003e8c97044e7a53c3#rd)
 - [我爱你，中国 | “我和祖国共成长”国旗下的思政课](http://mp.weixin.qq.com/s?__biz=MzI5ODI3NzE2Mw==&mid=2247523389&idx=1&sn=cc9bd86eb5619212bf432a5040372600&chksm=ed7184f259e5dd6e7529e047513a2a213d888dc918e4a43190e5fa3a32a56917bef1e37d3d63&mpshare=1&scene=23&srcid=1003AALX16jyCcAr3aF0ReBm&sharer_shareinfo=b4d6d22795830b5131ca6dee0082f6a4&sharer_shareinfo_first=b4d6d22795830b5131ca6dee0082f6a4#rd)
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113232534573164&bvid=BV1Py4PeCEbL&cid=26096306074&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; min-height: 300px; max-height: 400px; height: 50vh"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113232534573164&bvid=BV1Py4PeCEbL&cid=26096306074&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 [^1]:
     合工大宣城校区学生工作.国旗护卫队招新 | 矢志护卫国旗红，勠力弘扬爱国情 (2023-09-04)\[2024-10-03].  

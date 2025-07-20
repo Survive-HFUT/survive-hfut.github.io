@@ -16,9 +16,13 @@
   }
 }
 
-/* .vp-doc {
-  img {
-    max-height: 60vh;
-    object-fit: contain ;
-  }
-} */
+.timeline-dot {
+  color: var(--vp-c-text-2);
+}
+
+iframe[src*='player.bilibili.com'] {
+  width: 100%;
+  min-height: 300px;
+  max-height: 400px;
+  height: 50vh;
+}

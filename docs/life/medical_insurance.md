@@ -2,6 +2,8 @@
 
 <HelpUs content="缺少详细信息"/>
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113204835387295&bvid=BV1eWxneME3Q&cid=26058951335&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 ## 参保缴费
 
 - 省内学生推荐 “安徽医保公共服务”微信小程序

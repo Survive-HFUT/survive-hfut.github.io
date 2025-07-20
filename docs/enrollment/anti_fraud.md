@@ -99,7 +99,7 @@ http://********.com
 
 :::
 
-## 有用的信息
+## 相关阅读
 
 - [国家反诈中心：防范电信网络诈骗宣传手册](https://www.mps.gov.cn/n2253534/n2253543/c9257095/content.html)
 - [国家反诈中心 App](https://sj.qq.com/appdetail/com.hicorenational.antifraud)

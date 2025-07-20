@@ -40,7 +40,7 @@ Markdown 文档应符合基本语法，并参考[推荐规范](#推荐规范)进
 
 别担心🤓👍这并不需要你过于操心
 
-- 在提交前会自动使用[`@lint-md/cli`](https://github.com/lint-md/cli)自动修复部分问题
+- 在提交前会自动使用[`@lint-md/cli`](https://github.com/lint-md/cli)、[`Prettier`](https://prettier.io/)自动修复部分问题
 - 提交后和 PR 后会自动使用 GitHub Actions 进行文档检查
   - 等待运行结束后可以查看输出定位问题
 
