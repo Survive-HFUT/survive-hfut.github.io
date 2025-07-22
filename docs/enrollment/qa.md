@@ -143,7 +143,7 @@
 
 :::info
 
-此节内容可详见[生活§宿舍](../life/dormitory)
+此节内容可详见[生活§宿舍](../life/dormitory/index)
 
 :::
 
