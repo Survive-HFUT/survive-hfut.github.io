@@ -40,7 +40,7 @@
 
 适用于合肥工业大学(HFUT)的学校服务聚合 APP，查询教务、校园卡、网电费等
 
-## HFUTSpace <Badge text="小程序"  type="info"/>
+## HFUTSpace <Badge text="小程序" type="info"/>
 
 > GitHub: [hfut-soft-ware/hfut-space-app](https://github.com/hfut-soft-ware/hfut-space-app)
 
