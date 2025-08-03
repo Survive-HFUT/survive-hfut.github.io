@@ -14,6 +14,7 @@ import DefaultTheme from 'vitepress/theme';
 import { h, nextTick, onMounted, toRefs, watch } from 'vue';
 import locales from '../locales';
 import BackToTopTip from './components/BackToTopTip.vue';
+import DormitoryIdGenerator from './components/DormitoryIdGenerator.vue';
 import HelpUs from './components/HelpUs.vue';
 import RandomJump from './components/RandomJump.vue';
 
@@ -78,6 +79,7 @@ export default {
     app.component('RandomJump', RandomJump);
     app.component('BackToTopTip', BackToTopTip);
     app.component('NolebaseUnlazyImg', NolebaseUnlazyImg);
+    app.component('DormitoryIdGenerator', DormitoryIdGenerator);
 
     app.use(NolebaseGitChangelogPlugin);
     app.use(
