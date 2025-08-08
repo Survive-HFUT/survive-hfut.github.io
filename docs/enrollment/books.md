@@ -35,7 +35,7 @@
 
 - <Badge type="warning" text="✨推荐"/> 在某宝或拼夕夕的二手书店购买，一本价格通常在 3~20 元不等
 - 在[二手群](../contact/unofficial.md)里收书
-- 直接联系校内书店言之书屋（位于[大活](../campus/activity_center)一楼西侧）
+- 直接联系校内书店言之书屋（位于[大活](../campus/xc/activity_center)一楼西侧）
   - 费用较高（低于全新书但远高于在电商平台购买二手书），且售后态度不佳^需要更多信息^
 
 :::tip

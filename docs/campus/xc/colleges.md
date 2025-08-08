@@ -10,9 +10,9 @@
 
 门牌号偶数位于北侧，奇数位于南侧
 
-![敬亭学堂](./media/jingting_1.jpg)
+![敬亭学堂](./jingting_1.jpg)
 
-![敬亭学堂](./media/jingting_2.jpg)
+![敬亭学堂](./jingting_2.jpg)
 
 ## 新安学堂
 
@@ -31,6 +31,6 @@
 
 :::
 
-![南入口](./media/xinan_1.jpg)
+![南入口](./xinan_1.jpg)
 
-![新安学堂](./media/xinan_2.jpg)
+![新安学堂](./xinan_2.jpg)

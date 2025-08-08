@@ -12,12 +12,12 @@
 
 ## 羽毛球馆
 
-![羽毛球馆](media/badminton_courts.jpg)
+![羽毛球馆](badminton_courts.jpg)
 
 ## 乒乓球馆
 
-![乒乓球馆](media/pingpong_tables.jpg)
+![乒乓球馆](pingpong_tables.jpg)
 
 ## 武术馆
 
-![武术馆](media/martial_art.jpg)
+![武术馆](martial_art.jpg)

@@ -10,4 +10,4 @@
 
 靠近校园东北角的区域有健身器材、儿童游乐设施等。
 
-![操场](media/sports_field.jpg)
+![操场](sports_field.jpg)

@@ -1,6 +1,6 @@
 # 宿舍
 
-关于宿舍内的详细介绍（面积、限电情况等）详见[生活§宿舍](../life/dormitory/index)
+关于宿舍内的详细介绍（面积、限电情况等）详见[生活§宿舍](../../life/dormitory/index)
 
 北区为 1\~5 号楼，南区为 6\~10 号楼
 
@@ -32,6 +32,6 @@
 
 6 ~ 9 号楼为男生宿舍，10 号楼为女生宿舍
 
-![南区宿舍](media/south_dorm_1.jpg)
+![南区宿舍](south_dorm_1.jpg)
 
-![可以尽情晒被子hiahiahia](media/south_dorm_2.jpg)
+![可以尽情晒被子hiahiahia](south_dorm_2.jpg)

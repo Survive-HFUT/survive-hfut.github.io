@@ -12,7 +12,7 @@
 
 :::warning
 
-不支持小程序点单，仅支持使用[校园卡](../../enrollment/campus_card)支付
+不支持小程序点单，仅支持使用[校园卡](../../../enrollment/campus_card)支付
 
 :::
 
@@ -28,7 +28,7 @@
 
 :::warning
 
-不支持小程序点单，仅支持使用[校园卡](../../enrollment/campus_card)支付
+不支持小程序点单，仅支持使用[校园卡](../../../enrollment/campus_card)支付
 
 :::
 
