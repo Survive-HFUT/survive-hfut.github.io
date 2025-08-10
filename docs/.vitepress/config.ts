@@ -17,12 +17,14 @@ import { defineConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import { RssPlugin } from 'vitepress-plugin-rss';
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import customElements from './customElements';
 import locales from './locales';
 import { sidebarValue } from './sidebar.data';
 
 const time =
-  new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) + ' GMT+8:00';
+  new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
+  ' GMT+8:00';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -61,10 +63,11 @@ export default defineConfig({
         .use(footnote)
         .use(mathjax3)
         .use(timeline)
-        .use(MermaidMarkdown)
         .use(UnlazyImages(), {
           imgElementTag: 'NolebaseUnlazyImg',
-        }),
+        })
+        .use(MermaidMarkdown)
+        .use(tabsMarkdownPlugin),
     toc: {
       level: [2, 3, 4],
     },

@@ -38,11 +38,11 @@
 - gitee: [chiu-xah/HFUT-Schedule](https://gitee.com/chiu-xah/HFUT-Schedule)
 - F-Droid: [com.hfut.schedule](https://f-droid.org/packages/com.hfut.schedule/)
 
-适用于合肥工业大学(HFUT)的学校服务聚合 APP，查询教务、校园卡、网电费等
+学校服务聚合 APP，可查询教务、校园卡、网电费等
 
-## HFUTSpace <Badge text="小程序" type="info"/>
+## HFUTSpace <Badge text="小程序" /> <Badge text="已停止维护" type="info"/>
 
-> GitHub: [hfut-soft-ware/hfut-space-app](https://github.com/hfut-soft-ware/hfut-space-app)
+- GitHub: [hfut-soft-ware/hfut-space-app](https://github.com/hfut-soft-ware/hfut-space-app)
 
 学校课表可以在官网查看，但是官网的太过复杂且麻烦，于是就有了学长开发了课表小程序。
 
@@ -109,15 +109,11 @@
 
 ![其他功能](./media/hfutspace_11.jpeg)
 
-## 肥工小宇宙 <Badge text="App" /> <Badge text="开发中" type="warning"/>
+## 肥工小宇宙 <Badge text="App" /> <Badge text="已停止维护" type="info"/>
 
-开发 HFUTSpace 小程序的学长现在正在开发一款集成 HFUTSpace 小程序以及论坛社区为一体的 app，目前还处于测试阶段，欢迎各位同学加群了解。
+开发 HFUTSpace 小程序的学长现在正在开发一款集成 HFUTSpace 小程序以及论坛社区为一体的 app，目前还处于测试阶段
 
-群号为：813152217。
-
-![肥工小宇宙群聊](./media/hfutuni.jpeg)
-
-## HFUT+ 小程序 <Badge text="小程序"  type="info"/>
+## HFUT+ 小程序 <Badge text="小程序" />
 
 **HFUT+** 是一款服务于合肥工业大学学生的小程序，方便查询教务等信息。其功能包含课表查询、一卡通流水查询、考试成绩查询、空教室查询、挂科率查询等
 

@@ -10,6 +10,7 @@ import { NProgress } from 'nprogress-v2/dist/index.js';
 import { inBrowser, useData, useRoute, type Theme } from 'vitepress';
 import vitepressBackToTop from 'vitepress-plugin-back-to-top';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
 import { h, nextTick, onMounted, toRefs, watch } from 'vue';
 import locales from '../locales';
@@ -96,5 +97,7 @@ export default {
       router.onBeforeRouteChange = () => void NProgress.start();
       router.onAfterRouteChange = () => void NProgress.done();
     }
+
+    enhanceAppWithTabs(app);
   },
 } satisfies Theme;
