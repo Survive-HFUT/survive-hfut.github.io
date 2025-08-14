@@ -18,7 +18,7 @@ import BackToTopTip from './components/BackToTopTip.vue';
 import DormitoryIdGenerator from './components/DormitoryIdGenerator.vue';
 import RandomJump from './components/RandomJump.vue';
 import Note from './components/Note.vue';
-import Todo from './components/Todo.vue';
+import ToDo from './components/ToDo.vue';
 
 import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css';
@@ -78,7 +78,7 @@ export default {
     });
 
     app.component('Note', Note);
-    app.component('Todo', Todo);
+    app.component('ToDo', ToDo);
     app.component('RandomJump', RandomJump);
     app.component('BackToTopTip', BackToTopTip);
     app.component('NolebaseUnlazyImg', NolebaseUnlazyImg);
