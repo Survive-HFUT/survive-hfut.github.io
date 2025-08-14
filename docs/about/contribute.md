@@ -18,11 +18,9 @@
 
 :::
 
-<!-- ## 代理提交
+## 添加群聊
 
-1. 联系 qq1508235894
-2. 提交规范编写的 Word，Markdown 文件
-3. 由对方整理上传 -->
+`812229258` 或 [点击加群](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=hnhYa-TdwN9v_2f4wXmayC1V0vcdNUEx&authKey=pZs4xDQrK0eFcl2oKMtHB2E9O%2FqXX8SA%2FNNELsIR9t6kgC0YKqxVTrdl9t%2FpI6nO&noverify=0&group_code=812229258)
 
 ## 联系大学生网络文化工作室代提交
 

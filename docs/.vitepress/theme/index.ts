@@ -16,8 +16,9 @@ import { h, nextTick, onMounted, toRefs, watch } from 'vue';
 import locales from '../locales';
 import BackToTopTip from './components/BackToTopTip.vue';
 import DormitoryIdGenerator from './components/DormitoryIdGenerator.vue';
-import HelpUs from './components/HelpUs.vue';
 import RandomJump from './components/RandomJump.vue';
+import Tip from './components/Tip.vue';
+import Todo from './components/Todo.vue';
 
 import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css';
@@ -76,7 +77,8 @@ export default {
       threshold: 300,
     });
 
-    app.component('HelpUs', HelpUs);
+    app.component('Tip', Tip);
+    app.component('Todo', Todo);
     app.component('RandomJump', RandomJump);
     app.component('BackToTopTip', BackToTopTip);
     app.component('NolebaseUnlazyImg', NolebaseUnlazyImg);
