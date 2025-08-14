@@ -1,6 +1,7 @@
 {
   "name": "survive-hfut",
-  "version": "2025.05",
+  "version": "2025.08",
+  "private": true,
   "description": "活在肥宣",
   "license": "CC0-1.0",
   "type": "module",

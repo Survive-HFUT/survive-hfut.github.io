@@ -33,14 +33,15 @@
 
 :::
 
-- <Badge type="warning" text="✨推荐"/> 在某宝或拼夕夕的二手书店购买，一本价格通常在 3~20 元不等
-- <Badge type="warning" text="✨推荐"/> 找<mark>认识的直系学长学姐</mark>索要或购买
-- 在[二手群](../contact/unofficial.md)里收书
-- 直接联系校内书店言之书屋（位于[大活](../campus/xc/activity_center)一楼西侧）
-  - 费用较高（低于全新书但远高于在电商平台购买二手书），且售后态度不佳^需要更多信息^
-
 :::tip
 
 你可以询问直系的学长学姐或任课教师获取具体的书目和版本
 
 :::
+
+- <Badge type="warning" text="✨推荐"/> 在某宝或拼夕夕的二手书店购买，一本价格通常在 3~20 元不等
+- <Badge type="warning" text="✨推荐"/> 找<mark>认识的直系学长学姐</mark>索要或购买
+- 在[二手群](../contact/unofficial.md)里收书
+- 直接联系校内书店言之书屋（位于[大活](../campus/xc/activity_center)一楼西侧）
+  - 费用较高（低于全新书但远高于在电商平台购买二手书）
+  - 售后态度不佳 <Note>可能需要更多信息。二手书售后群内学生反馈的书目或版本错误问题常未被及时回复</Note>

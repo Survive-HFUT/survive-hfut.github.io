@@ -17,7 +17,7 @@ import locales from '../locales';
 import BackToTopTip from './components/BackToTopTip.vue';
 import DormitoryIdGenerator from './components/DormitoryIdGenerator.vue';
 import RandomJump from './components/RandomJump.vue';
-import Tip from './components/Tip.vue';
+import Note from './components/Note.vue';
 import Todo from './components/Todo.vue';
 
 import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
@@ -77,7 +77,7 @@ export default {
       threshold: 300,
     });
 
-    app.component('Tip', Tip);
+    app.component('Note', Note);
     app.component('Todo', Todo);
     app.component('RandomJump', RandomJump);
     app.component('BackToTopTip', BackToTopTip);
