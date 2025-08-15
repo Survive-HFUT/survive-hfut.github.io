@@ -59,6 +59,7 @@ $$\begin{aligned} \text{考核总成绩} =\ &\text{笔试成绩} \times 70\% \te
 
 - [关于转专业新政](https://tieba.baidu.com/p/9229125500) _（相对较新）_
 - [近两年 _(2024、2025)_ 转专业人数统计表](https://tieba.baidu.com/p/9936576147) _（相对较新）_
+- [2024 计算机与信息系转专业历程](https://tieba.baidu.com/p/9180471483) _（相对较新）_
 - [说说转专业相关的事情吧](https://tieba.baidu.com/p/7215979603)
 - [专业介绍贴 传送门](https://tieba.baidu.com/p/7215979603)
 
