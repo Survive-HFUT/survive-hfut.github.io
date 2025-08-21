@@ -111,5 +111,5 @@ http://********.com
 - [国家反诈中心 App](https://sj.qq.com/appdetail/com.hicorenational.antifraud)
 
 [^1]:
-    宣城市公安局.宣城市公安局经济技术开发区分局 (2020-03-02)\[2025-05-09].  
+    宣城市公安局.宣城市公安局经济技术开发区分局[DB/OL]. (2020-03-02)\[2025-05-09].  
     <https://gaj.xuancheng.gov.cn/OpennessContent/show/1824519.html>

@@ -8,7 +8,7 @@
 
 ## Pull request
 
-1. 阅读[编写规范](rules)
+1. 阅读[编写规范](./standard.md)
 2. [fork](https://github.com/Survive-HFUT/survive-hfut.github.io/fork) 后，进行修改
 3. 发起 Merge 请求
 

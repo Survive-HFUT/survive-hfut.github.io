@@ -324,5 +324,5 @@
 - 散热器
 
 [^1]:
-    合肥工业大学本科招生网.2024 级新生入学须知 (2024-07-29)\[2025-08-14].  
+    合肥工业大学本科招生网.2024 级新生入学须知[DB/OL]. (2024-07-29)\[2025-08-14].  
     <http://bkzs.hfut.edu.cn/static/mobile/front/hfut/basic/html_cms/frontViewArticle.html?id=4969464aa038476a8e2391a43d81981d>

@@ -16,6 +16,30 @@
   }
 }
 
+.footnotes {
+  .footnotes-list {
+    list-style: none;
+    counter-reset: citation-counter;
+    padding-left: 0;
+    /* font-family: 'Times New Roman', 'SimSun', '宋体', serif; */
+  }
+
+  .footnotes-list li {
+    counter-increment: citation-counter;
+    display: flex;
+    line-height: 28px;
+  }
+
+  .footnotes-list li p {
+    margin: 0;
+  }
+
+  .footnotes-list li::before {
+    content: '[' counter(citation-counter) ']';
+    margin-right: 0.5rem;
+  }
+}
+
 .timeline-dot {
   color: var(--vp-c-text-2);
 }
