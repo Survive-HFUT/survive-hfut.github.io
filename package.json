@@ -29,7 +29,7 @@
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-sup": "^2.0.0",
     "medium-zoom": "^1.1.0",
-    "mermaid": "^11.7.0",
+    "mermaid": "^11.10.0",
     "nprogress-v2": "^1.1.10",
     "vitepress": "^1.6.3",
     "vitepress-markdown-timeline": "^1.2.2",
