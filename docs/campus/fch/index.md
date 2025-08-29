@@ -1,3 +1,7 @@
+---
+order: 2
+---
+
 # 翡翠湖校区
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=867997722&bvid=BV1mV4y1R7Ai&cid=1109785494&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
