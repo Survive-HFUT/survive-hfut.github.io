@@ -185,25 +185,29 @@ export default defineConfig({
 });
 
 async function getAuthors(): Promise<Author[]> {
-  return (
-    await new Octokit().rest.repos.listContributors({
-      repo: 'survive-hfut.github.io',
-      owner: 'Survive-HFUT',
-    })
-  ).data.map((author) => ({
-    name: author.login,
-    links: author.html_url,
-    avatar: author.avatar_url,
-    mapByNameAliases: author.login
-      ? [
-          author.login,
-          author.login.toLowerCase(),
-          author.login.replace(/^[a-z]/, (c) => c.toUpperCase()),
-        ]
-      : [],
-    mapByEmailAliases:
-      author.id && author.login
-        ? [`${author.id}+${author.login}@users.noreply.github.com`]
+  try {
+    return (
+      await new Octokit().rest.repos.listContributors({
+        repo: 'survive-hfut.github.io',
+        owner: 'Survive-HFUT',
+      })
+    ).data.map((author) => ({
+      name: author.login,
+      links: author.html_url,
+      avatar: author.avatar_url,
+      mapByNameAliases: author.login
+        ? [
+            author.login,
+            author.login.toLowerCase(),
+            author.login.replace(/^[a-z]/, (c) => c.toUpperCase()),
+          ]
         : [],
-  }));
+      mapByEmailAliases:
+        author.id && author.login
+          ? [`${author.id}+${author.login}@users.noreply.github.com`]
+          : [],
+    }));
+  } catch (error) {
+    return [];
+  }
 }

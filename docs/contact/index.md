@@ -120,5 +120,6 @@ order: 1
 |   抖音   |      [合肥工业大学](https://www.douyin.com/user/MS4wLjABAAAA_5X-8MyMeQzEcgFD8LdTYOiKZkbNdFBQpG214oCAe5M)       |              |
 |   快手   |                          [合肥工业大学](https://kuaishou.cn/profile/3x796zuj6zs46i6)                           |              |
 | 今日头条 | [合肥工业大学](https://www.toutiao.com/c/user/token/MS4wLjABAAAABmfkrKqkYSpxmevlUt10MVvfoRcy9J3Bu8l637A6ycw/?) |              |
+|   网易   |                        [合肥工业大学](https://www.163.com/dy/media/T1492406131172.html)                        |              |
 
 [^1]: 宣城校区学生工作办公室.合肥工业大学学生手册[M].安徽:合肥工业大学,2024\[2024-10-02].

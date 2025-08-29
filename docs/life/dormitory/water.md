@@ -5,7 +5,7 @@
 宿舍内不允许使用热水壶、热得快等大概率加热设备
 :::
 
-学校于 2024 年 9 月[^1]更换了新的热水机，有生活开水、直饮开水和直饮常温三种选择
+宣区于 2024 年 9 月更换了新的热水机[^1]，有生活开水、直饮开水和直饮常温三种选择
 
 ## 取水教程
 
@@ -16,7 +16,7 @@
 
 还可在小程序-我的-卡片绑定内输入卡物理 ID 并绑定，从而实现刷卡开始放水，拿卡停止放水，自动从支付宝扣款。
 
-卡物理 ID 可 使用 NFC 读卡器 或安装 [ikarus23/MifareClassicTool](https://github.com/ikarus23/MifareClassicTool)^[仅安卓]^ 或 [NFCTools](market://details?id=com.wakdev.wdnfc)^[仅安卓]^ 或 [NFC Tools](https://apps.apple.com/cn/app/nfc-tools/id1252962749)^[仅 iOS]^应用程序并搭配具有 NFC 功能的移动设备获取，但应该有更简单的方式。
+卡物理 ID 可 使用 NFC 读卡器 或安装 [ikarus23/MifareClassicTool](https://github.com/ikarus23/MifareClassicTool)^[仅安卓]^ 或 [NFCTools](market://details?id=com.wakdev.wdnfc)^[仅安卓]^ 或 [NFC Tools](https://apps.apple.com/cn/app/nfc-tools/id1252962749)^[仅苹果]^应用程序并搭配具有 NFC 功能的移动设备获取，但应该有更简单的方式。
 
 ### 计费标准
 
