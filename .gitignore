@@ -9,3 +9,6 @@ docs/.vitepress/cache
 dev-dist/
 
 sidebar.json
+
+# Obsidian
+.obsidian/
