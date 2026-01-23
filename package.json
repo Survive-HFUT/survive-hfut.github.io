@@ -15,30 +15,30 @@
   "devDependencies": {
     "@lint-md/cli": "^2.0.0",
     "husky": "^9.1.7",
-    "octokit": "^5.0.3",
-    "prettier": "^3.6.2"
+    "octokit": "^5.0.5",
+    "prettier": "^3.8.1"
   },
   "dependencies": {
-    "@nolebase/markdown-it-unlazy-img": "^2.17.2",
-    "@nolebase/vitepress-plugin-enhanced-mark": "^2.17.2",
-    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.17.2",
-    "@nolebase/vitepress-plugin-git-changelog": "^2.17.2",
-    "@nolebase/vitepress-plugin-page-properties": "^2.17.2",
-    "@nolebase/vitepress-plugin-thumbnail-hash": "^2.17.2",
+    "@nolebase/markdown-it-unlazy-img": "^2.18.2",
+    "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.2",
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.2",
+    "@nolebase/vitepress-plugin-git-changelog": "^2.18.2",
+    "@nolebase/vitepress-plugin-page-properties": "^2.18.2",
+    "@nolebase/vitepress-plugin-thumbnail-hash": "^2.18.2",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-sup": "^2.0.0",
     "medium-zoom": "^1.1.0",
-    "mermaid": "^11.10.0",
+    "mermaid": "^11.12.2",
     "nprogress-v2": "^1.1.10",
-    "vitepress": "^1.6.3",
+    "vitepress": "^1.6.4",
     "vitepress-markdown-timeline": "^1.2.2",
     "vitepress-plugin-back-to-top": "^1.0.1",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-mermaid": "^2.0.17",
-    "vitepress-plugin-rss": "^0.3.1",
-    "vitepress-plugin-tabs": "^0.7.1",
-    "vitepress-sidebar": "^1.31.1",
-    "vue": "^3.5.17"
+    "vitepress-plugin-rss": "^0.3.4",
+    "vitepress-plugin-tabs": "^0.7.3",
+    "vitepress-sidebar": "^1.33.1",
+    "vue": "^3.5.27"
   }
 }
