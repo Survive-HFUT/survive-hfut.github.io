@@ -6,7 +6,13 @@ const state = ref(false);
 
 <template>
   <sup @click="state = !state">
-    <a>[注]</a> <span v-show="state"><slot></slot></span>
+    <a
+      :style="
+        !state ? { textDecoration: 'underline' } : { textDecoration: 'none' }
+      "
+      >[注]</a
+    >
+    <span v-show="state"><slot></slot></span>
   </sup>
 </template>
 
