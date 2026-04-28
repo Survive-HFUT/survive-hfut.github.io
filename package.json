@@ -1,6 +1,6 @@
 {
   "name": "survive-hfut",
-  "version": "2025.08",
+  "version": "2026.04",
   "private": true,
   "description": "活在肥宣",
   "license": "CC0-1.0",
@@ -16,7 +16,7 @@
     "@lint-md/cli": "^2.0.0",
     "husky": "^9.1.7",
     "octokit": "^5.0.5",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.3"
   },
   "dependencies": {
     "@nolebase/markdown-it-unlazy-img": "^2.18.2",
@@ -29,7 +29,7 @@
     "markdown-it-mathjax3": "^4.3.2",
     "markdown-it-sup": "^2.0.0",
     "medium-zoom": "^1.1.0",
-    "mermaid": "^11.13.0",
+    "mermaid": "^11.14.0",
     "nprogress-v2": "^1.1.10",
     "vitepress": "^1.6.4",
     "vitepress-markdown-timeline": "^1.2.2",
@@ -39,6 +39,6 @@
     "vitepress-plugin-rss": "^0.3.4",
     "vitepress-plugin-tabs": "^0.7.3",
     "vitepress-sidebar": "^1.33.1",
-    "vue": "^3.5.30"
+    "vue": "^3.5.33"
   }
 }

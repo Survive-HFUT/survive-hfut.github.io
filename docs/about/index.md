@@ -30,7 +30,6 @@ order: 114514
 ### 开发运维
 
 - [Quartz68](https://github.com/quartz68)
-- [大学生网络文化工作室](../organizations/xuan/newx)
 
 ## 参考项目
 

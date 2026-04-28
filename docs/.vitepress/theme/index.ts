@@ -16,8 +16,8 @@ import { h, nextTick, onMounted, toRefs, watch } from 'vue';
 import locales from '../locales';
 import BackToTopTip from './components/BackToTopTip.vue';
 import DormitoryIdGenerator from './components/DormitoryIdGenerator.vue';
-import RandomJump from './components/RandomJump.vue';
 import Note from './components/Note.vue';
+import RandomJump from './components/RandomJump.vue';
 import ToDo from './components/ToDo.vue';
 
 import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
@@ -96,8 +96,36 @@ export default {
 
     if (inBrowser) {
       NProgress.configure({ showSpinner: false });
+
+      const scrollActiveSidebarItem = () => {
+        const sidebar = document.querySelector('aside.VPSidebar');
+        const activeItem = sidebar?.querySelector(
+          'div.VPSidebarItem.level-1.is-link.is-active.has-active',
+        );
+
+        if (!activeItem) {
+          return;
+        }
+
+        activeItem.scrollIntoView({ block: 'center' });
+
+        if (activeItem instanceof HTMLElement) {
+          activeItem.setAttribute('tabindex', '-1');
+        }
+      };
+
+      const scheduleScrollActiveSidebarItem = () => {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(scrollActiveSidebarItem);
+        });
+      };
+
       router.onBeforeRouteChange = () => void NProgress.start();
-      router.onAfterRouteChange = () => void NProgress.done();
+
+      router.onAfterRouteChange = () => {
+        NProgress.done();
+        scheduleScrollActiveSidebarItem();
+      };
     }
 
     enhanceAppWithTabs(app);

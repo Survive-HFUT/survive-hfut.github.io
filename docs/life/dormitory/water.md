@@ -14,7 +14,7 @@
 3. 在手机上点击出水
 4. 接水结束后点击结束用水
 
-还可在小程序-我的-卡片绑定内输入卡物理 ID 并绑定，从而实现刷卡开始放水，拿卡停止放水，自动从支付宝扣款。
+还可在 小程序→我的→卡片 绑定内输入卡物理 ID 并绑定，从而实现刷卡开始放水，拿卡停止放水，自动从支付宝扣款。
 
 卡物理 ID 可 使用 NFC 读卡器 或安装 [ikarus23/MifareClassicTool](https://github.com/ikarus23/MifareClassicTool)^[仅安卓]^ 或 [NFCTools](market://details?id=com.wakdev.wdnfc)^[仅安卓]^ 或 [NFC Tools](https://apps.apple.com/cn/app/nfc-tools/id1252962749)^[仅苹果]^应用程序并搭配具有 NFC 功能的移动设备获取，但应该有更简单的方式。
 
