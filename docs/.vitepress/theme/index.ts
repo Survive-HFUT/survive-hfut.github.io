@@ -29,6 +29,7 @@ import 'nprogress-v2/dist/index.css';
 import 'vitepress-markdown-timeline/dist/theme/index.css';
 import 'vitepress-plugin-back-to-top/dist/style.css';
 import './styles/index.css';
+import CustomHeroInfo from './components/CustomHeroInfo.vue';
 
 export default {
   extends: DefaultTheme,
@@ -38,6 +39,7 @@ export default {
       'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
       'nav-screen-content-after': () =>
         h(NolebaseEnhancedReadabilitiesScreenMenu),
+      'home-hero-info': () => h(CustomHeroInfo),
     }),
 
   setup: () => {
@@ -100,7 +102,7 @@ export default {
       const scrollActiveSidebarItem = () => {
         const sidebar = document.querySelector('aside.VPSidebar');
         const activeItem = sidebar?.querySelector(
-          'div.VPSidebarItem.level-1.is-link.is-active.has-active',
+          'div.VPSidebarItem.is-link.is-active',
         );
 
         if (!activeItem) {
@@ -121,7 +123,6 @@ export default {
       };
 
       router.onBeforeRouteChange = () => void NProgress.start();
-
       router.onAfterRouteChange = () => {
         NProgress.done();
         scheduleScrollActiveSidebarItem();

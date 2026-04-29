@@ -3,7 +3,10 @@ layout: home
 
 hero:
   name: 活在肥宣
-  text: 你的薰化路 301 号指南
+  texts:
+    - 你的薰化路301号指南
+    - 你的翡翠路420号指南
+    - 你的屯溪路193号指南
   tagline: 更适合合工大学生的生活指南
   image: /book.png
   actions:
@@ -11,14 +14,14 @@ hero:
       text: 📖 开始阅读
       link: /intro
     - theme: alt
-      text: 🤔 猜你想问/新生必看
+      text: 🧐 猜你想问/新生必看
       link: /enrollment/qa
     - theme: alt
       text: ☎️ 黄页
       link: /contact
     - theme: alt
       text: 👮 反诈骗
-      link: /enrollment/anti-fraud
+      link: /enrollment/anti_fraud
 features:
   - icon: 🔍
     title: 别忘了利用侧边栏和搜索栏查找资料
