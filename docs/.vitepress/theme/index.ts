@@ -15,6 +15,7 @@ import DefaultTheme from 'vitepress/theme';
 import { h, nextTick, onMounted, toRefs, watch } from 'vue';
 import locales from '../locales';
 import BackToTopTip from './components/BackToTopTip.vue';
+import CustomHeroInfo from './components/CustomHeroInfo.vue';
 import DormitoryIdGenerator from './components/DormitoryIdGenerator.vue';
 import Note from './components/Note.vue';
 import RandomJump from './components/RandomJump.vue';
@@ -29,7 +30,6 @@ import 'nprogress-v2/dist/index.css';
 import 'vitepress-markdown-timeline/dist/theme/index.css';
 import 'vitepress-plugin-back-to-top/dist/style.css';
 import './styles/index.css';
-import CustomHeroInfo from './components/CustomHeroInfo.vue';
 
 export default {
   extends: DefaultTheme,

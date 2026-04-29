@@ -3,6 +3,7 @@
 ## 提交反馈
 
 - [腾讯文档收集表](https://docs.qq.com/form/page/DTmd5anpGbmJHUGd6)
+- [交流群](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=hnhYa-TdwN9v_2f4wXmayC1V0vcdNUEx&authKey=pZs4xDQrK0eFcl2oKMtHB2E9O%2FqXX8SA%2FNNELsIR9t6kgC0YKqxVTrdl9t%2FpI6nO&noverify=0&group_code=812229258)
 - [GitHub Issue](https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new)
 - [GitHub Discussion](https://github.com/orgs/Survive-HFUT/discussions/new?category=%E5%8F%8D%E9%A6%88)
 

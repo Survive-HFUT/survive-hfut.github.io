@@ -30,4 +30,4 @@
 
 ## 兼职群
 
-详见[非官方群聊](../contact/group)
+详见[非官方群聊](../contact/unofficial)
