@@ -17,6 +17,8 @@
 }
 
 .footnotes {
+  max-width: 100vw;
+
   .footnotes-list {
     list-style: none;
     counter-reset: citation-counter;

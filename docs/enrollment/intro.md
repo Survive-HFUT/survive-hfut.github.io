@@ -6,7 +6,7 @@
 
 合肥工业大学始创于 1945 年，是中华人民共和国教育部直属全国重点大学，教育部、工信部和安徽省政府共建高校。[^2]
 
-根据《[合肥工业大学章程](https://www.hfut.edu.cn/xxgk/xxzc.htm)》，学校在合肥市设有[屯溪路校区](../campus/txl/)、[翡翠湖校区](../campus/fch/)、[六安路校区](../campus/lal/)三个校区，在宣城市设有[宣城校区](../campus/xc/)。除此之外还有一[智能制造技术研究院](../campus/institute/)。
+根据[《合肥工业大学章程》](https://www.hfut.edu.cn/xxgk/xxzc.htm)，学校在合肥市设有[屯溪路校区](../campus/txl/)、[翡翠湖校区](../campus/fch/)、[六安路校区](../campus/lal/)三个校区，在宣城市设有[宣城校区](../campus/xc/)。除此之外还有一[智能制造技术研究院](../campus/institute/)。
 
 ## 历史
 

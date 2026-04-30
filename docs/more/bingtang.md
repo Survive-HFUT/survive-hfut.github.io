@@ -1,14 +1,18 @@
 # 冰糖
 
-冰糖是合肥工业大学于 2014 年 5 月 8 日正式上线的官方 IP 形象，其名称取自校内文化古迹"斛兵塘"的谐音
+冰糖是合肥工业大学于 2014 年 5 月 8 日正式上线的官方 IP 形象，其名称取自屯溪路校区内文化古迹"斛兵塘"的谐音[^1]
 
-形象设计中融入了主教红服饰与碧绿瞳孔等校园标志性元素，每年本科生录取通知书中的手幅上的二次元形象正是冰糖
+<p align="center">
+<NolebaseUnlazyImg src="./media/bingtang.png" width="250" alt="冰糖"/>
+</p>
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114924147774949&bvid=BV1Tp8izuEY4&cid=31312185221&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+## 形象设计与视觉特征
 
-![冰糖](./media/bingtang.jpeg)
+“冰糖”的具体卡通形象以 Q 版女孩为造型基础，视觉系统深深植根于校园文化元素：主色调使用主教红——[主教学楼](../campus/txl/main_academic_building)的代表色；一对碧绿的瞳孔则象征着斛兵塘湖水的碧波涟漪。
 
-<span style="opacity:0.1">二次元大学实锤了。以后会有冰糖旮旯噶木么</span>
+## 定位
+
+作为合肥工业大学的全媒体 IP 形象，“冰糖”承担着校园宣传、文化传播与网络育人等多重职能。在合工大校园文化体系中，“冰糖”既是全媒体运营的代言符号，也是与学生、校友情感连接的桥梁
 
 ## 相关阅读
 
@@ -30,3 +34,7 @@
 - [工带老区建筑+冰糖🥰](https://tieba.baidu.com/p/8092224029)
 - [次时代恋爱养成游戏《合工大冰糖》🥰](https://tieba.baidu.com/p/8085198422)
 - [工大冰糖（ai+板绘修改）第二弹](https://tieba.baidu.com/p/8082643487)
+
+[^1]:
+    新华网.这就是，合肥工业大学！[DB/OL]. (2025-10-07)\[2026-04-30].  
+    <https://mp.weixin.qq.com/s/ohvjy8rZb00XDkwsirfamw>

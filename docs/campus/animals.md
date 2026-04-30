@@ -15,25 +15,27 @@ order: 100
 ## 小动物记录 / 保护组织
 
 :::tabs key:campus
-== 宣城校区
+== 屯溪路校区
 
-- [合工宣猫猫狗狗数据库](https://docs.qq.com/smartsheet/DUWp6YmxBQkp6dVJz)
-- [合工宣喵汪联盟](https://www.xiaohongshu.com/user/profile/67d16e17000000000d00b426)
-- 猫喃犬吠
-  - QQ 群：`648535023`
-  - 微信公众号：合工宣猫喃犬吠
-    <img src="maonan_quanfei.jpeg" alt="二维码" width="200">
+- 猫在皖中央
+  - 隶属于 屯溪路校区流浪猫救助协会
+  - 小红书：[`736320831`](https://www.xiaohongshu.com/user/profile/5f4e34250000000001004256)
+  - QQ：`3286079364`
 
 == 翡翠湖校区
 
 - [合工大七只小猫](https://www.xiaohongshu.com/user/profile/648add280000000011002052)
   - 隶属于 翡翠湖校区猫咪协会
 
-== 屯溪路校区
+== 宣城校区
 
-- 猫在皖中央
-  - 隶属于 屯溪路校区流浪猫救助协会
-  - [小红书](https://www.xiaohongshu.com/user/profile/5f4e34250000000001004256)：`736320831`
-  - QQ：`3286079364`
+- [合工宣猫猫狗狗数据库](https://docs.qq.com/smartsheet/DUWp6YmxBQkp6dVJz)
+- 合工宣喵汪联盟
+  - QQ 群：`1047942524`
+  - 小红书：[`26790848103`](https://www.xiaohongshu.com/user/profile/67d16e17000000000d00b426)
+- 猫喃犬吠
+  - QQ 群：`648535023`
+  - 微信公众号：合工宣猫喃犬吠
+    <NolebaseUnlazyImg src="./maonan_quanfei.jpeg" width="200" alt="二维码"/>
 
 :::

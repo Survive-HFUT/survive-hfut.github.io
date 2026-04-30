@@ -10,7 +10,7 @@
 
 带学生证免费（半小时车程，见过骑自行车去，可以看日出）
 
-![敬亭山](../media/mt_jingting.png)
+![敬亭山](./media/mt_jingting.png)
 
 ### 万达广场
 

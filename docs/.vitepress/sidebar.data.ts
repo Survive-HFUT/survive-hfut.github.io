@@ -24,6 +24,7 @@ export const sidebarValue = generateSidebar([
     useFolderLinkFromIndexFile: true,
     useTitleFromFileHeading: true,
     useFolderTitleFromIndexFile: true,
+    manualSortFileNameByPriority: ['copyright.md'],
   },
   {
     documentRootPath: 'docs',
