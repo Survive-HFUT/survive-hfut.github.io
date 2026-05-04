@@ -4,15 +4,17 @@ order: 0
 
 # 简介
 
-<h1 align="center">
+:::center
+
+<h1>
 Survive-HFUT
 <br>
 活在肥宣
 </h1>
 
-<p style="text-align:center">
 更适合合工大学生的生活指南
-</p>
+
+:::
 
 ![东大门](media/east_gate.jpg)
 

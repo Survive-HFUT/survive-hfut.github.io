@@ -21,6 +21,7 @@ import Note from './components/Note.vue';
 import RandomJump from './components/RandomJump.vue';
 import ToDo from './components/ToDo.vue';
 
+import '@mdit/plugin-spoiler/style';
 import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
 import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css';
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css';

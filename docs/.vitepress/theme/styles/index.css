@@ -11,4 +11,6 @@
 @import './home.css';
 @import './mediumZoom.css';
 @import './search.css';
-@import './markdown.css'
+@import './markdown.css';
+
+@import 'https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.css';

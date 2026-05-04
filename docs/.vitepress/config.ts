@@ -1,17 +1,19 @@
+import { footnote } from '@mdit/plugin-footnote';
+import { katex } from '@mdit/plugin-katex';
+import { spoiler } from '@mdit/plugin-spoiler';
+import { sup } from '@mdit/plugin-sup';
 import { UnlazyImages } from '@nolebase/markdown-it-unlazy-img';
 import { type Author } from '@nolebase/vitepress-plugin-git-changelog';
 import {
   GitChangelog,
   GitChangelogMarkdownSection,
 } from '@nolebase/vitepress-plugin-git-changelog/vite';
+import { align } from '@mdit/plugin-align';
 import {
   PageProperties,
   PagePropertiesMarkdownSection,
 } from '@nolebase/vitepress-plugin-page-properties/vite';
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
-import footnote from 'markdown-it-footnote';
-import mathjax3 from 'markdown-it-mathjax3';
-import sup from 'markdown-it-sup';
 import { Octokit } from 'octokit';
 import { defineConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
@@ -59,9 +61,11 @@ export default defineConfig({
     ...locales.markdown,
     config: (md) =>
       md
+        .use(spoiler)
         .use(sup)
         .use(footnote)
-        .use(mathjax3)
+        .use(align)
+        .use(katex)
         .use(timeline)
         .use(UnlazyImages(), {
           imgElementTag: 'NolebaseUnlazyImg',
