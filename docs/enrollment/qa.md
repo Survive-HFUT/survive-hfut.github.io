@@ -9,7 +9,7 @@
   - 搜索框位于页面上方（移动端位于右上角，电脑端位于左上角）
 - 搜索时<mark>使用关键词更容易找到你想要的的答案</mark>，例如你应该搜索`转专业`而不是`要怎么转专业`、`转专业需要哪些准备`
 - <mark>找不到想要的内容？</mark>
-  - 去[贴吧](https://tieba.baidu.com/f?kw=%E5%90%88%E8%82%A5%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%E5%AE%A3%E5%9F%8E%E6%A0%A1%E5%8C%BA&fr=index)问问
+  - 去[贴吧](../contact/unofficial#贴吧)问问
   - 在 [GitHub Discussion](https://github.com/orgs/Survive-HFUT/discussions/new?category=%E5%88%9D%E6%9D%A5%E4%B9%8D%E5%88%B0) 上提问
   - 直接在相关页面底部的讨论区留言
 

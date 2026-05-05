@@ -4,7 +4,6 @@ import {
 } from '@nolebase/vitepress-plugin-enhanced-readabilities/client';
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebasePagePropertiesPlugin } from '@nolebase/vitepress-plugin-page-properties';
-import { NolebaseUnlazyImg } from '@nolebase/vitepress-plugin-thumbnail-hash/client';
 import mediumZoom from 'medium-zoom';
 import { NProgress } from 'nprogress-v2/dist/index.js';
 import { inBrowser, useData, useRoute, type Theme } from 'vitepress';
@@ -21,15 +20,7 @@ import Note from './components/Note.vue';
 import RandomJump from './components/RandomJump.vue';
 import ToDo from './components/ToDo.vue';
 
-import '@mdit/plugin-spoiler/style';
-import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
-import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css';
-import '@nolebase/vitepress-plugin-git-changelog/client/style.css';
-import '@nolebase/vitepress-plugin-page-properties/client/style.css';
-import '@nolebase/vitepress-plugin-thumbnail-hash/client/style.css';
-import 'nprogress-v2/dist/index.css';
-import 'vitepress-markdown-timeline/dist/theme/index.css';
-import 'vitepress-plugin-back-to-top/dist/style.css';
+// @ts-expect-error
 import './styles/index.css';
 
 export default {
@@ -84,7 +75,6 @@ export default {
     app.component('ToDo', ToDo);
     app.component('RandomJump', RandomJump);
     app.component('BackToTopTip', BackToTopTip);
-    app.component('NolebaseUnlazyImg', NolebaseUnlazyImg);
     app.component('DormitoryIdGenerator', DormitoryIdGenerator);
 
     app.use(NolebaseGitChangelogPlugin);

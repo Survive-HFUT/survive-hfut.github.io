@@ -1,9 +1,9 @@
 import { align } from '@mdit/plugin-align';
+import { figure } from '@mdit/plugin-figure';
 import { footnote } from '@mdit/plugin-footnote';
 import { katex } from '@mdit/plugin-katex';
 import { spoiler } from '@mdit/plugin-spoiler';
 import { sup } from '@mdit/plugin-sup';
-import { UnlazyImages } from '@nolebase/markdown-it-unlazy-img';
 import { type Author } from '@nolebase/vitepress-plugin-git-changelog';
 import {
   GitChangelog,
@@ -13,9 +13,8 @@ import {
   PageProperties,
   PagePropertiesMarkdownSection,
 } from '@nolebase/vitepress-plugin-page-properties/vite';
-import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
 import { Octokit } from 'octokit';
-import { DefaultTheme, defineConfig } from 'vitepress';
+import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import { RssPlugin } from 'vitepress-plugin-rss';
@@ -23,7 +22,6 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import customElements from './customElements';
 import locales from './locales';
 import { sidebarValue } from './sidebar.data';
-import { UserConfig } from 'vitepress';
 
 const time =
   new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
@@ -41,16 +39,14 @@ export default defineConfig({
   markdown: {
     ...locales.markdown,
     config: (md) =>
-      md
+      void md
         .use(spoiler)
         .use(sup)
+        .use(figure, { linkImage: false })
         .use(footnote)
         .use(align)
         .use(katex)
         .use(timeline)
-        .use(UnlazyImages(), {
-          imgElementTag: 'NolebaseUnlazyImg',
-        })
         .use(MermaidMarkdown)
         .use(tabsMarkdownPlugin),
     toc: {
@@ -60,7 +56,6 @@ export default defineConfig({
 
   vite: {
     plugins: [
-      ThumbnailHashImages(),
       GitChangelog({
         repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
         mapAuthors: await getAuthors(),
@@ -95,9 +90,6 @@ export default defineConfig({
 
   vue: {
     template: {
-      transformAssetUrls: {
-        NolebaseUnlazyImg: ['src'],
-      },
       compilerOptions: {
         isCustomElement: customElements.includes,
       },

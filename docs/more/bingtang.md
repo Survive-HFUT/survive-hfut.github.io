@@ -3,7 +3,7 @@
 冰糖是合肥工业大学于 2014 年 5 月 8 日正式上线的官方 IP 形象，其名称取自屯溪路校区内文化古迹"斛兵塘"的谐音[^1]
 
 <p align="center">
-<NolebaseUnlazyImg src="./media/bingtang.png" width="250" alt="冰糖"/>
+<img src="./media/bingtang.png" width="250" alt="冰糖"/>
 </p>
 
 ## 形象设计与视觉特征

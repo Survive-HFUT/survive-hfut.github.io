@@ -2,7 +2,6 @@
  * Customize default theme styling by overriding CSS variables:
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
  */
-
 @import './colors.css';
 
 @import './blur.css';
@@ -12,5 +11,14 @@
 @import './mediumZoom.css';
 @import './search.css';
 @import './markdown.css';
+@import './figure.css';
 
 @import 'https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.css';
+@import '@mdit/plugin-spoiler/style';
+@import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
+@import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css';
+@import '@nolebase/vitepress-plugin-git-changelog/client/style.css';
+@import '@nolebase/vitepress-plugin-page-properties/client/style.css';
+@import 'nprogress-v2/dist/index.css';
+@import 'vitepress-markdown-timeline/dist/theme/index.css';
+@import 'vitepress-plugin-back-to-top/dist/style.css';

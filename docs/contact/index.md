@@ -112,14 +112,17 @@ order: 1
 
 |   平台   |                                                      链接                                                      |      ID      |
 | :------: | :------------------------------------------------------------------------------------------------------------: | :----------: |
-|    QQ    |                                [工大小宣](https://mp.qzone.qq.com/u/262115685)                                 | `262115685`  |
-|    QQ    |                          [合工大宣城校区学生会](https://mp.qzone.qq.com/u/3107961334)                          | `3107961334` |
+|    QQ    |                                                   [工大小宣]                                                   | `262115685`  |
+|    QQ    |                                             [合工大宣城校区学生会]                                             | `3107961334` |
 |    QQ    |                              [合肥工业大学](https://mp.qzone.qq.com/u/3290029079)                              | `3290029079` |
-| BiliBili |                              [合肥工业大学](https://space.bilibili.com/524819058)                              | `524819058`  |
-|   微博   |                                   [合肥工业大学](https://weibo.com/hfut1945)                                   |              |
-|   抖音   |      [合肥工业大学](https://www.douyin.com/user/MS4wLjABAAAA_5X-8MyMeQzEcgFD8LdTYOiKZkbNdFBQpG214oCAe5M)       |              |
+| 哔哩哔哩 |                              [合肥工业大学](https://space.bilibili.com/524819058)                              | `524819058`  |
+|   微博   |                                   [合肥工业大学](https://weibo.com/hfut1945)                                   |  `hfut1945`  |
+|   抖音   |      [合肥工业大学](https://www.douyin.com/user/MS4wLjABAAAA_5X-8MyMeQzEcgFD8LdTYOiKZkbNdFBQpG214oCAe5M)       |  `HFUT1945`  |
 |   快手   |                          [合肥工业大学](https://kuaishou.cn/profile/3x796zuj6zs46i6)                           |              |
 | 今日头条 | [合肥工业大学](https://www.toutiao.com/c/user/token/MS4wLjABAAAABmfkrKqkYSpxmevlUt10MVvfoRcy9J3Bu8l637A6ycw/?) |              |
 |   网易   |                        [合肥工业大学](https://www.163.com/dy/media/T1492406131172.html)                        |              |
+
+[工大小宣]: https://mp.qzone.qq.com/u/262115685
+[合工大宣城校区学生会]: https://mp.qzone.qq.com/u/3107961334
 
 [^1]: 宣城校区学生工作办公室.合肥工业大学学生手册[M].安徽:合肥工业大学,2024\[2024-10-02].
