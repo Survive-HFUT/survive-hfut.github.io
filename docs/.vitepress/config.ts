@@ -1,3 +1,4 @@
+import { align } from '@mdit/plugin-align';
 import { footnote } from '@mdit/plugin-footnote';
 import { katex } from '@mdit/plugin-katex';
 import { spoiler } from '@mdit/plugin-spoiler';
@@ -8,14 +9,13 @@ import {
   GitChangelog,
   GitChangelogMarkdownSection,
 } from '@nolebase/vitepress-plugin-git-changelog/vite';
-import { align } from '@mdit/plugin-align';
 import {
   PageProperties,
   PagePropertiesMarkdownSection,
 } from '@nolebase/vitepress-plugin-page-properties/vite';
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite';
 import { Octokit } from 'octokit';
-import { defineConfig } from 'vitepress';
+import { DefaultTheme, defineConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import { RssPlugin } from 'vitepress-plugin-rss';
@@ -23,6 +23,7 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import customElements from './customElements';
 import locales from './locales';
 import { sidebarValue } from './sidebar.data';
+import { UserConfig } from 'vitepress';
 
 const time =
   new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
@@ -31,28 +32,8 @@ const time =
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: '活在肥宣',
-  description: '合工大宣生活手册 · 你的薰化路 301 号指南',
-  head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
-    ['link', { rel: 'apple-touch-icon', href: '/book.png' }],
-    ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-title', content: '活在肥宣' }],
-    [
-      'meta',
-      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
-    ],
-    [
-      'script',
-      {
-        defer: 'true',
-        src: 'https://cloud.umami.is/script.js',
-        'data-website-id': 'e4fe9a73-74ca-4c11-99e5-585d60267170',
-        // dashboard: https://cloud.umami.is/share/TO6zOo7xWbS2gcFF/survive-hfut.cc
-      },
-    ],
-    ['script', {}, `console.log("Built at ${time}")`],
-  ],
+  description: '更适合合工大学生的生活指南',
+  head: getHead(),
   cleanUrls: true,
   lastUpdated: true,
   lang: 'zh-CN',
@@ -93,7 +74,7 @@ export default defineConfig({
         copyright: 'CC-BY-SA 4.0',
         baseUrl: 'https://survive-hfut.cc',
       }),
-    ] as Plugin[],
+    ],
 
     optimizeDeps: {
       include: ['mermaid'],
@@ -126,7 +107,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '猜你想问', link: '/enrollment/qa' },
-      { text: '随机页面', link: '/_random' },
+      { text: '随便看看', link: '/_random' },
       { text: '关于', link: '/about' },
       {
         text: '反馈',
@@ -171,7 +152,7 @@ export default defineConfig({
 
     footer: {
       message: '使用 VitePress 构建<br/>' + '最后更新：' + time,
-      copyright: '未做特别声明的内容，均按照 CC-BY-SA 4.0 协议进行分发',
+      copyright: '未作特别声明的内容，均按照 CC-BY-SA 4.0 协议进行分发',
     },
 
     editLink: {
@@ -214,4 +195,37 @@ async function getAuthors(): Promise<Author[]> {
   } catch (error) {
     return [];
   }
+}
+
+function getHead() {
+  const head: UserConfig<DefaultTheme.Config>['head'] = [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'apple-touch-icon', href: '/book.png' }],
+    ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-title', content: '活在肥宣' }],
+    [
+      'meta',
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+    ],
+    [
+      'script',
+      {},
+      `console.log("%c 活在肥宣 %c Built at ${time}", "font-weight:700;background:#3451b2;color:white;font-size:16px","color:#64748b")`,
+    ],
+  ];
+
+  if (process.env.NODE_ENV === 'production') {
+    head.push([
+      'script',
+      {
+        defer: 'true',
+        src: 'https://cloud.umami.is/script.js',
+        'data-website-id': 'e4fe9a73-74ca-4c11-99e5-585d60267170',
+        // dashboard: https://cloud.umami.is/share/TO6zOo7xWbS2gcFF/survive-hfut.cc
+      },
+    ]);
+  }
+
+  return head;
 }

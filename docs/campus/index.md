@@ -18,5 +18,5 @@
 :::
 
 [^1]:
-    合肥工业大学本科招生网.合肥工业大学 2025 年全日制普通本科招生章程[DB/OL]. (2025-06-03)\[2026-04-28].
+    合肥工业大学本科招生网.合肥工业大学 2025 年全日制普通本科招生章程[DB/OL]. (2025-06-03)\[2026-04-28].  
     <https://bkzs.hfut.edu.cn/static/front/hfut/basic/html_cms/frontViewArticle.html?id=b7ee2ed6db584d2ca54b6e4ba0ab8aee>
