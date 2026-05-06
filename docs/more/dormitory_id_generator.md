@@ -10,6 +10,6 @@ const g = ref({});
 
 ## 输出
 
-```id-vue
+```txt-vue
 {{g.id||'-'}}
 ```

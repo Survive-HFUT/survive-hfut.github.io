@@ -18,22 +18,6 @@
 
 ## Markdown 语法规范
 
-:::tip
-推荐的代码编辑器：
-
-[Visual Studio Code](https://code.visualstudio.com/)
-
-并搭配以下扩展使用
-
-- 💡[**markdownlint**](https://marketplace.visualstudio.com/items/?itemName=DavidAnson.vscode-markdownlint)
-- 💡[**Markdown All in One**](https://marketplace.visualstudio.com/items/?itemName=yzhang.markdown-all-in-one)
-- 💡[**Prettier - Code formatter**](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-  - 将此扩展作为默认的格式化工具
-- [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items/?itemName=bierner.markdown-mermaid)
-- [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items/?itemName=bierner.markdown-preview-github-styles)
-
-:::
-
 Markdown 文档应符合基本语法，并参考[推荐规范](#推荐规范)进行编写，并允许一定的[扩展语法](#扩展语法)
 
 :::info 规范太多不好写？
@@ -50,10 +34,9 @@ Markdown 文档应符合基本语法，并参考[推荐规范](#推荐规范)进
 
 - `VitePress`提供的 [Markdown 扩展语法](https://vitepress.dev/zh/guide/markdown)
 - `markdown-it`插件提供的扩展语法
-  - [脚注](https://github.com/markdown-it/markdown-it-footnote)
-  - [数学公式](https://github.com/tani/markdown-it-mathjax3)
-  - [角标](https://github.com/markdown-it/markdown-it-sup)
-  - [任务勾选框](https://github.com/linsir/markdown-it-task-checkbox)
+  - [脚注](https://mdit-plugins.github.io/zh/footnote.html)
+  - [数学公式](https://mdit-plugins.github.io/zh/katex.html)
+  - [角标](https://mdit-plugins.github.io/zh/sup.html)
 - [Mermaid](https://mermaid.js.org/)
 
 ### 推荐规范
