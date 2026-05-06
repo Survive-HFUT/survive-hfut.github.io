@@ -17,15 +17,20 @@
 
 :::info
 
-本页的问题参考了[大学生活质量指北](https://colleges.chat/universities/he-fei-gong-ye-da-xue-xuan-cheng-xiao-qu/)和[2025 冰糖答新生问](https://www.kdocs.cn/l/ccPLB8FE5ZRP)
+本页的问题参考了以下来源
+
+- [大学生活质量指北](https://colleges.chat/universities/he-fei-gong-ye-da-xue-xuan-cheng-xiao-qu/)
+- [~~2025 冰糖答新生问~~](https://www.kdocs.cn/l/ccPLB8FE5ZRP)（已被清空）
 
 :::
+
+:::details 目录（点击展开）
 
 <!-- 👇自动生成目录，编写时按 md 语法在下面插入章节即可 -->
 
 [[toc]]
 
-<!-- 👆自动生成目录，编写时按 md 语法在下面插入章节即可 -->
+:::
 
 <BackToTopTip/>
 
@@ -226,11 +231,13 @@
 
 是
 
-#### ❔ 有空调吗
+#### ❔ 有空调/暖气吗
 
-有，但是需要租赁。以寝室为单位租赁，四年约 1200
+无统一供暖的暖气，但有空调，在冬天时可以开制热模式
 
-另需缴纳空调电费，夏季中高强度使用日均 6~8 元
+宣区的同学需要以寝室为单位租赁空调，四年约 1200
+
+另需缴纳空调电费，按使用电量计费
 
 #### ❔ 有独立卫浴吗
 
@@ -284,7 +291,7 @@
 
 #### ❔ 可以到校外租房吗
 
-需要和辅导员联系
+需要和辅导员申请
 
 :::warning
 
@@ -338,7 +345,7 @@
 
 :::info
 
-此节内容可详见[生活§校内交通工具](../life/transport.md)
+此节内容可详见[生活§校内交通工具](../life/transportation/intramural)
 
 :::
 
@@ -360,7 +367,7 @@
 
 #### ❔ 校内有共享单车吗
 
-有[哈啰单车](../life/transport.md#共享单车)
+有[哈啰单车](../life/transportation/intramural#共享单车)
 
 #### ❔ 校内有共享电瓶车吗
 
@@ -372,7 +379,7 @@
 
 :::info
 
-详见[生活§校内交通工具#充电点位](../life/transport.md#充电点位)
+详见[生活§校内交通工具#充电点位](../life/transportation/intramural#充电点位)
 
 :::
 
@@ -382,7 +389,7 @@
 
 :::info
 
-详见[生活§公共交通](../life/transport.md)
+详见[生活§公共交通](../life/transportation/)
 
 :::
 
