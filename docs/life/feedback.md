@@ -7,6 +7,7 @@
 [**领导信箱**](https://xc.hfut.edu.cn/_web/_leadermail/api/lookReplieMail/new.rst?_p=YXM9MiZ0PTE0NTcmcD0xJm09TiY_&leaderMailBoxId=16&request_locale=zh_CN&localeCH=true) 是宣城校区接收师生意见建议与投诉的官方正式通道。
 
 ### 填写建议
+
 - **如实描述**：请清晰、如实地描述遇到的问题或建议。
 - **分类选择**：在提交时注意选择正确的信箱分类。
 - **及时跟进**：提交后可关注后续的回复与处理进展。
