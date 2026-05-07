@@ -18,8 +18,10 @@ order: 1
 | [邮件系统](http://email.mail.hfut.edu.cn)                      | 登录校园邮箱                                  |                                                    |
 | [宽带认证系统(宿舍楼、教学楼区域)](http://172.18.3.3)          | 登录校园网                                    | _需要连接校园网访问_                               |
 | [宽带认证系统(实验楼区域)](http://172.18.2.2)                  | 登录校园网                                    | _需要连接校园网访问_                               |
-| [**领导信箱**](https://xc.hfut.edu.cn/_web/_leadermail/api/lookReplieMail/new.rst?_p=YXM9MiZ0PTE0NTcmcD0xJm09TiY_&leaderMailBoxId=16&request_locale=zh_CN&localeCH=true) | 提交意见建议/投诉 | 宣城校区官方渠道 |
+| [领导信箱]                                                     | 提交意见建议/投诉                             | 宣城校区官方反馈渠道                               |
 | ~~[服务大厅](http://172.31.248.26:8088)~~                      | ~~缴网费/缴电费/校园卡相关~~                  | 已弃用，请使用[慧新易校 APP](../life/app#慧新易校) |
+
+[领导信箱]: https://xc.hfut.edu.cn/_web/_leadermail/api/lookReplieMail/new.rst?_p=YXM9MiZ0PTE0NTcmcD0xJm09TiY_&leaderMailBoxId=16&request_locale=zh_CN&localeCH=true
 
 ## 工作电话 [^1]
 

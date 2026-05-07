@@ -163,12 +163,14 @@ export default defineConfig({
 
 async function getAuthors(): Promise<Author[]> {
   try {
-    return (
-      await new Octokit().rest.repos.listContributors({
-        repo: 'survive-hfut.github.io',
-        owner: 'Survive-HFUT',
-      })
-    ).data.map((author) => ({
+    const response = await new Octokit().rest.repos.listContributors({
+      repo: 'survive-hfut.github.io',
+      owner: 'Survive-HFUT',
+    });
+
+    // console.log(response.data);
+
+    return response.data.map((author) => ({
       name: author.login,
       links: author.html_url,
       avatar: author.avatar_url,
