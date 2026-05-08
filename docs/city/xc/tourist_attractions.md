@@ -1,7 +1,8 @@
 # 景点
 
-![宣城旅游封面](./media/cover.jpg)
-![宣城周边旅游推荐](./media/recommend.jpg)
+![宣城旅游封面（AIGC）](./media/cover.jpg)
+
+![宣城周边旅游推荐（AIGC）](./media/recommend.jpg)
 
 :::tip
 

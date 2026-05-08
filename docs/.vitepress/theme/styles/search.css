@@ -1,3 +1,12 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+.VPNavBarSearch.search button {
+  border: 1px solid transparent;
+  transition: border-color 0.25s;
+}
+
+.VPNavBarSearch.search button:hover {
+  border: 1px solid var(--vp-c-brand);
+}

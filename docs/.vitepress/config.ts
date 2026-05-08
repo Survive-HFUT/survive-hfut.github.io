@@ -13,6 +13,7 @@ import {
   PageProperties,
   PagePropertiesMarkdownSection,
 } from '@nolebase/vitepress-plugin-page-properties/vite';
+import sidebar from './sidebar';
 import { Octokit } from 'octokit';
 import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
@@ -21,7 +22,6 @@ import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import customElements from './customElements';
 import locales from './locales';
-import { sidebarValue } from './sidebar.data';
 
 const time =
   new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
@@ -127,7 +127,7 @@ export default defineConfig({
 
     externalLinkIcon: true,
 
-    sidebar: sidebarValue,
+    sidebar,
 
     socialLinks: [
       {
