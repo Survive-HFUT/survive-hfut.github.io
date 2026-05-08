@@ -8,7 +8,7 @@ hero:
     - 你的翡翠路420号指南
     - 你的屯溪路193号指南
   tagline: 更适合合工大学生的生活指南
-  image: /book.png
+  image: /book.webp
   actions:
     - theme: brand
       text: 📖 开始阅读

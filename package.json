@@ -9,6 +9,10 @@
     "docs:dev": "npm run sync:todo && vitepress dev docs",
     "docs:build": "npm run sync:todo && vitepress build docs",
     "docs:preview": "vitepress preview docs",
+    "docs:perf": "node scripts/perf-report.js",
+    "docs:img:compress": "node scripts/compress-images.js",
+    "docs:img:webp": "node scripts/convert-all-to-webp.js",
+    "docs:img:webp:fix": "node scripts/fix-webp-references.js",
     "sync:todo": "node scripts/sync-todo.js",
     "docs:lint": "lint-md docs/** --fix && prettier docs/**/*.md -w",
     "prepare": "husky"
@@ -18,7 +22,8 @@
     "@types/node": "^25.6.0",
     "husky": "^9.1.7",
     "octokit": "^5.0.5",
-    "prettier": "^3.8.3"
+    "prettier": "^3.8.3",
+    "sharp": "^0.34.5"
   },
   "dependencies": {
     "@mdit/plugin-align": "^0.24.2",

@@ -53,7 +53,7 @@
 
 充值后显示“待圈存”，在消费机上贴卡后自动写卡入账[^2]
 
-![校园卡的充值](./media/campus_card_recharge.png)
+![校园卡的充值](./media/campus_card_recharge.webp)
 
 ### 圈存机上充值
 

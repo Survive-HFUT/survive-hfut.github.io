@@ -24,25 +24,25 @@ order: 1
 
 :::details 多图
 
-![二课介绍1](./media/image28.png)
+![二课介绍1](./media/image28.webp)
 
-![二课介绍2](./media/image29.png)
+![二课介绍2](./media/image29.webp)
 
-![二课介绍3](./media/image30.png)
+![二课介绍3](./media/image30.webp)
 
-![二课介绍4](./media/image31.png)
+![二课介绍4](./media/image31.webp)
 
-![二课介绍5](./media/image32.png)
+![二课介绍5](./media/image32.webp)
 
-![二课介绍6](./media/image33.png)
+![二课介绍6](./media/image33.webp)
 
-![二课介绍7](./media/image34.png)
+![二课介绍7](./media/image34.webp)
 
-![二课介绍8](./media/image35.png)
+![二课介绍8](./media/image35.webp)
 
-![二课介绍9](./media/image36.png)
+![二课介绍9](./media/image36.webp)
 
-![二课介绍10](./media/image37.png)
+![二课介绍10](./media/image37.webp)
 
 :::
 

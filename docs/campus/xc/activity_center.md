@@ -4,6 +4,6 @@
 
 心理辅导室位于 316 室，预约可以参考[《关于大学生心理健康教育与咨询中心开放的通知》](https://xgzx.hfut.edu.cn/9c/a5/c689a40101/page.htm)
 
-![傍晚的大活](dahuo_1.jpg)
+![傍晚的大活](dahuo_1.webp)
 
-![大活和黑天鹅](dahuo_2.jpg)
+![大活和黑天鹅](dahuo_2.webp)

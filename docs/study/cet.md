@@ -119,7 +119,7 @@
 
 ## 难度
 
-![meme](./media/cet_meme.jpg)
+![meme](./media/cet_meme.webp)
 
 感觉难是正常的🤓
 

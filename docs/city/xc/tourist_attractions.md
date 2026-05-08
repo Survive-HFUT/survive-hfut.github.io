@@ -1,6 +1,6 @@
 # 景点
 
-![宣城旅游封面](./media/cover.jpg)
+![宣城旅游封面](./media/cover.webp)
 
 :::tip
 
@@ -14,7 +14,7 @@
 
 带学生证免费（半小时车程，见过骑自行车去，可以看日出）
 
-![敬亭山](./media/mt_jingting.png)
+![敬亭山](./media/mt_jingting.webp)
 
 ### 中国鳄鱼湖
 
@@ -24,7 +24,7 @@
 
 学生票半价
 
-![鳄鱼湖](./media/alligators_lake.png)
+![鳄鱼湖](./media/alligators_lake.webp)
 
 ## 泾县
 
@@ -32,7 +32,7 @@
 
 又称“江南天路”，是安徽省内著名的自驾路线。精华路段东起宁国市青龙乡，西至泾县蔡村镇，全长约 120 公里，穿越原始森林，风光险峻秀美。
 
-![皖南川藏线](./media/wannan_chuanzang_line.png)
+![皖南川藏线](./media/wannan_chuanzang_line.webp)
 
 #### 核心景点
 
@@ -53,23 +53,23 @@
 
 宣城被称为“中国文房四宝之乡”，而泾县则是宣纸的产地。在这里可以亲眼看到宣纸传承千年的制作工艺，甚至亲自参与“捞纸”过程。
 
-![中国宣纸文化园](media/xuan_paper_garden.jpg)
+![中国宣纸文化园](media/xuan_paper_garden.webp)
 
 ### 查济古镇
 
 保存得很好的一个古镇，是我国现存规模最大的明清古村落。
 
-![查济古镇](media/zhaji1.jpeg)
+![查济古镇](media/zhaji1.webp)
 
-![查济古镇](media/zhaji2.jpeg)
+![查济古镇](media/zhaji2.webp)
 
 ### 桃花潭
 
 > 桃花潭水深千尺，不及汪伦送我情。
 
-![桃花](media/taohuatan2.jpeg)
+![桃花](media/taohuatan2.webp)
 
-![油菜花](media/taohuatan1.jpeg)
+![油菜花](media/taohuatan1.webp)
 
 [^1]:
     宣城市文化和旅游局.宣城市国有 A 级旅游景区对本市学生免费开放公告[DB/OL]. (2026-01-28)\[2026-05-01].  

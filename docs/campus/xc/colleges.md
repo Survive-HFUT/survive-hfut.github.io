@@ -10,9 +10,9 @@
 
 门牌号偶数位于北侧，奇数位于南侧
 
-![敬亭学堂](./jingting_1.jpg)
+![敬亭学堂](./jingting_1.webp)
 
-![敬亭学堂](./jingting_2.jpg)
+![敬亭学堂](./jingting_2.webp)
 
 ## 新安学堂
 
@@ -27,6 +27,6 @@
 - [合肥工业大学宣城二期教学楼——徽派文化元素的探索 / 华南理工大学建筑设计研究院陶郅工作室 | 建筑学院 (archcollege.com)](http://www.archcollege.com/archcollege/2018/03/39655.html)
 - [合肥工业大学宣城二期教学楼 / 华南理工大学建筑设计研究院](https://www.gooood.cn/xuancheng-phase-ii-teaching-building-hefei-university-of-technology-china-by-architectural-design-and-research-institute-of-scut.htm)
 
-![南入口](./xinan_1.jpg)
+![南入口](./xinan_1.webp)
 
-![新安学堂](./xinan_2.jpg)
+![新安学堂](./xinan_2.webp)

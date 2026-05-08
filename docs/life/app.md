@@ -161,23 +161,23 @@
 
 :::details 图片
 
-![日程](./media/hfutspace_1.jpeg)
+![日程](./media/hfutspace_1.webp)
 
-![课表](./media/hfutspace_2.jpeg)
+![课表](./media/hfutspace_2.webp)
 
 :::
 
 点击课程名称都可以看到更加详细的信息。
 
-![课程信息](./media/hfutspace_3.jpeg)
+![课程信息](./media/hfutspace_3.webp)
 
 在课程信息下还可以查看同班同学或者查询挂科率。
 
 :::details 图片
 
-![同班同学](./media/hfutspace_4.jpeg)
+![同班同学](./media/hfutspace_4.webp)
 
-![挂科率](./media/hfutspace_5.jpeg)
+![挂科率](./media/hfutspace_5.webp)
 
 :::
 
@@ -185,11 +185,11 @@
 
 :::details 图片
 
-![课表设置](./media/hfutspace_6.jpeg)
+![课表设置](./media/hfutspace_6.webp)
 
 课表界面下点击选择学期，可以查看不同学期的课表。
 
-![学期课表](./media/hfutspace_7.jpeg)
+![学期课表](./media/hfutspace_7.webp)
 
 :::
 
@@ -199,11 +199,11 @@
 
 :::details 图片
 
-![总成绩](./media/hfutspace_8.jpeg)
+![总成绩](./media/hfutspace_8.webp)
 
-![学期成绩](./media/hfutspace_9.jpeg)
+![学期成绩](./media/hfutspace_9.webp)
 
-![课程成绩](./media/hfutspace_10.jpeg)
+![课程成绩](./media/hfutspace_10.webp)
 
 :::
 
@@ -218,7 +218,7 @@
 - **第二课堂**
   点击后会跳转到合工大的"第二课堂成绩单"小程序。第二课堂事关毕业，不过通常来说学校都巴不得你毕业，所以不用担心。想要达到毕业的标准很简单，但如果要当二课战神想要星星点灯的话就得多多参加各类活动了。
 
-![其他功能](./media/hfutspace_11.jpeg)
+![其他功能](./media/hfutspace_11.webp)
 
 ### ~~肥工小宇宙~~ <Badge text="App" /> <Badge text="已停止维护" type="danger"/> <Badge text="非官方" type="info"/>
 

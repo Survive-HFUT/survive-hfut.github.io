@@ -12,7 +12,7 @@
 
 可坐公交或者打车，打车一般 8~20 块，或者骑半小时左右的自行车
 
-![万达广场](./media/wanda_plaza.jpeg)
+![万达广场](./media/wanda_plaza.webp)
 
 万达广场南边有个银桥湾夜市也不错
 
@@ -20,7 +20,7 @@
 
 消费水平比万达低一点，距离学校比万达远一点
 
-![国购广场](./media/goocoo_plaza.jpeg)
+![国购广场](./media/goocoo_plaza.webp)
 
 ## 公园
 
@@ -28,7 +28,7 @@
 
 离学校比较近，周长约 6km ，可以去散步、跑步、骑行等，初春景色最佳。宣城博物馆就在宛陵湖畔。
 
-![宛陵湖](./media/wanling_lake.jpg)
+![宛陵湖](./media/wanling_lake.webp)
 
 ### 梅溪公园
 
@@ -36,7 +36,7 @@
 
 梅溪公园是宋朝诗人梅尧臣故里，宗族后代有梅兰芳等名人。
 
-![梅溪公园](./media/meixi_park.jpg)
+![梅溪公园](./media/meixi_park.webp)
 
 ### 谢朓楼
 
@@ -44,7 +44,7 @@
 > 乱我心者，今日之日多烦忧。  
 > 长风万里送秋雁，对此可以酣高楼。
 
-![谢朓楼](media/xietiao_tower.jpg)
+![谢朓楼](media/xietiao_tower.webp)
 
 [^1]:
     百度百科.宣城市[DB/OL]. (2026-04-04)\[2026-05-01].  

@@ -36,6 +36,6 @@ order: 100
 - 猫喃犬吠
   - QQ 群：`648535023`
   - 微信公众号：合工宣猫喃犬吠
-    <img src="./maonan_quanfei.jpeg" width="200" alt="二维码"/>
+    <img src="./maonan_quanfei.webp" width="200" alt="二维码"/>
 
 :::

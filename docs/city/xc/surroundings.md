@@ -23,7 +23,7 @@
 
 北门出去就是市体育馆，有羽毛球馆、乒乓球馆、游泳馆等。
 
-![游泳馆](media/city_stadium_1.jpg)
+![游泳馆](media/city_stadium_1.webp)
 
 ## 相关阅读
 

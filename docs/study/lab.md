@@ -28,13 +28,13 @@
 
 详情移步 qq 群 543203850
 
-![校 ACM 交流群](./media/image26.png)
+![校 ACM 交流群](./media/image26.webp)
 
 ## WDR 战队机器人技术实验室
 
-![赛场照](./media/wdr_pic1.jpg)
+![赛场照](./media/wdr_pic1.webp)
 
-![赛场照](./media/wdr_pic2.jpg)
+![赛场照](./media/wdr_pic2.webp)
 
 ### 了解我们
 
@@ -51,9 +51,9 @@ RoboMaster 机甲大师高校系列赛，作为全国大学生机器人大赛旗
 - 宣传管理组
   负责战队对外宣传与公共形象的建立。要求成员有较好的审美意识，擅长摄影、视频制作、平面设计、绘画等相关技术或有推文编写、公众号运营经验文笔较好者优先。
 
-![25年招新群](./media/wdr_enroll.jpg)
+![25年招新群](./media/wdr_enroll.webp)
 
-![b站官号](./media/wdr_bili.jpg)
+![b站官号](./media/wdr_bili.webp)
 
 ## 智能机器人实验室
 

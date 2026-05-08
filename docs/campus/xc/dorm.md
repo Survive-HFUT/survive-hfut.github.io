@@ -36,6 +36,6 @@
 
 6 ~ 9 号楼为男生宿舍，10 号楼为女生宿舍
 
-![南区宿舍](south_dorm_1.jpg)
+![南区宿舍](south_dorm_1.webp)
 
-![可以尽情晒被子hiahiahia](south_dorm_2.jpg)
+![可以尽情晒被子hiahiahia](south_dorm_2.webp)

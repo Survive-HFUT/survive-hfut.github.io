@@ -1,6 +1,6 @@
 # 宿舍
 
-![宣区宿舍](../media/dormitory.jpg)
+![宣区宿舍](../media/dormitory.webp)
 
 ## 面积
 
