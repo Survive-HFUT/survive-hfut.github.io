@@ -101,6 +101,42 @@ pnpm run docs:build
 pnpm run docs:preview
 ```
 
+## 图片与性能要求
+
+为避免站点加载变慢，涉及图片时请遵循以下要求：
+
+- 文档内图片统一使用`.webp`格式
+- 新增图片后，提交前必须检查体积，尽量避免单图过大（建议控制在几百 KB 以内）
+- 优先复用已有图片，不要重复上传同内容的大图
+
+### 常用命令
+
+#### 全量转换为 WebP
+
+将`docs`目录中的`jpg/jpeg/png`转换为`webp`，并自动更新文档引用：
+
+```sh
+pnpm run docs:img:webp
+```
+
+#### 批量压缩图片
+
+按阈值压缩（会自动备份原图）：
+
+```sh
+pnpm run docs:img:compress -- --min-kb=200 --quality=76
+```
+
+#### 查看图片与构建体积报告
+
+```sh
+pnpm run docs:perf
+```
+
+### 备份说明
+
+图片批处理脚本会把原图备份到`docs/.image-backups/`。确认无误后可按需清理备份目录，避免仓库体积持续增长。
+
 ## 提交与推送
 
 在完成文档编辑后，你需要将更改提交到 GitHub 仓库。你可以借助 GitHub Desktop 或者直接在 VS Code 的源代码管理界面进行提交和推送
