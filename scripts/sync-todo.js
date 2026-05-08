@@ -5,7 +5,9 @@ import path from 'node:path';
 async function sync() {
   console.log('Syncing Issue #44 to docs/about/todo.md...');
   try {
-    const octokit = new Octokit();
+    const octokit = new Octokit({
+      auth: process.env.GITHUB_TOKEN,
+    });
     const { data: issue } = await octokit.rest.issues.get({
       owner: 'Survive-HFUT',
       repo: 'survive-hfut.github.io',
@@ -31,8 +33,14 @@ ${issue.body}
     fs.writeFileSync(targetPath, content, 'utf8');
     console.log('Successfully synced TODO list!');
   } catch (error) {
-    console.error('Failed to sync TODO list:', error);
-    process.exit(1);
+    if (error.status === 403 && error.headers['x-ratelimit-remaining'] === '0') {
+      console.warn('\n[Warning] GitHub API 额度已耗尽，跳过本次 TODO 同步。');
+      console.warn('建议设置 GITHUB_TOKEN 环境变量以增加额度。\n');
+    } else {
+      console.error('Failed to sync TODO list:', error.message);
+    }
+    // 不要退出 1，否则会导致 docs:dev 启动失败
+    process.exit(0);
   }
 }
 
