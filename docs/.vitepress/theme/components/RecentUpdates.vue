@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { data as updates } from '../recent-updates.data.ts'
+import { data as updates } from '../recent-updates.data'
 
 const formatDate = (dateStr: string) => {
   const date = new Date(dateStr)
