@@ -13,7 +13,6 @@ import {
   PageProperties,
   PagePropertiesMarkdownSection,
 } from '@nolebase/vitepress-plugin-page-properties/vite';
-import { Octokit } from 'octokit';
 import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
 import { vitepressPluginLegend } from 'vitepress-plugin-legend';
@@ -171,15 +170,30 @@ export default defineConfig({
 });
 
 async function getAuthors(): Promise<Author[]> {
+  const url =
+    'https://api.github.com/repos/Survive-HFUT/survive-hfut.github.io/contributors';
+  const headers: Record<string, string> = {
+    Accept: 'application/vnd.github.v3+json',
+    'User-Agent': 'survive-hfut-config-script',
+  };
+
+  if (process.env.GITHUB_TOKEN) {
+    headers['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+  }
+
   try {
-    const response = await new Octokit().rest.repos.listContributors({
-      repo: 'survive-hfut.github.io',
-      owner: 'Survive-HFUT',
+    const response = await fetch(url, {
+      headers,
+      signal: AbortSignal.timeout(3000),
     });
 
-    // console.log(response.data);
+    if (!response.ok) {
+      return [];
+    }
 
-    return response.data.map((author) => ({
+    const data = (await response.json()) as any[];
+
+    return data.map((author) => ({
       name: author.login,
       links: author.html_url,
       avatar: author.avatar_url,
