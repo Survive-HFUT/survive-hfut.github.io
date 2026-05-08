@@ -21,4 +21,5 @@
 @import '@nolebase/vitepress-plugin-page-properties/client/style.css';
 @import 'nprogress-v2/dist/index.css';
 @import 'vitepress-markdown-timeline/dist/theme/index.css';
+@import 'vitepress-plugin-legend/dist/index.css';
 @import 'vitepress-plugin-back-to-top/dist/style.css';
