@@ -1,5 +1,7 @@
 # 关于
 
+我们正在不断完善项目内容，如果你有兴趣帮忙，可以查看我们的 [待完善事项 (TODO)](./todo.md)。
+
 ## 贡献者
 
 [![贡献者](https://contributors-img.web.app/image?repo=survive-hfut/survive-hfut.github.io)](https://github.com/survive-hfut/survive-hfut.github.io/graphs/contributors)
