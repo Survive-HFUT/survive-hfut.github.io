@@ -16,7 +16,7 @@ import {
 import { Octokit } from 'octokit';
 import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
-import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
+import { vitepressPluginLegend } from 'vitepress-plugin-legend';
 import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import customElements from './customElements';
@@ -47,8 +47,12 @@ export default defineConfig({
         .use(align)
         .use(katex)
         .use(timeline)
-        .use(MermaidMarkdown)
-        .use(tabsMarkdownPlugin),
+        .use(tabsMarkdownPlugin)
+        .use(vitepressPluginLegend, {
+          mermaid: {
+            showToolbar: true,
+          },
+        }),
     toc: {
       level: [2, 3, 4],
     },
@@ -63,7 +67,6 @@ export default defineConfig({
       GitChangelogMarkdownSection({ excludes: ['_random.md', 'index.md'] }),
       PageProperties(),
       PagePropertiesMarkdownSection(),
-      MermaidPlugin(),
       RssPlugin({
         title: '活在肥宣',
         copyright: 'CC-BY-SA 4.0',
@@ -72,7 +75,6 @@ export default defineConfig({
     ],
 
     optimizeDeps: {
-      include: ['mermaid'],
       exclude: [
         '@nolebase/vitepress-plugin-enhanced-readabilities/client',
         '@nolebase/ui',
@@ -83,7 +85,6 @@ export default defineConfig({
       noExternal: [
         '@nolebase/vitepress-plugin-enhanced-readabilities',
         '@nolebase/ui',
-        'mermaid',
       ],
     },
   },

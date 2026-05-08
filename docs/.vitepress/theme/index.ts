@@ -9,6 +9,7 @@ import { NProgress } from 'nprogress-v2/dist/index.js';
 import { inBrowser, useData, useRoute, type Theme } from 'vitepress';
 import vitepressBackToTop from 'vitepress-plugin-back-to-top';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+import { initComponent } from 'vitepress-plugin-legend/component';
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
 import { h, nextTick, onMounted, toRefs, watch } from 'vue';
@@ -70,6 +71,8 @@ export default {
     vitepressBackToTop({
       threshold: 300,
     });
+
+    initComponent(app);
 
     app.component('Note', Note);
     app.component('ToDo', ToDo);
