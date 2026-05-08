@@ -48,3 +48,5 @@ features:
   #   link: https://www.hfut.edu.cn/zsyjyc/
   #   linkText: 合肥工业大学 · 招生与就业处
 ---
+
+<LatestUpdate />

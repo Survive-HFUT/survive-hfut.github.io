@@ -19,6 +19,8 @@ import CustomHeroInfo from './components/CustomHeroInfo.vue';
 import DormitoryIdGenerator from './components/DormitoryIdGenerator.vue';
 import Note from './components/Note.vue';
 import RandomJump from './components/RandomJump.vue';
+import RecentUpdates from './components/RecentUpdates.vue';
+import LatestUpdate from './components/LatestUpdate.vue';
 import ToDo from './components/ToDo.vue';
 
 // @ts-expect-error
@@ -79,6 +81,8 @@ export default {
     app.component('RandomJump', RandomJump);
     app.component('BackToTopTip', BackToTopTip);
     app.component('DormitoryIdGenerator', DormitoryIdGenerator);
+    app.component('RecentUpdates', RecentUpdates);
+    app.component('LatestUpdate', LatestUpdate);
 
     app.use(NolebaseGitChangelogPlugin);
     app.use(
