@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@lint-md/cli": "^2.0.0",
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.6.2",
     "husky": "^9.1.7",
     "octokit": "^5.0.5",
     "prettier": "^3.8.3"
@@ -39,10 +39,10 @@
     "vitepress-plugin-back-to-top": "^1.0.1",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-legend": "^2.0.0",
-    "vitepress-plugin-rss": "^0.3.4",
-    "vitepress-plugin-tabs": "^0.7.3",
-    "vitepress-sidebar": "^1.33.1",
+    "vitepress-plugin-rss": "^0.4.4",
+    "vitepress-plugin-tabs": "^0.9.0",
+    "vitepress-sidebar": "^1.33.2",
     "simple-git": "^3.28.0",
-    "vue": "^3.5.33"
+    "vue": "^3.5.34"
   }
 }
