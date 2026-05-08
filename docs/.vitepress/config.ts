@@ -236,7 +236,7 @@ function getHead() {
     head.push([
       'script',
       {
-        defer: 'true',
+        async: 'true',
         src: 'https://cloud.umami.is/script.js',
         'data-website-id': 'e4fe9a73-74ca-4c11-99e5-585d60267170',
         // dashboard: https://cloud.umami.is/share/TO6zOo7xWbS2gcFF/survive-hfut.cc
