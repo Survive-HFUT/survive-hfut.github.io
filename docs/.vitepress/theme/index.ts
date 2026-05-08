@@ -4,11 +4,9 @@ import {
 } from '@nolebase/vitepress-plugin-enhanced-readabilities/client';
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebasePagePropertiesPlugin } from '@nolebase/vitepress-plugin-page-properties';
-import mediumZoom from 'medium-zoom';
 import { NProgress } from 'nprogress-v2/dist/index.js';
 import { inBrowser, useData, useRoute, type Theme } from 'vitepress';
 import vitepressBackToTop from 'vitepress-plugin-back-to-top';
-import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { initComponent } from 'vitepress-plugin-legend/component';
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
@@ -39,34 +37,56 @@ export default {
 
   setup: () => {
     const route = useRoute();
-    const initZoom = () =>
+    const initZoom = async () => {
+      const { default: mediumZoom } = await import('medium-zoom');
       mediumZoom('.main img:not(a *)', { background: 'var(--vp-c-bg)' });
-    onMounted(initZoom);
+    };
+
+    onMounted(() => {
+      void initZoom();
+    });
     watch(
       () => route.path,
-      () => nextTick(initZoom),
+      () => nextTick(() => void initZoom()),
     );
 
     const { frontmatter } = toRefs(useData());
 
-    giscusTalk(
-      {
-        repo: 'Survive-HFUT/survive-hfut.github.io',
-        repoId: 'R_kgDOKE2TfA',
-        category: 'Giscus',
-        categoryId: 'DIC_kwDOKE2TfM4CqW7d',
-        mapping: 'pathname',
-        inputPosition: 'top',
-        lang: 'zh-CN',
-        lightTheme: 'light',
-        darkTheme: 'transparent_dark',
-      },
-      {
-        frontmatter,
-        route,
-      },
-      true,
-    );
+    onMounted(() => {
+      const loadGiscus = async () => {
+        const { default: giscusTalk } = await import(
+          'vitepress-plugin-comment-with-giscus'
+        );
+        giscusTalk(
+          {
+            repo: 'Survive-HFUT/survive-hfut.github.io',
+            repoId: 'R_kgDOKE2TfA',
+            category: 'Giscus',
+            categoryId: 'DIC_kwDOKE2TfM4CqW7d',
+            mapping: 'pathname',
+            inputPosition: 'top',
+            lang: 'zh-CN',
+            lightTheme: 'light',
+            darkTheme: 'transparent_dark',
+          },
+          {
+            frontmatter,
+            route,
+          },
+          true,
+        );
+      };
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(() => {
+          void loadGiscus();
+        });
+      } else {
+        window.setTimeout(() => {
+          void loadGiscus();
+        }, 1200);
+      }
+    });
   },
 
   enhanceApp({ app, router }) {
