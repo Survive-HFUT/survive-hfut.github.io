@@ -31,6 +31,7 @@
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.2",
     "@nolebase/vitepress-plugin-git-changelog": "^2.18.2",
     "@nolebase/vitepress-plugin-page-properties": "^2.18.2",
+    "@vueuse/core": "^14.3.0",
     "medium-zoom": "^1.1.0",
     "mermaid": "^11.14.0",
     "nprogress-v2": "^1.1.10",
