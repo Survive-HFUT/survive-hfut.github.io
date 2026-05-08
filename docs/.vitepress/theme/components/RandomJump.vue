@@ -5,7 +5,7 @@ import { useRouter } from 'vitepress';
 import { data } from '../../data/sidebar.data';
 
 const url = data[Math.floor(Math.random() * data.length)];
-useRouter().go(url);
+useRouter().go(url[0]);
 </script>
 
 <template>
@@ -19,7 +19,7 @@ useRouter().go(url);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
+  height: 50vh;
   margin-bottom: 40px;
 }
 
