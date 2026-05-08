@@ -23,6 +23,7 @@ import ToDo from './components/ToDo.vue';
 
 // @ts-expect-error
 import './styles/index.css';
+import RecentUpdateBar from './components/RecentUpdateBar.vue';
 
 export default {
   extends: DefaultTheme,
@@ -79,6 +80,7 @@ export default {
     app.component('RandomJump', RandomJump);
     app.component('BackToTopTip', BackToTopTip);
     app.component('DormitoryIdGenerator', DormitoryIdGenerator);
+    app.component('RecentUpdateBar', RecentUpdateBar);
 
     app.use(NolebaseGitChangelogPlugin);
     app.use(

@@ -1,4 +1,4 @@
-import { SidebarItem, SidebarMulti } from 'vitepress-sidebar/types';
+import { SidebarItem } from 'vitepress-sidebar/types';
 import sidebar from '../sidebar';
 
 // 导入网站所有链接，用于随机跳转

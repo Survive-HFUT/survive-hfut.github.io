@@ -52,6 +52,7 @@ export default postProcessSidebar(
       useTitleFromFileHeading: true,
       useFolderLinkFromIndexFile: true,
       useFolderTitleFromIndexFile: true,
+      useTitleFromFrontmatter: true,
 
       documentRootPath: '/docs',
       resolvePath: '/',

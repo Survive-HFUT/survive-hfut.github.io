@@ -1,8 +1,7 @@
 ---
-exclude: true
+order: 2
+title: 🎲 随便看看
 ---
-
-# 跳转 ing
 
 <RandomJump />
 
