@@ -17,7 +17,7 @@ Survive-HFUT
 
 :::
 
-![东大门](media/east_gate.jpg)
+![东大门 [@HenryPanHFUT](https://github.com/HenryPanHFUT)](media/east_gate_new.jpg)
 
 这是一份面向合工大学生的生活指南，最初主要针对**宣城校区**编写，目前也在持续完善**合肥校区**相关内容。
 
