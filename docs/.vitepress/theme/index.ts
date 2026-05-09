@@ -37,20 +37,14 @@ export default {
     }),
 
   setup: () => {
-    const { isDark, localeIndex } = useData();
+    const { isDark } = useData();
 
     const initMermaid = () =>
       createMermaidRenderer({
-        theme: isDark.value ? 'dark' : 'forest',
+        theme: isDark.value ? 'dark' : 'base',
       }).setToolbar({
-        i18n: {
-          localeIndex: localeIndex.value,
-          locales: {
-            root: {
-              tooltips: locales.mermaidToolbarText,
-            },
-          },
-        },
+        showLanguageLabel: false,
+        i18n: { tooltips: locales.mermaidToolbarText },
       });
 
     nextTick(() => initMermaid());

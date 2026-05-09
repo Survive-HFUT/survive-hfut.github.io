@@ -3,9 +3,9 @@
 }
 
 .dark .go-to-top {
-  background-color: #333;
+  background-color: #333 !important;
 }
 
 .dark .go-to-top:hover {
-  background-color: #444;
+  background-color: #444 !important;
 }
