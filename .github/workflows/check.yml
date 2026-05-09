@@ -25,6 +25,8 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies and build site
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           pnpm install
           pnpm run docs:build

@@ -1,12 +1,26 @@
 import { Author } from '@nolebase/vitepress-plugin-git-changelog';
 import { Octokit } from 'octokit';
 
-type CustomAuthor = { id: number; mapByNameAliases: string[] };
+type CustomAuthor = {
+  /**
+   * GitHub 用户 ID，可以通过访问 https://api.github.com/users/{username} 获取到
+   */
+  id: number;
 
-const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
-  userAgent: 'Survive-HFUT-Docs',
-});
+  /**
+   * 通过用户名或姓名等信息进行匹配的别名列表，建议包含 GitHub 登录名和显示名称的不同变体，以提高匹配的准确性
+   */
+  mapByNameAliases: string[];
+};
+
+const octokit = new Octokit(
+  process.env.GITHUB_TOKEN
+    ? {
+        auth: process.env.GITHUB_TOKEN,
+        userAgent: 'Survive-HFUT-Docs',
+      }
+    : undefined,
+);
 
 const customAuthors: CustomAuthor[] = [
   {
@@ -25,7 +39,7 @@ const customAuthors: CustomAuthor[] = [
 
 async function getAuthors(): Promise<Author[]> {
   // 在开发环境中直接返回空表，避免频繁调用GitHub API
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== 'production' && !process.env.GITHUB_TOKEN) {
     return [];
   }
 

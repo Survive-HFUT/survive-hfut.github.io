@@ -46,6 +46,8 @@ jobs:
 
       # 运行构建脚本
       - name: Build VitePress site
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           pnpm run docs:build
 

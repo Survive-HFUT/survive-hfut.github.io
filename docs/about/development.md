@@ -103,6 +103,14 @@ pnpm run docs:preview
 
 ## 提交与推送
 
+:::tip
+
+如果你打算添加共同作者（Co-Author）的话，建议使用 GitHub 所提供的邮箱地址进行更改，否则可能导致在生成页面底部的贡献者名单时无法正确抓取到 GitHub 上的头像和用户名
+
+你也可以在仓库下的`docs/.vitepress/helpers/contributors.ts`文件中手动添加贡献者信息来解决这个问题
+
+:::
+
 在完成文档编辑后，你需要将更改提交到 GitHub 仓库。你可以借助 GitHub Desktop 或者直接在 VS Code 的源代码管理界面进行提交和推送
 
 推送到 GitHub 后，你可以在 GitHub 上[发起一个 Pull Request](https://github.com/Survive-HFUT/survive-hfut.github.io/compare)来请求将你的更改合并到主分支
