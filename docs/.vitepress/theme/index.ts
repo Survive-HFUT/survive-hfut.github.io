@@ -7,23 +7,23 @@ import { NolebasePagePropertiesPlugin } from '@nolebase/vitepress-plugin-page-pr
 import mediumZoom from 'medium-zoom';
 import { NProgress } from 'nprogress-v2/dist/index.js';
 import { inBrowser, useData, useRoute, type Theme } from 'vitepress';
+import { createMermaidRenderer } from 'vitepress-mermaid-renderer';
 import vitepressBackToTop from 'vitepress-plugin-back-to-top';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
-import { initComponent } from 'vitepress-plugin-legend/component';
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
 import { h, nextTick, onMounted, toRefs, watch } from 'vue';
-import locales from '../locales';
+import locales from '../i18n/locales';
 import BackToTopTip from './components/BackToTopTip.vue';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
 import DormitoryIdGenerator from './components/DormitoryIdGenerator.vue';
 import Note from './components/Note.vue';
 import RandomJump from './components/RandomJump.vue';
+import RecentUpdateBar from './components/RecentUpdateBar.vue';
 import ToDo from './components/ToDo.vue';
 
 // @ts-expect-error
 import './styles/index.css';
-import RecentUpdateBar from './components/RecentUpdateBar.vue';
 
 export default {
   extends: DefaultTheme,
@@ -37,6 +37,29 @@ export default {
     }),
 
   setup: () => {
+    const { isDark, localeIndex } = useData();
+
+    const initMermaid = () =>
+      createMermaidRenderer({
+        theme: isDark.value ? 'dark' : 'forest',
+      }).setToolbar({
+        i18n: {
+          localeIndex: localeIndex.value,
+          locales: {
+            root: {
+              tooltips: locales.mermaidToolbarText,
+            },
+          },
+        },
+      });
+
+    nextTick(() => initMermaid());
+
+    watch(
+      () => isDark.value,
+      () => initMermaid(),
+    );
+
     const route = useRoute();
     const initZoom = () =>
       mediumZoom('.main img:not(a *)', { background: 'var(--vp-c-bg)' });
@@ -72,8 +95,6 @@ export default {
     vitepressBackToTop({
       threshold: 300,
     });
-
-    initComponent(app);
 
     app.component('Note', Note);
     app.component('ToDo', ToDo);

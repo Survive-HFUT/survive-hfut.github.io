@@ -83,4 +83,23 @@ const pageProperties: Record<string, Property<'progress'>[]> = {
   ],
 };
 
-export default { main, search, markdown, pageProperties };
+const mermaidToolbarText: Record<
+  | 'zoomIn'
+  | 'zoomOut'
+  | 'resetView'
+  | 'copyCode'
+  | 'toggleFullscreen'
+  | 'download'
+  | 'copyCodeCopied',
+  string
+> = {
+  zoomIn: '放大',
+  zoomOut: '缩小',
+  resetView: '重置视图',
+  copyCode: '复制代码',
+  copyCodeCopied: '代码已复制',
+  download: '下载',
+  toggleFullscreen: '切换全屏',
+};
+
+export default { main, search, markdown, pageProperties, mermaidToolbarText };

@@ -4,7 +4,6 @@ import { footnote } from '@mdit/plugin-footnote';
 import { katex } from '@mdit/plugin-katex';
 import { spoiler } from '@mdit/plugin-spoiler';
 import { sup } from '@mdit/plugin-sup';
-import { type Author } from '@nolebase/vitepress-plugin-git-changelog';
 import {
   GitChangelog,
   GitChangelogMarkdownSection,
@@ -13,15 +12,14 @@ import {
   PageProperties,
   PagePropertiesMarkdownSection,
 } from '@nolebase/vitepress-plugin-page-properties/vite';
-import sidebar from './sidebar';
-import { Octokit } from 'octokit';
 import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
-import { vitepressPluginLegend } from 'vitepress-plugin-legend';
 import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
-import customElements from './customElements';
-import locales from './locales';
+import contributors from './helpers/contributors';
+import customElements from './helpers/customElements';
+import locales from './i18n/locales';
+import sidebar from './sidebar';
 
 const time =
   new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
@@ -47,12 +45,7 @@ export default defineConfig({
         .use(align)
         .use(katex)
         .use(timeline)
-        .use(tabsMarkdownPlugin)
-        .use(vitepressPluginLegend, {
-          mermaid: {
-            showToolbar: true,
-          },
-        }),
+        .use(tabsMarkdownPlugin),
     toc: {
       level: [2, 3, 4],
     },
@@ -62,7 +55,7 @@ export default defineConfig({
     plugins: [
       GitChangelog({
         repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
-        mapAuthors: await getAuthors(),
+        mapAuthors: contributors,
       }),
       GitChangelogMarkdownSection({ excludes: ['_random.md', 'index.md'] }),
       PageProperties(),
@@ -161,36 +154,6 @@ export default defineConfig({
     hostname: 'https://survive-hfut.cc',
   },
 });
-
-async function getAuthors(): Promise<Author[]> {
-  try {
-    const response = await new Octokit().rest.repos.listContributors({
-      repo: 'survive-hfut.github.io',
-      owner: 'Survive-HFUT',
-    });
-
-    // console.log(response.data);
-
-    return response.data.map((author) => ({
-      name: author.login,
-      links: author.html_url,
-      avatar: author.avatar_url,
-      mapByNameAliases: author.login
-        ? [
-            author.login,
-            author.login.toLowerCase(),
-            author.login.replace(/^[a-z]/, (c) => c.toUpperCase()),
-          ]
-        : [],
-      mapByEmailAliases:
-        author.id && author.login
-          ? [`${author.id}+${author.login}@users.noreply.github.com`]
-          : [],
-    }));
-  } catch (error) {
-    return [];
-  }
-}
 
 function getHead() {
   const head: UserConfig<DefaultTheme.Config>['head'] = [
