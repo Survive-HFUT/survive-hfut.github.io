@@ -14,6 +14,10 @@
   :is(ol, ul) :is(ol, ul) ol {
     list-style-type: lower-alpha;
   }
+
+  .katex-block {
+    overflow-y: auto;
+  }
 }
 
 .footnotes {
