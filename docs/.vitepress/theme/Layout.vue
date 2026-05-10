@@ -6,24 +6,49 @@ import {
   NolebaseEnhancedReadabilitiesScreenMenu,
 } from '@nolebase/vitepress-plugin-enhanced-readabilities';
 import mediumZoom from 'medium-zoom';
-import { useData, useRoute } from 'vitepress';
+import { inBrowser, useData, useRoute } from 'vitepress';
 import { createMermaidRenderer } from 'vitepress-mermaid-renderer';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import DefaultTheme from 'vitepress/theme';
-import { nextTick, onMounted, provide, toRefs, watch } from 'vue';
+import {
+  nextTick,
+  onBeforeMount,
+  onMounted,
+  provide,
+  ref,
+  toRefs,
+  watch,
+} from 'vue';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
 const { frontmatter, isDark } = toRefs(useData());
+const isTransitionsEnabled = ref(false);
 
-const enableTransitions = () =>
-  'startViewTransition' in document &&
-  window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+// 强制在浏览器内判断是否支持视图过渡 API，以避免在SSG时出现错误
+// https://vitepress.dev/zh/guide/ssr-compat
+onBeforeMount(
+  () =>
+    (isTransitionsEnabled.value =
+      'startViewTransition' in document &&
+      window.matchMedia('(prefers-reduced-motion: no-preference)').matches),
+);
+
+onMounted(() => {
+  if (!inBrowser || typeof document === 'undefined') {
+    return;
+  }
+
+  document.documentElement.classList.toggle(
+    'transitions-enabled',
+    isTransitionsEnabled.value,
+  );
+});
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
-  if (!enableTransitions()) {
+  if (!isTransitionsEnabled.value) {
     isDark.value = !isDark.value;
     return;
   }
@@ -96,11 +121,7 @@ giscusTalk(
 </script>
 
 <template>
-  <Layout
-    :class="{
-      enableTransitions: enableTransitions(),
-    }"
-  >
+  <Layout>
     <template #nav-bar-content-after>
       <NolebaseEnhancedReadabilitiesMenu />
     </template>
@@ -134,11 +155,11 @@ giscusTalk(
   z-index: 9999;
 }
 
-.enableTransitions .VPSwitchAppearance {
+.transitions-enabled .VPSwitchAppearance {
   width: 22px !important;
 }
 
-.enableTransitions .VPSwitchAppearance .check {
+.transitions-enabled .VPSwitchAppearance .check {
   transform: none !important;
 }
 </style>
