@@ -41,7 +41,7 @@ npm run docs:build
 1. 运行 Markdown 格式核查：
 
 ```sh
-pnpm dlx markdownlint-cli2 --fix "*.{md,markdown}" "**/*.md" "!node_modules/**"
+pnpm run docs:lint"
 ```
 
 1. 人工复查最终内容，尤其是政策、年份、金额、时间、地点和办理流程

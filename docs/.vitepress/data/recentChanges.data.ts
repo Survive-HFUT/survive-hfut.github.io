@@ -30,10 +30,14 @@ export default {
   async load() {
     try {
       const git = simpleGit({ baseDir: repoRoot });
-      const log = await git.log({ maxCount: 25 });
+      const log = await git.log();
       const fileUpdates = new Map<string, Date>();
 
       for (const commit of log.all) {
+        if (fileUpdates.size >= 30) {
+          break;
+        }
+
         const updatedAt = parseDate(commit.date);
 
         if (!updatedAt) {

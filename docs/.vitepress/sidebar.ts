@@ -10,9 +10,10 @@ const shouldDeleteLink = [
   'study/',
   'life/',
   'more/',
+  'city/',
+  'life/sports_fitness/',
   'life/transportation/',
   'study/first/',
-  'city/',
 ];
 
 // 后处理侧边栏数据，根据需要折叠或删除链接

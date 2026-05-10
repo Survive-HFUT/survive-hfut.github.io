@@ -2,7 +2,7 @@
 order: 10
 ---
 
-# 构造
+# 布局
 
 :::tabs key:campus
 
