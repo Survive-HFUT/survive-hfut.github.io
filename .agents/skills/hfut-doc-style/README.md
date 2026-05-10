@@ -38,6 +38,12 @@ $hfut-doc-style docs/enrollment/preparation.md 检查这页有没有过度加粗
 npm run docs:build
 ```
 
+1. 运行 Markdown 格式核查：
+
+```sh
+pnpm dlx markdownlint-cli2 --fix "*.{md,markdown}" "**/*.md" "!node_modules/**"
+```
+
 1. 人工复查最终内容，尤其是政策、年份、金额、时间、地点和办理流程
 
 ## 写作原则
@@ -48,6 +54,8 @@ npm run docs:build
 - 非重点但需要突出时，可以使用 `<mark>`
 - Emoji 可以少量使用，但不要为了活泼而堆叠
 - 不确定的内容不要写死，可使用“通常”“可能”“以当年通知为准”或 `<Note>需要验证</Note>`
+- 仅作为入口或延伸阅读的普通链接，不需要额外添加脚注来源
+- 在 `tabs` 内嵌套 `info`、`warning` 等提示框时，使用不同数量的冒号区分外层和内层，例如外层 `::::tabs`、内层 `:::info`
 
 更完整的规则见：
 
