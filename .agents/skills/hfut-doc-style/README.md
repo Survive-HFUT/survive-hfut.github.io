@@ -55,6 +55,7 @@ pnpm dlx markdownlint-cli2 --fix "*.{md,markdown}" "**/*.md" "!node_modules/**"
 - Emoji 可以少量使用，但不要为了活泼而堆叠
 - 不确定的内容不要写死，可使用“通常”“可能”“以当年通知为准”或 `<Note>需要验证</Note>`
 - 仅作为入口或延伸阅读的普通链接，不需要额外添加脚注来源
+- 在 `tabs` 内嵌套 `info`、`warning` 等提示框时，使用不同数量的冒号区分外层和内层，例如外层 `::::tabs`、内层 `:::info`
 
 更完整的规则见：
 
