@@ -1,89 +1,23 @@
-import {
-  NolebaseEnhancedReadabilitiesMenu,
-  NolebaseEnhancedReadabilitiesScreenMenu,
-} from '@nolebase/vitepress-plugin-enhanced-readabilities/client';
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client';
 import { NolebasePagePropertiesPlugin } from '@nolebase/vitepress-plugin-page-properties';
-import mediumZoom from 'medium-zoom';
 import { NProgress } from 'nprogress-v2/dist/index.js';
-import { inBrowser, useData, useRoute, type Theme } from 'vitepress';
-import { createMermaidRenderer } from 'vitepress-mermaid-renderer';
+import { inBrowser, type Theme } from 'vitepress';
 import vitepressBackToTop from 'vitepress-plugin-back-to-top';
-import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
-import { h, nextTick, onMounted, toRefs, watch } from 'vue';
 import locales from '../i18n/locales';
 import BackToTopTip from './components/BackToTopTip.vue';
-import CustomHeroInfo from './components/CustomHeroInfo.vue';
 import DormitoryIdGenerator from './components/DormitoryIdGenerator.vue';
 import Note from './components/Note.vue';
 import RandomJump from './components/RandomJump.vue';
 import RecentUpdateBar from './components/RecentUpdateBar.vue';
 import ToDo from './components/ToDo.vue';
-
-// @ts-expect-error
-import './styles/index.css';
+import Layout from './Layout.vue';
 
 export default {
   extends: DefaultTheme,
 
-  Layout: () =>
-    h(DefaultTheme.Layout, null, {
-      'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
-      'nav-screen-content-after': () =>
-        h(NolebaseEnhancedReadabilitiesScreenMenu),
-      'home-hero-info': () => h(CustomHeroInfo),
-    }),
-
-  setup: () => {
-    const { isDark } = useData();
-
-    const initMermaid = () =>
-      createMermaidRenderer({
-        theme: isDark.value ? 'dark' : 'base',
-      }).setToolbar({
-        showLanguageLabel: false,
-        i18n: { tooltips: locales.mermaidToolbarText },
-      });
-
-    nextTick(() => initMermaid());
-
-    watch(
-      () => isDark.value,
-      () => initMermaid(),
-    );
-
-    const route = useRoute();
-    const initZoom = () =>
-      mediumZoom('.main img:not(a *)', { background: 'var(--vp-c-bg)' });
-    onMounted(initZoom);
-    watch(
-      () => route.path,
-      () => nextTick(initZoom),
-    );
-
-    const { frontmatter } = toRefs(useData());
-
-    giscusTalk(
-      {
-        repo: 'Survive-HFUT/survive-hfut.github.io',
-        repoId: 'R_kgDOKE2TfA',
-        category: 'Giscus',
-        categoryId: 'DIC_kwDOKE2TfM4CqW7d',
-        mapping: 'pathname',
-        inputPosition: 'top',
-        lang: 'zh-CN',
-        lightTheme: 'light',
-        darkTheme: 'transparent_dark',
-      },
-      {
-        frontmatter,
-        route,
-      },
-      true,
-    );
-  },
+  Layout,
 
   enhanceApp({ app, router }) {
     vitepressBackToTop({
