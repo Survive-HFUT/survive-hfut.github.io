@@ -5,6 +5,10 @@ import { data } from '../../data/recentChanges.data';
 // @ts-expect-error
 import { data as all } from '../../data/sidebar.data';
 
+// @ts-expect-error
+import { data as contributors } from '../../data/contributors.data';
+import { Author } from '@nolebase/vitepress-plugin-git-changelog';
+
 type RecentChange = {
   path: string;
   updatedAt: string;
@@ -45,11 +49,18 @@ for (const item of data as {
       updatedAt: item.updatedAt,
       title: match[1],
       href: item.sectionSlug ? `${basePath}#${item.sectionSlug}` : basePath,
-      authorName: item.authorName,
+      authorName: getContributorName(item.authorName),
       sectionTitle: item.sectionTitle,
       excerpt: item.excerpt,
     });
   }
+}
+
+function getContributorName(name: string): string {
+  return (
+    (contributors as Author[]).find((a) => a.mapByNameAliases?.includes(name))
+      ?.name || name
+  );
 }
 
 function formatRelativeTime(value: Date | string): string {
@@ -68,10 +79,10 @@ function formatRelativeTime(value: Date | string): string {
   }
 
   if (diffHours >= 1) {
-    return `${diffHours}小时前`;
+    return `约 ${diffHours + 1} 小时前`;
   }
 
-  return `${diffMinutes}分钟前`;
+  return `约 ${diffMinutes + 1} 分钟前`;
 }
 </script>
 
@@ -96,7 +107,6 @@ function formatRelativeTime(value: Date | string): string {
       <div class="author">
         <span>{{ value.authorName }}</span>
       </div>
-      <span v-if="value.sectionTitle" class="jump">跳转到更新章节</span>
     </div>
   </a>
 </template>
@@ -113,9 +123,8 @@ function formatRelativeTime(value: Date | string): string {
   background: color-mix(in srgb, var(--vp-c-bg-soft) 82%, transparent);
   transition:
     border-color 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
-  margin-bottom: 14px;
+    background-color 0.2s ease;
+  margin-bottom: 20px;
 }
 
 .update-card:hover {
@@ -125,7 +134,6 @@ function formatRelativeTime(value: Date | string): string {
     var(--vp-c-bg-soft) 96%,
     var(--vp-c-brand-soft)
   );
-  transform: translateY(-1px);
 }
 
 .card-header {
@@ -155,6 +163,7 @@ function formatRelativeTime(value: Date | string): string {
   line-height: 1.7;
   color: var(--vp-c-text-2);
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
