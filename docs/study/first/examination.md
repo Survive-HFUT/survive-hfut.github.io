@@ -41,7 +41,10 @@
 
 ### 刷题网站
 
-- [创新创业基础](https://hfut-innovation-and-entrepreneurship-question-bank.pages.dev/)
+- [创新创业基础](https://cxcy.junpgle.me/)
+  - [备用地址](https://hfut-innovation-and-entrepreneurship-question-bank.pages.dev/)
+  - 题库项目见 [HFUT Innovation and Entrepreneurship Question Bank](https://github.com/Junpgle/HFUT---Innovation-and-Entrepreneurship-Question-Bank)，作者为 [Junpgle](https://github.com/Junpgle)
+  - 该项目目前已停止维护。备用地址服务器预计于 2027 年 1 月停服，主地址域名也可能失效；如后续链接不可用，可联系作者补充新链接
 
 ## 斩杀线
 
