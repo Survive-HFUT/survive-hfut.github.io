@@ -14,11 +14,17 @@
 3. 在手机上点击出水
 4. 接水结束后点击结束用水
 
-还可在 小程序→我的→卡片 绑定内输入卡物理 ID 并绑定，从而实现刷卡开始放水，拿卡停止放水，自动从支付宝扣款。
+还可在 小程序→我的→卡片 绑定内输入卡物理 ID 并绑定，从而实现刷卡开始放水，拿卡停止放水，自动从支付宝扣款
 
-卡物理 ID 可 使用 NFC 读卡器 或安装 [ikarus23/MifareClassicTool](https://github.com/ikarus23/MifareClassicTool)^[仅安卓]^ 或 [NFCTools](market://details?id=com.wakdev.wdnfc)^[仅安卓]^ 或 [NFC Tools](https://apps.apple.com/cn/app/nfc-tools/id1252962749)^[仅苹果]^应用程序并搭配具有 NFC 功能的移动设备获取，但应该有更简单的方式。
+卡物理 ID 可 使用 NFC 读卡器 或安装以下应用程序并搭配具有 NFC 功能的移动设备获取，但应该有更简单的方式
 
-### 计费标准
+- 安卓
+  - [ikarus23/MifareClassicTool](https://github.com/ikarus23/MifareClassicTool)
+  - [NFCTools](market://details?id=com.wakdev.wdnfc)
+- iOS
+  - [NFC Tools](https://apps.apple.com/cn/app/nfc-tools/id1252962749)
+
+## 计费标准
 
 | 类型     | 价格（元/升） |
 | -------- | :-----------: |
@@ -28,7 +34,7 @@
 
 按每 200ml 计算费用
 
-#### 取整方式
+### 取整方式
 
 - 使用先充值后取水时（小程序预充值后扫码或绑定校园卡刷卡）不取整而是保留三位小数进行计费
 - 使用手机扫码取水结算时向下取整到 0.01 元
