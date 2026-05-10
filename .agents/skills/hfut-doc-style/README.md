@@ -38,7 +38,7 @@ $hfut-doc-style docs/enrollment/preparation.md 检查这页有没有过度加粗
 npm run docs:build
 ```
 
-5. 人工复查最终内容，尤其是政策、年份、金额、时间、地点和办理流程
+1. 人工复查最终内容，尤其是政策、年份、金额、时间、地点和办理流程
 
 ## 写作原则
 
