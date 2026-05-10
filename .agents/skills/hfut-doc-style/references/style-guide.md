@@ -125,6 +125,7 @@ Avoid:
 ## Citations And Uncertainty
 
 - Use footnotes for external facts, official notices, historical events, statistics, and quoted text.
+- Do not add a footnote when a link is only an entry point or further-reading link and does not support a specific factual claim.
 - Use `YYYY-MM-DD` dates in citations when available.
 - If a source is unofficial, label the limitation near the claim, not only in the footnote.
 - If the text is based on experience rather than a source, qualify it: “据反馈”“通常”“可能因导员/学院而异”.
