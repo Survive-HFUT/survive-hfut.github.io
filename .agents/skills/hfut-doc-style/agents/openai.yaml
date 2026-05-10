@@ -1,0 +1,4 @@
+interface:
+  display_name: "HFUT 文档风格"
+  short_description: "按 Survive-HFUT 文档风格改写和审校 Markdown。"
+  default_prompt: "按 Survive-HFUT 的文档语言风格改写或审校这段 Markdown，保持严谨、克制、不过度 AI 味。"
