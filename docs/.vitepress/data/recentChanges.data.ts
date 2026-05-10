@@ -1,13 +1,11 @@
-import simpleGit from 'simple-git';
+import simpleGit, { type SimpleGit } from 'simple-git';
 import contributors from '../helpers/contributors';
-import { readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const DOCS_PREFIX = 'docs/';
 const MD_SUFFIX = '.md';
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
-const docsRoot = resolve(repoRoot, 'docs');
 const MAX_ITEMS = 30;
 
 type Contributor = {
@@ -51,8 +49,8 @@ function parseDate(dateValue: string): Date | null {
 function cleanInlineMarkdown(text: string): string {
   return text
     .replace(/`([^`]+)`/g, '$1')
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1')
+    .replace(/\[([^]]+)]\([^)]+\)/g, '$1')
+    .replace(/!\[([^]]*)]\([^)]+\)/g, '$1')
     .replace(/[*_~]/g, '')
     .replace(/<[^>]+>/g, '')
     .replace(/\s+/g, ' ')
@@ -130,7 +128,6 @@ function parseAddedLineNumbers(patch: string): number[] {
 
     if (line.startsWith(' ')) {
       currentLine += 1;
-      continue;
     }
   }
 
@@ -247,6 +244,34 @@ function buildContributorMap(list: Contributor[]): Map<string, Contributor> {
   return map;
 }
 
+function isMissingGitObject(error: unknown): boolean {
+  if (!(error instanceof Error)) {
+    return false;
+  }
+
+  return (
+    error.message.includes('exists on disk, but not in') ||
+    error.message.includes('does not exist in') ||
+    (error.message.includes('Path') && error.message.includes('does not exist'))
+  );
+}
+
+async function readFileAtCommit(
+  git: SimpleGit,
+  commitHash: string,
+  filePath: string,
+): Promise<string | null> {
+  try {
+    return await git.show([`${commitHash}:${filePath}`]);
+  } catch (error) {
+    if (isMissingGitObject(error)) {
+      return null;
+    }
+
+    throw error;
+  }
+}
+
 export default {
   async load() {
     try {
@@ -291,26 +316,6 @@ export default {
             continue;
           }
 
-          const relativePath = filePath.slice(DOCS_PREFIX.length);
-          const absolutePath = resolve(docsRoot, relativePath);
-          let currentContent = '';
-
-          try {
-            currentContent = await readFile(absolutePath, 'utf8');
-          } catch (error) {
-            if (
-              typeof error === 'object' &&
-              error !== null &&
-              'code' in error &&
-              error.code === 'ENOENT'
-            ) {
-              continue;
-            }
-
-            throw error;
-          }
-
-          const lines = currentContent.split(/\r?\n/);
           const patch = await git.show([
             commit.hash,
             '--format=',
@@ -318,6 +323,17 @@ export default {
             '--',
             filePath,
           ]);
+          const contentAtCommit = await readFileAtCommit(
+            git,
+            commit.hash,
+            filePath,
+          );
+
+          if (!contentAtCommit) {
+            continue;
+          }
+
+          const lines = contentAtCommit.split(/\r?\n/);
           const section = pickSection(lines, patch);
           const contributor =
             authorMap.get(commit.author_name.trim().toLowerCase()) ??
