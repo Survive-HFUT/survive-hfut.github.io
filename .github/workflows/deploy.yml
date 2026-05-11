@@ -26,18 +26,18 @@ jobs:
           exit 1
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         with:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v6
         with:
           version: 9
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           cache: 'pnpm'
 
@@ -52,10 +52,10 @@ jobs:
           pnpm run docs:build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: './docs/.vitepress/dist'
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
