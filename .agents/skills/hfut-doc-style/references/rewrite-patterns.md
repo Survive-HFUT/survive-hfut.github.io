@@ -167,7 +167,6 @@ After:
 
 Why: keep the consequence, reduce scolding language, improve scanning.
 
-
 ## Mark Unofficial Or Unverified Claims
 
 Before:
