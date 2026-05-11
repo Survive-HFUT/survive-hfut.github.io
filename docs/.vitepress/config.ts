@@ -14,6 +14,10 @@ import {
 } from '@nolebase/vitepress-plugin-page-properties/vite';
 import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
+import {
+  chineseSearchOptimize,
+  pagefindPlugin,
+} from 'vitepress-plugin-pagefind';
 import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import contributors from './helpers/contributors';
@@ -64,6 +68,11 @@ export default defineConfig({
         title: '活在肥宣',
         copyright: 'CC-BY-SA 4.0',
         baseUrl: 'https://survive-hfut.cc',
+      }),
+      pagefindPlugin({
+        customSearchQuery: chineseSearchOptimize,
+        showDate: true,
+        ...locales.search,
       }),
     ],
 
@@ -128,13 +137,6 @@ export default defineConfig({
         link: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
       },
     ],
-
-    search: {
-      provider: 'local',
-      options: {
-        translations: locales.search,
-      },
-    },
 
     footer: {
       message: '使用 VitePress 构建<br/>' + '最后更新：' + time,
