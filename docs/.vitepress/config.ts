@@ -166,6 +166,30 @@ function getHead() {
     ['meta', { name: 'apple-mobile-web-app-title', content: '活在肥宣' }],
     [
       'meta',
+      {
+        name: 'keywords',
+        content: [
+          '合工大',
+          '合肥工大',
+          '合肥工业大学',
+          '生活指南',
+          '生活手册',
+          '学生手册',
+          '学生指南',
+          '校园生活',
+          '校园指南',
+          '活在肥宣',
+          '活在肥工',
+          'Survive-HFUT',
+          '宣城校区',
+          '翡翠湖校区',
+          '屯溪路校区',
+          '合肥校区',
+        ].join(','),
+      },
+    ],
+    [
+      'meta',
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
     [

@@ -34,9 +34,9 @@ const search: Partial<SearchConfig> = {
   placeholder: '搜索文档',
   emptyText: '空空如也',
   heading: '共 {{searchResult}} 条结果',
-  toSelect: '选择',
+  toSelect: '跳转到选定结果',
   toClose: '关闭',
-  toNavigate: '跳转',
+  toNavigate: '切换',
 };
 
 const markdown: UserConfig<DefaultTheme.Config>['markdown'] = {
