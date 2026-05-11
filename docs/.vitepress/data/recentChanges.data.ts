@@ -2,10 +2,11 @@ import simpleGit, { type SimpleGit } from 'simple-git';
 import contributors from '../helpers/contributors';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import removeMarkdown from 'remove-markdown';
 
 const DOCS_PREFIX = 'docs/';
 const MD_SUFFIX = '.md';
-const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const MAX_ITEMS = 30;
 
 type Contributor = {
@@ -275,7 +276,7 @@ async function readFileAtCommit(
 export default {
   async load() {
     try {
-      const git = simpleGit({ baseDir: repoRoot });
+      const git = simpleGit({ baseDir: ROOT });
       const log = await git.log();
       const authorMap = buildContributorMap(contributors as Contributor[]);
       const fileUpdates = new Map<
@@ -338,6 +339,11 @@ export default {
           const contributor =
             authorMap.get(commit.author_name.trim().toLowerCase()) ??
             authorMap.get(commit.author_email.trim().toLowerCase());
+          const excerpt = section?.excerpt
+            ? removeMarkdown(section.excerpt)
+                .replaceAll(/^:::+$/g, '')
+                .replaceAll(/!!/g, '')
+            : '';
 
           fileUpdates.set(filePath, {
             path: filePath,
@@ -345,7 +351,7 @@ export default {
             authorName: contributor?.name ?? commit.author_name,
             sectionTitle: section?.title ?? '',
             sectionSlug: section?.slug ?? '',
-            excerpt: section?.excerpt ?? '',
+            excerpt,
           });
         }
       }

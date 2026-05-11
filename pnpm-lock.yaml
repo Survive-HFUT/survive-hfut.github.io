@@ -50,6 +50,9 @@ importers:
       nprogress-v2:
         specifier: ^1.1.10
         version: 1.1.10
+      remove-markdown:
+        specifier: ^0.6.4
+        version: 0.6.4
       simple-git:
         specifier: ^3.28.0
         version: 3.36.0
@@ -87,6 +90,9 @@ importers:
       '@types/node':
         specifier: ^25.6.2
         version: 25.6.2
+      '@types/remove-markdown':
+        specifier: ^0.3.4
+        version: 0.3.4
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -1239,6 +1245,9 @@ packages:
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
+
+  '@types/remove-markdown@0.3.4':
+    resolution: {integrity: sha512-i753EH/p02bw7bLlpfS/4CV1rdikbGiLabWyVsAvsFid3cA5RNU1frG7JycgY+NSnFwtoGlElvZVceCytecTDA==}
 
   '@types/semver@7.7.1':
     resolution: {integrity: sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA==}
@@ -3353,6 +3362,9 @@ packages:
   remark@14.0.3:
     resolution: {integrity: sha512-bfmJW1dmR2LvaMJuAnE88pZP9DktIFYXazkTfOIKZzi3Knk9lT0roItIA24ydOucI3bV/g/tXBA6hzqq3FV9Ew==}
 
+  remove-markdown@0.6.4:
+    resolution: {integrity: sha512-BompiLClzjfh46irZmzv+1Q61jZYlKN3iq/hzae9EOUwf7ctr/5wpD4qwgn/FWDAYE18RORO7z/yr+HXZJCY8Q==}
+
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
@@ -5045,6 +5057,8 @@ snapshots:
       undici-types: 7.19.2
 
   '@types/normalize-package-data@2.4.4': {}
+
+  '@types/remove-markdown@0.3.4': {}
 
   '@types/semver@7.7.1': {}
 
@@ -7713,6 +7727,8 @@ snapshots:
       unified: 10.1.2
     transitivePeerDependencies:
       - supports-color
+
+  remove-markdown@0.6.4: {}
 
   resolve-from@4.0.0: {}
 
