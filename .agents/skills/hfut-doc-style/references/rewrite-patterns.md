@@ -167,27 +167,6 @@ After:
 
 Why: keep the consequence, reduce scolding language, improve scanning.
 
-## Fold Long Directories
-
-Before:
-
-```md
-<!-- 👇自动生成目录，编写时按 md 语法在下面插入章节即可 -->
-[[toc]]
-<!-- 👆自动生成目录，编写时按 md 语法在下面插入章节即可 -->
-```
-
-After:
-
-```md
-:::details 目录（点击展开）
-
-[[toc]]
-
-:::
-```
-
-Why: keep long pages navigable without forcing the table of contents into the main reading flow.
 
 ## Mark Unofficial Or Unverified Claims
 
@@ -303,26 +282,6 @@ Use humor only when it is clearly secondary:
 ```
 
 The factual correction still comes first.
-
-## Event Evidence Nesting
-
-Before:
-
-```md
-### 2.1 两小时沟通要点（据会后整理的思维导图）
-...
-### 2.2 投诉信（当事人于 2025-09-08 投递）
-```
-
-After:
-
-```md
-#### 2.1 两小时沟通要点（据会后整理的思维导图）
-...
-#### 2.2 投诉信（当事人于 2025-09-08 投递）
-```
-
-Why: keep evidence blocks subordinate to the current record section, not equal to the page's main sections.
 
 ## UI Microcopy
 
