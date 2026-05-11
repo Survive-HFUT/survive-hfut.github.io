@@ -341,7 +341,7 @@ export default {
             authorMap.get(commit.author_email.trim().toLowerCase());
           const excerpt = section?.excerpt
             ? removeMarkdown(section.excerpt)
-                .replaceAll(/^:::+$/g, '')
+                .replaceAll(/^:::.+$/g, '')
                 .replaceAll(/!!/g, '')
             : '';
 
