@@ -1,3 +1,4 @@
+import * as github from '@actions/github';
 import { align } from '@mdit/plugin-align';
 import { figure } from '@mdit/plugin-figure';
 import { footnote } from '@mdit/plugin-footnote';
@@ -14,6 +15,10 @@ import {
 } from '@nolebase/vitepress-plugin-page-properties/vite';
 import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
+import {
+  chineseSearchOptimize,
+  pagefindPlugin,
+} from 'vitepress-plugin-pagefind';
 import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import contributors from './helpers/contributors';
@@ -64,6 +69,11 @@ export default defineConfig({
         title: '活在肥宣',
         copyright: 'CC-BY-SA 4.0',
         baseUrl: 'https://survive-hfut.cc',
+      }),
+      pagefindPlugin({
+        customSearchQuery: chineseSearchOptimize,
+        showDate: true,
+        ...locales.search,
       }),
     ],
 
@@ -129,15 +139,8 @@ export default defineConfig({
       },
     ],
 
-    search: {
-      provider: 'local',
-      options: {
-        translations: locales.search,
-      },
-    },
-
     footer: {
-      message: '使用 VitePress 构建<br/>' + '最后更新：' + time,
+      message: getFooterMsg(),
       copyright: '未作特别声明的内容，均按照 CC-BY-SA 4.0 协议进行分发',
     },
 
@@ -164,6 +167,30 @@ function getHead() {
     ['meta', { name: 'apple-mobile-web-app-title', content: '活在肥宣' }],
     [
       'meta',
+      {
+        name: 'keywords',
+        content: [
+          '合工大',
+          '合肥工大',
+          '合肥工业大学',
+          '生活指南',
+          '生活手册',
+          '学生手册',
+          '学生指南',
+          '校园生活',
+          '校园指南',
+          '活在肥宣',
+          '活在肥工',
+          'Survive-HFUT',
+          '宣城校区',
+          '翡翠湖校区',
+          '屯溪路校区',
+          '合肥校区',
+        ].join(','),
+      },
+    ],
+    [
+      'meta',
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
     [
@@ -186,4 +213,17 @@ function getHead() {
   }
 
   return head;
+}
+
+function getFooterMsg() {
+  let text = '';
+  text += '使用 VitePress 构建';
+  text += '<br/>构建于 ' + time;
+
+  if (github.context.sha) {
+    text +=
+      '<br/>提交 SHA: ' + `<code>${github.context.sha.slice(0, 7)}</code>`;
+  }
+
+  return text;
 }

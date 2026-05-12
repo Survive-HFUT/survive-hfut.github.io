@@ -10,3 +10,7 @@
 .VPNavBarSearch.search button:hover {
   border: 1px solid var(--vp-c-brand);
 }
+
+.algolia [command-item] {
+  transition: all 0.25s !important;
+}
