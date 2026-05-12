@@ -21,6 +21,8 @@
     "prettier": "^3.8.3"
   },
   "dependencies": {
+    "@actions/core": "^3.0.1",
+    "@actions/github": "^9.1.1",
     "@mdit/plugin-align": "^0.24.2",
     "@mdit/plugin-figure": "^0.23.2",
     "@mdit/plugin-footnote": "^0.23.2",

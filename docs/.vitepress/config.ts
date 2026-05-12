@@ -1,3 +1,4 @@
+import * as github from '@actions/github';
 import { align } from '@mdit/plugin-align';
 import { figure } from '@mdit/plugin-figure';
 import { footnote } from '@mdit/plugin-footnote';
@@ -139,7 +140,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: '使用 VitePress 构建<br/>' + '最后更新：' + time,
+      message: getFooterMsg(),
       copyright: '未作特别声明的内容，均按照 CC-BY-SA 4.0 协议进行分发',
     },
 
@@ -212,4 +213,17 @@ function getHead() {
   }
 
   return head;
+}
+
+function getFooterMsg() {
+  let text = '';
+  text += '使用 VitePress 构建';
+  text += '<br/>构建于 ' + time;
+
+  if (github.context.sha) {
+    text +=
+      '<br/>提交 SHA: ' + `<code>${github.context.sha.slice(0, 7)}</code>`;
+  }
+
+  return text;
 }

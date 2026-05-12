@@ -1,6 +1,9 @@
 <script setup lang="ts">
 // https://vitepress.dev/zh/guide/extending-default-theme#%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E8%BF%87%E6%B8%A1-api
 
+// @ts-expect-error
+import { data } from '../data/metadata.data';
+
 import {
   NolebaseEnhancedReadabilitiesMenu,
   NolebaseEnhancedReadabilitiesScreenMenu,
@@ -40,6 +43,8 @@ onMounted(() => {
   if (!inBrowser || typeof document === 'undefined') {
     return;
   }
+
+  console.debug('Metadata:', data);
 
   document.documentElement.classList.toggle(
     'transitions-enabled',
