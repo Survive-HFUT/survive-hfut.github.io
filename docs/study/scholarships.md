@@ -123,3 +123,7 @@
 - [学生工作办公室/团委](http://xgzx.hfut.edu.cn/) - 查看奖学金相关政策和通知
 - [学生资助](http://xgzx.hfut.edu.cn/xszz_1943/list.htm) - 奖学金申报信息
 - 各学院学生工作办公室 - 咨询学院特设奖学金
+
+[^1]: 合肥工业大学学生工作办公室. 2025-2026 学年国家奖学金评审程序. <https://xgzx.hfut.edu.cn/9f/ab/c689a40875/page.htm>
+
+[^2]: 合肥工业大学学生工作办公室. 2025-2026 学年学生资助工作通知. <https://xgzx.hfut.edu.cn/xszz_1943/list.htm>

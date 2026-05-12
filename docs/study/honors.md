@@ -101,16 +101,20 @@
 - [学生工作办公室/团委](http://xgzx.hfut.edu.cn/) - 查看荣誉评选相关政策和通知
 - [通知公告](https://xgzx.hfut.edu.cn/689/list.htm) - 历年表彰通知
 
-## 参考文献
+[^1]: 合肥工业大学学生工作办公室. 2025-2026 学年十佳大学生评选通知. <https://xgzx.hfut.edu.cn/a1/65/c689a41317/page.htm>
 
-2025-2026 学年学生荣誉评选相关通知：
+[^2]: 合肥工业大学学生工作办公室. 2025-2026 学年三好学生等评选通知. <https://xgzx.hfut.edu.cn/a0/49/c689a41033/page.htm>
 
-- [校长杯创新创业](https://xgzx.hfut.edu.cn/a1/a1/c689a41377/page.htm)
-- [优秀共产党员、优秀共产党员干部评选](https://xgzx.hfut.edu.cn/a1/8d/c689a41357/page.htm)
-- [十佳大学生评选通知](https://xgzx.hfut.edu.cn/a1/65/c689a41317/page.htm)
-- [校级文明寝室评选](https://xgzx.hfut.edu.cn/a1/0a/c689a41226/page.htm)
-- [2025-2026 学年三好学生等评选](https://xgzx.hfut.edu.cn/a0/49/c689a41033/page.htm)
-- [校级各类优秀学生干部评选](https://xgzx.hfut.edu.cn/9f/d2/c689a40914/page.htm)
-- [心理健康教育先进个人、班级评选](https://xgzx.hfut.edu.cn/9f/c9/c689a40905/page.htm)
-- [国家奖学金评审程序文件](https://xgzx.hfut.edu.cn/9f/ab/c689a40875/page.htm)
-- [青年志愿者行动表彰](https://xgzx.hfut.edu.cn/9f/30/c689a40752/page.htm)
+[^3]: 合肥工业大学学生工作办公室. 2025-2026 学年心理健康教育先进个人、班级评选. <https://xgzx.hfut.edu.cn/9f/c9/c689a40905/page.htm>
+
+[^4]: 合肥工业大学学生工作办公室. 2025-2026 学年青年志愿者行动表彰. <https://xgzx.hfut.edu.cn/9f/30/c689a40752/page.htm>
+
+[^5]: 合肥工业大学学生工作办公室. 2025-2026 学年校级文明寝室评选. <https://xgzx.hfut.edu.cn/a1/0a/c689a41226/page.htm>
+
+[^6]: 合肥工业大学学生工作办公室. 2025-2026 学年校级各类优秀学生干部评选. <https://xgzx.hfut.edu.cn/9f/d2/c689a40914/page.htm>
+
+[^7]: 合肥工业大学学生工作办公室. 2025-2026 学年优秀共产党员、优秀共产党员干部评选. <https://xgzx.hfut.edu.cn/a1/8d/c689a41357/page.htm>
+
+[^8]: 合肥工业大学学生工作办公室. 校长杯创新创业. <https://xgzx.hfut.edu.cn/a1/a1/c689a41377/page.htm>
+
+[^9]: 合肥工业大学学生工作办公室. 国家奖学金评审程序文件. <https://xgzx.hfut.edu.cn/9f/ab/c689a40875/page.htm>
