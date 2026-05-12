@@ -224,17 +224,6 @@ Good rewriting often removes text instead of replacing every sentence:
 - Convert long explanatory paragraphs into a short list only when the list helps scanning.
 - Keep a short `:::info` for schedule summaries or high-level rhythm; use `:::warning` only when missing the item has a real consequence.
 - Avoid retaining “because it sounds helpful” reminders if they duplicate official requirements already shown nearby.
-- Move broad disclaimers out of page bodies when the site-level disclaimer already covers them.
-- If a page repeats “详见...” in several places, prefer one nearby internal link with a clear anchor.
-
-## UI Microcopy
-
-When editing VitePress theme components or documentation UI:
-
-- Prefer quiet labels over command-like labels. A linked update card does not need “跳转到更新章节” if title/excerpt already show the destination.
-- For calculated relative time, use “约” when the displayed value is rounded or intentionally offset.
-- Avoid decorative motion and promotional affordances when the component is primarily informational.
-- Normalize contributor or author names through existing data helpers when available instead of showing raw aliases.
 
 ## Final Review Checklist
 

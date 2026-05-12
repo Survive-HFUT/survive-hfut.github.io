@@ -59,11 +59,9 @@ pnpm run docs:lint
 - 在 `tabs` 内嵌套 `info`、`warning` 等提示框时，使用不同数量的冒号区分外层和内层，例如外层 `::::tabs`、内层 `:::info`
 - 对投诉、争议、历史记录等页面，保留材料来源和时间，不要用语气替事实下判断
 - 对站点 UI 文案，保持克制；四舍五入或估算的时间建议写成“约 x 分钟/小时前”
-- 如果需要贴近 gforoosge 近期维护语气，可参考 `references/gforoosge-commit-voice.md`
 
 更完整的规则见：
 
 - [`SKILL.md`](./SKILL.md)
 - [`references/style-guide.md`](./references/style-guide.md)
 - [`references/rewrite-patterns.md`](./references/rewrite-patterns.md)
-- [`references/gforoosge-commit-voice.md`](./references/gforoosge-commit-voice.md)

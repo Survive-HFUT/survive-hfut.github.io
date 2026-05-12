@@ -281,20 +281,3 @@ Use humor only when it is clearly secondary:
 ```
 
 The factual correction still comes first.
-
-## UI Microcopy
-
-Before:
-
-```txt
-3小时前
-跳转到更新章节
-```
-
-After:
-
-```txt
-约 4 小时前
-```
-
-Why: rounded relative time should be marked approximate; an obvious linked card does not need a redundant navigation label.
