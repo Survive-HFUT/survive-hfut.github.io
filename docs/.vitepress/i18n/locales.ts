@@ -1,5 +1,6 @@
 import { Property } from '@nolebase/vitepress-plugin-page-properties';
 import { DefaultTheme, UserConfig } from 'vitepress';
+import { SearchConfig } from 'vitepress-plugin-pagefind';
 
 const main: Partial<DefaultTheme.Config> = {
   outline: {
@@ -28,27 +29,14 @@ const main: Partial<DefaultTheme.Config> = {
   darkModeSwitchTitle: '切换到深色模式',
 };
 
-const search: DefaultTheme.LocalSearchOptions['translations'] = {
-  button: {
-    buttonText: '搜索',
-    buttonAriaLabel: '搜索',
-  },
-
-  modal: {
-    backButtonTitle: '返回',
-    displayDetails: '显示详情',
-    noResultsText: '没有找到结果',
-    resetButtonTitle: '重置',
-    footer: {
-      closeKeyAriaLabel: '关闭',
-      closeText: '关闭',
-      navigateDownKeyAriaLabel: '下一个',
-      navigateText: '导航',
-      navigateUpKeyAriaLabel: '上一个',
-      selectKeyAriaLabel: '选择',
-      selectText: '选择',
-    },
-  },
+const search: Partial<SearchConfig> = {
+  btnPlaceholder: '搜索',
+  placeholder: '搜索文档',
+  emptyText: '空空如也',
+  heading: '共 {{searchResult}} 条结果',
+  toSelect: '跳转到选定结果',
+  toClose: '关闭',
+  toNavigate: '切换',
 };
 
 const markdown: UserConfig<DefaultTheme.Config>['markdown'] = {
