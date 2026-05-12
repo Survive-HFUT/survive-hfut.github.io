@@ -113,8 +113,4 @@
 
 [^6]: 合肥工业大学学生工作办公室. 2025-2026 学年校级各类优秀学生干部评选. <https://xgzx.hfut.edu.cn/9f/d2/c689a40914/page.htm>
 
-[^7]: 合肥工业大学学生工作办公室. 2025-2026 学年优秀共产党员、优秀共产党员干部评选. <https://xgzx.hfut.edu.cn/a1/8d/c689a41357/page.htm>
-
-[^8]: 合肥工业大学学生工作办公室. 校长杯创新创业. <https://xgzx.hfut.edu.cn/a1/a1/c689a41377/page.htm>
-
-[^9]: 合肥工业大学学生工作办公室. 国家奖学金评审程序文件. <https://xgzx.hfut.edu.cn/9f/ab/c689a40875/page.htm>
+## 申报时间表
