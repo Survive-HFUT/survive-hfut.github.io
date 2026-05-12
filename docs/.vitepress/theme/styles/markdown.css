@@ -18,6 +18,10 @@
   .katex-block {
     overflow-y: auto;
   }
+
+  img {
+    max-height: 60vh;
+  }
 }
 
 .footnotes {
