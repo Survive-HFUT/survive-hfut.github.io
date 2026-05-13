@@ -39,6 +39,12 @@ const customAuthors: CustomAuthor[] = [
 
 async function getAuthors(): Promise<Author[]> {
   // 在开发环境中直接返回空表，避免频繁调用GitHub API
+
+  // 如果需要在本地开发时测试此功能，可以在终端中新建变量 GITHUB_TOKEN 并赋值为一个有效的 GitHub 访问令牌
+  // Powershell: $env:GITHUB_TOKEN = "your_token_here"
+  // cmd: set GITHUB_TOKEN=your_token_here
+  // Bash: export GITHUB_TOKEN="your_token_here"
+
   if (process.env.NODE_ENV !== 'production' && !process.env.GITHUB_TOKEN) {
     return [];
   }

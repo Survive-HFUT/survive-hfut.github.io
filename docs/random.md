@@ -3,6 +3,10 @@ order: 2
 title: 🎲 随便看看
 ---
 
+<script setup>
+import RandomJump from './.vitepress/theme/components/RandomJump.vue'
+</script>
+
 <RandomJump />
 
 :::tip

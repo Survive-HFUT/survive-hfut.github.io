@@ -15,6 +15,7 @@ const showText = computed(() => hasTexts.value || hasFallbackText.value);
 
 let stopped = false;
 
+// 打乱数组顺序
 function shuffle<T>(input: T[]): T[] {
   const arr = [...input];
   for (let i = arr.length - 1; i > 0; i -= 1) {
@@ -28,12 +29,14 @@ function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// 随机上下浮动
 function jitter(baseMs: number, ratio = 0.5) {
   const min = baseMs * (1 - ratio);
   const max = baseMs * (1 + ratio);
   return Math.round(min + Math.random() * (max - min));
 }
 
+// 打字机效果
 async function runTypewriter() {
   const raw: string[] = frontmatter.value.hero?.texts ?? [];
   const texts = shuffle(
@@ -100,7 +103,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 /**
-https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPHero.vue
+  From: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPHero.vue
  */
 .heading {
   display: flex;
