@@ -74,6 +74,13 @@ export default defineConfig({
         customSearchQuery: chineseSearchOptimize,
         showDate: true,
         ...locales.search,
+        excludeSelector: [
+          '.vp-nolebase-page-properties',
+          'h2#贡献者',
+          '.vp-nolebase-git-changelog',
+          'h2#页面历史',
+          'vp-nolebase-git-changelog'
+        ],
       }),
     ],
 
