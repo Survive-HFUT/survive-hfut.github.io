@@ -1,4 +1,5 @@
 import { Author } from '@nolebase/vitepress-plugin-git-changelog';
+import { get } from 'node:http';
 import { Octokit } from 'octokit';
 
 type CustomAuthor = {
@@ -37,6 +38,19 @@ const customAuthors: CustomAuthor[] = [
   },
 ];
 
+const authors: Author[] = [
+  {
+    name: 'Copilot',
+    username: 'copilot',
+    links: 'https://copilot.github.com/',
+    avatar: 'https://avatars.githubusercontent.com/in/946600',
+    mapByNameAliases: [
+      ...getNameAlias('copilot'),
+      ...getNameAlias('GitHub Copilot'),
+    ],
+  },
+];
+
 async function getAuthors(): Promise<Author[]> {
   // 在开发环境中直接返回空表，避免频繁调用GitHub API
 
@@ -46,7 +60,7 @@ async function getAuthors(): Promise<Author[]> {
   // Bash: export GITHUB_TOKEN="your_token_here"
 
   if (process.env.NODE_ENV !== 'production' && !process.env.GITHUB_TOKEN) {
-    return [];
+    return authors;
   }
 
   try {
@@ -56,6 +70,8 @@ async function getAuthors(): Promise<Author[]> {
 
       // co-author或非GitHub贡献者的自定义作者列表
       ...(await Promise.all(customAuthors.map(getAuthorDetail))),
+
+      ...authors,
     ]);
   } catch (error) {
     console.error('Failed to fetch contributors from GitHub API:', error);
