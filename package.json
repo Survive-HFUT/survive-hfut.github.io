@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@lint-md/cli": "^2.0.0",
-    "@types/node": "^25.6.2",
+    "@types/node": "^25.7.0",
     "@types/remove-markdown": "^0.3.4",
     "husky": "^9.1.7",
     "octokit": "^5.0.5",
@@ -42,7 +42,7 @@
     "simple-git": "^3.28.0",
     "vitepress": "^2.0.0-alpha.17",
     "vitepress-markdown-timeline": "^1.2.2",
-    "vitepress-mermaid-renderer": "^1.1.23",
+    "vitepress-mermaid-renderer": "^1.1.24",
     "vitepress-plugin-back-to-top": "^1.0.1",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-pagefind": "^0.4.20",
