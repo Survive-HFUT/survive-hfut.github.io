@@ -34,7 +34,7 @@
 
 又称“江南天路”，是安徽省内著名的自驾路线。精华路段东起宁国市青龙乡，西至泾县蔡村镇，全长约 120 公里，穿越原始森林，风光险峻秀美。
 
-![皖南川藏线](./media/wannan_chuanzang_line.png)
+![皖南川藏线 (AIGC) ](./media/wannan_chuanzang_line.png)
 
 #### 核心景点
 
