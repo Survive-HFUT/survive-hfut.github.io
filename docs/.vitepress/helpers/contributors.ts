@@ -1,5 +1,4 @@
 import { Author } from '@nolebase/vitepress-plugin-git-changelog';
-import { get } from 'node:http';
 import { Octokit } from 'octokit';
 
 type CustomAuthor = {
@@ -35,6 +34,10 @@ const customAuthors: CustomAuthor[] = [
   {
     id: 62577485,
     mapByNameAliases: ['苦力怕水'],
+  },
+  {
+    id: 273101381,
+    mapByNameAliases: ['dfghj345'],
   },
 ];
 
