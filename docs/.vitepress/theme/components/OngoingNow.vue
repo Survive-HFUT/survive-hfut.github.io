@@ -49,7 +49,7 @@ function calculateProgress(start: string, end: string): number {
   const s = new Date(start).getTime();
   const e = new Date(end).getTime();
   const t = new Date(today.value).getTime();
-  
+
   if (s === e) return 100;
   const progress = ((t - s) / (e - s)) * 100;
   return Math.min(Math.max(progress, 0), 100);
@@ -103,17 +103,36 @@ const displayDate = computed(() =>
       <header class="header-section">
         <div class="title-group">
           <h2 class="main-title">
-            正在发生 
+            正在发生
             <span class="badge">Live</span>
-            <span v-if="activeEvents.length" class="count-badge">{{ activeEvents.length }}</span>
+            <span v-if="activeEvents.length" class="count-badge">{{
+              activeEvents.length
+            }}</span>
           </h2>
           <p class="description">
-            可以点击事件一键直达
+            What's going on?
+            <br />
+            点击事件卡片可一键直达对应页面
           </p>
         </div>
         <div class="current-date-card">
           <div class="date-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+              <line x1="16" x2="16" y1="2" y2="6" />
+              <line x1="8" x2="8" y1="2" y2="6" />
+              <line x1="3" x2="21" y1="10" y2="10" />
+            </svg>
           </div>
           <div class="date-info">
             <span class="label">今日日期</span>
@@ -131,8 +150,6 @@ const displayDate = computed(() =>
         <div class="content-grid">
           <!-- Active Events Section -->
           <section class="events-section">
-
-
             <div v-if="activeEvents.length" class="events-list">
               <a
                 v-for="event in activeEvents"
@@ -145,29 +162,67 @@ const displayDate = computed(() =>
                     <div class="event-info">
                       <h4>{{ event.title }}</h4>
                       <div class="tags">
-                        <span v-for="c in event.campus" :key="c" class="campus-tag">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span
+                          v-for="c in event.campus"
+                          :key="c"
+                          class="campus-tag"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="12"
+                            height="12"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                            />
+                            <circle cx="12" cy="10" r="3" />
+                          </svg>
                           {{ c }}
                         </span>
                       </div>
                     </div>
                     <div class="time-range">
                       <span class="range-text">{{ event.rangeText }}</span>
-                      <span v-if="event.daysRemaining !== undefined" class="countdown">
+                      <span
+                        v-if="event.daysRemaining !== undefined"
+                        class="countdown"
+                      >
                         剩 {{ event.daysRemaining }} 天
                       </span>
                     </div>
                   </div>
-                  
+
                   <p v-if="event.note" class="event-note">{{ event.note }}</p>
-                  
+
                   <div class="card-footer">
                     <div class="progress-container">
-                      <div class="progress-bar" :style="{ width: `${event.progress}%` }"></div>
+                      <div
+                        class="progress-bar"
+                        :style="{ width: `${event.progress}%` }"
+                      ></div>
                     </div>
                     <div class="action-link">
                       <span>查看详情</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M7 7h10v10" />
+                        <path d="M7 17 17 7" />
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -199,7 +254,20 @@ const displayDate = computed(() =>
                     <span class="range-text">{{ event.rangeText }}</span>
                   </div>
                   <div class="upcoming-indicator">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
                   </div>
                 </div>
               </a>
@@ -219,7 +287,7 @@ const displayDate = computed(() =>
   --text-main: var(--vp-c-text-1);
   --text-mute: var(--vp-c-text-2);
   --border-color: var(--vp-c-divider);
-  
+
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -254,13 +322,20 @@ const displayDate = computed(() =>
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  opacity: 0.8;
   animation: pulse-bg 2s infinite;
 }
 
 @keyframes pulse-bg {
-  0% { opacity: 0.8; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-  100% { opacity: 0.8; transform: scale(1); }
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
 }
 
 .description {
@@ -277,8 +352,6 @@ const displayDate = computed(() =>
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(8px);
 }
 
 .date-icon {
@@ -336,9 +409,15 @@ const displayDate = computed(() =>
 }
 
 @keyframes pulse-green {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
 }
 
 .count-badge {
@@ -360,7 +439,7 @@ const displayDate = computed(() =>
 .event-card {
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
 }
 
@@ -375,11 +454,8 @@ const displayDate = computed(() =>
 
 .active-card:hover {
   border-color: var(--accent-color);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
   background: var(--vp-c-bg-mute, var(--vp-c-bg-soft));
 }
-
 
 .card-header {
   display: flex;
@@ -497,7 +573,7 @@ const displayDate = computed(() =>
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 14px;
-  padding: 14px 18px;
+  padding: 18px;
 }
 
 .upcoming-card:hover {
@@ -540,7 +616,9 @@ const displayDate = computed(() =>
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .empty-state {
@@ -569,7 +647,7 @@ const displayDate = computed(() =>
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .current-date-card {
     width: 100%;
   }
@@ -585,7 +663,7 @@ const displayDate = computed(() =>
     flex-direction: column;
     gap: 12px;
   }
-  
+
   .upcoming-card .card-header {
     flex-direction: row;
     align-items: center;
@@ -595,12 +673,12 @@ const displayDate = computed(() =>
   .upcoming-card .event-info {
     flex: 1;
   }
-  
+
   .time-range {
     align-items: flex-start;
     text-align: left;
   }
-  
+
   .main-title {
     font-size: 24px;
   }
