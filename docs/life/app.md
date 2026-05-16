@@ -16,7 +16,7 @@
 
 浏览器访问 <http://ms.hfut.edu.cn/>
 
-学校为全校师生提供的正版软件授权与激活平台。详见 [软件正版化](../more/software_authorization.md)。
+学校为师生提供的正版软件授权与激活平台。详见 [软件正版化](../more/software_authorization.md)。
 
 - **核心用途**: 下载并激活正版 Windows 操作系统、Office 办公套件、MATLAB、福昕 PDF 编辑器等。
 - **注意**: 必须在**校园网**环境下使用（或通过 VPN 接入）。
