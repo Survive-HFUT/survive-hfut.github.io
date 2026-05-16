@@ -110,7 +110,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '猜你想问', link: '/enrollment/qa' },
-      { text: '随便看看', link: '/random' },
+      { text: '正在发生', link: '/ongoing' },
       { text: '关于', link: '/about' },
       {
         text: '反馈',

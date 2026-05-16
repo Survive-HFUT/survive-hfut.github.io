@@ -51,6 +51,14 @@
 
 详见[编写规范](./standard.md)
 
+## 页面维护
+
+- `正在发生` 的内容来自 `docs/.vitepress/helpers/ongoing.ts`
+- 页面渲染逻辑在 `docs/.vitepress/theme/components/OngoingNow.vue`
+- 新增事项时，直接往 `events` 数组里补一条即可，日期统一使用 `YYYY-MM-DD`
+- 若要调整顶部入口或首页入口，分别修改 `docs/.vitepress/config.ts` 和 `docs/index.md`
+- 改完后建议执行一次 `pnpm run docs:build`，确认页面仍可正常构建
+
 ## 克隆项目
 
 在 GitHub 上 fork 本项目到你的账户下，然后使用 Git 或 GitHub Desktop 将项目克隆到本地
