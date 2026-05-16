@@ -1,0 +1,54 @@
+name: Ongoing Event Bot
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  create-pr:
+    if: github.event.label.name == 'ongoing-event'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Parse issue form
+        id: issue-parser
+        uses: stefanbuck/github-issue-parser@v3
+        with:
+          template-path: .github/ISSUE_TEMPLATE/ongoing_event.yml
+          issue-body: ${{ github.event.issue.body }}
+
+      - name: Update ongoing.json
+        id: update-data
+        env:
+          ISSUE_PARSER_JSON: ${{ steps.issue-parser.outputs.jsonString }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: node scripts/ongoing-event-bot.js
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: ${{ steps.update-data.outputs.commit-message }}
+          title: ${{ steps.update-data.outputs.pr-title }}
+          body: ${{ steps.update-data.outputs.pr-body }}
+          branch: "ongoing-event-${{ github.event.issue.number }}"
+          base: "dev"
+
+      - name: React to issue
+        uses: aidan-mundy/react-to-issue@v1.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          reactions: rocket

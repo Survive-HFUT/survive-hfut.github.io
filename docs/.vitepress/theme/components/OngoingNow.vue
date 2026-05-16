@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
-import { events, type OngoingEvent } from '../../helpers/ongoing';
+import { data, type OngoingEvent } from '../../data/ongoing.data';
 
 type DisplayEvent = OngoingEvent & {
   rangeText: string;
   progress?: number;
   daysRemaining?: number;
 };
+
+const events = data.events;
 
 const ready = ref(false);
 const today = ref('');
