@@ -36,6 +36,29 @@ WPS 表单推送的 JSON 字段名可能与代码默认值不一致。在 `wrang
 
 如果 WPS 表单的字段 API Code 不是上表中的默认值，修改 `FIELD_* = "实际字段名"` 即可。
 
+## 限流与去重
+
+Worker 内置多层防护，依赖 Cloudflare KV：
+
+| 层级 | 维度 | 限制 | KV Key 示例 |
+| --- | --- | --- | --- |
+| 全局限流 | 所有请求 | 10 分钟 ≤ 20 次 | `rate:10m:{window}` |
+| 全局限流 | 所有请求 | 1 小时 ≤ 60 次 | `rate:1h:{window}` |
+| 全局限流 | 所有请求 | 1 天 ≤ 200 次 | `rate:1d:{window}` |
+| 事件指纹去重 | `title + campus + start + end + href` | 24 小时 1 次 | `fp:event:{sha256}` |
+| 链接去重 | `href` | 24 小时 1 次 | `fp:href:{sha256}` |
+| 弱去重 | `title + start + end` | 24 小时 1 次 | `fp:title-date:{sha256}` |
+| WPS 提交 ID 去重 | `submission_id / record_id / entry_id` | 永久 1 次 | `wps:{id}` |
+
+### 创建 KV 命名空间
+
+```bash
+npx wrangler kv:namespace create "KV"
+npx wrangler kv:namespace create "KV" --preview
+```
+
+将输出的 `id` 和 `preview_id` 填入 `wrangler.toml` 的 `[[kv_namespaces]]`。
+
 ## 绑定测试
 
 1. 部署 Worker 后获得 URL（形如 `https://survive-hfut-ongoing-webhook.xxx.workers.dev`）。

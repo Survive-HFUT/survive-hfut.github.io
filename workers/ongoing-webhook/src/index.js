@@ -81,6 +81,41 @@ export default {
       validateDateTime(formData.end, '结束日期/时间');
       compareDateTime(formData.start, formData.end);
 
+      // WPS submission ID 永久去重
+      const submissionId = getSubmissionId(body);
+      if (submissionId) {
+        const ok = await checkKvOnce(env.KV, `wps:${submissionId}`);
+        if (!ok) {
+          log.info = `duplicate wps submission: ${submissionId}`;
+          console.log(JSON.stringify(log));
+          return json({ success: true, note: 'duplicate, already processed' });
+        }
+      }
+
+      // 全局限流
+      await checkRateLimit(env.KV, 'rate:10m', 20, 600);
+      await checkRateLimit(env.KV, 'rate:1h', 60, 3600);
+      await checkRateLimit(env.KV, 'rate:1d', 200, 86400);
+
+      // href 去重
+      if (formData.href) {
+        const hrefKey = `fp:href:${await hashString(formData.href)}`;
+        const ok = await checkKvOnce(env.KV, hrefKey, 86400);
+        if (!ok) throw new Error('该链接已有投稿记录，24 小时内不可重复提交');
+      }
+
+      // 事件指纹去重 (title + campus + start + end + href)
+      const fpParts = [formData.title, [...formData.campus].sort().join(','), formData.start, formData.end, formData.href].join('|');
+      const fpKey = `fp:event:${await hashString(fpParts)}`;
+      const fpOk = await checkKvOnce(env.KV, fpKey, 86400);
+      if (!fpOk) throw new Error('该事项已有投稿记录，24 小时内不可重复提交');
+
+      // title + date 弱去重
+      const weakParts = [formData.title, formData.start, formData.end].join('|');
+      const weakKey = `fp:title-date:${await hashString(weakParts)}`;
+      const weakOk = await checkKvOnce(env.KV, weakKey, 86400);
+      if (!weakOk) throw new Error('同标题和日期的投稿已存在');
+
       const issue = await createGithubIssue(formData, env);
 
       log.issueNumber = issue.number;
@@ -180,6 +215,32 @@ function compareDateTime(start, end) {
   if (normalize(end) < normalize(start)) {
     throw new Error('结束日期/时间不能早于开始日期/时间');
   }
+}
+
+function getSubmissionId(body) {
+  return body.submission_id || body.record_id || body.entry_id || body.submissionId || null;
+}
+
+async function checkKvOnce(kv, key, ttl) {
+  const exists = await kv.get(key);
+  if (exists) return false;
+  await kv.put(key, '1', { expirationTtl: ttl });
+  return true;
+}
+
+async function checkRateLimit(kv, prefix, max, windowSeconds) {
+  const now = Math.floor(Date.now() / 1000);
+  const win = Math.floor(now / windowSeconds) * windowSeconds;
+  const key = `${prefix}:${win}`;
+  const current = parseInt(await kv.get(key) || '0', 10);
+  if (current >= max) throw new Error(`触发全局限流 (${prefix})`);
+  await kv.put(key, String(current + 1), { expirationTtl: windowSeconds });
+}
+
+async function hashString(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  const hex = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+  return hex.slice(0, 16);
 }
 
 function normalizeCampus(value) {

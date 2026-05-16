@@ -2,6 +2,14 @@ name = "survive-hfut-ongoing-webhook"
 main = "src/index.js"
 compatibility_date = "2024-12-18"
 
+# 创建 KV 命名空间:
+#   npx wrangler kv:namespace create "KV" --preview
+# 将输出的 id 和 preview_id 填入下方
+[[kv_namespaces]]
+binding = "KV"
+id = ""
+preview_id = ""
+
 [vars]
 ENVIRONMENT = "production"
 
