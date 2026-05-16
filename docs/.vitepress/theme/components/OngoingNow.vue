@@ -565,6 +565,12 @@ const displayDate = computed(() =>
 }
 
 /* Responsive Styles */
+.content-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
 @media (max-width: 840px) {
   .header-section {
     flex-direction: column;
@@ -577,9 +583,24 @@ const displayDate = computed(() =>
 }
 
 @media (max-width: 640px) {
+  .ongoing-container {
+    margin-top: -24px;
+    gap: 24px;
+  }
+
   .card-header {
     flex-direction: column;
     gap: 12px;
+  }
+  
+  .upcoming-card .card-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .upcoming-card .event-info {
+    flex: 1;
   }
   
   .time-range {
@@ -589,6 +610,10 @@ const displayDate = computed(() =>
   
   .main-title {
     font-size: 24px;
+  }
+
+  .active-card {
+    padding: 16px;
   }
 }
 </style>
