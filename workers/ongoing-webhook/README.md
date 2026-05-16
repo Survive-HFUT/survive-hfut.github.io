@@ -1,12 +1,12 @@
 # Cloudflare Worker: 事件信息收集 Webhook
 
-## **仅起草，未测试** 有空可以慢慢开发
+## **仅起草，未测试**
 
-接收 [WPS 表单](https://f.kdocs.cn/g/uqYZZmxz/) 【你可以一键复制表单】的「数据推送」，自动创建 GitHub Issue，再由 `.github/workflows/ongoing-event-bot.yml` 转 PR 更新 `docs/.vitepress/data/ongoing.json`。
+接收 [WPS 表单](https://f.kdocs.cn/g/uqYZZmxz/)（可一键复制表单）的「数据推送」，自动创建 GitHub Issue，再由 `.github/workflows/ongoing-event-bot.yml` 转 PR 更新 `docs/.vitepress/data/ongoing.json`。
 
 ## 触发链路
 
-```
+```text
 WPS 表单 → 数据推送 (POST) → Cloudflare Worker → GitHub Issue (打 ongoing-event label)
   → GitHub Actions (issues: labeled) → ongoing-event-bot.js → GitHub PR → 更新 ongoing.json
 ```
@@ -16,7 +16,7 @@ WPS 表单 → 数据推送 (POST) → Cloudflare Worker → GitHub Issue (打 o
 通过 `wrangler secret put` 设置以下 secret：
 
 | Secret | 说明 |
-|---|---|
+| --- | --- |
 | `GITHUB_TOKEN` | GitHub Personal Access Token，需有 `issues: write` 权限 |
 | `GITHUB_REPO` | 仓库名，默认 `survive-hfut/survive-hfut`，一般不填 |
 
@@ -25,7 +25,7 @@ WPS 表单 → 数据推送 (POST) → Cloudflare Worker → GitHub Issue (打 o
 WPS 表单推送的 JSON 字段名可能与代码默认值不一致。在 `wrangler.toml` 的 `[vars]` 中调整 `FIELD_*`，支持按序兜底：
 
 | 变量 | 默认查找顺序 |
-|---|---|
+| --- | --- |
 | `FIELD_TITLE` | `title` → `事项名称` → `field_1` |
 | `FIELD_CAMPUS` | `campus` → `适用校区` → `field_2` |
 | `FIELD_START` | `start` → `开始日期/时间` → `field_3` |
@@ -40,9 +40,11 @@ WPS 表单推送的 JSON 字段名可能与代码默认值不一致。在 `wrang
 1. 部署 Worker 后获得 URL（形如 `https://survive-hfut-ongoing-webhook.xxx.workers.dev`）。
 2. 登录 [WPS 表单](https://f.wps.cn) → 进入「事件信息收集表单」→ 设置 → 数据推送 → 填入 URL → 验证绑定。
 3. 提交一份测试数据，查看 Worker 日志：
+
    ```bash
    npx wrangler tail
    ```
+
    日志会输出 `rawBody`（原始载荷前 2000 字符）和 `fieldMapping`（当前使用的字段名），据此调整 `FIELD_*` 映射。
 
 ## 参考
