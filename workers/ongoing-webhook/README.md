@@ -1,5 +1,7 @@
 # Cloudflare Worker: 事件信息收集 Webhook
 
+## **仅起草，未测试** 有空可以慢慢开发
+
 接收 [WPS 表单](https://f.kdocs.cn/g/uqYZZmxz/) 的「数据推送」，自动创建 GitHub Issue，再由 `.github/workflows/ongoing-event-bot.yml` 转 PR 更新 `docs/.vitepress/data/ongoing.json`。
 
 ## 触发链路
@@ -42,3 +44,7 @@ WPS 表单推送的 JSON 字段名可能与代码默认值不一致。在 `wrang
    npx wrangler tail
    ```
    日志会输出 `rawBody`（原始载荷前 2000 字符）和 `fieldMapping`（当前使用的字段名），据此调整 `FIELD_*` 映射。
+
+## 参考
+
+- [WPS 开放平台 — 事件订阅 / Webhook 开发说明](https://365.kdocs.cn/l/cr5IRaHlD79D)
