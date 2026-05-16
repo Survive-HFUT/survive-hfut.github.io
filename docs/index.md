@@ -2,7 +2,10 @@
 layout: home
 
 hero:
-  name: 活在肥宣
+  names:
+    - 活在肥宣
+    - 活在肥工
+    - 活在肥工
   texts:
     - 你的薰化路301号指南
     - 你的翡翠路420号指南
@@ -14,7 +17,7 @@ hero:
       text: 📖 开始阅读
       link: /intro
     - theme: alt
-      text: 🧐 猜你想问/新生必看
+      text: 🧐 猜你想问
       link: /enrollment/qa
     - theme: alt
       text: ☎️ 黄页
@@ -22,6 +25,9 @@ hero:
     - theme: alt
       text: 👮 反诈骗
       link: /enrollment/anti_fraud
+    - theme: alt
+      text: ⏱ 正在发生
+      link: /ongoing
 features:
   - icon: 🔍
     title: 别忘了利用侧边栏和搜索栏查找资料
