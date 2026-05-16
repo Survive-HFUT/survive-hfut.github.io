@@ -1,0 +1,43 @@
+name: Ongoing Event Bot
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  create-pr:
+    if: github.event.label.name == 'ongoing-event'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Update ongoing.ts
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: node scripts/ongoing-event-bot.js
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "feat: add ongoing event from issue #${{ github.event.issue.number }}"
+          title: "📅 新增事项: ${{ github.event.issue.title }}"
+          body: "This PR was automatically created by the Ongoing Event Bot in response to issue #${{ github.event.issue.number }}."
+          branch: "ongoing-event-${{ github.event.issue.number }}"
+          base: "main"
+
+      - name: Comment on Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🚀 机器人已自动生成 PR！请等待管理员审核。'
+            })

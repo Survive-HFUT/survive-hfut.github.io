@@ -1,0 +1,48 @@
+name: 📅 新增/更新“正在发生”事项
+description: 提交一个新的校历事项或更新现有事项
+title: "【正在发生】新增事项: [事项名称]"
+labels: ["ongoing-event"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: 事项名称
+      placeholder: 例如：宣城校区校运会
+    validations:
+      required: true
+  - type: checkboxes
+    id: campus
+    attributes:
+      label: 适用校区
+      options:
+        - label: 宣城校区
+        - label: 屯溪路校区
+        - label: 翡翠湖校区
+    validations:
+      required: true
+  - type: input
+    id: start
+    attributes:
+      label: 开始日期/时间
+      placeholder: YYYY-MM-DD 或 YYYY-MM-DD HH:mm
+    validations:
+      required: true
+  - type: input
+    id: end
+    attributes:
+      label: 结束日期/时间
+      placeholder: YYYY-MM-DD 或 YYYY-MM-DD HH:mm
+    validations:
+      required: true
+  - type: input
+    id: href
+    attributes:
+      label: 相关链接
+      placeholder: 站内链接如 /life/study 或 外部链接
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: 备注
+      placeholder: 例如：来源于教务处通知
