@@ -222,7 +222,7 @@ const displayDate = computed(() =>
   flex-direction: column;
   gap: 32px;
   margin: -48px 0 40px 0;
-  font-family: var(--vp-font-family-base);
+  font-family: var(--vp-font-family-base, sans-serif);
 }
 
 /* Header Styles */
@@ -303,7 +303,7 @@ const displayDate = computed(() =>
 .date-info .value {
   font-size: 16px;
   font-weight: 600;
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-mono, monospace);
 }
 
 /* Section Common Styles */
@@ -375,18 +375,9 @@ const displayDate = computed(() =>
   border-color: var(--accent-color);
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  background: var(--vp-c-bg-mute);
+  background: var(--vp-c-bg-mute, var(--vp-c-bg-soft));
 }
 
-.active-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: linear-gradient(to bottom, var(--accent-color), transparent);
-}
 
 .card-header {
   display: flex;
@@ -436,7 +427,7 @@ const displayDate = computed(() =>
 .range-text {
   font-size: 13px;
   color: var(--text-mute);
-  font-family: var(--vp-font-family-mono);
+  font-family: var(--vp-font-family-mono, monospace);
   font-weight: 500;
 }
 
@@ -476,7 +467,7 @@ const displayDate = computed(() =>
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent-color), #3b82f6);
+  background: var(--accent-color);
   border-radius: 3px;
   transition: width 1s ease-out;
 }
@@ -509,7 +500,7 @@ const displayDate = computed(() =>
 
 .upcoming-card:hover {
   border-color: var(--accent-color);
-  background: var(--vp-c-bg-mute);
+  background: var(--vp-c-bg-mute, var(--vp-c-bg-soft));
 }
 
 .upcoming-card .card-header {
