@@ -58,17 +58,23 @@ MATLAB 采用 MathWorks 账户绑定授权，无需通过 GP 客户端。
 除了校内直接提供的授权外，学生还可以通过学校分配的 **edu 邮箱**（后缀为 `@mail.hfut.edu.cn`）申请多种商业软件的教育版或优惠。详见 [猜你想问§校园邮箱](../enrollment/qa.md#校园邮箱)。
 
 ### 1. JetBrains 系列工具
+
 包含 IntelliJ IDEA, PyCharm, WebStorm, CLion 等开发工具。
+
 - **获取地址**：[JetBrains Student License](https://www.jetbrains.com/shop/eform/students)
 - **申请方式**：使用学校邮箱注册并申请。通过验证后可免费使用 JetBrains 旗下的专业版软件。授权有效期通常为一年，到期后可续期。
 
 ### 2. Autodesk 系列
+
 包含 AutoCAD, Maya, 3ds Max 等建模和设计软件。
+
 - **获取地址**：[Autodesk Education Community](https://www.autodesk.com.cn/education/edu-software/overview)
 - **申请方式**：注册账号并选择学生身份，通过教育邮箱验证。部分情况下可能需要上传学信网验证码或学生证照片。
 
 ### 3. GitHub Student Developer Pack
+
 包含多种开发工具、云服务额度（如 Azure, DigitalOcean）以及 Canva Pro 等。
+
 - **获取地址**：[GitHub Education](https://education.github.com/pack)
 
 ## 常见问题与维护
