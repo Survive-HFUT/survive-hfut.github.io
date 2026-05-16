@@ -2,7 +2,7 @@
 
 ## **仅起草，未测试** 有空可以慢慢开发
 
-接收 [WPS 表单](https://f.kdocs.cn/g/uqYZZmxz/) 的「数据推送」，自动创建 GitHub Issue，再由 `.github/workflows/ongoing-event-bot.yml` 转 PR 更新 `docs/.vitepress/data/ongoing.json`。
+接收 [WPS 表单](https://f.kdocs.cn/g/uqYZZmxz/) 【你可以一键复制表单】的「数据推送」，自动创建 GitHub Issue，再由 `.github/workflows/ongoing-event-bot.yml` 转 PR 更新 `docs/.vitepress/data/ongoing.json`。
 
 ## 触发链路
 
