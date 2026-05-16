@@ -30,10 +30,10 @@
 
 如果你想为首页的“正在发生”列表补充新事项（如校运会、考试周等），现在可以通过 GitHub Issue 表单快速提交，机器人会自动为你生成 Pull Request。
 
-1.  访问 [GitHub Issue 提交页面](https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new/choose)。
-2.  选择 **“📅 新增/更新‘正在发生’事项”** 模板。
-3.  按要求填写事项名称、日期、适用校区等信息。
-4.  提交后，机器人会自动解析表单并生成 Pull Request，等待管理员审核通过即可上线。
+1. 访问 [GitHub Issue 提交页面](https://github.com/Survive-HFUT/survive-hfut.github.io/issues/new/choose)。
+2. 选择 **“📅 新增/更新‘正在发生’事项”** 模板。
+3. 按要求填写事项名称、日期、适用校区等信息。
+4. 提交后，机器人会自动解析表单并生成 Pull Request，等待管理员审核通过即可上线。
 
 ## Pull request
 
