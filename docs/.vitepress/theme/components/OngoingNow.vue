@@ -23,7 +23,9 @@ function getShanghaiDateKey(date = new Date()): string {
   }).formatToParts(date);
 
   const values = Object.fromEntries(
-    parts.filter((part) => part.type !== 'literal').map((part) => [part.type, part.value]),
+    parts
+      .filter((part) => part.type !== 'literal')
+      .map((part) => [part.type, part.value]),
   ) as Record<'year' | 'month' | 'day', string>;
 
   return `${values.year}-${values.month}-${values.day}`;
@@ -78,8 +80,7 @@ const displayDate = computed(() =>
     <section class="ongoing-wrap">
       <header class="hero">
         <div>
-          <p class="eyebrow">正在发生</p>
-          <h1>当前时间段里正在进行的学校事项</h1>
+          <h2>当前时间段里正在进行的学校事项</h2>
           <p class="lead">
             按上海时间自动匹配今天所在的时间窗口，点卡片可直接跳转到对应页面。
           </p>
@@ -109,7 +110,11 @@ const displayDate = computed(() =>
               <div class="item-head">
                 <div>
                   <h3>{{ event.title }}</h3>
-                  <p class="campus">{{ event.campus }}</p>
+                  <div class="campus">
+                    <span v-for="c in event.campus" :key="c">
+                      {{ c }}
+                    </span>
+                  </div>
                 </div>
                 <span class="range">{{ event.rangeText }}</span>
               </div>
@@ -138,7 +143,11 @@ const displayDate = computed(() =>
               <div class="item-head">
                 <div>
                   <h3>{{ event.title }}</h3>
-                  <p class="campus">{{ event.campus }}</p>
+                  <div class="campus">
+                    <span v-for="c in event.campus" :key="c">
+                      {{ c }}
+                    </span>
+                  </div>
                 </div>
                 <span class="range">{{ event.rangeText }}</span>
               </div>
@@ -163,18 +172,6 @@ const displayDate = computed(() =>
   gap: 20px;
   align-items: flex-end;
   padding: 20px 0 6px;
-}
-
-.eyebrow {
-  margin: 0 0 8px;
-  color: var(--vp-c-brand-1);
-  font-weight: 600;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(28px, 3vw, 40px);
-  line-height: 1.15;
 }
 
 .lead {
@@ -209,18 +206,6 @@ h1 {
   gap: 14px;
 }
 
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-}
-
-.section-head h2 {
-  margin: 0;
-  font-size: 20px;
-}
-
 .count {
   color: var(--vp-c-text-2);
   font-size: 14px;
@@ -237,7 +222,7 @@ h1 {
 
 .list {
   display: grid;
-  gap: 12px;
+  gap: 18px;
 }
 
 .item {
@@ -255,7 +240,11 @@ h1 {
 
 .item:hover {
   border-color: var(--vp-c-brand-1);
-  background: color-mix(in srgb, var(--vp-c-bg-soft) 90%, var(--vp-c-brand-soft));
+  background: color-mix(
+    in srgb,
+    var(--vp-c-bg-soft) 90%,
+    var(--vp-c-brand-soft)
+  );
 }
 
 .item-head {
@@ -280,7 +269,11 @@ h1 {
 }
 
 .campus {
-  margin: 6px 0 0;
+  margin: 6px 0;
+}
+
+.campus > span {
+  margin-right: 3px;
 }
 
 .range {

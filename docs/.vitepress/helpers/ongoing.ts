@@ -1,6 +1,6 @@
 export type OngoingEvent = {
   title: string;
-  campus: string;
+  campus: ('宣城校区' | '屯溪路校区' | '翡翠湖校区')[];
   start: string;
   end: string;
   href: string;
@@ -10,7 +10,7 @@ export type OngoingEvent = {
 export const events: OngoingEvent[] = [
   {
     title: '宣城校区校运会',
-    campus: '宣城校区',
+    campus: ['宣城校区'],
     start: '2026-05-14',
     end: '2026-05-16',
     href: '/life/sports_meet#宣区',
@@ -18,7 +18,7 @@ export const events: OngoingEvent[] = [
   },
   {
     title: '合肥校区校运会',
-    campus: '合肥校区',
+    campus: ['屯溪路校区', '翡翠湖校区'],
     start: '2025-10-30',
     end: '2025-11-01',
     href: '/life/sports_meet#肥区',
@@ -26,7 +26,7 @@ export const events: OngoingEvent[] = [
   },
   {
     title: '合肥校区大学生医保缴费',
-    campus: '合肥校区',
+    campus: ['屯溪路校区', '翡翠湖校区'],
     start: '2025-10-29',
     end: '2025-11-30',
     href: '/life/medical_insurance#参保缴费',
@@ -34,7 +34,7 @@ export const events: OngoingEvent[] = [
   },
   {
     title: '宣城校区大学生医保报销',
-    campus: '宣城校区',
+    campus: ['宣城校区'],
     start: '2026-05-21',
     end: '2026-05-22',
     href: '/life/medical_insurance#门诊报销',
@@ -42,7 +42,7 @@ export const events: OngoingEvent[] = [
   },
   {
     title: '第一学期期末考试周',
-    campus: '两校区',
+    campus: ['屯溪路校区', '翡翠湖校区', '宣城校区'],
     start: '2025-12-19',
     end: '2025-12-25',
     href: '/life/calendar',
@@ -50,7 +50,7 @@ export const events: OngoingEvent[] = [
   },
   {
     title: '第二学期期末考试月',
-    campus: '两校区',
+    campus: ['屯溪路校区', '翡翠湖校区', '宣城校区'],
     start: '2026-06-01',
     end: '2026-07-12',
     href: '/life/calendar',

@@ -111,7 +111,6 @@ export default defineConfig({
     nav: [
       { text: '猜你想问', link: '/enrollment/qa' },
       { text: '正在发生', link: '/ongoing' },
-      { text: '随便看看', link: '/random' },
       { text: '关于', link: '/about' },
       {
         text: '反馈',
