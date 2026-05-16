@@ -16,3 +16,5 @@ FIELD_START  = "start"
 FIELD_END    = "end"
 FIELD_HREF   = "href"
 FIELD_NOTE   = "note"
+
+GITHUB_REPO = "Survive-HFUT/survive-hfut.github.io"

@@ -9,6 +9,11 @@ export default {
       return json({ status: 'ok', message: 'survive-hfut ongoing webhook' });
     }
 
+    const secret = url.searchParams.get('secret');
+    if (!env.WEBHOOK_SECRET || secret !== env.WEBHOOK_SECRET) {
+      return json({ error: 'Unauthorized' }, 401);
+    }
+
     if (method === 'OPTIONS') {
       return new Response(null, {
         headers: {
@@ -71,6 +76,11 @@ export default {
         return json({ error: `非法校区值: ${invalidCampus.join(', ')}` }, 400);
       }
 
+      formData.href = validateHref(formData.href);
+      validateDateTime(formData.start, '开始日期/时间');
+      validateDateTime(formData.end, '结束日期/时间');
+      compareDateTime(formData.start, formData.end);
+
       const issue = await createGithubIssue(formData, env);
 
       log.issueNumber = issue.number;
@@ -100,12 +110,12 @@ function json(data, status = 200) {
 function extractFormData(body, env) {
   const entry = body.entry || body.data || body.fields || body;
 
-  const rawTitle = getFieldValue(entry, env.FIELD_TITLE, 'title', '事项名称', 'field_1');
+  const rawTitle = getFieldValue(entry, env.FIELD_TITLE, 'title', '事件标题', '事项名称', 'field_1');
   const rawCampus = getFieldValue(entry, env.FIELD_CAMPUS, 'campus', '适用校区', 'field_2');
-  const rawStart = getFieldValue(entry, env.FIELD_START, 'start', '开始日期/时间', 'field_3');
-  const rawEnd = getFieldValue(entry, env.FIELD_END, 'end', '结束日期/时间', 'field_4');
-  const rawHref = getFieldValue(entry, env.FIELD_HREF, 'href', '相关链接', 'field_5');
-  const rawNote = getFieldValue(entry, env.FIELD_NOTE, 'note', '备注', 'field_6');
+  const rawStart = getFieldValue(entry, env.FIELD_START, 'start', '开始日期', '开始日期/时间', 'field_3');
+  const rawEnd = getFieldValue(entry, env.FIELD_END, 'end', '结束日期', '结束日期/时间', 'field_4');
+  const rawHref = getFieldValue(entry, env.FIELD_HREF, 'href', '详情链接', '相关链接', 'field_5');
+  const rawNote = getFieldValue(entry, env.FIELD_NOTE, 'note', '页面备注', '备注', 'field_6');
 
   return {
     title: trimOrEmpty(rawTitle),
@@ -144,6 +154,34 @@ function trimOptional(value) {
   return s;
 }
 
+function validateHref(value) {
+  const v = String(value || '').trim();
+  const isInternal = v.startsWith('/');
+  const isHttp = /^https?:\/\//i.test(v);
+  if (!isInternal && !isHttp) {
+    throw new Error('相关链接只能是站内链接或 http/https 链接');
+  }
+  if (/^(javascript|data|vbscript):/i.test(v)) {
+    throw new Error('相关链接包含危险协议');
+  }
+  return v;
+}
+
+function validateDateTime(value, fieldName) {
+  const s = String(value || '').trim();
+  if (!/^\d{4}-\d{2}-\d{2}( \d{2}:\d{2})?$/.test(s)) {
+    throw new Error(`${fieldName} 必须是 YYYY-MM-DD 或 YYYY-MM-DD HH:mm`);
+  }
+  return s;
+}
+
+function compareDateTime(start, end) {
+  const normalize = v => v.length === 10 ? `${v} 00:00` : v;
+  if (normalize(end) < normalize(start)) {
+    throw new Error('结束日期/时间不能早于开始日期/时间');
+  }
+}
+
 function normalizeCampus(value) {
   if (!value) return [];
   let items;
@@ -159,7 +197,7 @@ function normalizeCampus(value) {
 
 async function createGithubIssue(formData, env) {
   const token = env.GITHUB_TOKEN;
-  const repo = env.GITHUB_REPO || 'survive-hfut/survive-hfut';
+  const repo = env.GITHUB_REPO || 'Survive-HFUT/survive-hfut.github.io';
 
   const bodyLines = [
     '### 事项名称',
