@@ -4,6 +4,8 @@ import { events, type OngoingEvent } from '../../helpers/ongoing';
 
 type DisplayEvent = OngoingEvent & {
   rangeText: string;
+  progress?: number;
+  daysRemaining?: number;
 };
 
 const ready = ref(false);
@@ -41,6 +43,22 @@ function formatRange(start: string, end: string): string {
     .replace(/-/g, '.')}`;
 }
 
+function calculateProgress(start: string, end: string): number {
+  const s = new Date(start).getTime();
+  const e = new Date(end).getTime();
+  const t = new Date(today.value).getTime();
+  
+  if (s === e) return 100;
+  const progress = ((t - s) / (e - s)) * 100;
+  return Math.min(Math.max(progress, 0), 100);
+}
+
+function calculateDaysRemaining(end: string): number {
+  const e = new Date(end).getTime();
+  const t = new Date(today.value).getTime();
+  return Math.ceil((e - t) / (1000 * 60 * 60 * 24));
+}
+
 const activeEvents = computed<DisplayEvent[]>(() => {
   if (!today.value) {
     return [];
@@ -52,6 +70,8 @@ const activeEvents = computed<DisplayEvent[]>(() => {
     .map((event) => ({
       ...event,
       rangeText: formatRange(event.start, event.end),
+      progress: calculateProgress(event.start, event.end),
+      daysRemaining: calculateDaysRemaining(event.end),
     }));
 });
 
@@ -77,238 +97,514 @@ const displayDate = computed(() =>
 
 <template>
   <ClientOnly>
-    <section class="ongoing-wrap">
-      <header class="hero">
-        <div>
-          <h2>当前时间段里正在进行的学校事项</h2>
-          <p class="lead">
-            按上海时间自动匹配今天所在的时间窗口，点卡片可直接跳转到对应页面。
+    <section class="ongoing-container">
+      <header class="header-section">
+        <div class="title-group">
+          <h2 class="main-title">
+            正在发生 
+            <span class="badge">Live</span>
+            <span v-if="activeEvents.length" class="count-badge">{{ activeEvents.length }}</span>
+          </h2>
+          <p class="description">
+            可以点击事件一键直达
           </p>
         </div>
-        <div class="date-box">
-          <span class="date-label">今天</span>
-          <strong>{{ displayDate }}</strong>
+        <div class="current-date-card">
+          <div class="date-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          </div>
+          <div class="date-info">
+            <span class="label">今日日期</span>
+            <span class="value">{{ displayDate }}</span>
+          </div>
         </div>
       </header>
 
-      <div v-if="!ready" class="state">正在加载今天的时间节点...</div>
+      <div v-if="!ready" class="loading-state">
+        <div class="spinner"></div>
+        <span>同步校历数据中...</span>
+      </div>
 
       <template v-else>
-        <section class="section">
-          <div class="section-head">
-            <h2>正在发生</h2>
-            <span class="count">{{ activeEvents.length }} 项</span>
-          </div>
+        <div class="content-grid">
+          <!-- Active Events Section -->
+          <section class="events-section">
 
-          <div v-if="activeEvents.length" class="list">
-            <a
-              v-for="event in activeEvents"
-              :key="`${event.title}-${event.start}`"
-              class="item"
-              :href="event.href"
-            >
-              <div class="item-head">
-                <div>
-                  <h3>{{ event.title }}</h3>
-                  <div class="campus">
-                    <span v-for="c in event.campus" :key="c">
-                      {{ c }}
-                    </span>
+
+            <div v-if="activeEvents.length" class="events-list">
+              <a
+                v-for="event in activeEvents"
+                :key="`${event.title}-${event.start}`"
+                class="event-card active-card"
+                :href="event.href"
+              >
+                <div class="card-content">
+                  <div class="card-header">
+                    <div class="event-info">
+                      <h4>{{ event.title }}</h4>
+                      <div class="tags">
+                        <span v-for="c in event.campus" :key="c" class="campus-tag">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                          {{ c }}
+                        </span>
+                      </div>
+                    </div>
+                    <div class="time-range">
+                      <span class="range-text">{{ event.rangeText }}</span>
+                      <span v-if="event.daysRemaining !== undefined" class="countdown">
+                        剩 {{ event.daysRemaining }} 天
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <p v-if="event.note" class="event-note">{{ event.note }}</p>
+                  
+                  <div class="card-footer">
+                    <div class="progress-container">
+                      <div class="progress-bar" :style="{ width: `${event.progress}%` }"></div>
+                    </div>
+                    <div class="action-link">
+                      <span>查看详情</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                    </div>
                   </div>
                 </div>
-                <span class="range">{{ event.rangeText }}</span>
-              </div>
-              <p v-if="event.note" class="note">{{ event.note }}</p>
-              <span class="jump">直接跳转</span>
-            </a>
-          </div>
+              </a>
+            </div>
 
-          <p v-else class="state">
-            今天没有命中的节点，下面是接下来会开始的事项。
-          </p>
-        </section>
+            <div v-else class="empty-state">
+              <div class="empty-icon">☕</div>
+              <p>当前暂无正在进行的特定事项</p>
+            </div>
+          </section>
 
-        <section v-if="upcomingEvents.length" class="section">
-          <div class="section-head">
-            <h2>近期将开始</h2>
-          </div>
+          <!-- Upcoming Events Section -->
+          <section v-if="upcomingEvents.length" class="events-section upcoming">
+            <div class="section-header">
+              <h3>近期预告</h3>
+            </div>
 
-          <div class="list compact">
-            <a
-              v-for="event in upcomingEvents"
-              :key="`${event.title}-${event.start}`"
-              class="item"
-              :href="event.href"
-            >
-              <div class="item-head">
-                <div>
-                  <h3>{{ event.title }}</h3>
-                  <div class="campus">
-                    <span v-for="c in event.campus" :key="c">
-                      {{ c }}
-                    </span>
+            <div class="events-list compact">
+              <a
+                v-for="event in upcomingEvents"
+                :key="`${event.title}-${event.start}`"
+                class="event-card upcoming-card"
+                :href="event.href"
+              >
+                <div class="card-header">
+                  <div class="event-info">
+                    <h4>{{ event.title }}</h4>
+                    <span class="range-text">{{ event.rangeText }}</span>
+                  </div>
+                  <div class="upcoming-indicator">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   </div>
                 </div>
-                <span class="range">{{ event.rangeText }}</span>
-              </div>
-              <p v-if="event.note" class="note">{{ event.note }}</p>
-            </a>
-          </div>
-        </section>
+              </a>
+            </div>
+          </section>
+        </div>
       </template>
     </section>
   </ClientOnly>
 </template>
 
 <style scoped>
-.ongoing-wrap {
-  display: grid;
+.ongoing-container {
+  --accent-color: var(--vp-c-brand-1);
+  --accent-soft: var(--vp-c-brand-soft);
+  --bg-card: var(--vp-c-bg-soft);
+  --text-main: var(--vp-c-text-1);
+  --text-mute: var(--vp-c-text-2);
+  --border-color: var(--vp-c-divider);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: -48px 0 40px 0;
+  font-family: var(--vp-font-family-base, sans-serif);
+}
+
+/* Header Styles */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   gap: 24px;
 }
 
-.hero {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: flex-end;
-  padding: 20px 0 6px;
-}
-
-.lead {
-  margin: 12px 0 0;
-  max-width: 44rem;
-  color: var(--vp-c-text-2);
-  line-height: 1.7;
-}
-
-.date-box {
-  min-width: 160px;
-  padding: 14px 16px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 14px;
-  background: var(--vp-c-bg-soft);
-  text-align: right;
-}
-
-.date-label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--vp-c-text-2);
-  font-size: 14px;
-}
-
-.date-box strong {
-  font-size: 18px;
-}
-
-.section {
-  display: grid;
-  gap: 14px;
-}
-
-.count {
-  color: var(--vp-c-text-2);
-  font-size: 14px;
-}
-
-.state {
+.main-title {
   margin: 0;
-  padding: 16px 18px;
-  border: 1px dashed var(--vp-c-divider);
-  border-radius: 14px;
-  color: var(--vp-c-text-2);
-  background: var(--vp-c-bg-soft);
-}
-
-.list {
-  display: grid;
-  gap: 18px;
-}
-
-.item {
-  display: block;
-  padding: 16px 18px;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 14px;
-  color: var(--vp-c-text-1);
-  text-decoration: none;
-  background: var(--vp-c-bg-soft);
-  transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.item:hover {
-  border-color: var(--vp-c-brand-1);
-  background: color-mix(
-    in srgb,
-    var(--vp-c-bg-soft) 90%,
-    var(--vp-c-brand-soft)
-  );
-}
-
-.item-head {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   display: flex;
+  align-items: center;
   gap: 12px;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: #ef4444;
+  color: white;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  animation: pulse-bg 2s infinite;
+}
+
+@keyframes pulse-bg {
+  0% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.8; transform: scale(1); }
+}
+
+.description {
+  margin: 8px 0 0;
+  color: var(--text-mute);
+  font-size: 15px;
+}
+
+.current-date-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.date-icon {
+  color: var(--accent-color);
+  background: var(--accent-soft);
+  padding: 8px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-info .label {
+  font-size: 12px;
+  color: var(--text-mute);
+  font-weight: 500;
+}
+
+.date-info .value {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--vp-font-family-mono, monospace);
+}
+
+/* Section Common Styles */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.pulse {
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.count-badge {
+  font-size: 14px;
+  background: var(--accent-soft);
+  color: var(--accent-color);
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* Event Card Styles */
+.events-list {
+  display: grid;
+  gap: 16px;
+}
+
+.event-card {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.active-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.active-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  background: var(--vp-c-bg-mute, var(--vp-c-bg-soft));
+}
+
+
+.card-header {
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 16px;
 }
 
-.item h3 {
+.event-info h4 {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.35;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
 }
 
-.campus,
-.note,
-.range,
-.jump {
-  color: var(--vp-c-text-2);
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.campus-tag {
+  font-size: 12px;
+  color: var(--text-mute);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.dark .campus-tag {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.time-range {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 4px;
+}
+
+.range-text {
+  font-size: 13px;
+  color: var(--text-mute);
+  font-family: var(--vp-font-family-mono, monospace);
+  font-weight: 500;
+}
+
+.countdown {
+  font-size: 12px;
+  color: #10b981;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.event-note {
+  margin: 16px 0;
   font-size: 14px;
+  color: var(--text-mute);
+  line-height: 1.6;
 }
 
-.campus {
-  margin: 6px 0;
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.campus > span {
-  margin-right: 3px;
+.progress-container {
+  height: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
 }
 
-.range {
-  white-space: nowrap;
+.dark .progress-container {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.note {
-  margin: 10px 0 0;
-  line-height: 1.7;
+.progress-bar {
+  height: 100%;
+  background: var(--accent-color);
+  border-radius: 3px;
+  transition: width 1s ease-out;
 }
 
-.jump {
-  display: inline-block;
-  margin-top: 10px;
-  color: var(--vp-c-brand-1);
+.action-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-color);
 }
 
-.compact .jump {
-  display: none;
+.action-link svg {
+  transition: transform 0.2s ease;
 }
 
-@media (max-width: 720px) {
-  .hero,
-  .item-head {
+.event-card:hover .action-link svg {
+  transform: translate(2px, -2px);
+}
+
+/* Upcoming Card Styles */
+.upcoming-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px 18px;
+}
+
+.upcoming-card:hover {
+  border-color: var(--accent-color);
+  background: var(--vp-c-bg-mute, var(--vp-c-bg-soft));
+}
+
+.upcoming-card .card-header {
+  align-items: center;
+}
+
+.upcoming-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.upcoming-indicator {
+  color: var(--text-mute);
+  opacity: 0.5;
+}
+
+/* States */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  gap: 16px;
+  color: var(--text-mute);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--accent-soft);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.empty-state {
+  padding: 40px;
+  text-align: center;
+  background: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  border-radius: 20px;
+  color: var(--text-mute);
+}
+
+.empty-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+/* Responsive Styles */
+.content-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (max-width: 840px) {
+  .header-section {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  .date-box {
+  
+  .current-date-card {
     width: 100%;
-    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .ongoing-container {
+    margin-top: -24px;
+    gap: 24px;
   }
 
-  .range {
-    white-space: normal;
+  .card-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .upcoming-card .card-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .upcoming-card .event-info {
+    flex: 1;
+  }
+  
+  .time-range {
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .main-title {
+    font-size: 24px;
+  }
+
+  .active-card {
+    padding: 16px;
   }
 }
 </style>

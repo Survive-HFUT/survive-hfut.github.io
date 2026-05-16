@@ -7,6 +7,4 @@ title: ⏱ 正在发生
 import OngoingNow from './.vitepress/theme/components/OngoingNow.vue'
 </script>
 
-# 正在发生
-
 <OngoingNow />
