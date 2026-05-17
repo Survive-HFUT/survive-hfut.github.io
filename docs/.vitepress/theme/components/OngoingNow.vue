@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { data, type OngoingEvent } from '../../data/ongoing.data';
 
 type DisplayEvent = OngoingEvent & {
@@ -12,10 +12,33 @@ const events = data.events;
 
 const ready = ref(false);
 const today = ref('');
+const nowTimestamp = ref(Date.now());
+
+let tickTimer: ReturnType<typeof setInterval> | undefined;
+let dayTimer: ReturnType<typeof setInterval> | undefined;
 
 onMounted(() => {
   today.value = getShanghaiDateKey();
   ready.value = true;
+
+  tickTimer = setInterval(() => {
+    nowTimestamp.value = Date.now();
+  }, 100);
+  dayTimer = setInterval(() => {
+    const dateKey = getShanghaiDateKey();
+    if (dateKey !== today.value) {
+      today.value = dateKey;
+    }
+  }, 60000);
+});
+
+onUnmounted(() => {
+  if (tickTimer !== undefined) {
+    clearInterval(tickTimer);
+  }
+  if (dayTimer !== undefined) {
+    clearInterval(dayTimer);
+  }
 });
 
 function getShanghaiDateKey(date = new Date()): string {
@@ -48,7 +71,7 @@ function formatRange(start: string, end: string): string {
 function calculateProgress(start: string, end: string): number {
   const s = new Date(start).getTime();
   const e = new Date(end).getTime();
-  const t = new Date(today.value).getTime();
+  const t = nowTimestamp.value;
 
   if (s === e) return 100;
   const progress = ((t - s) / (e - s)) * 100;
@@ -59,6 +82,10 @@ function calculateDaysRemaining(end: string): number {
   const e = new Date(end).getTime();
   const t = new Date(today.value).getTime();
   return Math.ceil((e - t) / (1000 * 60 * 60 * 24));
+}
+
+function formatProgress(progress?: number): string {
+  return `${(progress ?? 0).toFixed(5)}%`;
 }
 
 const activeEvents = computed<DisplayEvent[]>(() => {
@@ -102,13 +129,13 @@ const displayDate = computed(() =>
     <section class="ongoing-container">
       <header class="header-section">
         <div class="title-group">
-          <h2 class="main-title">
+          <h1 class="main-title">
             正在发生
             <span class="badge">Live</span>
             <span v-if="activeEvents.length" class="count-badge">{{
               activeEvents.length
             }}</span>
-          </h2>
+          </h1>
           <p class="description">
             What's going on?
             <br />
@@ -201,11 +228,16 @@ const displayDate = computed(() =>
                   <p v-if="event.note" class="event-note">{{ event.note }}</p>
 
                   <div class="card-footer">
-                    <div class="progress-container">
-                      <div
-                        class="progress-bar"
-                        :style="{ width: `${event.progress}%` }"
-                      ></div>
+                    <div class="progress-row">
+                      <div class="progress-container">
+                        <div
+                          class="progress-bar"
+                          :style="{ width: `${event.progress}%` }"
+                        />
+                      </div>
+                      <span class="progress-text">
+                        {{ formatProgress(event.progress) }}
+                      </span>
                     </div>
                     <div class="action-link">
                       <span>查看详情</span>
@@ -237,9 +269,7 @@ const displayDate = computed(() =>
 
           <!-- Upcoming Events Section -->
           <section v-if="upcomingEvents.length" class="events-section upcoming">
-            <div class="section-header">
-              <h3>近期预告</h3>
-            </div>
+            <h2>近期预告</h2>
 
             <div class="events-list compact">
               <a
@@ -291,7 +321,6 @@ const displayDate = computed(() =>
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin: -48px 0 40px 0;
   font-family: var(--vp-font-family-base, sans-serif);
 }
 
@@ -305,9 +334,6 @@ const displayDate = computed(() =>
 
 .main-title {
   margin: 0;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -387,13 +413,6 @@ const displayDate = computed(() =>
   align-items: center;
   gap: 10px;
   margin-bottom: 16px;
-}
-
-.section-header h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-main);
 }
 
 .indicator {
@@ -532,7 +551,14 @@ const displayDate = computed(() =>
   gap: 16px;
 }
 
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .progress-container {
+  flex: 1;
   height: 6px;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 3px;
@@ -548,6 +574,15 @@ const displayDate = computed(() =>
   background: var(--accent-color);
   border-radius: 3px;
   transition: width 1s ease-out;
+}
+
+.progress-text {
+  min-width: 44px;
+  text-align: right;
+  font-size: 12px;
+  color: var(--text-mute);
+  font-weight: 600;
+  font-family: var(--vp-font-family-mono, monospace);
 }
 
 .action-link {
@@ -677,10 +712,6 @@ const displayDate = computed(() =>
   .time-range {
     align-items: flex-start;
     text-align: left;
-  }
-
-  .main-title {
-    font-size: 24px;
   }
 
   .active-card {
