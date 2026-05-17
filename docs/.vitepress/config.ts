@@ -30,6 +30,8 @@ const time =
   new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
   ' GMT+8:00';
 
+const excludes = ['index.md', 'random.md'];
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: '活在肥宣',
@@ -62,9 +64,13 @@ export default defineConfig({
         repoURL: 'https://github.com/Survive-HFUT/survive-hfut.github.io',
         mapAuthors: contributors,
       }),
-      GitChangelogMarkdownSection({ excludes: ['_random.md', 'index.md'] }),
       PageProperties(),
-      PagePropertiesMarkdownSection(),
+      PagePropertiesMarkdownSection({
+        excludes: excludes.concat(['ongoing.md']),
+      }),
+      GitChangelogMarkdownSection({
+        excludes,
+      }),
       RssPlugin({
         title: '活在肥宣',
         copyright: 'CC-BY-SA 4.0',
@@ -79,7 +85,7 @@ export default defineConfig({
           'h2#贡献者',
           '.vp-nolebase-git-changelog',
           'h2#页面历史',
-          'vp-nolebase-git-changelog'
+          'vp-nolebase-git-changelog',
         ],
       }),
     ],
