@@ -1,10 +1,17 @@
+import { defineLoader } from 'vitepress';
 import { SidebarItem } from 'vitepress-sidebar/types';
 import sidebar from '../sidebar';
 
+export type SidebarLink = [string, string];
+export type SidebarData = SidebarLink[];
+
+declare const data: SidebarData;
+export { data };
+
 // 导入网站所有链接，用于随机跳转
-export default {
+export default defineLoader({
   load() {
-    const links: [string, string][] = [];
+    const links: SidebarLink[] = [];
 
     sidebar['/'].items.forEach(add);
 
@@ -24,4 +31,4 @@ export default {
 
     return links;
   },
-};
+});

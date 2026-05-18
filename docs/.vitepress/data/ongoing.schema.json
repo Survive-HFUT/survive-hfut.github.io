@@ -7,6 +7,7 @@
   "required": ["$schema", "events"],
   "properties": {
     "$schema": {
+      "title": "Schema Reference",
       "const": "./ongoing.schema.json"
     },
     "events": {
@@ -23,10 +24,12 @@
       "required": ["title", "campus", "start", "end", "href"],
       "properties": {
         "title": {
+          "title": "标题",
           "type": "string",
           "minLength": 1
         },
         "campus": {
+          "title": "校区",
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
@@ -35,18 +38,24 @@
           }
         },
         "start": {
+          "title": "开始日期",
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}( \\d{2}:\\d{2})?$"
         },
         "end": {
+          "title": "结束日期",
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}( \\d{2}:\\d{2})?$"
         },
         "href": {
+          "title": "链接",
           "type": "string",
           "minLength": 1
         },
         "note": {
+          "title": "备注",
           "type": "string"
         }
       }

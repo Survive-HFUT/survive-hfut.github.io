@@ -1,4 +1,5 @@
 import simpleGit, { type SimpleGit } from 'simple-git';
+import { defineLoader } from 'vitepress';
 import contributors from '../helpers/contributors';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -26,6 +27,20 @@ type SectionMatch = {
   slug: string;
   excerpt: string;
 };
+
+export type RecentChange = {
+  path: string;
+  updatedAt: string;
+  authorName: string;
+  sectionTitle: string;
+  sectionSlug: string;
+  excerpt: string;
+};
+
+export type RecentChangesData = RecentChange[];
+
+declare const data: RecentChangesData;
+export { data };
 
 function normalizePath(filePath: string): string {
   return filePath.replace(/\\/g, '/').trim();
@@ -273,23 +288,13 @@ async function readFileAtCommit(
   }
 }
 
-export default {
-  async load() {
+export default defineLoader({
+  async load(): Promise<RecentChangesData> {
     try {
       const git = simpleGit({ baseDir: ROOT });
       const log = await git.log();
       const authorMap = buildContributorMap(contributors as Contributor[]);
-      const fileUpdates = new Map<
-        string,
-        {
-          path: string;
-          updatedAt: string;
-          authorName: string;
-          sectionTitle: string;
-          sectionSlug: string;
-          excerpt: string;
-        }
-      >();
+      const fileUpdates = new Map<string, RecentChange>();
 
       for (const commit of log.all) {
         if (fileUpdates.size >= MAX_ITEMS) {
@@ -365,4 +370,4 @@ export default {
       return [];
     }
   },
-};
+});

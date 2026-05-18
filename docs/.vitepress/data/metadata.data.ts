@@ -1,8 +1,43 @@
 import * as github from '@actions/github';
 import * as core from '@actions/core';
+import { defineLoader } from 'vitepress';
 
-export default {
-  async load() {
+type Nullable<T> = T | null;
+
+export type MetadataData = {
+  time: string;
+  node: {
+    version: string;
+  };
+  platform: {
+    type: string;
+    arch: string;
+    version: string;
+    name: string;
+  };
+  context: {
+    repository: Nullable<{ owner: string; repo: string }>;
+    sha: Nullable<string>;
+    ref: Nullable<string>;
+    workflow: {
+      name: Nullable<string>;
+      event: Nullable<string>;
+      actor: Nullable<string>;
+      job: {
+        name: Nullable<string>;
+        id: Nullable<number>;
+        number: Nullable<number>;
+        attempt: Nullable<number>;
+      };
+    };
+  };
+};
+
+declare const data: MetadataData;
+export { data };
+
+export default defineLoader({
+  async load(): Promise<MetadataData> {
     const platformDetails = await core.platform.getDetails();
 
     return {
@@ -38,7 +73,7 @@ export default {
       },
     };
   },
-};
+});
 
 function clean(v: any) {
   return v || null;

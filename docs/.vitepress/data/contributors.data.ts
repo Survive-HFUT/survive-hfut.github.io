@@ -1,7 +1,8 @@
 import { Author } from '@nolebase/vitepress-plugin-git-changelog';
 import { Octokit } from 'octokit';
+import { defineLoader } from 'vitepress';
 
-type CustomAuthor = {
+type AuthorMapping = {
   /**
    * GitHub 用户 ID，可以通过访问 https://api.github.com/users/{username} 获取到
    */
@@ -22,7 +23,7 @@ const octokit = new Octokit(
     : undefined,
 );
 
-const customAuthors: CustomAuthor[] = [
+const toMapByName: AuthorMapping[] = [
   {
     id: 215695503,
     mapByNameAliases: ['HenryPan'],
@@ -41,7 +42,7 @@ const customAuthors: CustomAuthor[] = [
   },
 ];
 
-const authors: Author[] = [
+const toConcatDirectly: Author[] = [
   {
     name: 'Copilot',
     username: 'copilot',
@@ -54,6 +55,17 @@ const authors: Author[] = [
   },
 ];
 
+export type ContributorsData = Author[];
+
+declare const data: ContributorsData;
+export { data };
+
+export default defineLoader({
+  async load(): Promise<ContributorsData> {
+    return await getAuthors();
+  },
+});
+
 async function getAuthors(): Promise<Author[]> {
   // 在开发环境中直接返回空表，避免频繁调用GitHub API
 
@@ -63,7 +75,7 @@ async function getAuthors(): Promise<Author[]> {
   // Bash: export GITHUB_TOKEN="your_token_here"
 
   if (process.env.NODE_ENV !== 'production' && !process.env.GITHUB_TOKEN) {
-    return authors;
+    return toConcatDirectly;
   }
 
   try {
@@ -72,9 +84,9 @@ async function getAuthors(): Promise<Author[]> {
       ...(await fetchContributorsMap()),
 
       // co-author或非GitHub贡献者的自定义作者列表
-      ...(await Promise.all(customAuthors.map(getAuthorDetail))),
+      ...(await Promise.all(toMapByName.map(getAuthorDetail))),
 
-      ...authors,
+      ...toConcatDirectly,
     ]);
   } catch (error) {
     console.error('Failed to fetch contributors from GitHub API:', error);
@@ -106,7 +118,7 @@ function concat(authors: Author[]): Author[] {
   return Array.from(uniqueMap.values());
 }
 
-async function getAuthorDetail(coAuthor: CustomAuthor): Promise<Author> {
+async function getAuthorDetail(coAuthor: AuthorMapping): Promise<Author> {
   const user = await octokit.rest.users.getById({ account_id: coAuthor.id });
   return {
     name: user.data.name || user.data.login,
@@ -162,9 +174,3 @@ function getNameAlias(login?: string, name?: string | null): string[] {
 function getDefaultEmail(id: number, login: string): string {
   return `${id}+${login}@users.noreply.github.com`;
 }
-
-export default {
-  async load() {
-    return await getAuthors();
-  },
-};
