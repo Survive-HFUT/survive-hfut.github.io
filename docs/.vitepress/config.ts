@@ -98,6 +98,7 @@ export default defineConfig({
           description: '更适合合工大学生的生活指南',
           theme_color: '#3451b2',
           background_color: '#ffffff',
+          lang: 'zh-CN',
           display: 'standalone',
           start_url: '/',
           icons: [
@@ -105,11 +106,13 @@ export default defineConfig({
               src: '/book.png',
               sizes: '192x192',
               type: 'image/png',
+              purpose: 'any maskable',
             },
             {
               src: '/book.png',
               sizes: '512x512',
               type: 'image/png',
+              purpose: 'any maskable',
             },
           ],
         },
@@ -240,6 +243,12 @@ function getHead() {
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
     ['meta', { name: 'theme-color', content: '#3451b2' }],
+    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
+    [
+      'script',
+      {},
+      `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js', { scope: '/' }); }); }`,
+    ],
     [
       'script',
       {},
