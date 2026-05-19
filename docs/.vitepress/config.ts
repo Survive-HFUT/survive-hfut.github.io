@@ -247,11 +247,6 @@ function getHead() {
     [
       'script',
       {},
-      `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js', { scope: '/' }); }); }`,
-    ],
-    [
-      'script',
-      {},
       `console.log("%c 活在肥宣 %c Built at ${time}", "font-weight:700;background:#3451b2;color:white;font-size:16px","color:#64748b")`,
     ],
   ];
