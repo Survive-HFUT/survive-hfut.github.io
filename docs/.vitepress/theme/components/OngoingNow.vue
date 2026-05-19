@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { data, type OngoingEvent } from '../../data/ongoing.data';
+import LinkCard from './LinkCard.vue';
 
 type DisplayEvent = OngoingEvent & {
   rangeText: string;
@@ -132,9 +133,9 @@ const displayDate = computed(() =>
           <h1 class="main-title">
             正在发生
             <span class="badge">Live</span>
-            <span v-if="activeEvents.length" class="count-badge">{{
-              activeEvents.length
-            }}</span>
+            <span v-if="activeEvents.length" class="count-badge">
+              {{ activeEvents.length }}
+            </span>
           </h1>
           <p class="description">
             What's going on?
@@ -142,6 +143,7 @@ const displayDate = computed(() =>
             点击事件卡片可一键直达对应页面
           </p>
         </div>
+
         <div class="current-date-card">
           <div class="date-icon">
             <svg
@@ -178,73 +180,33 @@ const displayDate = computed(() =>
           <!-- Active Events Section -->
           <section class="events-section">
             <div v-if="activeEvents.length" class="events-list">
-              <a
+              <LinkCard
                 v-for="event in activeEvents"
                 :key="`${event.title}-${event.start}`"
-                class="event-card active-card"
                 :href="event.href"
+                :title="event.title"
+                class="active-card"
+                style="--card-title-size: 19px; --card-title-weight: 700"
               >
-                <div class="card-content">
-                  <div class="card-header">
-                    <div class="event-info">
-                      <h4>{{ event.title }}</h4>
-                      <div class="tags">
-                        <span
-                          v-for="c in event.campus"
-                          :key="c"
-                          class="campus-tag"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="12"
-                            height="12"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path
-                              d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
-                            />
-                            <circle cx="12" cy="10" r="3" />
-                          </svg>
-                          {{ c }}
-                        </span>
-                      </div>
-                    </div>
-                    <div class="time-range">
-                      <span class="range-text">{{ event.rangeText }}</span>
-                      <span
-                        v-if="event.daysRemaining !== undefined"
-                        class="countdown"
-                      >
-                        剩 {{ event.daysRemaining }} 天
-                      </span>
+                <template #right>
+                  <div class="right">
+                    <div class="range">{{ event.rangeText }}</div>
+
+                    <div
+                      v-if="event.daysRemaining !== undefined"
+                      class="countdown"
+                    >
+                      剩 {{ event.daysRemaining }} 天
                     </div>
                   </div>
-
-                  <p v-if="event.note" class="event-note">{{ event.note }}</p>
-
-                  <div class="card-footer">
-                    <div class="progress-row">
-                      <div class="progress-container">
-                        <div
-                          class="progress-bar"
-                          :style="{ width: `${event.progress}%` }"
-                        />
-                      </div>
-                      <span class="progress-text">
-                        {{ formatProgress(event.progress) }}
-                      </span>
-                    </div>
-                    <div class="action-link">
-                      <span>查看详情</span>
+                </template>
+                <template #title-suffix>
+                  <div class="tags">
+                    <span v-for="c in event.campus" :key="c" class="campus-tag">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
+                        width="12"
+                        height="12"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -252,13 +214,49 @@ const displayDate = computed(() =>
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       >
-                        <path d="M7 7h10v10" />
-                        <path d="M7 17 17 7" />
+                        <path
+                          d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                        />
+                        <circle cx="12" cy="10" r="3" />
                       </svg>
-                    </div>
+                      {{ c }}
+                    </span>
                   </div>
-                </div>
-              </a>
+                </template>
+
+                <p v-if="event.note" class="event-note">{{ event.note }}</p>
+
+                <template #footer>
+                  <div class="progress-row">
+                    <div class="progress-container">
+                      <div
+                        class="progress-bar"
+                        :style="{ width: `${event.progress}%` }"
+                      />
+                    </div>
+                    <span class="progress-text">
+                      {{ formatProgress(event.progress) }}
+                    </span>
+                  </div>
+                  <div class="action-link">
+                    <span>查看详情</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M7 7h10v10" />
+                      <path d="M7 17 17 7" />
+                    </svg>
+                  </div>
+                </template>
+              </LinkCard>
             </div>
 
             <div v-else class="empty-state">
@@ -272,16 +270,17 @@ const displayDate = computed(() =>
             <h2>近期预告</h2>
 
             <div class="events-list compact">
-              <a
+              <LinkCard
                 v-for="event in upcomingEvents"
                 :key="`${event.title}-${event.start}`"
-                class="event-card upcoming-card"
                 :href="event.href"
+                :title="event.title"
+                class="upcoming-card"
+                style="--card-header-align: center"
               >
-                <div class="card-header">
-                  <div class="event-info">
-                    <h4>{{ event.title }}</h4>
-                    <span class="range-text">{{ event.rangeText }}</span>
+                <template #right>
+                  <div class="range">
+                    {{ event.rangeText }}
                   </div>
                   <div class="upcoming-indicator">
                     <svg
@@ -299,8 +298,8 @@ const displayDate = computed(() =>
                       <polyline points="12 6 12 12 16 14" />
                     </svg>
                   </div>
-                </div>
-              </a>
+                </template>
+              </LinkCard>
             </div>
           </section>
         </div>
@@ -377,7 +376,7 @@ const displayDate = computed(() =>
   padding: 12px 20px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 10px;
 }
 
 .date-icon {
@@ -455,42 +454,6 @@ const displayDate = computed(() =>
   gap: 16px;
 }
 
-.event-card {
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  display: block;
-}
-
-.active-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.active-card:hover {
-  border-color: var(--accent-color);
-  background: var(--vp-c-bg-mute, var(--vp-c-bg-soft));
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.event-info h4 {
-  margin: 0;
-  font-size: 19px;
-  font-weight: 700;
-  color: var(--text-main);
-  line-height: 1.3;
-}
-
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -513,21 +476,6 @@ const displayDate = computed(() =>
   background: rgba(255, 255, 255, 0.05);
 }
 
-.time-range {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-  gap: 4px;
-}
-
-.range-text {
-  font-size: 13px;
-  color: var(--text-mute);
-  font-family: var(--vp-font-family-mono, monospace);
-  font-weight: 500;
-}
-
 .countdown {
   font-size: 12px;
   color: #10b981;
@@ -538,17 +486,10 @@ const displayDate = computed(() =>
 }
 
 .event-note {
-  margin: 16px 0;
+  margin: 4px 0 0;
   font-size: 14px;
   color: var(--text-mute);
   line-height: 1.6;
-}
-
-.card-footer {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 .progress-row {
@@ -599,32 +540,7 @@ const displayDate = computed(() =>
   transition: transform 0.2s ease;
 }
 
-.event-card:hover .action-link svg {
-  transform: translate(2px, -2px);
-}
-
 /* Upcoming Card Styles */
-.upcoming-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-  padding: 18px;
-}
-
-.upcoming-card:hover {
-  border-color: var(--accent-color);
-  background: var(--vp-c-bg-mute, var(--vp-c-bg-soft));
-}
-
-.upcoming-card .card-header {
-  align-items: center;
-}
-
-.upcoming-card h4 {
-  font-size: 16px;
-  font-weight: 600;
-}
-
 .upcoming-indicator {
   color: var(--text-mute);
   opacity: 0.5;
@@ -694,28 +610,27 @@ const displayDate = computed(() =>
     gap: 24px;
   }
 
-  .card-header {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .upcoming-card .card-header {
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .upcoming-card .event-info {
-    flex: 1;
-  }
-
-  .time-range {
-    align-items: flex-start;
-    text-align: left;
-  }
-
   .active-card {
     padding: 16px;
   }
+
+  .right:has(.range) {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.range {
+  font-size: 14px;
+  font-family: var(--vp-font-family-mono, monospace);
+  color: var(--vp-c-text-1);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
 }
 </style>

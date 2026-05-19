@@ -33,6 +33,11 @@ jobs:
           pnpm install
           pnpm run docs:build
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v5
+        with:
+          path: './docs/.vitepress/dist'
+
   lint:
     runs-on: ubuntu-latest
     steps:
