@@ -19,6 +19,7 @@ import {
   chineseSearchOptimize,
   pagefindPlugin,
 } from 'vitepress-plugin-pagefind';
+import { VitePWA } from 'vite-plugin-pwa';
 import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import contributors from './helpers/contributors';
@@ -87,6 +88,38 @@ export default defineConfig({
           'h2#页面历史',
           'vp-nolebase-git-changelog',
         ],
+      }),
+      VitePWA({
+        registerType: 'autoUpdate',
+        includeAssets: ['favicon.ico', 'book.png', 'hfut.svg'],
+        manifest: {
+          name: '活在肥宣',
+          short_name: '活在肥宣',
+          description: '更适合合工大学生的生活指南',
+          theme_color: '#3451b2',
+          background_color: '#ffffff',
+          display: 'standalone',
+          start_url: '/',
+          icons: [
+            {
+              src: '/book.png',
+              sizes: '192x192',
+              type: 'image/png',
+            },
+            {
+              src: '/book.png',
+              sizes: '512x512',
+              type: 'image/png',
+            },
+          ],
+        },
+        workbox: {
+          globPatterns: [
+            '**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff2}',
+          ],
+          cleanupOutdatedCaches: true,
+          maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+        },
       }),
     ],
 
@@ -206,6 +239,7 @@ function getHead() {
       'meta',
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
+    ['meta', { name: 'theme-color', content: '#3451b2' }],
     [
       'script',
       {},
