@@ -2,7 +2,7 @@
 import { useRouter } from 'vitepress';
 
 // @ts-expect-error
-import { data } from '../../data/sidebar.data';
+import { data } from '../../data/links.data';
 import { onMounted } from 'vue';
 
 const url = data[Math.floor(Math.random() * data.length)];
