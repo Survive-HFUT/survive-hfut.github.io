@@ -10,5 +10,8 @@ dev-dist/
 
 sidebar.json
 
+# JetBrains IDEs
+.idea/
+
 # Obsidian
 .obsidian/
