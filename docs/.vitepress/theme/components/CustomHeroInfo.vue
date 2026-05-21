@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
-import { useData } from 'vitepress';
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { inBrowser, useData } from 'vitepress';
 
 const { frontmatter } = useData();
 
@@ -19,12 +19,12 @@ const variants = computed<HeroVariant[]>(() => {
     return Array.from({ length }, (_, index) => ({
       name:
         rawNames.length > 0
-          ? rawNames[index % rawNames.length] ?? ''
-          : frontmatter.value.hero?.name ?? '',
+          ? (rawNames[index % rawNames.length] ?? '')
+          : (frontmatter.value.hero?.name ?? ''),
       text:
         rawTexts.length > 0
-          ? rawTexts[index % rawTexts.length] ?? ''
-          : frontmatter.value.hero?.text ?? '',
+          ? (rawTexts[index % rawTexts.length] ?? '')
+          : (frontmatter.value.hero?.text ?? ''),
     })).filter((item) => item.name.length > 0 || item.text.length > 0);
   }
 
@@ -37,8 +37,13 @@ const variants = computed<HeroVariant[]>(() => {
       ]
     : [];
 });
-const displayedName = ref(variants.value[0]?.name ?? frontmatter.value.hero?.name ?? '');
+const displayedName = ref(
+  variants.value[0]?.name ?? frontmatter.value.hero?.name ?? '',
+);
 const displayedText = ref('');
+const activeTextForImage = ref(
+  variants.value[0]?.text ?? frontmatter.value.hero?.text ?? '',
+);
 const hasTexts = computed(
   () =>
     Array.isArray(frontmatter.value.hero?.texts) &&
@@ -46,6 +51,56 @@ const hasTexts = computed(
 );
 const hasFallbackText = computed(() => !!frontmatter.value.hero?.text);
 const showText = computed(() => hasTexts.value || hasFallbackText.value);
+
+const bgImageMap: Record<string, string> = {
+  xuanhua: new URL('../../../media/east_gate_new.jpg', import.meta.url).href,
+  feicui: new URL('../../../campus/fch/dongfengguangchang.jpg', import.meta.url)
+    .href,
+  tunxi: new URL(
+    '../../../campus/txl/main_academic_building.png',
+    import.meta.url,
+  ).href,
+};
+
+const currentBgImage = computed(() => {
+  const text = activeTextForImage.value || displayedText.value || '';
+  if (text.includes('薰化路')) return bgImageMap.xuanhua;
+  if (text.includes('翡翠')) return bgImageMap.feicui;
+  if (text.includes('屯溪路')) return bgImageMap.tunxi;
+  return '';
+});
+
+let activeBgLayer: 'a' | 'b' = 'a';
+let activeBgUrl = '';
+
+watch(
+  currentBgImage,
+  (url) => {
+    if (!inBrowser || typeof window === 'undefined') {
+      return;
+    }
+
+    if (!url) {
+      clearHomeBg();
+      return;
+    }
+
+    if (typeof Image === 'undefined') {
+      setHomeBg(url);
+      return;
+    }
+
+    const img = new Image();
+    img.onload = () => {
+      setHomeBg(url);
+    };
+    img.onerror = () => {
+      clearHomeBg();
+    };
+    img.src = url;
+  },
+  { immediate: true },
+);
 
 let stopped = false;
 
@@ -75,7 +130,45 @@ function normalizeStrings(value: unknown): string[] {
     return [];
   }
 
-  return value.filter((item: unknown): item is string => typeof item === 'string');
+  return value.filter(
+    (item: unknown): item is string => typeof item === 'string',
+  );
+}
+
+function setHomeBg(url: string) {
+  if (url === activeBgUrl) {
+    return;
+  }
+
+  const root = document.documentElement;
+  const cssUrl = `url("${url}")`;
+
+  if (!root.classList.contains('has-home-hero-bg')) {
+    activeBgLayer = 'a';
+    root.style.setProperty('--home-hero-bg-image-a', cssUrl);
+    root.style.setProperty('--home-hero-bg-image-b', cssUrl);
+    root.classList.remove('home-hero-bg-b-active');
+  } else if (activeBgLayer === 'a') {
+    activeBgLayer = 'b';
+    root.style.setProperty('--home-hero-bg-image-b', cssUrl);
+    root.classList.add('home-hero-bg-b-active');
+  } else {
+    activeBgLayer = 'a';
+    root.style.setProperty('--home-hero-bg-image-a', cssUrl);
+    root.classList.remove('home-hero-bg-b-active');
+  }
+
+  activeBgUrl = url;
+  document.documentElement.classList.add('has-home-hero-bg');
+}
+
+function clearHomeBg() {
+  const root = document.documentElement;
+  root.style.removeProperty('--home-hero-bg-image-a');
+  root.style.removeProperty('--home-hero-bg-image-b');
+  root.classList.remove('has-home-hero-bg', 'home-hero-bg-b-active');
+  activeBgUrl = '';
+  activeBgLayer = 'a';
 }
 
 // 打字机效果
@@ -94,6 +187,8 @@ async function runTypewriter() {
   while (!stopped) {
     const current = items[index] ?? { name: '', text: '' };
     displayedName.value = current.name || frontmatter.value.hero?.name || '';
+    activeTextForImage.value =
+      current.text || frontmatter.value.hero?.text || '';
 
     for (let i = 0; i <= current.text.length && !stopped; i += 1) {
       displayedText.value = current.text.slice(0, i);
@@ -119,10 +214,18 @@ async function runTypewriter() {
 onMounted(() => {
   stopped = false;
   runTypewriter();
+  window.setTimeout(() => {
+    if (!stopped && currentBgImage.value) {
+      setHomeBg(currentBgImage.value);
+    }
+  });
 });
 
 onBeforeUnmount(() => {
   stopped = true;
+  if (inBrowser && typeof window !== 'undefined') {
+    clearHomeBg();
+  }
 });
 </script>
 <template>
@@ -162,6 +265,7 @@ onBeforeUnmount(() => {
   font-weight: 700;
   white-space: nowrap;
   word-break: keep-all;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.48);
 
   &:lang(ja) {
     font-feature-settings: 'palt';
@@ -244,6 +348,7 @@ onBeforeUnmount(() => {
   font-weight: 500;
   white-space: pre-wrap;
   color: var(--vp-c-text-2);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.46);
 }
 
 .VPHero.has-image .tagline {
