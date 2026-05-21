@@ -26,12 +26,311 @@
   }
 }
 
+.VPFeatures .VPLink {
+  border: 1px solid transparent;
+}
+
+.VPFeatures .VPLink:hover {
+  border: 1px solid var(--vp-c-brand);
+}
+
 /* ==========================================================================
-   磨砂玻璃拟态 (Glassmorphism) 与悬浮微动效样式
+   磨砂玻璃拟态 (Glassmorphism) 与悬浮微动效样式 (在浅色模式启用校园大图时生效)
    ========================================================================= */
 
-/* 1. 特色功能卡片 (VPFeature) 精致磨砂设计 */
-.VPFeature .box {
+/* 浅色模式处于大图状态时，将背景和字体色彩变更为深色玻璃态配色，提供极致的反差对比 */
+.has-home-hero-bg:not(.dark) {
+  --vp-c-text-1: rgba(255, 255, 255, 0.92) !important;
+  --vp-c-text-2: rgba(255, 255, 255, 0.74) !important;
+  --vp-c-text-3: rgba(255, 255, 255, 0.5) !important;
+  --vp-c-bg-soft: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* ==========================================================================
+   导航栏 (VPNavBar) 与搜索框 (DocSearch) 沉浸式暗色玻璃美化样式
+   (大图激活状态且位于顶部 `.home.top` 时，由于存在深色遮罩背景，将背景变更为暗高透以在深色大图上获得无可匹敌的可读性)
+   ========================================================================= */
+
+/* 导航栏整体高透磨砂板 */
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .content-body {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* 导航栏中下拉菜单面板 (Flyout) 极致暗色玻璃质感打磨，深度重置内部背景变量，根治鼠标 hover 悬停时原生淡白背景与白字撞色导致的白底白字缺陷 */
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .VPFlyout .menu {
+  background-color: rgba(21, 23, 25, 0.96) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+
+  /* 强力隔离并覆盖面板内部可能继承的原生亮色变量，强制统一收拢为暗玻璃高清晰质感 */
+  --vp-c-bg: rgba(21, 23, 25, 0.96) !important;
+  --vp-c-bg-elv: rgba(30, 32, 35, 0.96) !important;
+  --vp-c-bg-alt: rgba(255, 255, 255, 0.05) !important;
+  --vp-c-bg-soft: rgba(255, 255, 255, 0.04) !important;
+  --vp-c-bg-mute: rgba(255, 255, 255, 0.06) !important;
+
+  /* 深度稳固其内部及各级子链接的高清晰亮白色文字 */
+  --vp-c-text-1: rgba(255, 255, 255, 0.92) !important;
+  --vp-c-text-2: rgba(255, 255, 255, 0.74) !important;
+  --vp-c-text-3: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 移动端全屏展开菜单 */
+.has-home-hero-bg:not(.dark) .VPNavBarScreen {
+  background-color: rgba(21, 23, 25, 0.96) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+/* 搜索按钮高透磨砂玻璃重构，使其在亮色大图状态下呈现高级感并拥有极佳的可读性 */
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .blog-search > .nav-search-btn-wait {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .blog-search > .nav-search-btn-wait:hover {
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.2),
+    0 0 10px rgba(65, 209, 255, 0.2) !important;
+}
+
+/* 搜索按钮子元素：放大镜图标、提示词以及快捷键高对比度处理 */
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .blog-search > .nav-search-btn-wait svg {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .blog-search > .nav-search-btn-wait .search-tip {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .blog-search > .nav-search-btn-wait .metaKey {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: none !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 4px !important;
+}
+
+/* Nolebase 增强阅读下拉菜单在大图顶部状态下使用深度暗色玻璃质感打磨，解决内部按钮卡片白底白字缺陷 */
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .VPNolebaseEnhancedReadabilitiesMenu,
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .VPNolebaseEnhancedReadabilitiesScreenMenu {
+  --vp-nolebase-enhanced-readabilities-menu-background-color: rgba(21, 23, 25, 0.96) !important;
+  --vp-nolebase-enhanced-readabilities-menu-border-color: rgba(255, 255, 255, 0.1) !important;
+  --vp-nolebase-enhanced-readabilities-menu-text-color: rgba(255, 255, 255, 0.9) !important;
+  --vp-nolebase-enhanced-readabilities-menu-text-active-color: var(--vp-c-brand-1, #41d1ff) !important;
+
+  --vp-nolebase-enhanced-readabilities-menu-item-background-color: rgba(255, 255, 255, 0.05) !important;
+  --vp-nolebase-enhanced-readabilities-menu-item-active-background-color: rgba(255, 255, 255, 0.12) !important;
+  --vp-nolebase-enhanced-readabilities-menu-item-border-color: rgba(255, 255, 255, 0.08) !important;
+  --vp-nolebase-enhanced-readabilities-menu-item-active-border-color: var(--vp-c-brand-1, #41d1ff) !important;
+
+  --vp-c-bg: rgba(21, 23, 25, 0.96) !important;
+  --vp-c-bg-elv: rgba(21, 23, 25, 0.96) !important;
+  --vp-c-bg-alt: rgba(255, 255, 255, 0.06) !important;
+  --vp-c-bg-soft: rgba(255, 255, 255, 0.04) !important;
+  --vp-c-text-1: rgba(255, 255, 255, 0.92) !important;
+  --vp-c-text-2: rgba(255, 255, 255, 0.74) !important;
+  --vp-c-text-3: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 滚动状态下，显式将 Nolebase 下拉菜单还原为完美的原生高对比度白底黑字，消除继承漂移 */
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPNolebaseEnhancedReadabilitiesMenu,
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPNolebaseEnhancedReadabilitiesScreenMenu {
+  --vp-nolebase-enhanced-readabilities-menu-background-color: #ffffff !important;
+  --vp-nolebase-enhanced-readabilities-menu-border-color: #e2e8f0 !important;
+  --vp-nolebase-enhanced-readabilities-menu-text-color: #2c3e50 !important;
+  --vp-nolebase-enhanced-readabilities-menu-text-active-color: var(--vp-c-brand-2, #3b82f6) !important;
+
+  --vp-nolebase-enhanced-readabilities-menu-item-background-color: #f8fafc !important;
+  --vp-nolebase-enhanced-readabilities-menu-item-active-background-color: #eff6ff !important;
+  --vp-nolebase-enhanced-readabilities-menu-item-border-color: #e2e8f0 !important;
+  --vp-nolebase-enhanced-readabilities-menu-item-active-border-color: var(--vp-c-brand-2, #3b82f6) !important;
+
+  --vp-c-bg: #ffffff !important;
+  --vp-c-bg-elv: #ffffff !important;
+  --vp-c-bg-alt: #f8fafc !important;
+  --vp-c-bg-soft: #f1f5f9 !important;
+  --vp-c-text-1: #2c3e50 !important;
+  --vp-c-text-2: #476582 !important;
+  --vp-c-text-3: #90a4ae !important;
+}
+
+/* 移动端展开的全屏菜单中，由于背景永远是深色（rgba(21, 23, 25, 0.96)），强制其内部的 Nolebase 菜单始终以高透暗玻璃呈现 */
+.has-home-hero-bg:not(.dark) .VPNavBarScreen .VPNolebaseEnhancedReadabilitiesScreenMenu,
+.has-home-hero-bg:not(.dark) .VPNavBarScreen .VPNolebaseEnhancedReadabilitiesMenu {
+  --vp-nolebase-enhanced-readabilities-menu-background-color: rgba(21, 23, 25, 0.96) !important;
+  --vp-nolebase-enhanced-readabilities-menu-border-color: rgba(255, 255, 255, 0.1) !important;
+  --vp-nolebase-enhanced-readabilities-menu-text-color: rgba(255, 255, 255, 0.9) !important;
+  --vp-nolebase-enhanced-readabilities-menu-text-active-color: var(--vp-c-brand-1, #41d1ff) !important;
+
+  --vp-nolebase-enhanced-readabilities-menu-item-background-color: rgba(255, 255, 255, 0.05) !important;
+  --vp-nolebase-enhanced-readabilities-menu-item-active-background-color: rgba(255, 255, 255, 0.12) !important;
+  --vp-nolebase-enhanced-readabilities-menu-item-border-color: rgba(255, 255, 255, 0.08) !important;
+  --vp-nolebase-enhanced-readabilities-menu-item-active-border-color: var(--vp-c-brand-1, #41d1ff) !important;
+
+  --vp-c-bg: rgba(21, 23, 25, 0.96) !important;
+  --vp-c-bg-elv: rgba(21, 23, 25, 0.96) !important;
+  --vp-c-bg-alt: rgba(255, 255, 255, 0.06) !important;
+  --vp-c-bg-soft: rgba(255, 255, 255, 0.04) !important;
+  --vp-c-text-1: rgba(255, 255, 255, 0.92) !important;
+  --vp-c-text-2: rgba(255, 255, 255, 0.74) !important;
+  --vp-c-text-3: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 无论是否滚动，当移动端折叠菜单展开时，强制将折叠汉堡按钮的 X 关闭状态图标线条高亮变白，以在暗色全屏背景下拥有绝对的醒目对比度 */
+.has-home-hero-bg:not(.dark) .VPNavBarHamburger.active .line {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* ==========================================================================
+   导航栏 (VPNavBar) 与组件在滚动下拉 `:not(.home.top)` 时的白色高反差恢复
+   (避免亮色大图下的白色全局文字变量污染白色导航栏背景，保障 100% 导航字迹清晰可辨)
+   ========================================================================= */
+
+/* 滚动状态下的导航栏整体：恢复半透明白底、淡灰边框以及深色文本变量 */
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) {
+  --vp-c-text-1: #2c3e50 !important;
+  --vp-c-text-2: #476582 !important;
+  --vp-c-text-3: #90a4ae !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* 滚动状态下，为展开的移动端全屏菜单额外保护，使其在暗色底盘下保持亮白色，防止暗色字墨入暗底 */
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPNavBarScreen {
+  --vp-c-text-1: rgba(255, 255, 255, 0.92) !important;
+  --vp-c-text-2: rgba(255, 255, 255, 0.74) !important;
+  --vp-c-text-3: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 滚动状态下恢复下拉菜单面板 (Flyout) 的标准白底与经典阴影，显式还原原生亮色背景与文字变量，消除任何大图白色残留污染 */
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPFlyout .menu {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+
+  --vp-c-bg: #ffffff !important;
+  --vp-c-bg-elv: #ffffff !important;
+  --vp-c-bg-alt: #f8fafc !important;
+  --vp-c-bg-soft: #f1f5f9 !important;
+  --vp-c-bg-mute: #f1f5f9 !important;
+  --vp-c-text-1: #2c3e50 !important;
+  --vp-c-text-2: #476582 !important;
+  --vp-c-text-3: #90a4ae !important;
+}
+
+/* 滚动状态下恢复搜索按钮为原生浅灰样式 */
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .blog-search > .nav-search-btn-wait {
+  background-color: var(--vp-c-bg-mute, #f1f5f9) !important;
+  border: 1px solid var(--vp-c-divider, #e2e8f0) !important;
+  box-shadow: none !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .blog-search > .nav-search-btn-wait:hover {
+  border-color: var(--vp-c-brand-1) !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .blog-search > .nav-search-btn-wait svg {
+  color: var(--vp-c-text-2) !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .blog-search > .nav-search-btn-wait .search-tip {
+  color: var(--vp-c-text-3) !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .blog-search > .nav-search-btn-wait .metaKey {
+  background-color: var(--vp-c-bg-alt, #f8fafc) !important;
+  border: 1px solid var(--vp-c-divider, #e2e8f0) !important;
+  color: var(--vp-c-text-2) !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   彻底保护搜索对话框免受大图亮白色变量污染，保障完美的 100% 检索可读性
+   ========================================================================= */
+
+/* 强制让命令调色板弹窗内的文本和链接变量恢复高对比度深色，消灭白底白字 */
+.has-home-hero-bg:not(.dark) div [command-dialog-wrapper] {
+  --vp-c-text-1: #2c3e50 !important;
+  --vp-c-text-2: #476582 !important;
+  --vp-c-text-3: #90a4ae !important;
+  --vp-c-brand-1: var(--vp-c-brand-2) !important; /* 恢复原生品牌色 */
+}
+
+/* 保护输入框 placeholder 占位符颜色 */
+.has-home-hero-bg:not(.dark) div [command-dialog-wrapper] input::placeholder {
+  color: var(--gray9) !important;
+}
+
+/* 强制保护弹窗页脚部分的快捷键说明、提示文字与 logo 区域的对比度 */
+.has-home-hero-bg:not(.dark) div [command-dialog-footer],
+.has-home-hero-bg:not(.dark) div [command-dialog-footer] .command-palette-Label,
+.has-home-hero-bg:not(.dark) div [command-dialog-footer] kbd,
+.has-home-hero-bg:not(.dark) div [command-dialog-footer] li span {
+  color: var(--gray11) !important;
+}
+
+/* 保护匹配高亮词 (mark) 的对比度，防止被抹消 */
+.has-home-hero-bg:not(.dark) div [command-dialog-wrapper] mark {
+  color: var(--vp-c-brand-2) !important;
+  background: none !important;
+}
+
+.has-home-hero-bg:not(.dark) div [command-dialog-wrapper] [command-item][aria-selected="true"] mark,
+.has-home-hero-bg:not(.dark) div [command-dialog-wrapper] [command-item]:hover mark {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+
+
+/* 保护底栏（Footer）文字对比度，沉浸式高透暗色设计以完美融合校园大图背景并保障极致可读性 */
+.has-home-hero-bg:not(.dark) .VPFooter {
+  background-color: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.has-home-hero-bg:not(.dark) .VPFooter,
+.has-home-hero-bg:not(.dark) .VPFooter .message,
+.has-home-hero-bg:not(.dark) .VPFooter .copyright,
+.has-home-hero-bg:not(.dark) .VPFooter a,
+.has-home-hero-bg:not(.dark) .VPFooter code {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPFooter a:hover {
+  color: var(--vp-c-brand-1) !important;
+  text-decoration: underline;
+}
+
+.has-home-hero-bg:not(.dark) .VPFooter code {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 1. 特色功能卡片 (VPFeature) 精致暗色高透磨砂设计 */
+.has-home-hero-bg:not(.dark) .VPFeature .box {
   background: rgba(255, 255, 255, 0.03) !important;
   backdrop-filter: blur(14px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
@@ -41,20 +340,13 @@
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-/* 浅色模式卡片设计 */
-:root:not(.dark) .VPFeature .box {
-  background: rgba(255, 255, 255, 0.72) !important;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04) !important;
-}
-
 /* 卡片悬浮升起与霓虹发光 */
-.VPFeatures .VPLink {
+.has-home-hero-bg:not(.dark) .VPFeatures .VPLink {
   border: none !important;
   text-decoration: none !important;
 }
 
-.VPFeatures .VPLink:hover .box {
+.has-home-hero-bg:not(.dark) .VPFeatures .VPLink:hover .box {
   transform: translateY(-6px);
   border-color: var(--vp-c-brand-1) !important;
   box-shadow: 
@@ -63,15 +355,8 @@
   background: rgba(255, 255, 255, 0.05) !important;
 }
 
-:root:not(.dark) .VPFeatures .VPLink:hover .box {
-  background: rgba(255, 255, 255, 0.88) !important;
-  box-shadow: 
-    0 12px 40px 0 rgba(0, 0, 0, 0.06), 
-    0 0 20px 0 rgba(52, 81, 178, 0.1) !important;
-}
-
 /* 2. 卡片内图标微小 hover 浮动缩放动效 */
-.VPFeature .icon {
+.has-home-hero-bg:not(.dark) .VPFeature .icon {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -85,12 +370,7 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-:root:not(.dark) .VPFeature .icon {
-  background: rgba(0, 0, 0, 0.03) !important;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-}
-
-.VPFeatures .VPLink:hover .icon {
+.has-home-hero-bg:not(.dark) .VPFeatures .VPLink:hover .icon {
   transform: scale(1.15) translateY(-2px);
   background: var(--vp-c-brand-soft) !important;
   border-color: var(--vp-c-brand-1) !important;
@@ -98,7 +378,7 @@
 }
 
 /* 3. CTA 行动按钮精致度重塑 */
-.VPButton {
+.has-home-hero-bg:not(.dark) .VPButton {
   border-radius: 24px !important;
   font-weight: 600 !important;
   letter-spacing: 0.5px;
@@ -106,7 +386,7 @@
 }
 
 /* 开始阅读 - 霓虹流光主按钮 */
-.VPButton.brand {
+.has-home-hero-bg:not(.dark) .VPButton.brand {
   background: linear-gradient(135deg, #57d78c 0%, #41d1ff 100%) !important;
   color: #0d2116 !important;
   font-weight: 700 !important;
@@ -114,33 +394,28 @@
   box-shadow: 0 4px 15px rgba(87, 215, 140, 0.3) !important;
 }
 
-.VPButton.brand:hover {
+.has-home-hero-bg:not(.dark) .VPButton.brand:hover {
   transform: translateY(-2px);
   box-shadow: 
     0 6px 20px rgba(87, 215, 140, 0.45),
     0 0 15px rgba(65, 209, 255, 0.35) !important;
 }
 
-.VPButton.brand:active {
+.has-home-hero-bg:not(.dark) .VPButton.brand:active {
   transform: translateY(0) scale(0.98);
 }
 
 /* 辅助次按钮 - 精美半透明磨砂设计 */
-.VPButton.alt {
+.has-home-hero-bg:not(.dark) .VPButton.alt {
   background: rgba(255, 255, 255, 0.04) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  color: var(--vp-c-text-1) !important;
+  color: #ffffff !important; /* 确保暗色卡片上文本呈亮白色 */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
 }
 
-:root:not(.dark) .VPButton.alt {
-  background: rgba(0, 0, 0, 0.03) !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-}
-
-.VPButton.alt:hover {
+.has-home-hero-bg:not(.dark) .VPButton.alt:hover {
   background: rgba(255, 255, 255, 0.08) !important;
   border-color: var(--vp-c-brand-1) !important;
   transform: translateY(-2px);
@@ -149,114 +424,134 @@
     0 0 10px rgba(65, 209, 255, 0.15) !important;
 }
 
-:root:not(.dark) .VPButton.alt:hover {
-  background: rgba(0, 0, 0, 0.06) !important;
-}
+/* ==========================================================================
+   移动端 (手机端) 滚动吸附分页 (Scroll Snapping) 效果与视觉居中对齐样式
+   (仅在移动端且主页加载挂载后即刻启用，确保首屏载入时滚动吸附和垂直居中立即生效，不受背景淡入延迟的影响)
+   ========================================================================= */
+@media (max-width: 960px) {
+  html.is-home-layout {
+    scroll-snap-type: y mandatory !important;
+    scroll-behavior: smooth !important;
+    /* 设置滚动容器的顶部内边距，确保所有吸附点都为固定的顶栏留出空间 */
+    scroll-padding-top: var(--vp-nav-height, 64px) !important;
+  }
 
-/* 4. 首页自定义导航部分与标题装饰 */
-.home-custom-section {
-  max-width: 1152px;
-  margin: 80px auto 0;
-  padding: 0 24px;
-  position: relative;
-  z-index: 1;
-}
+  /* 强力强制 Hero 区域作为独立的一整屏展示，并实现完美的垂直与水平双轴绝对居中 */
+  .is-home-layout .VPHero {
+    /* 除去顶栏高度，Hero 占满剩余视口，使用 dvh 以完美适配移动端动态地址栏 */
+    min-height: calc(100vh - var(--vp-nav-height, 64px)) !important;
+    min-height: calc(100dvh - var(--vp-nav-height, 64px)) !important;
+    height: calc(100vh - var(--vp-nav-height, 64px)) !important;
+    height: calc(100dvh - var(--vp-nav-height, 64px)) !important;
+    
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* 垂直居中 */
+    align-items: center !important;     /* 水平居中 */
+    
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    /* 为吸附边缘设置外边距，双重保险保障顶栏不被遮挡 */
+    scroll-margin-top: var(--vp-nav-height, 64px) !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important; /* 彻底清除大图状态下默认的不对称内边距，完全释放居中空间 */
+  }
 
-.section-title {
-  font-size: 26px;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 40px;
-  letter-spacing: -0.2px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  color: var(--vp-c-text-1);
-}
+  /* 强力强制 Hero 内部的 container 容器也完全居中且清除多余的 margin */
+  .is-home-layout .VPHero .container {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  width: 48px;
-  height: 4px;
-  background: linear-gradient(90deg, #57d78c, #41d1ff);
-  border-radius: 2px;
-}
+  /* 居中对齐文字、标题与副标题，限制最大宽度以防止在平板上拉伸 */
+  .is-home-layout .VPHero .main {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 540px !important;
+  }
 
-/* 快速探索网格 */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 20px;
-  margin-bottom: 50px;
-}
+  /* 强力强制按钮区域 (actions) 在手机端也居中排布，保证极致美感 */
+  .is-home-layout .VPHero .actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+  }
 
-@media (min-width: 640px) {
-  .grid-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* 强力微调手机端下的书籍图片，防止过大的图片挤压文本并阻碍视觉居中 */
+  .is-home-layout .VPHero .image {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 16px auto 0 !important; /* 精简外边距 */
+  }
+
+  .is-home-layout .VPHero .image-container {
+    max-width: 160px !important; /* 限制大图尺寸，为标题和按钮释放物理空间 */
+    margin: 0 auto !important;
+  }
+
+  /* 强力强制下面那三个卡片板块作为独立的第二屏展示 */
+  .is-home-layout .VPFeatures {
+    min-height: calc(100vh - var(--vp-nav-height, 64px)) !important;
+    min-height: calc(100dvh - var(--vp-nav-height, 64px)) !important;
+    display: flex !important;
+    align-items: center !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    /* 同样设置吸附外边距，为顶栏留出空间 */
+    scroll-margin-top: var(--vp-nav-height, 64px) !important;
+    box-sizing: border-box !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+
+  /* 强力强制底栏在滑动到最下方时与屏幕底端完美对齐吸附，防止最后出现半截悬空 */
+  .is-home-layout .VPFooter {
+    scroll-snap-align: end !important;
   }
 }
 
-@media (min-width: 960px) {
-  .grid-container {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+/* ==========================================================================
+   导航栏右上角工具组 (Nolebase阅读、社交链接、外观切换、汉堡按钮) 极致色彩保护与反色纠偏
+   ========================================================================= */
+
+/* 1. 顶部大图状态下 (.VPNavBar.home.top)：强力白化工具组内的所有 SVG 图标与线条，消灭深色图上的“深底深字”隐形缺陷 */
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .VPNavBarSocialLinks svg,
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .VPSwitchAppearance svg,
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .VPNolebaseEnhancedReadabilitiesMenu svg {
+  color: rgba(255, 255, 255, 0.9) !important;
+  fill: rgba(255, 255, 255, 0.9) !important;
 }
 
-/* 重构自定义 LinkCard 为极简高透玻璃态 */
-.home-custom-section .link-card {
-  background: rgba(255, 255, 255, 0.03) !important;
-  backdrop-filter: blur(14px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.06) !important;
-  border-radius: 14px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+.has-home-hero-bg:not(.dark) .VPNavBar.home.top .VPNavBarHamburger .line {
+  background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
-:root:not(.dark) .home-custom-section .link-card {
-  background: rgba(255, 255, 255, 0.72) !important;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-  box-shadow: 0 4px 20px rgba(31, 38, 135, 0.02) !important;
+/* 2. 页面向下滚动后 (.VPNavBar:not(.home.top))：强力将工具组内的所有 SVG 图标与线条恢复为原生高对比度深色，消灭白色顶栏上的“白底白字”隐形缺陷 */
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPNavBarSocialLinks svg,
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPSwitchAppearance svg,
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPNolebaseEnhancedReadabilitiesMenu svg {
+  color: #2c3e50 !important;
+  fill: #2c3e50 !important;
 }
 
-.home-custom-section .link-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--vp-c-brand-1) !important;
-  box-shadow: 
-    0 12px 30px rgba(87, 215, 140, 0.15),
-    0 0 15px rgba(65, 209, 255, 0.1) !important;
-  background: rgba(255, 255, 255, 0.05) !important;
+.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPNavBarHamburger .line {
+  background-color: #2c3e50 !important;
 }
 
-:root:not(.dark) .home-custom-section .link-card:hover {
-  background: rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 
-    0 12px 30px rgba(0, 0, 0, 0.05),
-    0 0 15px rgba(52, 81, 178, 0.08) !important;
-}
-
-/* 5. 温馨提示宗旨卡片样式 */
-.disclaimer-card {
-  margin-top: 56px;
-  padding: 24px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.02) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--vp-c-text-2);
-  font-size: 14px;
-  line-height: 1.7;
-  text-align: justify;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01);
-}
-
-:root:not(.dark) .disclaimer-card {
-  background: rgba(255, 255, 255, 0.4) !important;
-  border: 1px solid rgba(0, 0, 0, 0.04) !important;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.005);
-}

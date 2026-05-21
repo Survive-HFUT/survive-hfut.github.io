@@ -170,8 +170,9 @@ giscusTalk(
   z-index: 1;
 }
 
-.has-home-hero-bg .VPContent.is-home::before,
-.has-home-hero-bg .VPContent.is-home::after {
+/* 始终在首页声明背景层容器，默认隐藏，确保首次淡入时享受平滑过渡 */
+.VPContent.is-home::before,
+.VPContent.is-home::after {
   content: '';
   position: fixed;
   inset: 0;
@@ -180,29 +181,32 @@ giscusTalk(
   background-position: center;
   background-size: cover;
   pointer-events: none;
-  transition: opacity 900ms ease;
+  opacity: 0; /* 默认完全透明，防止闪烁或突兀出现 */
+  transition: opacity 1200ms cubic-bezier(0.25, 0.8, 0.25, 1); /* 柔和、有呼吸感的淡入 */
 }
 
+/* 当大图被激活且非第二层图活跃时，第一层展现 */
 .has-home-hero-bg .VPContent.is-home::before {
   opacity: 1;
   background-image:
     linear-gradient(
       90deg,
-      color-mix(in srgb, var(--vp-c-bg) 82%, transparent) 0%,
-      color-mix(in srgb, var(--vp-c-bg) 58%, transparent) 42%,
-      color-mix(in srgb, var(--vp-c-bg) 68%, transparent) 100%
+      color-mix(in srgb, #151719 82%, transparent) 0%,
+      color-mix(in srgb, #151719 58%, transparent) 42%,
+      color-mix(in srgb, #151719 68%, transparent) 100%
     ),
     var(--home-hero-bg-image-a);
 }
 
+/* 第二层图背景，在 home-hero-bg-b-active 激活时展现 */
 .has-home-hero-bg .VPContent.is-home::after {
   opacity: 0;
   background-image:
     linear-gradient(
       90deg,
-      color-mix(in srgb, var(--vp-c-bg) 82%, transparent) 0%,
-      color-mix(in srgb, var(--vp-c-bg) 58%, transparent) 42%,
-      color-mix(in srgb, var(--vp-c-bg) 68%, transparent) 100%
+      color-mix(in srgb, #151719 82%, transparent) 0%,
+      color-mix(in srgb, #151719 58%, transparent) 42%,
+      color-mix(in srgb, #151719 68%, transparent) 100%
     ),
     var(--home-hero-bg-image-b);
 }

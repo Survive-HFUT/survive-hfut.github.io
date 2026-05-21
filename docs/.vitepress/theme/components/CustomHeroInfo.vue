@@ -2,7 +2,7 @@
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { inBrowser, useData } from 'vitepress';
 
-const { frontmatter } = useData();
+const { frontmatter, isDark } = useData();
 
 type HeroVariant = {
   name: string;
@@ -62,7 +62,13 @@ const bgImageMap: Record<string, string> = {
   ).href,
 };
 
+const isInitialDelayPassed = ref(false);
+let pendingBgUrl = '';
+
 const currentBgImage = computed(() => {
+  if (isDark.value) {
+    return '';
+  }
   const text = activeTextForImage.value || displayedText.value || '';
   if (text.includes('薰化路')) return bgImageMap.xuanhua;
   if (text.includes('翡翠')) return bgImageMap.feicui;
@@ -80,8 +86,9 @@ watch(
       return;
     }
 
-    if (!url) {
+    if (!url || isDark.value) {
       clearHomeBg();
+      pendingBgUrl = '';
       return;
     }
 
@@ -92,7 +99,11 @@ watch(
 
     const img = new Image();
     img.onload = () => {
-      setHomeBg(url);
+      if (!isDark.value) {
+        setHomeBg(url);
+      } else {
+        clearHomeBg();
+      }
     };
     img.onerror = () => {
       clearHomeBg();
@@ -136,6 +147,11 @@ function normalizeStrings(value: unknown): string[] {
 }
 
 function setHomeBg(url: string) {
+  if (!isInitialDelayPassed.value) {
+    pendingBgUrl = url;
+    return;
+  }
+
   if (url === activeBgUrl) {
     return;
   }
@@ -169,6 +185,7 @@ function clearHomeBg() {
   root.classList.remove('has-home-hero-bg', 'home-hero-bg-b-active');
   activeBgUrl = '';
   activeBgLayer = 'a';
+  pendingBgUrl = '';
 }
 
 // 打字机效果
@@ -213,18 +230,30 @@ async function runTypewriter() {
 
 onMounted(() => {
   stopped = false;
+  if (inBrowser && typeof document !== 'undefined') {
+    document.documentElement.classList.add('is-home-layout');
+  }
   runTypewriter();
   window.setTimeout(() => {
-    if (!stopped && currentBgImage.value) {
-      setHomeBg(currentBgImage.value);
+    isInitialDelayPassed.value = true;
+    if (!stopped && !isDark.value) {
+      if (pendingBgUrl) {
+        setHomeBg(pendingBgUrl);
+        pendingBgUrl = '';
+      } else if (currentBgImage.value) {
+        setHomeBg(currentBgImage.value);
+      }
     }
-  });
+  }, 1500);
 });
 
 onBeforeUnmount(() => {
   stopped = true;
   if (inBrowser && typeof window !== 'undefined') {
     clearHomeBg();
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.remove('is-home-layout');
+    }
   }
 });
 </script>
@@ -265,7 +294,6 @@ onBeforeUnmount(() => {
   font-weight: 700;
   white-space: nowrap;
   word-break: keep-all;
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.48);
 
   &:lang(ja) {
     font-feature-settings: 'palt';
@@ -348,7 +376,6 @@ onBeforeUnmount(() => {
   font-weight: 500;
   white-space: pre-wrap;
   color: var(--vp-c-text-2);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.46);
 }
 
 .VPHero.has-image .tagline {
