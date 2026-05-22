@@ -340,6 +340,18 @@
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
+/* 大图激活且非暗色模式下，特色卡片内的链接字高对比度反色美化 */
+.has-home-hero-bg:not(.dark) .VPFeature .link-text,
+.has-home-hero-bg:not(.dark) .VPFeature .link-text-value {
+  color: #60a5fa !important; /* 精致的高对比度天蓝色，呼应原蓝色的高保真反色 */
+  transition: color 0.25s ease !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPFeatures .VPLink:hover .link-text,
+.has-home-hero-bg:not(.dark) .VPFeatures .VPLink:hover .link-text-value {
+  color: #93c5fd !important; /* 悬停时柔和提亮 */
+}
+
 /* 卡片悬浮升起与霓虹发光 */
 .has-home-hero-bg:not(.dark) .VPFeatures .VPLink {
   border: none !important;
