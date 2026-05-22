@@ -52,6 +52,49 @@ const hasTexts = computed(
 const hasFallbackText = computed(() => !!frontmatter.value.hero?.text);
 const showText = computed(() => hasTexts.value || hasFallbackText.value);
 
+const isScrolled = ref(false);
+const handleScroll = () => {
+  if (inBrowser) {
+    isScrolled.value = window.scrollY > 50;
+  }
+};
+
+const imageSourceInfo = computed(() => {
+  const text = activeTextForImage.value || displayedText.value || '';
+  if (text.includes('薰化路')) {
+    return {
+      campus: '宣城校区',
+      author: 'HenryPan',
+      link: 'https://github.com/HenryPanHFUT',
+    };
+  }
+  if (text.includes('翡翠')) {
+    return {
+      campus: '翡翠湖校区',
+      author: '工大官网',
+      link: 'https://www.hfut.edu.cn/',
+    };
+  }
+  if (text.includes('屯溪路')) {
+    return {
+      campus: '屯溪路校区',
+      author: '工大官网',
+      link: 'https://www.hfut.edu.cn/',
+    };
+  }
+  return null;
+});
+
+const showBgSourceTag = computed(() => {
+  return !isDark.value && 
+         isInitialDelayPassed.value && 
+         currentBgImage.value && 
+         !isScrolled.value && 
+         imageSourceInfo.value;
+});
+
+const isMounted = ref(false);
+
 const bgImageMap: Record<string, string> = {
   xuanhua: new URL('../../../media/east_gate_new.jpg', import.meta.url).href,
   feicui: new URL('../../../campus/fch/dongfengguangchang.jpg', import.meta.url)
@@ -199,6 +242,7 @@ async function runTypewriter() {
   }
 
   displayedName.value = items[0]?.name ?? frontmatter.value.hero?.name ?? '';
+  activeTextForImage.value = items[0]?.text ?? frontmatter.value.hero?.text ?? '';
 
   let index = 0;
   while (!stopped) {
@@ -230,8 +274,11 @@ async function runTypewriter() {
 
 onMounted(() => {
   stopped = false;
+  isMounted.value = true;
   if (inBrowser && typeof document !== 'undefined') {
     document.documentElement.classList.add('is-home-layout');
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
   }
   runTypewriter();
   window.setTimeout(() => {
@@ -249,8 +296,10 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   stopped = true;
+  isMounted.value = false;
   if (inBrowser && typeof window !== 'undefined') {
     clearHomeBg();
+    window.removeEventListener('scroll', handleScroll);
     if (typeof document !== 'undefined') {
       document.documentElement.classList.remove('is-home-layout');
     }
@@ -274,6 +323,30 @@ onBeforeUnmount(() => {
     v-html="frontmatter.hero.tagline"
     class="tagline"
   ></p>
+
+  <!-- 背景图片版权来源小标签 -->
+  <Teleport v-if="isMounted" to="body">
+    <Transition name="fade">
+      <div 
+        v-if="showBgSourceTag" 
+        class="bg-source-tag"
+      >
+        <span class="campus-name">{{ imageSourceInfo.campus }}</span>
+        <span class="source-divider">|</span>
+        <span>来源：</span>
+        <a 
+          v-if="imageSourceInfo.link" 
+          :href="imageSourceInfo.link" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="source-author-link"
+        >
+          {{ imageSourceInfo.author }}
+        </a>
+        <span v-else class="source-author-text">{{ imageSourceInfo.author }}</span>
+      </div>
+    </Transition>
+  </Teleport>
 </template>
 
 <style scoped>
@@ -399,6 +472,79 @@ onBeforeUnmount(() => {
 
   .VPHero.has-image .tagline {
     margin: 0;
+  }
+}
+
+/* 优雅的微缩背景图来源小标签 */
+.bg-source-tag {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: auto; /* 确保链接能够点击 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.source-author-link {
+  color: #3eaf7c;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.source-author-link:hover {
+  color: #42b983;
+  text-decoration: underline;
+}
+
+.source-author-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+.campus-name {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+.source-divider {
+  margin: 0 4px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* 来源小标签的淡入淡出动画，带有轻轻向上的平移动态，保持水平居中 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: 
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 10px);
+}
+
+@media (max-width: 768px) {
+  .bg-source-tag {
+    bottom: 16px;
+    font-size: 10px;
+    padding: 4px 10px;
   }
 }
 </style>
