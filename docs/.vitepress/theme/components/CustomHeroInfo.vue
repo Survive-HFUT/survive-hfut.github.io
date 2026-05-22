@@ -331,19 +331,37 @@ onBeforeUnmount(() => {
         v-if="showBgSourceTag" 
         class="bg-source-tag"
       >
-        <span class="campus-name">{{ imageSourceInfo.campus }}</span>
-        <span class="source-divider">|</span>
-        <span>来源：</span>
-        <a 
-          v-if="imageSourceInfo.link" 
-          :href="imageSourceInfo.link" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="source-author-link"
-        >
-          {{ imageSourceInfo.author }}
-        </a>
-        <span v-else class="source-author-text">{{ imageSourceInfo.author }}</span>
+        <div class="source-content-wrapper">
+          <!-- 1. 校区名称独立翻转 -->
+          <div class="campus-part">
+            <Transition name="slide-up" mode="out-in">
+              <span :key="imageSourceInfo.campus" class="campus-name">
+                {{ imageSourceInfo.campus }}
+              </span>
+            </Transition>
+          </div>
+          
+          <span class="source-divider">|</span>
+          
+          <!-- 2. 作者来源部分独立翻转（如果都是工大官网，此部分将稳如磐石） -->
+          <div class="author-part">
+            <Transition name="slide-up" mode="out-in">
+              <span :key="imageSourceInfo.author" class="source-author-wrap">
+                <span>来源：</span>
+                <a 
+                  v-if="imageSourceInfo.link" 
+                  :href="imageSourceInfo.link" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="source-author-link"
+                >
+                  {{ imageSourceInfo.author }}
+                </a>
+                <span v-else class="source-author-text">{{ imageSourceInfo.author }}</span>
+              </span>
+            </Transition>
+          </div>
+        </div>
       </div>
     </Transition>
   </Teleport>
@@ -489,13 +507,15 @@ onBeforeUnmount(() => {
   border-radius: 20px;
   font-size: 11px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.65);
-  background: rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(30, 32, 35, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(20px) saturate(190%);
+  -webkit-backdrop-filter: blur(20px) saturate(190%);
   pointer-events: auto; /* 确保链接能够点击 */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.16), 
+    0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
@@ -524,6 +544,52 @@ onBeforeUnmount(() => {
 .source-divider {
   margin: 0 4px;
   color: rgba(255, 255, 255, 0.25);
+}
+
+.source-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.campus-part,
+.author-part {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  height: 16px;
+  line-height: 16px;
+}
+
+.source-author-wrap {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* 内部文字上下翻滚滚动切换动画 */
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: 
+    opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.26s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* 作者来源部分独立滑动的延迟交错动画，实现极具律动的排队滚动效果 */
+.author-part .slide-up-enter-active,
+.author-part .slide-up-leave-active {
+  transition-delay: 120ms !important; /* 黄金延时，确保极佳的左右视觉节奏起伏 */
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
 }
 
 /* 来源小标签的淡入淡出动画，带有轻轻向上的平移动态，保持水平居中 */
