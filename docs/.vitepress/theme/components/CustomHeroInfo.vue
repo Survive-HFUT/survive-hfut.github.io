@@ -93,6 +93,38 @@ const showBgSourceTag = computed(() => {
          imageSourceInfo.value;
 });
 
+const currentCampus = ref('');
+const currentAuthor = ref('');
+const currentLink = ref('');
+let authorDelayTimer: any = null;
+
+watch(
+  imageSourceInfo,
+  (newInfo) => {
+    if (authorDelayTimer) {
+      clearTimeout(authorDelayTimer);
+      authorDelayTimer = null;
+    }
+
+    if (!newInfo) {
+      currentCampus.value = '';
+      currentAuthor.value = '';
+      currentLink.value = '';
+      return;
+    }
+
+    // 1. 立即更新校区名称，瞬间触发翻转过渡
+    currentCampus.value = newInfo.campus;
+
+    // 2. 80ms 黄金微延迟更新作者和链接，完美防抖，如果前后内容一致则自动静止
+    authorDelayTimer = setTimeout(() => {
+      currentAuthor.value = newInfo.author;
+      currentLink.value = newInfo.link || '';
+    }, 80);
+  },
+  { immediate: true, deep: true }
+);
+
 const isMounted = ref(false);
 
 const bgImageMap: Record<string, string> = {
@@ -297,6 +329,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
   stopped = true;
   isMounted.value = false;
+  if (authorDelayTimer) {
+    clearTimeout(authorDelayTimer);
+    authorDelayTimer = null;
+  }
   if (inBrowser && typeof window !== 'undefined') {
     clearHomeBg();
     window.removeEventListener('scroll', handleScroll);
@@ -335,8 +371,8 @@ onBeforeUnmount(() => {
           <!-- 1. 校区名称独立翻转 -->
           <div class="campus-part">
             <Transition name="slide-up" mode="out-in">
-              <span :key="imageSourceInfo.campus" class="campus-name">
-                {{ imageSourceInfo.campus }}
+              <span :key="currentCampus" class="campus-name">
+                {{ currentCampus }}
               </span>
             </Transition>
           </div>
@@ -346,18 +382,18 @@ onBeforeUnmount(() => {
           <!-- 2. 作者来源部分独立翻转（如果都是工大官网，此部分将稳如磐石） -->
           <div class="author-part">
             <Transition name="slide-up" mode="out-in">
-              <span :key="imageSourceInfo.author" class="source-author-wrap">
+              <span :key="currentAuthor" class="source-author-wrap">
                 <span>来源：</span>
                 <a 
-                  v-if="imageSourceInfo.link" 
-                  :href="imageSourceInfo.link" 
+                  v-if="currentLink" 
+                  :href="currentLink" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   class="source-author-link"
                 >
-                  {{ imageSourceInfo.author }}
+                  {{ currentAuthor }}
                 </a>
-                <span v-else class="source-author-text">{{ imageSourceInfo.author }}</span>
+                <span v-else class="source-author-text">{{ currentAuthor }}</span>
               </span>
             </Transition>
           </div>
@@ -368,249 +404,5 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-/**
-  From: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPHero.vue
- */
-.heading {
-  display: flex;
-  flex-direction: column;
-}
-
-.name,
-.text {
-  width: fit-content;
-  max-width: 392px;
-  letter-spacing: -0.4px;
-  line-height: 40px;
-  font-weight: 700;
-  white-space: nowrap;
-  word-break: keep-all;
-
-  &:lang(ja) {
-    font-feature-settings: 'palt';
-    word-break: auto-phrase;
-  }
-}
-
-.name {
-  font-size: 32px;
-}
-
-.text {
-  font-size: 28px;
-}
-
-.text-content {
-  display: inline-block;
-}
-
-.cursor {
-  display: inline-block;
-  margin-left: 2px;
-  animation: cursor-blink 1s steps(1) infinite;
-}
-
-@keyframes cursor-blink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-
-.VPHero.has-image .name,
-.VPHero.has-image .text {
-  margin: 0 auto;
-}
-
-.name {
-  color: var(--vp-home-hero-name-color);
-}
-
-.clip {
-  background: var(--vp-home-hero-name-background);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: var(--vp-home-hero-name-color);
-}
-
-@media (min-width: 640px) {
-  .name,
-  .text {
-    max-width: 576px;
-    line-height: 56px;
-    font-size: 48px;
-  }
-}
-
-@media (min-width: 960px) {
-  .name,
-  .text {
-    line-height: 64px;
-    font-size: 56px;
-  }
-
-  .VPHero.has-image .name,
-  .VPHero.has-image .text {
-    margin: 0;
-  }
-}
-
-.tagline {
-  padding-top: 8px;
-  max-width: 392px;
-  line-height: 28px;
-  font-size: 18px;
-  font-weight: 500;
-  white-space: pre-wrap;
-  color: var(--vp-c-text-2);
-}
-
-.VPHero.has-image .tagline {
-  margin: 0 auto;
-}
-
-@media (min-width: 640px) {
-  .tagline {
-    padding-top: 12px;
-    max-width: 576px;
-    line-height: 32px;
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 960px) {
-  .tagline {
-    line-height: 36px;
-    font-size: 24px;
-  }
-
-  .VPHero.has-image .tagline {
-    margin: 0;
-  }
-}
-
-/* 优雅的微缩背景图来源小标签 */
-.bg-source-tag {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 90;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(30, 32, 35, 0.76);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px) saturate(190%);
-  -webkit-backdrop-filter: blur(20px) saturate(190%);
-  pointer-events: auto; /* 确保链接能够点击 */
-  box-shadow: 
-    0 12px 32px rgba(0, 0, 0, 0.16), 
-    0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-}
-
-.source-author-link {
-  color: #3eaf7c;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.source-author-link:hover {
-  color: #42b983;
-  text-decoration: underline;
-}
-
-.source-author-text {
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 600;
-}
-
-.campus-name {
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 600;
-}
-
-.source-divider {
-  margin: 0 4px;
-  color: rgba(255, 255, 255, 0.25);
-}
-
-.source-content-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-}
-
-.campus-part,
-.author-part {
-  display: inline-flex;
-  align-items: center;
-  overflow: hidden;
-  height: 16px;
-  line-height: 16px;
-}
-
-.source-author-wrap {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-/* 内部文字上下翻滚滚动切换动画 */
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: 
-    opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.26s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-/* 作者来源部分独立滑动的延迟交错动画，实现极具律动的排队滚动效果 */
-.author-part .slide-up-enter-active,
-.author-part .slide-up-leave-active {
-  transition-delay: 120ms !important; /* 黄金延时，确保极佳的左右视觉节奏起伏 */
-}
-
-.slide-up-enter-from {
-  opacity: 0;
-  transform: translateY(6px);
-}
-
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(-6px);
-}
-
-/* 来源小标签的淡入淡出动画，带有轻轻向上的平移动态，保持水平居中 */
-.fade-enter-active,
-.fade-leave-active {
-  transition: 
-    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: translate(-50%, 10px);
-}
-
-@media (max-width: 768px) {
-  .bg-source-tag {
-    bottom: 16px;
-    font-size: 10px;
-    padding: 4px 10px;
-  }
-}
+/* 此组件的样式已全量搬移合并至全局的 D:\Codes\Web\survive-hfut\docs\.vitepress\theme\styles\home.css 中进行统一管理 */
 </style>
