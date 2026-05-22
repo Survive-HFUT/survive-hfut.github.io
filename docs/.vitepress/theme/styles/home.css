@@ -84,7 +84,7 @@
 }
 
 /* 移动端全屏展开菜单 */
-.has-home-hero-bg:not(.dark) .VPNavBarScreen {
+.has-home-hero-bg:not(.dark) .VPNavScreen {
   background-color: rgba(21, 23, 25, 0.96) !important;
   backdrop-filter: blur(20px) !important;
 }
@@ -170,8 +170,8 @@
 }
 
 /* 移动端展开的全屏菜单中，由于背景永远是深色（rgba(21, 23, 25, 0.96)），强制其内部的 Nolebase 菜单始终以高透暗玻璃呈现 */
-.has-home-hero-bg:not(.dark) .VPNavBarScreen .VPNolebaseEnhancedReadabilitiesScreenMenu,
-.has-home-hero-bg:not(.dark) .VPNavBarScreen .VPNolebaseEnhancedReadabilitiesMenu {
+.has-home-hero-bg:not(.dark) .VPNavScreen .VPNolebaseEnhancedReadabilitiesScreenMenu,
+.has-home-hero-bg:not(.dark) .VPNavScreen .VPNolebaseEnhancedReadabilitiesMenu {
   --vp-nolebase-enhanced-readabilities-menu-background-color: rgba(21, 23, 25, 0.96) !important;
   --vp-nolebase-enhanced-readabilities-menu-border-color: rgba(255, 255, 255, 0.1) !important;
   --vp-nolebase-enhanced-readabilities-menu-text-color: rgba(255, 255, 255, 0.9) !important;
@@ -212,8 +212,8 @@
   -webkit-backdrop-filter: blur(12px) !important;
 }
 
-/* 滚动状态下，为展开的移动端全屏菜单额外保护，使其在暗色底盘下保持亮白色，防止暗色字墨入暗底 */
-.has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPNavBarScreen {
+/* 无论是否滚动，为展开的移动端全屏菜单额外保护，使其在暗色底盘下保持亮白色，防止暗色字墨入暗底 */
+.has-home-hero-bg:not(.dark) .VPNavScreen {
   --vp-c-text-1: rgba(255, 255, 255, 0.92) !important;
   --vp-c-text-2: rgba(255, 255, 255, 0.74) !important;
   --vp-c-text-3: rgba(255, 255, 255, 0.5) !important;
@@ -553,5 +553,34 @@
 
 .has-home-hero-bg:not(.dark) .VPNavBar:not(.home.top) .VPNavBarHamburger .line {
   background-color: #2c3e50 !important;
+}
+
+/* ==========================================================================
+   展开状态下的移动端顶栏反色纠偏保护 (高权重 :has() 结构自适应)
+   ========================================================================= */
+
+/* 1. 展开激活状态下 (.VPNavBar:has(.VPNavBarHamburger.active))：无论是否有滚动，强制重置顶栏容器为暗色高透磨砂背景并修改文本变量，消除突兀的滚动白条与深字 */
+.has-home-hero-bg:not(.dark) .VPNavBar:has(.VPNavBarHamburger.active) {
+  background-color: rgba(21, 23, 25, 0.96) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+
+  /* 强行隔离白底顶栏变量，将 Logo / Title 文本强制转化为极其醒目的亮白色 */
+  --vp-c-text-1: rgba(255, 255, 255, 0.92) !important;
+  --vp-c-text-2: rgba(255, 255, 255, 0.74) !important;
+  --vp-c-text-3: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 2. 展开激活状态下：对右上角四大金刚工具组进行特判。即便在滚动后触发了 :not(.home.top) 深色覆写，只要菜单在展开状态，也要强力白化以防隐形 */
+.has-home-hero-bg:not(.dark) .VPNavBar:has(.VPNavBarHamburger.active) .VPNavBarSocialLinks svg,
+.has-home-hero-bg:not(.dark) .VPNavBar:has(.VPNavBarHamburger.active) .VPSwitchAppearance svg,
+.has-home-hero-bg:not(.dark) .VPNavBar:has(.VPNavBarHamburger.active) .VPNolebaseEnhancedReadabilitiesMenu svg {
+  color: rgba(255, 255, 255, 0.9) !important;
+  fill: rgba(255, 255, 255, 0.9) !important;
+}
+
+.has-home-hero-bg:not(.dark) .VPNavBar:has(.VPNavBarHamburger.active) .VPNavBarHamburger .line {
+  background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
