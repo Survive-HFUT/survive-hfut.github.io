@@ -13,21 +13,14 @@ import { inBrowser, useData, useRoute } from 'vitepress';
 import { createMermaidRenderer } from 'vitepress-mermaid-renderer';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import DefaultTheme from 'vitepress/theme';
-import {
-  nextTick,
-  onBeforeMount,
-  onMounted,
-  provide,
-  ref,
-  toRefs,
-  watch,
-} from 'vue';
+import { nextTick, onBeforeMount, onMounted, provide, ref, watch } from 'vue';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
+import GlobalNotification from './components/GlobalNotification.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
-const { frontmatter, isDark } = toRefs(useData());
+const { frontmatter, isDark } = useData();
 const isTransitionsEnabled = ref(false);
 
 // 强制在浏览器内判断是否支持视图过渡 API，以避免在SSG时出现错误
@@ -82,7 +75,6 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   );
 });
 
-// 初始化Mermaid
 const initMermaid = () =>
   createMermaidRenderer({
     theme: isDark.value ? 'dark' : 'base',
@@ -139,32 +131,9 @@ giscusTalk(
       <CustomHeroInfo />
     </template>
   </Layout>
+  <GlobalNotification />
 </template>
 
 <style>
 @import './styles/index.css';
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(root),
-.dark::view-transition-new(root) {
-  z-index: 1;
-}
-
-::view-transition-new(root),
-.dark::view-transition-old(root) {
-  z-index: 9999;
-}
-
-.transitions-enabled .VPSwitchAppearance {
-  width: 22px !important;
-}
-
-.transitions-enabled .VPSwitchAppearance .check {
-  transform: none !important;
-}
 </style>

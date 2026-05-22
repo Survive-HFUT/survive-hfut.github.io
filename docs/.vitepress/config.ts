@@ -117,9 +117,7 @@ export default defineConfig({
           ],
         },
         workbox: {
-          globPatterns: [
-            '**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff2}',
-          ],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff2}'],
           cleanupOutdatedCaches: true,
           maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         },
@@ -243,7 +241,6 @@ function getHead() {
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
     ['meta', { name: 'theme-color', content: '#3451b2' }],
-    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
     [
       'script',
       {},
@@ -252,6 +249,8 @@ function getHead() {
   ];
 
   if (process.env.NODE_ENV === 'production') {
+    head.push(['link', { rel: 'manifest', href: '/manifest.webmanifest' }]);
+
     head.push([
       'script',
       {

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
-import { useData } from 'vitepress';
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { inBrowser, useData } from 'vitepress';
 
-const { frontmatter } = useData();
+const { frontmatter, isDark } = useData();
 
 type HeroVariant = {
   name: string;
@@ -19,12 +19,12 @@ const variants = computed<HeroVariant[]>(() => {
     return Array.from({ length }, (_, index) => ({
       name:
         rawNames.length > 0
-          ? rawNames[index % rawNames.length] ?? ''
-          : frontmatter.value.hero?.name ?? '',
+          ? (rawNames[index % rawNames.length] ?? '')
+          : (frontmatter.value.hero?.name ?? ''),
       text:
         rawTexts.length > 0
-          ? rawTexts[index % rawTexts.length] ?? ''
-          : frontmatter.value.hero?.text ?? '',
+          ? (rawTexts[index % rawTexts.length] ?? '')
+          : (frontmatter.value.hero?.text ?? ''),
     })).filter((item) => item.name.length > 0 || item.text.length > 0);
   }
 
@@ -37,8 +37,13 @@ const variants = computed<HeroVariant[]>(() => {
       ]
     : [];
 });
-const displayedName = ref(variants.value[0]?.name ?? frontmatter.value.hero?.name ?? '');
+const displayedName = ref(
+  variants.value[0]?.name ?? frontmatter.value.hero?.name ?? '',
+);
 const displayedText = ref('');
+const activeTextForImage = ref(
+  variants.value[0]?.text ?? frontmatter.value.hero?.text ?? '',
+);
 const hasTexts = computed(
   () =>
     Array.isArray(frontmatter.value.hero?.texts) &&
@@ -46,6 +51,162 @@ const hasTexts = computed(
 );
 const hasFallbackText = computed(() => !!frontmatter.value.hero?.text);
 const showText = computed(() => hasTexts.value || hasFallbackText.value);
+
+const isScrolled = ref(false);
+const handleScroll = () => {
+  if (inBrowser) {
+    isScrolled.value = window.scrollY > 50;
+  }
+};
+
+const imageSourceInfo = computed(() => {
+  const text = activeTextForImage.value || displayedText.value || '';
+  if (text.includes('薰化路')) {
+    return {
+      campus: '宣城校区',
+      author: 'HenryPan',
+      link: 'https://github.com/HenryPanHFUT',
+    };
+  }
+  if (text.includes('翡翠')) {
+    return {
+      campus: '翡翠湖校区',
+      author: '工大官网',
+      link: 'https://www.hfut.edu.cn/',
+    };
+  }
+  if (text.includes('屯溪路')) {
+    return {
+      campus: '屯溪路校区',
+      author: '工大官网',
+      link: 'https://www.hfut.edu.cn/',
+    };
+  }
+  return null;
+});
+
+const showBgSourceTag = computed(() => {
+  return !isDark.value && 
+         isInitialDelayPassed.value && 
+         currentBgImage.value && 
+         !isScrolled.value && 
+         imageSourceInfo.value;
+});
+
+const currentCampus = ref('');
+const currentAuthor = ref('');
+const currentLink = ref('');
+let authorDelayTimer: any = null;
+
+watch(
+  imageSourceInfo,
+  (newInfo) => {
+    if (authorDelayTimer) {
+      clearTimeout(authorDelayTimer);
+      authorDelayTimer = null;
+    }
+
+    if (!newInfo) {
+      currentCampus.value = '';
+      currentAuthor.value = '';
+      currentLink.value = '';
+      return;
+    }
+
+    // 1. 立即更新校区名称，瞬间触发翻转过渡
+    currentCampus.value = newInfo.campus;
+
+    // 2. 80ms 黄金微延迟更新作者和链接，完美防抖，如果前后内容一致则自动静止
+    authorDelayTimer = setTimeout(() => {
+      currentAuthor.value = newInfo.author;
+      currentLink.value = newInfo.link || '';
+    }, 80);
+  },
+  { immediate: true, deep: true }
+);
+
+const isMounted = ref(false);
+
+const bgImageMap: Record<string, string> = {
+  xuanhua: new URL('../../../media/east_gate_new.jpg', import.meta.url).href,
+  feicui: new URL('../../../campus/fch/dongfengguangchang.jpg', import.meta.url)
+    .href,
+  tunxi: new URL(
+    '../../../campus/txl/main_academic_building.png',
+    import.meta.url,
+  ).href,
+};
+
+const allImagesLoaded = ref(false);
+const isInitialDelayPassed = ref(false);
+const isReadyToFadeInBg = computed(() => allImagesLoaded.value && isInitialDelayPassed.value);
+
+// 并行预加载所有背景图片，让打字机切换瞬间响应，0延迟，无竞态
+function preloadAllImages() {
+  if (!inBrowser || typeof Image === 'undefined') {
+    allImagesLoaded.value = true;
+    return;
+  }
+  const urls = Object.values(bgImageMap);
+  let loadedCount = 0;
+  urls.forEach((url) => {
+    const img = new Image();
+    const handleLoad = () => {
+      loadedCount += 1;
+      if (loadedCount === urls.length) {
+        allImagesLoaded.value = true;
+      }
+    };
+    img.onload = handleLoad;
+    img.onerror = handleLoad; // 容错处理：即使某个图片失败也算载入完成，防止流程被完全阻塞
+    img.src = url;
+  });
+}
+
+const currentBgImage = computed(() => {
+  if (isDark.value) {
+    return '';
+  }
+  const text = activeTextForImage.value || displayedText.value || '';
+  if (text.includes('薰化路')) return bgImageMap.xuanhua;
+  if (text.includes('翡翠')) return bgImageMap.feicui;
+  if (text.includes('屯溪路')) return bgImageMap.tunxi;
+  return '';
+});
+
+let activeBgLayer: 'a' | 'b' = 'a';
+let activeBgUrl = '';
+
+// 1. 监听全局“双就绪”状态，在满足 1.5s 动画并且三张图都预加载完毕的瞬间优雅淡入首张背景
+watch(
+  isReadyToFadeInBg,
+  (ready) => {
+    if (ready && !isDark.value && currentBgImage.value) {
+      setHomeBg(currentBgImage.value);
+    }
+  }
+);
+
+// 2. 监听当前背景图片切换：由于三张图均已 100% 缓存在浏览器中，切换为绝对同步、0延迟且物理上无任何竞态！
+watch(
+  currentBgImage,
+  (url) => {
+    if (!inBrowser || typeof window === 'undefined') {
+      return;
+    }
+
+    if (!url || isDark.value) {
+      clearHomeBg();
+      return;
+    }
+
+    // 只有在就绪后才会在切换时同步设置背景
+    if (isReadyToFadeInBg.value) {
+      setHomeBg(url);
+    }
+  },
+  { immediate: true },
+);
 
 let stopped = false;
 
@@ -75,7 +236,49 @@ function normalizeStrings(value: unknown): string[] {
     return [];
   }
 
-  return value.filter((item: unknown): item is string => typeof item === 'string');
+  return value.filter(
+    (item: unknown): item is string => typeof item === 'string',
+  );
+}
+
+function setHomeBg(url: string) {
+  if (!isReadyToFadeInBg.value) {
+    return;
+  }
+
+  if (url === activeBgUrl) {
+    return;
+  }
+
+  const root = document.documentElement;
+  const cssUrl = `url("${url}")`;
+
+  if (!root.classList.contains('has-home-hero-bg')) {
+    activeBgLayer = 'a';
+    root.style.setProperty('--home-hero-bg-image-a', cssUrl);
+    root.style.setProperty('--home-hero-bg-image-b', cssUrl);
+    root.classList.remove('home-hero-bg-b-active');
+  } else if (activeBgLayer === 'a') {
+    activeBgLayer = 'b';
+    root.style.setProperty('--home-hero-bg-image-b', cssUrl);
+    root.classList.add('home-hero-bg-b-active');
+  } else {
+    activeBgLayer = 'a';
+    root.style.setProperty('--home-hero-bg-image-a', cssUrl);
+    root.classList.remove('home-hero-bg-b-active');
+  }
+
+  activeBgUrl = url;
+  document.documentElement.classList.add('has-home-hero-bg');
+}
+
+function clearHomeBg() {
+  const root = document.documentElement;
+  root.style.removeProperty('--home-hero-bg-image-a');
+  root.style.removeProperty('--home-hero-bg-image-b');
+  root.classList.remove('has-home-hero-bg', 'home-hero-bg-b-active');
+  activeBgUrl = '';
+  activeBgLayer = 'a';
 }
 
 // 打字机效果
@@ -89,11 +292,14 @@ async function runTypewriter() {
   }
 
   displayedName.value = items[0]?.name ?? frontmatter.value.hero?.name ?? '';
+  activeTextForImage.value = items[0]?.text ?? frontmatter.value.hero?.text ?? '';
 
   let index = 0;
   while (!stopped) {
     const current = items[index] ?? { name: '', text: '' };
     displayedName.value = current.name || frontmatter.value.hero?.name || '';
+    activeTextForImage.value =
+      current.text || frontmatter.value.hero?.text || '';
 
     for (let i = 0; i <= current.text.length && !stopped; i += 1) {
       displayedText.value = current.text.slice(0, i);
@@ -118,11 +324,37 @@ async function runTypewriter() {
 
 onMounted(() => {
   stopped = false;
+  isMounted.value = true;
+  if (inBrowser && typeof document !== 'undefined') {
+    document.documentElement.classList.add('is-home-layout');
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }
   runTypewriter();
+  
+  // 并行预加载所有背景大图
+  preloadAllImages();
+
+  // 1.5s 后首播延迟通过
+  window.setTimeout(() => {
+    isInitialDelayPassed.value = true;
+  }, 1500);
 });
 
 onBeforeUnmount(() => {
   stopped = true;
+  isMounted.value = false;
+  if (authorDelayTimer) {
+    clearTimeout(authorDelayTimer);
+    authorDelayTimer = null;
+  }
+  if (inBrowser && typeof window !== 'undefined') {
+    clearHomeBg();
+    window.removeEventListener('scroll', handleScroll);
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.remove('is-home-layout');
+    }
+  }
 });
 </script>
 <template>
@@ -142,131 +374,50 @@ onBeforeUnmount(() => {
     v-html="frontmatter.hero.tagline"
     class="tagline"
   ></p>
+
+  <!-- 背景图片版权来源小标签 -->
+  <Teleport v-if="isMounted" to="body">
+    <Transition name="fade">
+      <div 
+        v-if="showBgSourceTag" 
+        class="bg-source-tag"
+      >
+        <div class="source-content-wrapper">
+          <!-- 1. 校区名称独立翻转 -->
+          <div class="campus-part">
+            <Transition name="slide-up" mode="out-in">
+              <span :key="currentCampus" class="campus-name">
+                {{ currentCampus }}
+              </span>
+            </Transition>
+          </div>
+          
+          <span class="source-divider">|</span>
+          
+          <!-- 2. 作者来源部分独立翻转（如果都是工大官网，此部分将稳如磐石） -->
+          <div class="author-part">
+            <Transition name="slide-up" mode="out-in">
+              <span :key="currentAuthor" class="source-author-wrap">
+                <span>来源：</span>
+                <a 
+                  v-if="currentLink" 
+                  :href="currentLink" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="source-author-link"
+                >
+                  {{ currentAuthor }}
+                </a>
+                <span v-else class="source-author-text">{{ currentAuthor }}</span>
+              </span>
+            </Transition>
+          </div>
+        </div>
+      </div>
+    </Transition>
+  </Teleport>
 </template>
 
 <style scoped>
-/**
-  From: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPHero.vue
- */
-.heading {
-  display: flex;
-  flex-direction: column;
-}
-
-.name,
-.text {
-  width: fit-content;
-  max-width: 392px;
-  letter-spacing: -0.4px;
-  line-height: 40px;
-  font-weight: 700;
-  white-space: nowrap;
-  word-break: keep-all;
-
-  &:lang(ja) {
-    font-feature-settings: 'palt';
-    word-break: auto-phrase;
-  }
-}
-
-.name {
-  font-size: 32px;
-}
-
-.text {
-  font-size: 28px;
-}
-
-.text-content {
-  display: inline-block;
-}
-
-.cursor {
-  display: inline-block;
-  margin-left: 2px;
-  animation: cursor-blink 1s steps(1) infinite;
-}
-
-@keyframes cursor-blink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-
-.VPHero.has-image .name,
-.VPHero.has-image .text {
-  margin: 0 auto;
-}
-
-.name {
-  color: var(--vp-home-hero-name-color);
-}
-
-.clip {
-  background: var(--vp-home-hero-name-background);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: var(--vp-home-hero-name-color);
-}
-
-@media (min-width: 640px) {
-  .name,
-  .text {
-    max-width: 576px;
-    line-height: 56px;
-    font-size: 48px;
-  }
-}
-
-@media (min-width: 960px) {
-  .name,
-  .text {
-    line-height: 64px;
-    font-size: 56px;
-  }
-
-  .VPHero.has-image .name,
-  .VPHero.has-image .text {
-    margin: 0;
-  }
-}
-
-.tagline {
-  padding-top: 8px;
-  max-width: 392px;
-  line-height: 28px;
-  font-size: 18px;
-  font-weight: 500;
-  white-space: pre-wrap;
-  color: var(--vp-c-text-2);
-}
-
-.VPHero.has-image .tagline {
-  margin: 0 auto;
-}
-
-@media (min-width: 640px) {
-  .tagline {
-    padding-top: 12px;
-    max-width: 576px;
-    line-height: 32px;
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 960px) {
-  .tagline {
-    line-height: 36px;
-    font-size: 24px;
-  }
-
-  .VPHero.has-image .tagline {
-    margin: 0;
-  }
-}
+/* 此组件的样式已全量搬移合并至全局的 \docs\.vitepress\theme\styles\home.css 中进行统一管理 */
 </style>
