@@ -16,6 +16,7 @@ import DefaultTheme from 'vitepress/theme';
 import { nextTick, onBeforeMount, onMounted, provide, ref, watch } from 'vue';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
+import GlobalNotification from './components/GlobalNotification.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
@@ -130,6 +131,7 @@ giscusTalk(
       <CustomHeroInfo />
     </template>
   </Layout>
+  <GlobalNotification />
 </template>
 
 <style>
