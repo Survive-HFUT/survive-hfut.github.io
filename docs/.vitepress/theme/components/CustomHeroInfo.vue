@@ -4,40 +4,6 @@ import { useData } from 'vitepress';
 
 const { frontmatter } = useData();
 
-type HeroVariant = {
-  name: string;
-  text: string;
-};
-
-const variants = computed<HeroVariant[]>(() => {
-  const rawNames = normalizeStrings(frontmatter.value.hero?.names);
-  const rawTexts = normalizeStrings(frontmatter.value.hero?.texts);
-
-  if (rawNames.length > 0 || rawTexts.length > 0) {
-    const length = Math.max(rawNames.length, rawTexts.length);
-
-    return Array.from({ length }, (_, index) => ({
-      name:
-        rawNames.length > 0
-          ? rawNames[index % rawNames.length] ?? ''
-          : frontmatter.value.hero?.name ?? '',
-      text:
-        rawTexts.length > 0
-          ? rawTexts[index % rawTexts.length] ?? ''
-          : frontmatter.value.hero?.text ?? '',
-    })).filter((item) => item.name.length > 0 || item.text.length > 0);
-  }
-
-  return frontmatter.value.hero?.name || frontmatter.value.hero?.text
-    ? [
-        {
-          name: frontmatter.value.hero?.name ?? '',
-          text: frontmatter.value.hero?.text ?? '',
-        },
-      ]
-    : [];
-});
-const displayedName = ref(variants.value[0]?.name ?? frontmatter.value.hero?.name ?? '');
 const displayedText = ref('');
 const hasTexts = computed(
   () =>
@@ -70,47 +36,38 @@ function jitter(baseMs: number, ratio = 0.5) {
   return Math.round(min + Math.random() * (max - min));
 }
 
-function normalizeStrings(value: unknown): string[] {
-  if (!Array.isArray(value)) {
-    return [];
-  }
-
-  return value.filter((item: unknown): item is string => typeof item === 'string');
-}
-
 // 打字机效果
 async function runTypewriter() {
-  const items = shuffle(variants.value);
+  const raw: string[] = frontmatter.value.hero?.texts ?? [];
+  const texts = shuffle(
+    raw.filter((item: unknown): item is string => typeof item === 'string'),
+  );
 
-  if (items.length === 0) {
-    displayedName.value = frontmatter.value.hero?.name ?? '';
+  if (texts.length === 0) {
     displayedText.value = frontmatter.value.hero?.text ?? '';
     return;
   }
 
-  displayedName.value = items[0]?.name ?? frontmatter.value.hero?.name ?? '';
-
   let index = 0;
   while (!stopped) {
-    const current = items[index] ?? { name: '', text: '' };
-    displayedName.value = current.name || frontmatter.value.hero?.name || '';
+    const current = texts[index] ?? '';
 
-    for (let i = 0; i <= current.text.length && !stopped; i += 1) {
-      displayedText.value = current.text.slice(0, i);
+    for (let i = 0; i <= current.length && !stopped; i += 1) {
+      displayedText.value = current.slice(0, i);
       await sleep(jitter(90));
     }
 
     await sleep(2500);
 
-    for (let i = current.text.length; i >= 0 && !stopped; i -= 1) {
-      displayedText.value = current.text.slice(0, i);
+    for (let i = current.length; i >= 0 && !stopped; i -= 1) {
+      displayedText.value = current.slice(0, i);
       await sleep(jitter(50));
     }
 
     await sleep(300);
 
     index += 1;
-    if (index >= items.length) {
+    if (index >= texts.length) {
       index = 0;
     }
   }
@@ -128,8 +85,8 @@ onBeforeUnmount(() => {
 <template>
   <h1 class="heading">
     <span
-      v-if="displayedName || frontmatter.hero?.name"
-      v-html="displayedName || frontmatter.hero?.name"
+      v-if="frontmatter.hero?.name"
+      v-html="frontmatter.hero.name"
       class="name clip"
     ></span>
     <span v-if="showText" class="text">
