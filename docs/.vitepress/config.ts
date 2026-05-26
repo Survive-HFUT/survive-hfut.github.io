@@ -13,15 +13,16 @@ import {
   PageProperties,
   PagePropertiesMarkdownSection,
 } from '@nolebase/vitepress-plugin-page-properties/vite';
+import { VitePWA } from 'vite-plugin-pwa';
 import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
 import {
   chineseSearchOptimize,
   pagefindPlugin,
 } from 'vitepress-plugin-pagefind';
-import { VitePWA } from 'vite-plugin-pwa';
 import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
+import keywords from './data/keywords.json';
 import contributors from './helpers/contributors';
 import customElements from './helpers/customElements';
 import locales from './i18n/locales';
@@ -117,9 +118,7 @@ export default defineConfig({
           ],
         },
         workbox: {
-          globPatterns: [
-            '**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff2}',
-          ],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,woff2}'],
           cleanupOutdatedCaches: true,
           maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         },
@@ -218,24 +217,7 @@ function getHead() {
       'meta',
       {
         name: 'keywords',
-        content: [
-          '合工大',
-          '合肥工大',
-          '合肥工业大学',
-          '生活指南',
-          '生活手册',
-          '学生手册',
-          '学生指南',
-          '校园生活',
-          '校园指南',
-          '活在肥宣',
-          '活在肥工',
-          'Survive-HFUT',
-          '宣城校区',
-          '翡翠湖校区',
-          '屯溪路校区',
-          '合肥校区',
-        ].join(','),
+        content: keywords.join(','),
       },
     ],
     [

@@ -1,9 +1,4 @@
 <script setup lang="ts">
-// https://vitepress.dev/zh/guide/extending-default-theme#%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E8%BF%87%E6%B8%A1-api
-
-// @ts-expect-error
-import { data } from '../data/metadata.data';
-
 import {
   NolebaseEnhancedReadabilitiesMenu,
   NolebaseEnhancedReadabilitiesScreenMenu,
@@ -22,6 +17,7 @@ import {
   toRefs,
   watch,
 } from 'vue';
+import { data } from '../data/metadata.data';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
 
@@ -31,6 +27,7 @@ const { frontmatter, isDark } = toRefs(useData());
 const isTransitionsEnabled = ref(false);
 
 // 强制在浏览器内判断是否支持视图过渡 API，以避免在SSG时出现错误
+// https://vitepress.dev/zh/guide/extending-default-theme#%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E8%BF%87%E6%B8%A1-api
 // https://vitepress.dev/zh/guide/ssr-compat
 onBeforeMount(
   () =>
@@ -98,7 +95,7 @@ watch(
 
 // 初始化Medium Zoom
 const initZoom = () =>
-  mediumZoom('.main img:not(a *)', { background: 'var(--vp-c-bg)' });
+  mediumZoom('main img:not(a *)', { background: 'var(--vp-c-bg)' });
 onMounted(initZoom);
 watch(
   () => route.path,
