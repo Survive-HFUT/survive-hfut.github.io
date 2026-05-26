@@ -1,0 +1,28 @@
+name = "survive-hfut-ongoing-webhook"
+main = "src/index.js"
+compatibility_date = "2024-12-18"
+
+# 创建 KV 命名空间:
+#   npx wrangler kv:namespace create "KV" --preview
+# 将输出的 id 和 preview_id 填入下方
+[[kv_namespaces]]
+binding = "KV"
+id = ""
+preview_id = ""
+
+[vars]
+ENVIRONMENT = "production"
+
+# WPS 表单字段映射 —— 根据表单设计中的 API Code / 字段标识修改
+# 若 WPS 表单数据推送的 JSON 形如 { entry: { title: "...", campus: [...], ... } }
+# 则下方直接填字段名即可。
+# 若 JSON 形如 { entry: { field_1: "...", field_2: [...], ... } }，
+# 则改为 field_1 / field_2 等。
+FIELD_TITLE  = "title"
+FIELD_CAMPUS = "campus"
+FIELD_START  = "start"
+FIELD_END    = "end"
+FIELD_HREF   = "href"
+FIELD_NOTE   = "note"
+
+GITHUB_REPO = "Survive-HFUT/survive-hfut.github.io"

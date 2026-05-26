@@ -1,0 +1,28 @@
+name: Deploy Worker (ongoing-webhook)
+
+on:
+  push:
+    branches: [dev]
+    paths:
+      - 'workers/ongoing-webhook/**'
+      - '.github/workflows/deploy-worker.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Cloudflare Worker
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: workers/ongoing-webhook
+          secrets: |
+            GITHUB_TOKEN
+            WEBHOOK_SECRET
+        env:
+          GITHUB_TOKEN: ${{ secrets.ONGOING_WEBHOOK_GITHUB_TOKEN }}
+          WEBHOOK_SECRET: ${{ secrets.ONGOING_WEBHOOK_SECRET }}
