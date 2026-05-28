@@ -25,10 +25,18 @@
     --vp-home-hero-image-filter: blur(68px);
   }
 }
+
 .VPFeatures .VPLink {
   border: 1px solid transparent;
 }
 
 .VPFeatures .VPLink:hover {
   border: 1px solid var(--vp-c-brand);
+}
+
+.VPFeatures .VPLink .vpi-arrow-right {
+  transition: transform 0.3s ease;
+}
+.VPFeatures .VPLink:hover .vpi-arrow-right {
+  transform: translateX(4px);
 }

@@ -7,24 +7,30 @@ hero:
     - 你的薰化路301号指南
     - 你的翡翠路420号指南
     - 你的屯溪路193号指南
+
   tagline: 更适合合工大学生的生活指南
   image: /book.png
   actions:
     - theme: brand
       text: 📖 开始阅读
       link: /intro
+
     - theme: alt
       text: 🧐 猜你想问
       link: /enrollment/qa
+
     - theme: alt
       text: ☎️ 黄页
       link: /contact
+
     - theme: alt
       text: 👮 反诈骗
       link: /enrollment/anti_fraud
+
     - theme: alt
       text: ⏱ 正在发生
       link: /ongoing
+
 features:
   - icon: 🔍
     title: 别忘了利用侧边栏和搜索栏查找资料
@@ -32,22 +38,25 @@ features:
       · 桌面端可直接在页面左侧看到侧边栏
     link: /enrollment/qa
     linkText: 初入肥宣§猜你想问
+
   - icon: 💡
     title: 这不是合肥工业大学的官方文档
     details: · 此文档目前主要由学生维护，所有内容<b>均不代表校方官方观点和意见</b><br>
       · 因更新滞后或其他问题，部分内容可能与实际情况存在出入，请以学校发布的相关管理办法为准
-  - icon: ⛏️
-    title: 快加入我们一起使这个文档变得更好
-    details: 此文档还在不断完善中……<br>
-      使用右上角导航栏的反馈功能或直接点击此卡片跳转
-    link: /about/contribute
-    linkText: 关于§参与进来
+
+  # - icon: ⛏️
+  #   title: 快加入我们一起使这个文档变得更好
+  #   details: 此文档还在不断完善中……<br>
+  #     使用右上角导航栏的反馈功能或直接点击此卡片跳转
+  #   link: /about/contribute
+  #   linkText: 关于§参与进来
 
   # 招生特辑 7月中旬后换下
-  # - icon: 🎓
-  #   title: 欢迎报考合肥工业大学
-  #   details: 2025 年高考志愿填报在即...<br>
-  #     期待在金秋九月与你在美丽的工大校园相遇
-  #   link: https://www.hfut.edu.cn/zsyjyc/
-  #   linkText: 合肥工业大学 · 招生与就业处
+  - icon: 🎓
+    title: 欢迎报考合肥工业大学
+    details: <b>世界小，合工大</b><br>
+      2026 年高考志愿填报在即……<br>
+      期待在金秋九月与你在美丽的工大校园相遇
+    link: https://bkzs.hfut.edu.cn/
+    linkText: 合肥工业大学 · 本科招生
 ---
