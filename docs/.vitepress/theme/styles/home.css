@@ -37,6 +37,16 @@
 .VPFeatures .VPLink .vpi-arrow-right {
   transition: transform 0.3s ease;
 }
+
 .VPFeatures .VPLink:hover .vpi-arrow-right {
   transform: translateX(4px);
+}
+
+.VPButton.emergency {
+  color: var(--vp-button-alt-text);
+  background-color: var(--vp-c-danger-soft);
+}
+
+.VPButton.emergency:hover {
+  background-color: rgba(244, 63, 93, 0.3);
 }

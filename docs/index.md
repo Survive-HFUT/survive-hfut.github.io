@@ -20,16 +20,12 @@ hero:
       link: /enrollment/qa
 
     - theme: alt
-      text: ☎️ 黄页
-      link: /contact
-
-    - theme: alt
       text: 👮 反诈骗
       link: /enrollment/anti_fraud
 
-    - theme: alt
-      text: ⏱ 正在发生
-      link: /ongoing
+    - theme: emergency
+      text: 🚨 紧急情况
+      link: /emergency
 
 features:
   - icon: 🔍
