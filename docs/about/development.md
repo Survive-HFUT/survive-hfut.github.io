@@ -128,7 +128,9 @@ pnpm dlx markdownlint-cli2 --fix "*.{md,markdown}" "**/*.md" "!node_modules/**"
 ## 提交与推送
 
 :::tip
-如果你打算添加共同作者（Co-Author）的话，建议使用 GitHub 所提供的邮箱地址进行更改
+如果你打算添加共同作者（Co-Author）的话，建议使用 GitHub 所提供的邮箱地址进行更改，否则可能导致在生成页面底部的贡献者名单时无法正确抓取到 GitHub 上的头像和用户名
+
+你也可以在仓库下的`docs/.vitepress/helpers/contributors.ts`文件中手动添加贡献者信息来解决这个问题
 :::
 
 ### 使用 GitHub Desktop
