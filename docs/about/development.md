@@ -79,19 +79,15 @@ survive-hfut/
 
 ### 安装依赖
 
-用于安装项目所需的依赖包，确保文档能够正确构建和预览
-
 ```sh
 pnpm install
 ```
 
 :::tip
-运行其他命令之前都需要先执行这个命令来安装依赖，之后如果有新的依赖需要安装也需要重新执行一次
+运行其他命令前都需要先执行这个命令
 :::
 
 ### 运行即时预览
-
-此命令会启动一个本地开发服务器，并在浏览器中打开文档预览界面。你可以在编辑 Markdown 文件时实时看到更改的效果
 
 ```sh
 pnpm run docs:dev
@@ -101,17 +97,15 @@ pnpm run docs:dev
 
 ### 构建文档
 
-此命令会将文档构建成静态文件，生成在`docs/.vitepress/dist`目录下
-
 ```sh
 pnpm run docs:build
 ```
 
 :::tip
-通常情况下不需要手动构建，项目会在提交推送时自动使用 GitHub Actions 进行构建和部署
+通常不需要手动构建，项目会在提交推送时自动使用 GitHub Actions 进行构建和部署
 :::
 
-本地构建完成后可以在`docs/.vitepress/dist`目录下找到生成的静态文件，或者直接访问在命令行输出如下命令来查看效果
+构建产物在`docs/.vitepress/dist`目录下，可以用以下命令预览：
 
 ```sh
 pnpm run docs:preview
@@ -128,9 +122,9 @@ pnpm dlx markdownlint-cli2 --fix "*.{md,markdown}" "**/*.md" "!node_modules/**"
 ## 提交与推送
 
 :::tip
-如果你打算添加共同作者（Co-Author）的话，建议使用 GitHub 所提供的邮箱地址进行更改，否则可能导致在生成页面底部的贡献者名单时无法正确抓取到 GitHub 上的头像和用户名
+添加共同作者（Co-Author）时，建议使用 GitHub 所提供的邮箱地址，否则可能导致贡献者名单无法正确抓取到 GitHub 上的头像和用户名
 
-你也可以在仓库下的`docs/.vitepress/helpers/contributors.ts`文件中手动添加贡献者信息来解决这个问题
+也可以在`docs/.vitepress/helpers/contributors.ts`文件中手动添加贡献者信息
 :::
 
 ### 使用 GitHub Desktop
@@ -156,7 +150,7 @@ git push origin main
 4. 点击「Create pull request」
 
 :::info 等待审核
-PR 创建后，管理员会审核你的修改。审核通过后会自动合并并部署。
+PR 创建后，管理员会审核。审核通过后会自动合并并部署。
 :::
 
 ## 页面维护
