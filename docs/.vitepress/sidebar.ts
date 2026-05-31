@@ -76,7 +76,7 @@ export default postProcessSidebar(
       useTitleFromFileHeading: true,
       useFolderTitleFromIndexFile: true,
 
-      manualSortFileNameByPriority: ['copyright.md'],
+      manualSortFileNameByPriority: ['contribute.md', 'development.md', 'standard.md', 'faq.md', 'copyright.md'],
 
       rootGroupText: '关于',
       rootGroupLink: '/',
