@@ -1,65 +1,162 @@
 ---
 name: hfut-doc-style
-description: Survive-HFUT 文档语言风格改写、审校和新增 Markdown 内容写作指南。Use when editing docs/ Markdown pages in survive-hfut, polishing AI-generated Chinese copy, reducing AI tone, aligning with docs/study/exemption.md and docs/enrollment/qa.md, applying docs/about/standard.md, or reviewing emphasis, Emoji, admonitions, citations, and wording rigor for student-facing campus documentation.
+description: Survive-HFUT 文档语言风格改写、审校和新增 Markdown 内容写作指南。用于编辑 docs/ 下的 Markdown 页面、润色 AI 生成的中文内容、减少 AI 味道、对齐 docs/study/exemption.md 和 docs/enrollment/qa.md 风格、应用 docs/about/standard.md 规则，或审查强调、Emoji、提示框、引用和面向学生的校园文档措辞严谨性。
 ---
 
-# HFUT Doc Style
+# HFUT 文档风格
 
-## Workflow
+## 核心原则（必须遵守）
 
-1. Read the target Markdown and identify its topic risk level: casual guide, practical Q&A, policy/regulation, safety/anti-fraud, data/statistics, or historical/event record.
-2. If the page is in this repository, check nearby pages in the same section before rewriting. Prefer the local section's structure unless it conflicts with this skill.
-3. Use `docs/study/exemption.md`, `docs/enrollment/qa.md`, and `docs/about/standard.md` as the highest-priority style references.
-4. Load `references/style-guide.md` for detailed rules before substantial rewrites or reviews.
-5. Rewrite for clarity and evidence, not for decoration. Preserve Markdown features, anchors, footnotes, tabs, components, and relative links.
-6. After editing, review for AI smell, unsupported certainty, overuse of bold/Emoji, and accidental changes to factual meaning.
-7. Run Markdown formatting/linting before finishing:
-   `pnpm run docs:lint`.
+### 1. 消除 AI 味道
+**删除以下词语**：
+- 总的来说、值得注意的是、在当今时代、综上所述
+- 本文将深入探讨、帮助大家更好地了解、具有重要意义
+- 首先需要明确的是、与此同时、另外值得一提的是
 
-## Core Style
+**替换方式**：
+- 直接陈述事实
+- 使用短句，一句一个信息点
+- 保留具体信息，删除空泛描述
 
-- Write in neutral, rigorous Chinese with light readability. Use mild colloquial phrasing only where it helps students understand practical matters.
-- Prefer short direct sentences over generic AI transitions such as “总的来说”“值得注意的是”“在当今时代”“综上所述”.
-- Keep claims scoped: use “通常”“可能”“一般”“以实际通知为准” when information varies by year, campus, college, counselor, or policy update.
-- Do not over-polish into officialese. The site should feel like a reliable student guide, not a press release.
-- Do not become overly casual. Avoid internet slang unless the surrounding page already uses playful details blocks and the topic is low-risk.
-- Prefer useful understatement over performative warmth. For example, write “可以参考”“建议提前准备”“通常” instead of repeatedly framing text as “暖心”“欢迎”“务必”“简单理解”.
-- Remove duplicated setup sentences when the structure already explains the context. A template inside `:::details` usually does not need an extra paragraph explaining how to use the template.
-- Keep practical reminders close to the relevant requirement. Avoid building a separate “实用提醒” section if the same points can be attached to safety, materials, 结项, or 费用 sections.
-- Keep the student guide voice alive: short “如果你...”“可以...”“一般...” sentences are often better than official explanations.
-- Use light jokes only as side remarks on low-risk pages. The local `!!...!!` syntax can preserve a playful aside, but never use it for policy consequences, safety, exam discipline, or financial hardship.
-- Prefer deletion, splitting, and relocation over verbose rewriting. If a sentence is only a slogan, announcement, or duplicate caveat, remove it.
+**示例**：
+- ❌ "本文将从多个维度为大家详细介绍校园卡的相关内容，帮助大家更好地了解校园卡的使用方式。"
+- ✅ "本页介绍学校发放的实体校园卡，包括用途、充值、挂失和补办方式"
 
-## Markdown Conventions
+### 2. 保持学生指南语气
+**使用**：
+- "可以参考"、"建议提前准备"、"通常"
+- "如果你..."、"可以..."、"一般..."
 
-- Bold only content that needs strong attention: risks, prohibitions, hard requirements, key distinctions, deadlines, or consequences.
-- Do not bold list subheadings just to simulate a label. Use plain text labels, headings, tables, or `Badge` components instead.
-- Use `<mark>` for secondary emphasis when the text should stand out but is not a critical warning.
-- Sentence-final punctuation is flexible. Do not mechanically add periods to every line.
-- Keep heading hierarchy proportional. If a section is nested under a numbered or evidence-heavy block, prefer `####` over a sibling-level `###` unless it truly starts a new top-level subsection.
-- Emoji are allowed sparingly. One appropriate Emoji in a heading, tip, or details title can work; repeated decorative Emoji usually weakens the page.
-- Keep VitePress blocks (`:::tip`, `:::info`, `:::warning`, `:::details`), tabs, footnotes, and custom components intact.
-- When nesting admonitions inside `:::tabs`, avoid delimiter ambiguity. Use different fence lengths, such as `::::tabs` outside and `:::info` inside, and close each with the matching number of colons.
-- Use admonitions to tighten rather than decorate. A short `:::info` can replace a loose “简单理解” paragraph; a `:::warning` should state concrete risk or consequence, not general anxiety.
-- Use `→` for app/menu paths such as `信息门户→缴费平台`.
-- Use `《...》` for official notice titles when the link text is the title of a notice, regulation, or announcement.
-- For long Q&A and directory-heavy pages, a folded `:::details 目录` with `[[toc]]` matches the local pattern.
+**避免**：
+- "暖心"、"欢迎"、"务必"、"简单理解"
+- "宝子们"、"冲就完了"、"闭眼入"
+- "超值"、"强烈推荐购买"、"必买"
 
-## Evidence And Risk
+### 3. 谨慎处理风险内容
+**高风险内容**（考试、处分、校规、反诈、费用）：
+- 保留或添加引用来源
+- 使用 `:::warning` 标注风险
+- 使用 `<mark>` 标注重要区分
+- 不要开玩笑
 
-- For rules, exam policies, disciplinary issues, fees, official processes, statistics, and historical events, keep or add citations when available.
-- If evidence is missing, do not invent. Use `<Note>需要验证</Note>` or qualify the statement.
-- For illegal, unsafe, or rule-violating behavior, keep a serious tone and state consequences plainly.
-- Avoid advertisements or promotional tone, especially for campus cards, second-hand books, paid services, groups, and merchants.
-- Do not over-explain sourced official lists. If a notice already defines required materials, preserve the requirements and add only the minimum interpretation needed for students not to misunderstand them.
-- For unofficial groups, merchants, second-hand services, routes, and student-discovered workarounds, keep the usefulness but mark the limitation, source, or responsibility boundary.
+**低风险内容**（宿舍、食堂、交通）：
+- 语气可以稍微轻松，但仍需克制
+- 可以使用 "大部分"、"一般"、"可能"、"据反馈"
 
-## Campus Structure
+## 工作流程
 
-- Prefer `:::tabs key:campus` when the answer differs by campus.
-- When two or more Hefei campuses share the same answer, use `== 合肥校区`; when they differ, split into `== 屯溪路校区`, `== 翡翠湖校区`, and `== 六安路校区`.
+1. **阅读目标文件**，判断风险等级
+2. **查看同目录其他文件**，保持结构一致
+3. **参考以下文件**：
+   - `docs/study/exemption.md`（政策、统计、脚注）
+   - `docs/enrollment/qa.md`（问答风格）
+   - `docs/about/standard.md`（官方写作规则）
+4. **改写时**：
+   - 保留所有链接、脚注、组件
+   - 删除重复的铺垫句
+   - 将长段落拆分为短句
+5. **完成后检查**：
+   - 是否有 AI 味道？
+   - 是否过度加粗？
+   - 是否 Emoji 过多？
+   - 是否改变了事实含义？
+6. **运行格式检查**：
+   ```sh
+   pnpm run docs:lint
+   ```
 
-## References
+## Markdown 规范
 
-- Detailed style rules: `references/style-guide.md`
-- Rewrite patterns and examples: `references/rewrite-patterns.md`
+### 加粗使用
+**可以加粗**：
+- 必须或禁止的行为
+- 硬性要求、截止日期、后果
+- 容易误解的关键区分
+
+**不要加粗**：
+- 列表标签（如 `- **核心用途**:`）
+- 整段文字
+- 仅为模拟标签的标题
+
+### `<mark>` 使用
+**可以使用**：
+- 搜索关键词
+- 需要视觉突出但不是警告的名称
+- 长句中的次要提醒
+
+### Emoji 使用
+**可以使用**：
+- `details` 标题中的一个 Emoji（如 `🤡 趣事`）
+- 问答标题中的 `❔`
+- 侧边栏顶级导航标题的一个 Emoji（如果已有惯例）
+
+**不要使用**：
+- 连续多个 Emoji
+- 严肃警告块中的 Emoji
+- 依赖笑话才能理解的主要答案
+
+### 提示块使用
+- `:::tip` 用于实用建议
+- `:::info` 用于简短总结或补充说明
+- `:::warning` 用于具体风险或后果
+- `:::details` 用于折叠内容（模板、目录、趣事）
+- `:::tabs` 用于校区区分
+
+**嵌套规则**：外层 `::::tabs`，内层 `:::info`，用不同数量的冒号区分
+
+### 路径和标题
+- 使用 `→` 表示路径：`信息门户→缴费平台`
+- 使用 `《...》` 表示官方通知标题
+
+## 引用和不确定性
+
+**需要引用**：
+- 规则、考试政策、处分、费用、官方流程、统计、历史事件
+
+**不确定时**：
+- 使用 `<Note>需要验证</Note>`
+- 或使用 "通常"、"可能"、"以当年通知为准"
+
+**非官方信息**：
+- 保留实用性，但标注来源限制或不确定性
+- 使用 `<Note>需要验证</Note>` 或 `<Note>未找到具体的官方来源</Note>`
+
+## 校区处理
+
+**校区答案不同**：
+```md
+:::tabs key:campus
+== 合肥校区
+合肥校区的内容
+== 宣城校区
+宣城校区的内容
+:::
+```
+
+**合肥校区答案相同**：
+```md
+:::tabs key:campus
+== 合肥校区
+合肥校区的内容（屯溪路、翡翠湖、六安路相同）
+== 宣城校区
+宣城校区的内容
+:::
+```
+
+**校区顺序**：合肥校区在前，宣城校区在后
+
+## 最终检查清单
+
+完成改写前检查：
+- [ ] 是否回答了学生的实际问题？
+- [ ] 是否有 AI 味道？
+- [ ] 是否过度加粗或 Emoji？
+- [ ] 是否保留了所有链接和脚注？
+- [ ] 是否改变了事实含义？
+- [ ] 是否删除了冗余内容？
+- [ ] 是否运行了格式检查？
+
+## 详细参考
+
+- 完整风格规则：`references/style-guide.md`
+- 改写模式和示例：`references/rewrite-patterns.md`

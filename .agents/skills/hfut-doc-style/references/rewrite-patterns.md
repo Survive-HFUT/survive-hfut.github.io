@@ -1,36 +1,36 @@
-# Rewrite Patterns
+# 改写模式
 
-## Remove AI Framing
+## 移除 AI 框架
 
-Before:
+改写前：
 
 > 本文将从多个维度为大家详细介绍校园卡的相关内容，帮助大家更好地了解校园卡的使用方式。
 
-After:
+改写后：
 
 > 本页介绍学校发放的实体校园卡，包括用途、充值、挂失和补办方式
 
-Why: answer scope directly; remove “多个维度”“帮助大家更好地了解”.
+原因：直接回答范围；删除"多个维度""帮助大家更好地了解"。
 
-## Keep Rigorous Caveats
+## 保持严谨的注意事项
 
-Before:
+改写前：
 
 > 保研加分政策每年都会变，大家一定要去问辅导员。
 
-After:
+改写后：
 
 > 保研加分政策可能会随年份和学院调整，具体加分事宜建议以所在学院当年的通知为准，也可以询问辅导员
 
-Why: avoid overclaiming; keep the action concrete.
+原因：避免过度断言；保持行动具体。
 
-## Scope Campus Claims
+## 限定校区声明
 
-Before:
+改写前：
 
 > 宿舍内无 WiFi 信号，但有网线接口。
 
-After:
+改写后：
 
 ```md
 :::tabs key:campus
@@ -46,59 +46,59 @@ After:
 :::
 ```
 
-Why: gforoosge's recent edits repeatedly avoid applying 宣城-specific information to every campus.
+原因：避免将宣城特有信息应用到每个校区。
 
-## Use Official Notice Titles
+## 使用官方通知标题
 
-Before:
+改写前：
 
 > [关于开展 2024 级本科生第二次转专业工作的通知](https://example.com)
 
-After:
+改写后：
 
 > [《关于开展 2024 级本科生第二次转专业工作的通知》](https://example.com)
 
-Why: official notices and regulations are treated as document titles.
+原因：官方通知和法规被视为文档标题。
 
-## Normalize Menu Paths
+## 规范化菜单路径
 
-Before:
+改写前：
 
 > 在 APP 中打开 我的-学生优惠资质核验专区
 
-After:
+改写后：
 
 > 在 APP 中打开 我的→学生优惠资质核验专区
 
-Why: menu paths use `→`, which is easier to scan and consistent with local edits.
+原因：菜单路径使用 `→`，更易于扫描且与本地编辑一致。
 
-## Preserve Useful Student Voice
+## 保留有用的学生语气
 
-Before:
+改写前：
 
 > 对于大一学生而言，建议综合考虑通勤效率、预算和校园管理要求后选择合适的交通方式。
 
-After:
+改写后：
 
 > 对于宣区的同学而言，校区比较大，教学楼、操场和宿舍楼的分布也不太均匀。如果每天上课都要跨过大半个校区，买一辆电动车或买骑行卡会方便不少
 
-Why: the preferred tone is practical and grounded, not official advice.
+原因：首选语气是实用和接地气，而不是官方建议。
 
-## Prefer Understatement
+## 优先克制表达
 
-Before:
+改写前：
 
 > 活动现场通常备有暖心茶饮和小甜品，氛围十分轻松，欢迎同学们踊跃前来面对面反映各类问题。
 
-After:
+改写后：
 
 > 活动现场通常备有茶饮和小甜品，氛围较轻松。同学们可以借此向校区面对面反馈问题，也可以提出校区建设建议
 
-Why: keep useful information, remove promotional warmth.
+原因：保留有用信息，删除推销性温暖。
 
-## Delete Redundant Setup
+## 删除冗余设置
 
-Before:
+改写前：
 
 ```md
 <Note>下面这份模板偏通用，使用时把具体时间、对象、承诺内容、诉求和证据清单补完整即可。</Note>
@@ -111,7 +111,7 @@ Before:
 :::
 ```
 
-After:
+改写后：
 
 ```md
 :::details 投诉/反馈模板
@@ -122,15 +122,15 @@ After:
 :::
 ```
 
-Why: placeholders inside the template already explain what to replace.
+原因：模板内的占位符已经说明了要替换什么。
 
-## Use Info For Short Rhythm Summaries
+## 使用信息块简短总结节奏
 
-Before:
+改写前：
 
 > 简单理解：6 月主要是申报和立项，暑假开展实践，开学后集中结项和评优。具体截止时间要看当年通知，不建议按往年日期卡点准备。
 
-After:
+改写后：
 
 ```md
 :::info
@@ -140,11 +140,11 @@ After:
 :::
 ```
 
-Why: a compact info block is enough for the high-level schedule; detailed dates should remain in sourced lists or notices.
+原因：紧凑的信息块足以概括高层时间表；详细日期应保留在有来源的列表或通知中。
 
-## Keep Warnings Concrete
+## 保持警告具体
 
-Before:
+改写前：
 
 ```md
 :::warning
@@ -154,7 +154,7 @@ Before:
 :::
 ```
 
-After:
+改写后：
 
 ```md
 :::warning
@@ -165,77 +165,77 @@ After:
 :::
 ```
 
-Why: keep the consequence, reduce scolding language, improve scanning.
+原因：保留后果，减少训斥语言，提高可扫描性。
 
-## Mark Unofficial Or Unverified Claims
+## 标记非官方或未验证声明
 
-Before:
+改写前：
 
 > 学生和教职工均可免费乘坐校车。
 
-After:
+改写后：
 
 > 学生和教职工均可免费乘坐<Note>未找到具体的官方来源</Note>
 
-Why: useful campus knowledge can stay, but its evidence level must be visible.
+原因：有用的校园知识可以保留，但其证据级别必须可见。
 
-## Use Playful Asides Carefully
+## 谨慎使用俏皮旁白
 
-Before:
+改写前：
 
 > 慕课讨论不需要认真写，随便复制别人的评论就行。
 
-After:
+改写后：
 
 > 学生需要根据要求在学习通等平台上观看视频完成视频任务点、提交作业或讨论!!——其实就是水评论。只要把别人的话复制下来再发出来就能拿分!!
 
-Why: on low-risk experience pages, the author sometimes keeps a joke in `!!...!!`; the factual description still comes first.
+原因：在低风险体验页面上，作者有时会在 `!!...!!` 中保留笑话；事实描述仍然在前。
 
-## Use Mark Instead Of Bold For Secondary Emphasis
+## 使用标记而非加粗进行次要强调
 
-Before:
+改写前：
 
 > 搜索时**使用关键词更容易找到答案**，不要输入一整句话。
 
-After:
+改写后：
 
 > 搜索时<mark>使用关键词更容易找到答案</mark>，例如搜索`转专业`而不是`要怎么转专业`
 
-Why: important but not a hard warning, so `<mark>` is enough.
+原因：重要但不是硬性警告，所以 `<mark>` 就够了。
 
-## Reserve Bold For Critical Warnings
+## 为关键警告保留加粗
 
-Before:
+改写前：
 
 > **如果遇到诈骗，请及时联系辅导员或报警。**
 
-After:
+改写后：
 
 > 若无法判断或疑似被诈骗，**请及时联系辅导员、校区警务站或当地派出所**
 
-Why: only the action is strongly emphasized.
+原因：只有行动被强烈强调。
 
-## Avoid Bold List Labels
+## 避免加粗列表标签
 
-Before:
+改写前：
 
 ```md
 - **核心用途**: 查询课表、成绩和考试安排
 - **进入方式**: 微信搜索小程序
 ```
 
-After:
+改写后：
 
 ```md
 - 核心用途：查询课表、成绩和考试安排
 - 进入方式：微信搜索小程序
 ```
 
-Alternative for dense data: use a table.
+密集数据的替代方案：使用表格。
 
-## Q&A Answer Pattern
+## 问答答案模式
 
-Use:
+使用：
 
 ```md
 #### ❔ 可以单独办理宽带吗
@@ -252,11 +252,11 @@ Use:
 :::
 ```
 
-Keep answers short; link to detailed pages with `:::info` when needed.
+保持答案简短；需要时用 `:::info` 链接到详细页面。
 
-## Serious Topic Pattern
+## 严肃主题模式
 
-Use:
+使用：
 
 ```md
 :::warning
@@ -266,11 +266,11 @@ Use:
 :::
 ```
 
-Do not add jokes, memes, or casual exaggeration in this block.
+不要在此块中添加笑话、表情包或随意夸张。
 
-## Light Details Pattern
+## 轻详情模式
 
-Use humor only when it is clearly secondary:
+仅在幽默明显次要时使用：
 
 ```md
 :::details 🤡 趣事
@@ -280,4 +280,4 @@ Use humor only when it is clearly secondary:
 :::
 ```
 
-The factual correction still comes first.
+事实纠正仍然在前。
