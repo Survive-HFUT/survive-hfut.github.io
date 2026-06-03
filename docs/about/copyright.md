@@ -1,4 +1,4 @@
-# 版权信息
+# 版权声明
 
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
