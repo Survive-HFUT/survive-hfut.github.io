@@ -25,7 +25,7 @@ Survive-HFUT
 
 :::tip
 
-手册持续完善中...[快来帮忙！](about/contribute.md)
+手册持续完善中...[快来帮忙！](about/contribute/index)
 
 :::
 

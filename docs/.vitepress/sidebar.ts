@@ -1,8 +1,12 @@
 import { generateSidebar } from 'vitepress-sidebar';
-import { type SidebarItem, type SidebarMulti } from 'vitepress-sidebar/types';
+import type {
+  SidebarItem,
+  SidebarMulti,
+  VitePressSidebarOptions,
+} from 'vitepress-sidebar/types';
 
 // 需要折叠的文件夹链接
-const shouldCollapse = ['more/', 'organizations/','city/'];
+const shouldCollapse = ['more/', 'organizations/', 'city/'];
 
 // 需要删除链接但保留在侧边栏中的文件夹链接（即保留其子项，但不让该文件夹本身成为一个可点击的链接）
 const shouldDeleteLink = [
@@ -47,45 +51,40 @@ function postProcessSidebar(sidebar: SidebarMulti) {
   return sidebar;
 }
 
+const defaultSidebar: VitePressSidebarOptions = {
+  useTitleFromFileHeading: true,
+  useFolderLinkFromIndexFile: true,
+  useFolderTitleFromIndexFile: true,
+  useTitleFromFrontmatter: true,
+  sortMenusByFrontmatterOrder: true,
+  frontmatterOrderDefaultValue: 100,
+};
+
 export default postProcessSidebar(
-  generateSidebar([
-    {
-      useTitleFromFileHeading: true,
-      useFolderLinkFromIndexFile: true,
-      useFolderTitleFromIndexFile: true,
-      useTitleFromFrontmatter: true,
-
-      documentRootPath: '/docs',
-      resolvePath: '/',
-      excludeFilesByFrontmatterFieldName: 'exclude',
-      excludePattern: ['about/**', 'achievements/**'],
-
-      collapsed: false,
-      collapseDepth: 2,
-
-      manualSortFileNameByPriority: ['intro.md', 'qa.md'],
-      sortMenusByFrontmatterOrder: true,
-      frontmatterOrderDefaultValue: 100,
-    },
-    {
-      documentRootPath: 'docs',
-      scanStartPath: 'about',
-      resolvePath: '/about/',
-
-      useTitleFromFrontmatter: true,
-      useTitleFromFileHeading: true,
-      useFolderTitleFromIndexFile: true,
-
-      manualSortFileNameByPriority: ['copyright.md'],
-
-      rootGroupText: '关于',
-      rootGroupLink: '/',
-    },
-    {
-      documentRootPath: 'docs',
-      scanStartPath: 'achievements',
-      resolvePath: '/achievements/',
-      useTitleFromFileHeading: true,
-    },
-  ]) as SidebarMulti,
+  generateSidebar(
+    [
+      {
+        documentRootPath: '/docs',
+        resolvePath: '/',
+        excludeFilesByFrontmatterFieldName: 'exclude',
+        excludePattern: ['about/**', 'achievements/**'],
+        collapsed: false,
+        collapseDepth: 2,
+        manualSortFileNameByPriority: ['intro.md', 'qa.md'],
+      },
+      {
+        documentRootPath: 'docs',
+        scanStartPath: 'about',
+        resolvePath: '/about/',
+        manualSortFileNameByPriority: ['copyright.md'],
+        rootGroupText: '❤️ 关于',
+        rootGroupLink: '/',
+      },
+      {
+        documentRootPath: 'docs',
+        scanStartPath: 'achievements',
+        resolvePath: '/achievements/',
+      },
+    ].map((item) => ({ ...defaultSidebar, ...item })),
+  ) as SidebarMulti,
 );

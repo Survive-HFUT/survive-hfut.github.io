@@ -1,66 +1,54 @@
 # HFUT 文档风格 Skill
 
-这个 Skill 用于辅助编写、改写和审校 Survive-HFUT 的 Markdown 文档，重点是减少 AI 生成味，并尽量贴近本站现有文风。
+这个 Skill 用于辅助编写、改写和审校 Survive-HFUT 的 Markdown 文档。重点是减少 AI 生成味，贴近本站现有文风。
 
-适用场景：
+## 快速开始
 
-- 使用 AI 新增或改写 `docs/` 下的页面
-- 润色已有内容，使表达更自然、克制、严谨
-- 检查加粗、`<mark>`、Emoji、提示块、脚注和引用来源是否合适
-- 处理校规、考试、医保、保研、反诈等需要谨慎表述的内容
-
-## 使用方式
-
-在支持 Skills 的 AI 工具中，可以直接这样调用：
+### 使用方式
 
 ```txt
 $hfut-doc-style docs/待修改页面.md
 ```
 
-也可以描述具体目标，例如：
+### 核心目标
 
-```txt
-$hfut-doc-style docs/life/medical_insurance.md 帮我改写这一页，保留事实和链接，减少 AI 味
-```
+1. **消除 AI 味道**：删除 "总的来说"、"值得注意的是"、"在当今时代" 等词语
+2. **保持学生指南语气**：使用 "可以参考"、"建议提前准备"、"通常"
+3. **谨慎处理风险内容**：考试、处分、费用等需要引用来源
 
-```txt
-$hfut-doc-style docs/enrollment/preparation.md 检查这页有没有过度加粗、Emoji 过多或语气太 AI 的地方
-```
+## 工作流程
 
-## 推荐流程
-
-1. 先阅读或让 AI 阅读目标页面及同目录下相近页面
+1. 阅读目标页面和同目录下相近页面
 2. 保留事实、链接、脚注、图片、组件和 Markdown 结构
 3. 对制度、流程、费用、处分、报销、考试等内容，优先核对官方通知或已有引用
-4. 修改后运行文档构建：
+4. 修改后运行格式检查：
 
-```sh
-npm run docs:build
-```
+   ```sh
+   pnpm dlx markdownlint-cli2 --fix "*.{md,markdown}" "**/*.md" "!node_modules/**"
+   ```
 
-1. 运行 Markdown 格式核查：
-
-```sh
-pnpm run docs:lint
-```
-
-1. 人工复查最终内容，尤其是政策、年份、金额、时间、地点和办理流程
+5. 人工复查最终内容，尤其是政策、年份、金额、时间、地点和办理流程
 
 ## 写作原则
 
-- 不要完全依赖 AI 生成内容
-- 不要把文章改成官方通报，也不要改成聊天口吻
-- 可以删掉重复铺垫；不是每个提示都需要改写成另一句提示
-- 加粗只用于真正需要重点提示的内容
-- 非重点但需要突出时，可以使用 `<mark>`
-- Emoji 可以少量使用，但不要为了活泼而堆叠
-- 不确定的内容不要写死，可使用“通常”“可能”“以当年通知为准”或 `<Note>需要验证</Note>`
-- 仅作为入口或延伸阅读的普通链接，不需要额外添加脚注来源
-- 在 `tabs` 内嵌套 `info`、`warning` 等提示框时，使用不同数量的冒号区分外层和内层，例如外层 `::::tabs`、内层 `:::info`
-- 对投诉、争议、历史记录等页面，保留材料来源和时间，不要用语气替事实下判断
+### 必须做
 
-更完整的规则见：
+- 删除重复铺垫
+- 使用短句
+- 保留具体信息
+- 使用 `:::warning` 标注风险
+- 使用 `<mark>` 标注重要区分
 
-- [`SKILL.md`](./SKILL.md)
-- [`references/style-guide.md`](./references/style-guide.md)
-- [`references/rewrite-patterns.md`](./references/rewrite-patterns.md)
+### 不要做
+
+- 使用 AI 味道词语
+- 过度加粗
+- Emoji 过多
+- 改变事实含义
+- 完全依赖 AI 生成内容
+
+## 详细参考
+
+- 完整规则：[`SKILL.md`](./SKILL.md)
+- 风格指南：[`references/style-guide.md`](./references/style-guide.md)
+- 改写示例：[`references/rewrite-patterns.md`](./references/rewrite-patterns.md)

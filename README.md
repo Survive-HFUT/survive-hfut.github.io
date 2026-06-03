@@ -29,7 +29,7 @@
 - 参与内容编写与维护
 - ……
 
-➡️[参与进来](./docs/about/contribute.md)
+➡️[参与进来](./docs/about/contribute/index.md)
 
 ## 统计
 

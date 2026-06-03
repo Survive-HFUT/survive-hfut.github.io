@@ -31,8 +31,14 @@
 
 ## 参考项目
 
+在实际的开发中，我们参考了多个项目的设计和实现，并对所有项目表示感谢🥺🫶
+
+以下仅列出一些主要的参考项目：
+
 - [南科手册](https://sustech.online/)
 
 ## 流量统计
 
-[umami](https://cloud.umami.is/share/TO6zOo7xWbS2gcFF/survive-hfut.cc)
+本网站使用了 [umami](https://umami.is) 进行流量统计，以便分析浏览量、访问来源等数据，持续优化用户体验。你可以通过以下链接查看统计数据：
+
+[Umami-活在肥宣](https://cloud.umami.is/share/TO6zOo7xWbS2gcFF/survive-hfut.cc)

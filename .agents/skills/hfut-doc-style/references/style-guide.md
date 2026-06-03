@@ -1,101 +1,101 @@
-# Style Guide
+# 风格指南
 
-## Priority Sources
+## 优先参考来源
 
-Use these repository files as the main style anchors:
+使用以下仓库文件作为主要风格锚点：
 
-- `docs/study/exemption.md`: balanced handling of policy, statistics, caveats, footnotes, tips, warnings, and limited humor.
-- `docs/enrollment/qa.md`: concise Q&A style, practical student-facing answers, tabs, `<mark>`, short explanations, and internal links.
-- `docs/about/standard.md`: official writing rules for neutrality, rigor, citations, advertising, Markdown, and AI-generated copy.
+- `docs/study/exemption.md`：平衡处理政策、统计、注意事项、脚注、提示、警告和有限幽默。
+- `docs/enrollment/qa.md`：简洁问答风格、面向学生的实用回答、标签页、`<mark>`、简短解释和内部链接。
+- `docs/about/standard.md`：中立、严谨、引用、广告、Markdown 和 AI 生成内容的官方写作规则。
 
-When older pages conflict with these files, follow these priority sources.
+当旧页面与这些文件冲突时，以这些优先来源为准。
 
-## Voice
+## 语气风格
 
-Target voice: reliable senior student guide with documentation discipline.
+目标语气：可靠的学生学长指南，具有文档规范性。
 
-Characteristics:
+特点：
 
-- Direct: answer the user's likely question quickly before adding caveats.
-- Concrete: give numbers, locations, app names, document names, and steps when known.
-- Scoped: say where a statement applies, especially campus, year, college, grade, or scenario.
-- Calm: avoid fearmongering, sales tone, and emotional praise.
-- Lightly human: occasional phrases such as “简单来说”“还行”“入乡随俗” are acceptable on low-risk pages, but should not dominate.
-- Understated: prefer “可以参考”“建议提前准备”“通常” to repeated enthusiasm or urgency.
-- Maintainer-like: sound like a student who has used the service or read the notice, not like an official account explaining the whole background.
+- 直接：先回答用户可能的问题，再添加注意事项。
+- 具体：提供数字、位置、应用名称、文档名称和步骤（如果已知）。
+- 有范围：说明声明适用的范围，尤其是校区、年份、学院、年级或场景。
+- 平静：避免恐吓、销售语气和情感赞美。
+- 轻松人性化：偶尔使用"简单来说""还行""入乡随俗"等短语在低风险页面上是可以接受的，但不应占主导地位。
+- 克制：优先使用"可以参考""建议提前准备""通常"，而不是反复的热情或紧迫感。
+- 维护者风格：听起来像一个使用过服务或阅读过通知的学生，而不是解释整个背景的官方账号。
 
-Avoid:
+避免：
 
-- AI boilerplate: “本文将深入探讨”“帮助大家更好地了解”“具有重要意义”“不容忽视”“综上所述”.
-- Empty transitions: “首先需要明确的是”“与此同时”“另外值得一提的是” unless they genuinely organize dense information.
-- Unsupported certainty: “一定”“绝对”“不会”“所有学院都” unless directly supported.
-- Overfriendly chat tone: “宝子们”“冲就完了”“闭眼入”“狠狠爱了”.
-- Promotional wording: “超值”“强烈推荐购买”“必买”“良心商家”.
-- Ceremonial warmth when it does not add information: “暖心”“欢迎大家踊跃参与”“为同学们保驾护航”.
-- Habitual urgency: “务必”“千万不要”“必须马上” unless the consequence is direct and supported.
-- Grand conclusions and slogans: “具有重要意义”“为校园发展贡献力量”“开启精彩大学生活”.
+- AI 模板："本文将深入探讨""帮助大家更好地了解""具有重要意义""不容忽视""综上所述"。
+- 空洞过渡："首先需要明确的是""与此同时""另外值得一提的是"，除非它们真正组织密集信息。
+- 无根据的确定性："一定""绝对""不会""所有学院都"，除非有直接支持。
+- 过度友好的聊天语气："宝子们""冲就完了""闭眼入""狠狠爱了"。
+- 推销用语："超值""强烈推荐购买""必买""良心商家"。
+- 不增加信息的仪式性温暖："暖心""欢迎大家踊跃参与""为同学们保驾护航"。
+- 习惯性紧迫感："务必""千万不要""必须马上"，除非后果是直接且有支持的。
+- 宏大结论和口号："具有重要意义""为校园发展贡献力量""开启精彩大学生活"。
 
-## Topic Risk Levels
+## 主题风险等级
 
-### Low-risk practical content
+### 低风险实用内容
 
-Examples:宿舍体验、食堂、交通、软件入口、生活技巧。
+示例：宿舍体验、食堂、交通、软件入口、生活技巧。
 
-- Can be concise and slightly relaxed.
-- Can include personal-observation language: “大部分”“一般”“可能”“据反馈”.
-- Prefer practical answer plus caveat.
+- 可以简洁且稍微放松。
+- 可以包含个人观察语言："大部分""一般""可能""据反馈"。
+- 优先实用回答加注意事项。
 
-### Medium-risk procedural content
+### 中等风险流程内容
 
-Examples:报到流程、校园卡、选课、转专业、医保报销、学生票。
+示例：报到流程、校园卡、选课、转专业、医保报销、学生票。
 
-- Use numbered steps when the order matters.
-- Mention required materials and failure cases.
-- Add “以当年通知/系统页面为准” where rules change.
-- Link to official or existing internal page when available.
+- 当顺序重要时使用编号步骤。
+- 提及所需材料和失败情况。
+- 在规则变化处添加"以当年通知/系统页面为准"。
+- 可用时链接到官方或现有内部页面。
 
-### High-risk policy/safety content
+### 高风险政策/安全内容
 
-Examples:考试、处分、校规、反诈、违规用电、校外租房、保研、入党、费用。
+示例：考试、处分、校规、反诈、违规用电、校外租房、保研、入党、费用。
 
-- Prefer written Chinese and citations.
-- Preserve official terms exactly.
-- Do not joke about consequences.
-- Use `:::warning` for risk and consequences.
-- Use `<mark>` for important distinctions inside a paragraph; use bold for the consequence or hard requirement.
+- 优先书面中文和引用。
+- 精确保留官方术语。
+- 不要对后果开玩笑。
+- 使用 `:::warning` 标注风险和后果。
+- 使用 `<mark>` 标注段落内的重要区分；使用加粗标注后果或硬性要求。
 
-## Structure Patterns
+## 结构模式
 
-### Guide page
+### 指南页面
 
-Use a title, short lead, then sections by user task or scenario. Put prerequisites before steps. Put caveats near the step they affect.
+使用标题、简短引言，然后按用户任务或场景划分章节。将前置条件放在步骤之前。将注意事项放在其影响的步骤附近。
 
-If a page grows a long “实用提醒” or “注意事项” section, first try moving each reminder to the section where it becomes actionable. For example, safety reminders belong near offline practice/travel, material retention belongs near 结项, and fee/住宿 caveats belong near 项目对接.
+如果页面出现长段的"实用提醒"或"注意事项"部分，首先尝试将每个提醒移动到可操作的部分。例如，安全提醒属于线下实践/旅行附近，材料保留属于结项附近，费用/住宿注意事项属于项目对接附近。
 
-The recent local maintenance pattern favors small page splits over monolithic pages. If a page mixes several independent workflows, split it into child pages or section files when the sidebar already supports that structure, such as `sports_fitness/index.md`, `running_and_fitness.md`, and `test.md`.
+最近的本地维护模式倾向于小页面拆分而非单体页面。如果页面混合了几个独立的工作流，当侧边栏已经支持该结构时，将其拆分为子页面或章节文件，如 `sports_fitness/index.md`、`running_and_fitness.md` 和 `test.md`。
 
-### Campus tabs
+### 校区标签页
 
-Use campus tabs when scope differs:
+当范围不同时使用校区标签页：
 
-- Use `== 合肥校区` when 屯溪路、翡翠湖、六安路 share the same answer.
-- Use separate tabs when location, price, address, or process differs.
-- Put 宣城-specific lived details under `== 宣城校区`, not in an unscoped paragraph.
-- Prefer campus order that helps comparison: 合肥校区写在宣城校区前；全部拆开时按屯溪路、翡翠湖、六安路、宣城排列.
-- Avoid empty campus tabs unless the page is intentionally scaffolded for future content.
+- 当屯溪路、翡翠湖、六安路共享相同答案时使用 `== 合肥校区`。
+- 当位置、价格、地址或流程不同时使用单独标签页。
+- 将宣城特有的生活细节放在 `== 宣城校区` 下，而不是无范围的段落中。
+- 优先使用有助于比较的校区顺序：合肥校区写在宣城校区前；全部拆开时按屯溪路、翡翠湖、六安路、宣城排列。
+- 避免空的校区标签页，除非页面是为未来内容故意搭建的。
 
-### Templates
+### 模板
 
-For complaint letters, 申请表说明, or message templates:
+对于投诉信、申请表说明或消息模板：
 
-- Put the reusable template directly inside `:::details` or a clearly named section.
-- Do not add a paragraph explaining that the template is generic if the placeholders already show it.
-- Keep placeholders concrete, such as `（姓名/匿名昵称）`, `（时间）`, `（证据清单）`.
-- Mention anonymization only when the page expects public sharing or reposting.
+- 将可重用模板直接放在 `:::details` 或明确命名的部分中。
+- 如果占位符已经显示模板是通用的，不要添加解释段落。
+- 保持占位符具体，如 `（姓名/匿名昵称）`、`（时间）`、`（证据清单）`。
+- 仅当页面期望公开分享或转发时提及匿名化。
 
-### Directory and long pages
+### 目录和长页面
 
-For long Q&A, lab, or practical guide pages, a folded directory can be used:
+对于长问答、实验室或实用指南页面，可以使用折叠目录：
 
 ```md
 :::details 目录
@@ -105,17 +105,17 @@ For long Q&A, lab, or practical guide pages, a folded directory can be used:
 :::
 ```
 
-Do not add a directory to short pages where it creates more noise than navigation value.
+不要在短页面上添加目录，否则会产生比导航价值更多的噪音。
 
-### VitePress nesting
+### VitePress 嵌套
 
-When nesting admonitions inside tabs, use different fence lengths to avoid ambiguous closing:
+在标签页内嵌套提示框时，使用不同的围栏长度以避免歧义关闭：
 
 ```md
 ::::tabs key:campus
 == 宣城校区
 
-:::info 关于“重复参保”的处理
+:::info 关于"重复参保"的处理
 
 提示内容
 
@@ -124,116 +124,116 @@ When nesting admonitions inside tabs, use different fence lengths to avoid ambig
 ::::
 ```
 
-Do not use `:::tabs` outside and `:::info` inside in the same block unless the close positions are unambiguous.
+不要在同一块中使用 `:::tabs` 外层和 `:::info` 内层，除非关闭位置是明确的。
 
-### Q&A page
+### 问答页面
 
-Follow `docs/enrollment/qa.md`:
+遵循 `docs/enrollment/qa.md`：
 
-- `##` for broad category.
-- `###` for subcategory when needed.
-- `#### ❔ 问题` for individual questions.
-- Answer directly in one or a few short paragraphs.
-- Use `:::info` to point to detailed pages.
-- Use tabs for campus-specific answers.
+- `##` 用于大类。
+- `###` 用于子类（需要时）。
+- `#### ❔ 问题` 用于单个问题。
+- 直接用一个或几个短段落回答。
+- 使用 `:::info` 指向详细页面。
+- 使用标签页处理校区特定答案。
 
-### Policy/statistics page
+### 政策/统计页面
 
-Follow `docs/study/exemption.md`:
+遵循 `docs/study/exemption.md`：
 
-- Start with definition or scope.
-- Separate official requirements, interpretation, data, and related notices.
-- Put unofficial or uncertain data in warnings.
-- Keep footnotes near claims.
-- Use details blocks for side stories or humor, not the main rule.
-- Do not expand every official list into a prose tutorial. Preserve the list, then add only the interpretation that changes student behavior.
+- 从定义或范围开始。
+- 分离官方要求、解释、数据和相关通知。
+- 将非官方或不确定数据放在警告中。
+- 保持脚注靠近声明。
+- 使用详情块处理侧面故事或幽默，而不是主要规则。
+- 不要将每个官方列表扩展为散文教程。保留列表，然后只添加改变学生行为的解释。
 
-### Event or dispute record
+### 事件或争议记录
 
-For achievement records, complaints, public disputes, and incident timelines:
+对于成就记录、投诉、公共争议和事件时间线：
 
-- Keep source labels visible: “据会后整理”“当事人于 YYYY-MM-DD 投递”“原文”.
-- Use heading levels to show nesting. Evidence subsections under one record usually use `####`, not a new sibling `###`.
-- Avoid adjudicating motive or fault unless the source supports it.
-- Use `<Note>` for source limitations and provenance instead of editorializing in the paragraph.
+- 保持来源标签可见："据会后整理""当事人于 YYYY-MM-DD 投递""原文"。
+- 使用标题级别显示嵌套。一个记录下的证据子部分通常使用 `####`，而不是新的兄弟 `###`。
+- 除非来源支持，否则不要裁决动机或过错。
+- 使用 `<Note>` 标注来源限制和出处，而不是在段落中编辑。
 
-## Emphasis Rules
+## 强调规则
 
-Use bold for:
+使用加粗标注：
 
-- Mandatory or prohibited actions.
-- Hard thresholds, deadlines, consequences.
-- Critical distinctions likely to be misunderstood.
-- The core warning in a warning block.
+- 强制或禁止的行为。
+- 硬性阈值、截止日期、后果。
+- 可能被误解的关键区分。
+- 警告块中的核心警告。
 
-Use `<mark>` for:
+使用 `<mark>` 标注：
 
-- Search keywords.
-- Names that need visual attention but are not warnings.
-- Secondary reminders inside longer sentences.
-- Contrastive terms such as “校园卡” vs “校园流量卡”.
+- 搜索关键词。
+- 需要视觉关注但不是警告的名称。
+- 长句中的次要提醒。
+- 对比术语，如"校园卡"vs"校园流量卡"。
 
-Avoid:
+避免：
 
-- Bold list labels such as `- **核心用途**:` unless preserving an existing format in a page that consistently uses it.
-- Stacking `<mark>**...**</mark>` unless the content is both visually highlighted and truly critical.
-- Full paragraphs in bold.
+- 加粗列表标签，如 `- **核心用途**:`，除非保留页面中一致使用的现有格式。
+- 堆叠 `<mark>**...**</mark>`，除非内容既是视觉突出又真正关键。
+- 整段加粗。
 
-## Links, Names, And Paths
+## 链接、名称和路径
 
-- Use `→` for app or menu paths: `支付宝→出行→宣城电子公交卡`.
-- Use `《...》` around official notice, regulation, and announcement titles when the title itself is the link text.
-- Prefer local internal links over raw external search entry points when this repository already has a relevant page or anchor.
-- Add descriptive image alt text that includes campus or subject when helpful, such as `![宣区宿舍]`.
-- Mark AIGC images in alt text or nearby text when they are used as illustrative assets.
-- In footnotes, keep the source line and URL on separate lines with a Markdown hard break before the URL.
+- 使用 `→` 表示应用或菜单路径：`支付宝→出行→宣城电子公交卡`。
+- 当链接文本本身是通知、法规或公告标题时，使用 `《...》` 包裹。
+- 当本仓库已有相关页面或锚点时，优先使用本地内部链接而非原始外部搜索入口。
+- 添加描述性图片 alt 文本，在有帮助时包含校区或主题，如 `![宣区宿舍]`。
+- 当 AIGC 图像用作说明性资产时，在 alt 文本或附近文本中标记。
+- 在脚注中，保持来源行和 URL 在单独的行上，URL 前使用 Markdown 硬换行。
 
-## Emoji And Humor
+## Emoji 和幽默
 
-Allowed:
+允许：
 
-- One Emoji in a `details` title or light tip if it matches existing page tone.
-- The `❔` marker in Q&A headings.
-- Occasional jokes in `:::details` or clearly low-risk asides.
-- Frontmatter titles for top-level navigation may use one fitting Emoji, following the local sidebar style.
-- `!!...!!` may be used for deliberately playful or ironic asides on low-risk pages.
+- 在 `details` 标题或轻提示中使用一个 Emoji（如果匹配现有页面语气）。
+- 问答标题中的 `❔` 标记。
+- 在 `:::details` 或明确低风险旁白中偶尔开玩笑。
+- 顶级导航的 frontmatter 标题可以使用一个合适的 Emoji，遵循本地侧边栏风格。
+- `!!...!!` 可用于低风险页面上故意俏皮或讽刺的旁白。
 
-Avoid:
+避免：
 
-- Multiple Emoji in a row.
-- Emoji in serious warning blocks.
-- Humor in policy consequences, fraud prevention, safety, exam discipline, or mental/financial hardship sections.
-- Main answers that depend on a joke. The useful answer should remain understandable if the joke is removed.
+- 连续多个 Emoji。
+- 严肃警告块中的 Emoji。
+- 在政策后果、反诈、安全、考试纪律或心理/财务困难部分开玩笑。
+- 依赖笑话的主要答案。如果笑话被移除，有用答案应仍可理解。
 
-## Citations And Uncertainty
+## 引用和不确定性
 
-- Use footnotes for external facts, official notices, historical events, statistics, and quoted text.
-- Do not add a footnote when a link is only an entry point or further-reading link and does not support a specific factual claim.
-- Use `YYYY-MM-DD` dates in citations when available.
-- If a source is unofficial, label the limitation near the claim, not only in the footnote.
-- If the text is based on experience rather than a source, qualify it: “据反馈”“通常”“可能因导员/学院而异”.
-- If the claim needs later verification, use `<Note>需要验证</Note>` rather than presenting it as settled.
-- For student-discovered workarounds, unofficial groups, merchant/service evaluations, and campus rumors, either cite the source, move the detail to a comment, or qualify it with a visible `<Note>`.
+- 对外部事实、官方通知、历史事件、统计和引用文本使用脚注。
+- 当链接仅是入口或进一步阅读链接且不支持特定事实声明时，不要添加脚注。
+- 引用中可用时使用 `YYYY-MM-DD` 日期。
+- 如果来源非官方，在声明附近标注限制，而不仅在脚注中。
+- 如果文本基于经验而非来源，限定它："据反馈""通常""可能因导员/学院而异"。
+- 如果声明需要后续验证，使用 `<Note>需要验证</Note>` 而不是将其呈现为已定。
+- 对于学生发现的变通方法、非官方组、商家/服务评价和校园传闻，要么引用来源，将细节移至评论，或用可见的 `<Note>` 限定。
 
-## Compression And Deletion
+## 压缩和删除
 
-Good rewriting often removes text instead of replacing every sentence:
+好的改写通常删除文本，而不是替换每个句子：
 
-- Delete setup sentences that only announce the next block.
-- Merge repeated caveats into the claim they qualify.
-- Convert long explanatory paragraphs into a short list only when the list helps scanning.
-- Keep a short `:::info` for schedule summaries or high-level rhythm; use `:::warning` only when missing the item has a real consequence.
-- Avoid retaining “because it sounds helpful” reminders if they duplicate official requirements already shown nearby.
+- 删除仅宣布下一个块的设置句。
+- 将重复的注意事项合并到它们限定的声明中。
+- 仅当列表有助于扫描时，将长解释段落转换为简短列表。
+- 为时间表摘要或高层节奏保持简短的 `:::info`；仅当缺少项目有真实后果时使用 `:::warning`。
+- 如果"因为它听起来有帮助"的提醒重复了附近已显示的官方要求，避免保留。
 
-## Final Review Checklist
+## 最终审查清单
 
-Before finishing a rewrite:
+完成改写前：
 
-- Does the page answer practical student questions without generic AI filler?
-- Are policy and data claims sourced or qualified?
-- Are bold and `<mark>` used for different levels of emphasis?
-- Are list labels not unnecessarily bolded?
-- Are Emoji rare and context-appropriate?
-- Are original links, anchors, footnotes, tabs, admonitions, and custom components preserved?
-- Did any rewrite change the factual meaning or scope?
-- Did the edit delete redundant guidance where deletion is clearer than rephrasing?
+- 页面是否在没有通用 AI 填充的情况下回答了学生的实际问题？
+- 政策和数据声明是否有来源或限定？
+- 加粗和 `<mark>` 是否用于不同级别的强调？
+- 列表标签是否不必要地加粗？
+- Emoji 是否稀少且符合上下文？
+- 原始链接、锚点、脚注、标签页、提示框和自定义组件是否保留？
+- 任何改写是否改变了事实含义或范围？
+- 编辑是否删除了冗余指导（删除比改写更清晰时）？
