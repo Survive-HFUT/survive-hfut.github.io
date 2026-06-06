@@ -20,6 +20,7 @@ import {
 import { data } from '../data/metadata.data';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
+import Footer from './components/Footer.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
@@ -134,6 +135,10 @@ giscusTalk(
 
     <template #home-hero-info>
       <CustomHeroInfo />
+    </template>
+
+    <template #layout-bottom>
+      <Footer />
     </template>
   </Layout>
 </template>
