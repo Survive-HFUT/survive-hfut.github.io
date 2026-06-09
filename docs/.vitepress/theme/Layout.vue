@@ -37,6 +37,9 @@ onBeforeMount(
       window.matchMedia('(prefers-reduced-motion: no-preference)').matches),
 );
 
+const showToast = ref(false);
+const toastMessage = ref('');
+
 onMounted(() => {
   if (!inBrowser || typeof document === 'undefined') {
     return;
@@ -48,6 +51,22 @@ onMounted(() => {
     'transitions-enabled',
     isTransitionsEnabled.value,
   );
+
+  // 检查是否是从 DeepLink 失败回退回来的
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('deeplink_failed') === '1') {
+    toastMessage.value = '你还没有安装最新版本的聚在工大App，暂不支持跳转';
+    showToast.value = true;
+    
+    // 3秒后隐藏
+    setTimeout(() => {
+      showToast.value = false;
+    }, 3000);
+
+    // 清理 URL 上的参数，保持整洁
+    const cleanUrl = window.location.pathname + window.location.hash;
+    window.history.replaceState({}, '', cleanUrl);
+  }
 });
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
@@ -139,6 +158,13 @@ giscusTalk(
 
     <template #layout-bottom>
       <Footer />
+      
+      <!-- 全局 Toast 提示 -->
+      <Transition name="toast">
+        <div v-if="showToast" class="global-toast">
+          {{ toastMessage }}
+        </div>
+      </Transition>
     </template>
   </Layout>
 </template>
@@ -168,5 +194,35 @@ giscusTalk(
 
 .transitions-enabled .VPSwitchAppearance .check {
   transform: none !important;
+}
+
+/* Global Toast Styles */
+.global-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  pointer-events: none;
+  text-align: center;
+  max-width: 90vw;
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition: all 0.3s ease;
+}
+
+.toast-enter-from,
+.toast-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 20px);
 }
 </style>

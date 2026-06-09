@@ -7,6 +7,7 @@ import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
 import locales from '../i18n/locales';
 import BackToTopTip from './components/BackToTopTip.vue';
+import DeeplinkBtn from './components/DeeplinkBtn.vue';
 import Note from './components/Note.vue';
 import ToDo from './components/ToDo.vue';
 import Layout from './Layout.vue';
@@ -24,6 +25,7 @@ export default {
     app.component('Note', Note);
     app.component('ToDo', ToDo);
     app.component('BackToTopTip', BackToTopTip);
+    app.component('DeeplinkBtn', DeeplinkBtn);
 
     app.use(NolebaseGitChangelogPlugin);
     app.use(

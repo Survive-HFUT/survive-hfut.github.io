@@ -4,4 +4,5 @@ packages:
 allowBuilds:
   '@parcel/watcher': true
   esbuild: true
+  nice-napi: set this to true or false
   sharp: true

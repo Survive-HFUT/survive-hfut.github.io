@@ -2,6 +2,9 @@
 
 ## 校车
 
+<!-- 校车 / 班车 -->
+<DeeplinkBtn href="hfut_schedule://bus" text="通过聚在工大App查询班车运行情况"/>
+
 :::tabs key:campus
 
 == 合肥校区
