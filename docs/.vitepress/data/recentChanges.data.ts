@@ -290,6 +290,20 @@ async function readFileAtCommit(
 
 export default defineLoader({
   async load(): Promise<RecentChangesData> {
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          path: 'docs/intro.md',
+          updatedAt: new Date().toISOString(),
+          authorName: 'Anonymous Contributor',
+          sectionTitle: '',
+          sectionSlug: '',
+          excerpt:
+            '在开发环境中，跳过读取Git历史以提高构建速度。你可以手动注释掉这一段代码来测试该功能',
+        },
+      ];
+    }
+
     try {
       const git = simpleGit({ baseDir: ROOT });
       const log = await git.log();
