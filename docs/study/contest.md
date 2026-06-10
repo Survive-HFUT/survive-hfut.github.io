@@ -152,6 +152,8 @@
 如果你知道一些质量还不错的赛事可以通过 PR 或者[Issue](https://github.com/Survive-HFUT/survive-hfut.github.io/issues)补充
 :::
 
+- [安徽省第十三届工业设计大赛 “华丰杯”智能智造和品牌文创设计大赛作品征集](https://mp.weixin.qq.com/s/BRw_oAZvdCzBjYK3SAR-sA)
+  - 首次作品提交时间：2026 年 5 月 10 日—2026 年 7 月 20 日
 - [全国高校计算机能力挑战赛](http://www.ncccu.org.cn/)
 - [蓝桥杯大赛](https://dasai.lanqiao.cn/)
   - _此赛事于 2025 年有作弊风波_[^1]

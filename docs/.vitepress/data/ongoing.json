@@ -2,23 +2,13 @@
   "$schema": "./ongoing.schema.json",
   "events": [
     {
-      "title": "翡翠湖校区大学生医保报销",
-      "campus": [
-        "翡翠湖校区"
-      ],
-      "start": "2026-06-02",
-      "end": "2026-06-05",
-      "href": "/life/medical_insurance#门诊报销",
-      "note": "6 月 2 日为毕业生专场，6 月 3 日至 5 日为非毕业生"
-    },
-    {
       "title": "屯溪路校区大学生医保报销",
       "campus": [
         "屯溪路校区"
       ],
       "start": "2026-06-08",
       "end": "2026-06-11",
-      "href": "/life/medical_insurance#门诊报销",
+      "href": "/life/medical_treatment/medical_insurance#门诊报销",
       "note": "6 月 8 日为毕业生专场，6 月 9 日至 11 日为非毕业生"
     },
     {
@@ -28,7 +18,7 @@
       ],
       "start": "2026-05-21",
       "end": "2026-05-22",
-      "href": "/life/medical_insurance#门诊报销",
+      "href": "/life/medical_treatment/medical_insurance#门诊报销",
       "note": "记得去校区医院301报销哦"
     },
     {

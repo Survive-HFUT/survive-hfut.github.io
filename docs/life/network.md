@@ -196,9 +196,9 @@
     <https://it.hfut.edu.cn/fwzn/xywzh2.htm>
 
 [^4]:
-    合肥工业大学信息化建设与管理办公室.HFUT-WiFi使用指南[DB/OL]. \[2025-08-14].  
+    合肥工业大学信息化建设与管理办公室.HFUT-WiFi 使用指南[DB/OL]. [2025-08-14].  
     <https://it.hfut.edu.cn/fwzn/xywxw1.htm>
 
 [^5]:
-    合肥工业大学信息化建设与管理办公室.IPv6网络使用指南[DB/OL]. \[2025-08-14].  
+    合肥工业大学信息化建设与管理办公室.IPv6 网络使用指南[DB/OL]. \[2025-08-14].  
     <https://it.hfut.edu.cn/fwzn/IPv6.htm>
