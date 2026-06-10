@@ -493,7 +493,7 @@
 
 :::info
 
-详见[生活§医保](../life/medical_insurance.md)
+详见[生活§医保](../life/medical_treatment/medical_insurance.md)
 
 :::
 
