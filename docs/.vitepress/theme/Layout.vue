@@ -21,6 +21,7 @@ import { data } from '../data/metadata.data';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
 import Footer from './components/Footer.vue';
+import Toast from './components/Toast.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
@@ -37,6 +38,9 @@ onBeforeMount(
       window.matchMedia('(prefers-reduced-motion: no-preference)').matches),
 );
 
+const showToast = ref(false);
+const toastMessage = ref('');
+
 onMounted(() => {
   if (!inBrowser || typeof document === 'undefined') {
     return;
@@ -48,6 +52,22 @@ onMounted(() => {
     'transitions-enabled',
     isTransitionsEnabled.value,
   );
+
+  // 检查是否是从 DeepLink 失败回退回来的
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('deeplink_failed') === '1') {
+    toastMessage.value = '你还没有安装最新版本的聚在工大App，暂不支持跳转';
+    showToast.value = true;
+
+    // 3秒后隐藏
+    setTimeout(() => {
+      showToast.value = false;
+    }, 3000);
+
+    // 清理 URL 上的参数，保持整洁
+    const cleanUrl = window.location.pathname + window.location.hash;
+    window.history.replaceState({}, '', cleanUrl);
+  }
 });
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
@@ -139,6 +159,8 @@ giscusTalk(
 
     <template #layout-bottom>
       <Footer />
+
+      <Toast :show-toast="showToast" :toast-message="toastMessage" />
     </template>
   </Layout>
 </template>
