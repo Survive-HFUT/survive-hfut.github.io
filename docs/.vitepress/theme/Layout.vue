@@ -21,6 +21,7 @@ import { data } from '../data/metadata.data';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
 import Footer from './components/Footer.vue';
+import Toast from './components/Toast.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
@@ -57,7 +58,7 @@ onMounted(() => {
   if (urlParams.get('deeplink_failed') === '1') {
     toastMessage.value = '你还没有安装最新版本的聚在工大App，暂不支持跳转';
     showToast.value = true;
-    
+
     // 3秒后隐藏
     setTimeout(() => {
       showToast.value = false;
@@ -158,13 +159,8 @@ giscusTalk(
 
     <template #layout-bottom>
       <Footer />
-      
-      <!-- 全局 Toast 提示 -->
-      <Transition name="toast">
-        <div v-if="showToast" class="global-toast">
-          {{ toastMessage }}
-        </div>
-      </Transition>
+
+      <Toast :show-toast="showToast" :toast-message="toastMessage" />
     </template>
   </Layout>
 </template>
@@ -194,35 +190,5 @@ giscusTalk(
 
 .transitions-enabled .VPSwitchAppearance .check {
   transform: none !important;
-}
-
-/* Global Toast Styles */
-.global-toast {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--vp-c-text-1);
-  color: var(--vp-c-bg);
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 10000;
-  pointer-events: none;
-  text-align: center;
-  max-width: 90vw;
-}
-
-.toast-enter-active,
-.toast-leave-active {
-  transition: all 0.3s ease;
-}
-
-.toast-enter-from,
-.toast-leave-to {
-  opacity: 0;
-  transform: translate(-50%, 20px);
 }
 </style>
