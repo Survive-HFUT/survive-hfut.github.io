@@ -1,9 +1,13 @@
 # 校外
 
+<script setup>
+import { hfutScheduleDeepLinks } from '@theme/utils/hfutScheduleDeepLinks';
+</script>
+
 ## 校车
 
 <!-- 校车 / 班车 -->
-<DeeplinkBtn href="hfut_schedule://bus" text="通过聚在工大App查询班车运行情况"/>
+<DeeplinkBtn href="hfut_schedule://bus" text="通过聚在工大App查询班车运行情况"></DeeplinkBtn>
 
 :::tabs key:campus
 
