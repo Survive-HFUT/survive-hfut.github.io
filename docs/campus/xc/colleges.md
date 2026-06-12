@@ -1,11 +1,7 @@
 # 教学楼
 
-<script setup>
-import { hfutScheduleDeepLinks } from '@theme/utils/hfutScheduleDeepLinks';
-</script>
-
 想在教室自习？你可以提前查一查空教室！
-<DeeplinkBtn :href="hfutScheduleDeepLinks.classroom" text="在聚在工大 App 查询教室"/>
+<DeeplinkBtn :href="$hfutScheduleDeepLinks.classroom" text="在聚在工大 App 查询教室"/>
 
 ## 敬亭学堂
 

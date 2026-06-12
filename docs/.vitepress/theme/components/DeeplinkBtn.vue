@@ -3,11 +3,19 @@ import { onMounted, ref } from 'vue';
 
 const props = withDefaults(
   defineProps<{
+    /** DeepLink 地址，格式：hfut_schedule://host */
     href: string;
+    /** 按钮文本 */
     text?: string;
+    /** Android 包名，默认：com.hfut.schedule */
+    packageName?: string;
+    /** 跳转失败后的回退路径 */
+    fallbackPath?: string;
   }>(),
   {
     text: '在聚在工大 App 打开',
+    packageName: 'com.hfut.schedule.debug', // 记得改回去
+    fallbackPath: '/life/app?deeplink_failed=1#%E8%81%9A%E5%9C%A8%E5%B7%A5%E5%A4%A7',
   },
 );
 
@@ -19,50 +27,70 @@ onMounted(() => {
   }
 });
 
+/**
+ * 将 hfut_schedule:// 转换为 Android intent:// URL
+ *
+ * 背景：hfut_schedule 包含下划线，不符合标准 URI scheme 规范。
+ * 浏览器会将其误认为是相对路径，导致跳转到当前域名的 404 页面。
+ * 解决办法：在 Android 上转换为 intent:// 协议，确保正确拉起 App。
+ */
+const toAndroidIntentUrl = (rawUrl: string): string => {
+  if (typeof window === 'undefined') return rawUrl;
+
+  const fallbackUrl = encodeURIComponent(window.location.origin + props.fallbackPath);
+
+  const match = rawUrl.match(/^([a-zA-Z][a-zA-Z0-9+._-]*):\/\/(.+)$/);
+  if (!match) return rawUrl;
+
+  const scheme = match[1];
+  const body = match[2];
+
+  // 只转换 hfut_schedule scheme
+  if (scheme !== 'hfut_schedule') return rawUrl;
+
+  return `intent://${body}#Intent;scheme=${scheme};package=${props.packageName};S.browser_fallback_url=${fallbackUrl};end`;
+};
+
 const handleClick = (e: Event) => {
   e.preventDefault();
   e.stopPropagation();
 
-  if (isAndroid.value) {
-    let targetUrl = props.href;
+  if (!isAndroid.value) return;
 
-    // 修复：hfut_schedule 包含下划线，不符合标准 URI scheme 规范。
-    // 浏览器会将其误认为是相对路径，导致跳转到当前域名的 404 页面。
-    // 解决办法：转换为安卓标准的 intent:// 协议
-    const match = targetUrl.match(/^([a-zA-Z0-9_]+):\/\/(.*)$/);
-    if (match && match[1].includes('_')) {
-      const scheme = match[1];
-      const path = match[2];
-      targetUrl = `intent://${path}#Intent;scheme=${scheme};end`;
+  const targetUrl = toAndroidIntentUrl(props.href);
+  const fallbackUrl = window.location.origin + props.fallbackPath;
+
+  // 使用隐藏的 iframe 尝试打开 DeepLink
+  // 这样即使 App 未安装，也不会显示系统错误弹窗
+  const iframe = document.createElement('iframe');
+  iframe.style.display = 'none';
+  iframe.src = targetUrl;
+  document.body.appendChild(iframe);
+
+  // 标记是否成功跳转
+  let hasLeft = false;
+
+  const onHidden = () => {
+    hasLeft = true;
+  };
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') onHidden();
+  }, { once: true });
+  window.addEventListener('pagehide', onHidden, { once: true });
+  window.addEventListener('blur', onHidden, { once: true });
+
+  // 2.5 秒内没有跳出，则跳转 fallback 页面
+  setTimeout(() => {
+    // 清理 iframe
+    if (iframe.parentNode) {
+      iframe.parentNode.removeChild(iframe);
     }
 
-    const fallbackUrl =
-      window.location.origin +
-      '/life/app?deeplink_failed=1#%E8%81%9A%E5%9C%A8%E5%B7%A5%E5%A4%A7';
-
-    // 尝试跳转
-    window.location.href = targetUrl;
-
-    // 监听页面可见性变化
-    let isHidden = false;
-    const visibilityChangeHandler = () => {
-      if (document.visibilityState === 'hidden') {
-        isHidden = true;
-      }
-    };
-    document.addEventListener('visibilitychange', visibilityChangeHandler, {
-      once: true,
-    });
-
-    // 延时判断：如果没有跳出 App 且没有弹窗（失去焦点），则执行降级跳转
-    setTimeout(() => {
-      document.removeEventListener('visibilitychange', visibilityChangeHandler);
-      // 如果页面一直没有隐藏，且当前焦点还在页面上（说明没有被系统弹窗遮挡）
-      if (!isHidden && document.hasFocus()) {
-        window.location.href = fallbackUrl;
-      }
-    }, 2500);
-  }
+    if (!hasLeft) {
+      window.location.href = fallbackUrl;
+    }
+  }, 2500);
 };
 </script>
 
@@ -71,6 +99,7 @@ const handleClick = (e: Event) => {
     <button
       class="deeplink-btn"
       :class="{ 'is-disabled': !isAndroid }"
+      :title="isAndroid ? text : '仅支持安卓系统手机'"
       @click="handleClick"
     >
       <svg class="icon" viewBox="0 0 24 24" width="14" height="14">
@@ -80,9 +109,7 @@ const handleClick = (e: Event) => {
           d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"
         />
       </svg>
-      <span
-        ><slot>{{ text }}</slot></span
-      >
+      <span><slot>{{ text }}</slot></span>
     </button>
     <div class="tip">*仅支持安卓系统手机</div>
   </div>

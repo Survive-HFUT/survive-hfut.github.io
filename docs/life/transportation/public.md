@@ -1,9 +1,5 @@
 # 校外
 
-<script setup>
-import { hfutScheduleDeepLinks } from '@theme/utils/hfutScheduleDeepLinks';
-</script>
-
 ## 校车
 
 <!-- 校车 / 班车 -->
