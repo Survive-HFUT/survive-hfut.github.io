@@ -1,12 +1,8 @@
 # 选课
 
-<script setup>
-import { hfutScheduleDeepLinks } from '@theme/utils/hfutScheduleDeepLinks';
-</script>
+<DeeplinkBtn href="hfut_schedule://teacher_search" text="在聚在工大 App 查询授课教师"/>
 
-<DeeplinkBtn :href="hfutScheduleDeepLinks.teacherSearch('')" text="在聚在工大 App 查询授课教师"/>
-
-<DeeplinkBtn :href="hfutScheduleDeepLinks.termCourses" text="在聚在工大 App 查看你的学期课程"/>
+<DeeplinkBtn href="hfut_schedule://term_courses" text="在聚在工大 App 查看你的学期课程"/>
 
 ## 分类
 

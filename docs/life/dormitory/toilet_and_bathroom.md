@@ -1,9 +1,5 @@
 # 卫生间 & 浴室
 
-<script setup>
-import { hfutScheduleDeepLinks } from '@theme/utils/hfutScheduleDeepLinks';
-</script>
-
 宿舍**无独立卫浴**，但有公共卫生间和浴室
 
 ## 分布
@@ -84,7 +80,7 @@ import { hfutScheduleDeepLinks } from '@theme/utils/hfutScheduleDeepLinks';
 
 在每层浴室内共有两台台洗衣机/洗鞋机/烘干机，具体类型和位置可以在"海乐生活"小程序内查询
 
-<DeeplinkBtn :href="hfutScheduleDeepLinks.haileWashing" text="在聚在工大 App 查看各楼层洗衣机运行情况"/>
+<DeeplinkBtn href="hfut_schedule://washing" text="在聚在工大 App 查看各楼层洗衣机运行情况"/>
 
 :::
 

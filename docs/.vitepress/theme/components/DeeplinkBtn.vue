@@ -14,7 +14,7 @@ const props = withDefaults(
   }>(),
   {
     text: '在聚在工大 App 打开',
-    packageName: 'com.hfut.schedule', // 记得改回去
+    packageName: 'com.hfut.schedule.debug', // 记得改回去
     fallbackPath: '/life/app?deeplink_failed=1#%E8%81%9A%E5%9C%A8%E5%B7%A5%E5%A4%A7',
   },
 );
@@ -55,7 +55,7 @@ const handleClick = (e: Event) => {
   e.preventDefault();
   e.stopPropagation();
 
-  if (!isAndroid.value) return;
+  if (!isAndroid.value || !props.href) return;
 
   const targetUrl = toAndroidIntentUrl(props.href);
   const fallbackUrl = window.location.origin + props.fallbackPath;
