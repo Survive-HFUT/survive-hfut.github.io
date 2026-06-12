@@ -14,7 +14,7 @@ const props = withDefaults(
   }>(),
   {
     text: '在聚在工大 App 打开',
-    packageName: 'com.hfut.schedule', // 记得改回去
+    packageName: 'com.hfut.schedule',
     fallbackPath: '/life/app?deeplink_failed=1#%E8%81%9A%E5%9C%A8%E5%B7%A5%E5%A4%A7',
   },
 );
@@ -33,11 +33,12 @@ onMounted(() => {
  * 背景：hfut_schedule 包含下划线，不符合标准 URI scheme 规范。
  * 浏览器会将其误认为是相对路径，导致跳转到当前域名的 404 页面。
  * 解决办法：在 Android 上转换为 intent:// 协议，确保正确拉起 App。
+ *
+ * 注意：不使用 S.browser_fallback_url，因为 App 未安装时会立即触发，
+ * 而不是等待我们自己的定时器来处理 fallback。
  */
 const toAndroidIntentUrl = (rawUrl: string): string => {
   if (typeof window === 'undefined') return rawUrl;
-
-  const fallbackUrl = encodeURIComponent(window.location.origin + props.fallbackPath);
 
   const match = rawUrl.match(/^([a-zA-Z][a-zA-Z0-9+._-]*):\/\/(.+)$/);
   if (!match) return rawUrl;
@@ -48,7 +49,7 @@ const toAndroidIntentUrl = (rawUrl: string): string => {
   // 只转换 hfut_schedule scheme
   if (scheme !== 'hfut_schedule') return rawUrl;
 
-  return `intent://${body}#Intent;scheme=${scheme};package=${props.packageName};S.browser_fallback_url=${fallbackUrl};end`;
+  return `intent://${body}#Intent;scheme=${scheme};package=${props.packageName};end`;
 };
 
 const handleClick = (e: Event) => {
@@ -60,33 +61,25 @@ const handleClick = (e: Event) => {
   const targetUrl = toAndroidIntentUrl(props.href);
   const fallbackUrl = window.location.origin + props.fallbackPath;
 
-  // 使用隐藏的 iframe 尝试打开 DeepLink
-  // 这样即使 App 未安装，也不会显示系统错误弹窗
-  const iframe = document.createElement('iframe');
-  iframe.style.display = 'none';
-  iframe.src = targetUrl;
-  document.body.appendChild(iframe);
-
-  // 标记是否成功跳转
+  // 标记是否成功跳转到 App
   let hasLeft = false;
 
-  const onHidden = () => {
-    hasLeft = true;
+  // 监听页面可见性变化（跳转到 App 时会触发）
+  const visibilityChangeHandler = () => {
+    if (document.visibilityState === 'hidden') {
+      hasLeft = true;
+    }
   };
+  document.addEventListener('visibilitychange', visibilityChangeHandler, {
+    once: true,
+  });
 
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') onHidden();
-  }, { once: true });
-  window.addEventListener('pagehide', onHidden, { once: true });
-  window.addEventListener('blur', onHidden, { once: true });
+  // 尝试跳转
+  window.location.href = targetUrl;
 
   // 2.5 秒内没有跳出，则跳转 fallback 页面
   setTimeout(() => {
-    // 清理 iframe
-    if (iframe.parentNode) {
-      iframe.parentNode.removeChild(iframe);
-    }
-
+    document.removeEventListener('visibilitychange', visibilityChangeHandler);
     if (!hasLeft) {
       window.location.href = fallbackUrl;
     }
@@ -119,24 +112,27 @@ const handleClick = (e: Event) => {
 .deeplink-container {
   margin: 10px 0;
 }
+
 .deeplink-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   padding: 4px 12px;
-  background: var(--vp-c-brand-2);
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
   border: 1px solid transparent;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: white;
+  margin: 4px 0;
 }
 
 .deeplink-btn:hover:not(.is-disabled) {
-  background: var(--vp-c-brand-3);
+  background: var(--vp-c-brand-1);
+  color: white;
 }
 
 .deeplink-btn:active:not(.is-disabled) {
