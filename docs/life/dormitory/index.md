@@ -1,5 +1,9 @@
 # 宿舍
 
+<script setup>
+import { hfutScheduleDeepLinks } from '@theme/utils/hfutScheduleDeepLinks';
+</script>
+
 ![宣区宿舍](../media/dormitory.jpg)
 
 ## 门禁
@@ -35,7 +39,7 @@
 寝室安全卫生检查成绩会在一定程度上影响评优评先或者第二课堂的劳动实践板块分数，但可能因院系不同而有所差异
 
 <!-- 宿舍成绩 -->
-<DeeplinkBtn href="hfut_schedule://dormitory" text="通过聚在工大App查询宿舍卫生成绩"/>
+<DeeplinkBtn :href="hfutScheduleDeepLinks.dormitory" text="通过聚在工大App查询宿舍卫生成绩"/>
 
 :::tip
 
