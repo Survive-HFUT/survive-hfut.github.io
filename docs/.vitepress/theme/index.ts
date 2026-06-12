@@ -11,7 +11,6 @@ import DeeplinkBtn from './components/DeeplinkBtn.vue';
 import Note from './components/Note.vue';
 import ToDo from './components/ToDo.vue';
 import Layout from './Layout.vue';
-import { hfutScheduleDeepLinks } from './utils/hfutScheduleDeepLinks';
 
 export default {
   extends: DefaultTheme,
@@ -27,9 +26,6 @@ export default {
     app.component('ToDo', ToDo);
     app.component('BackToTopTip', BackToTopTip);
     app.component('DeeplinkBtn', DeeplinkBtn);
-
-    // 注册 DeepLink 映射为全局属性，页面中可通过 $hfutScheduleDeepLinks 访问
-    app.config.globalProperties.$hfutScheduleDeepLinks = hfutScheduleDeepLinks;
 
     app.use(NolebaseGitChangelogPlugin);
     app.use(

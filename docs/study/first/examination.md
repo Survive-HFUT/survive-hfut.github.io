@@ -1,17 +1,21 @@
 # 考试
 
+<script setup>
+import { hfutScheduleDeepLinks } from '@theme/utils/hfutScheduleDeepLinks';
+</script>
+
 考试通常在结课后的一周至一个月内进行，具体时间和考试教室可在 教务系统→我的考试 中或 [教务办公室·考试信息（宣城校区）](https://xcjwb.hfut.edu.cn/1178/list.htm) 查询
 
 <!-- 查看考试通知 -->
-<DeeplinkBtn :href="$hfutScheduleDeepLinks.allPrograms" text="通过聚在工大App查询全校考试通知"/>
+<DeeplinkBtn :href="hfutScheduleDeepLinks.allPrograms" text="通过聚在工大App查询全校考试通知"/>
 
-<DeeplinkBtn :href="$hfutScheduleDeepLinks.exam" text="在聚在工大 App 查看你的个人考试安排"/>
+<DeeplinkBtn :href="hfutScheduleDeepLinks.exam" text="在聚在工大 App 查看你的个人考试安排"/>
 
 ## 挂科率
 
 你可以通过聚在工大App查询挂科率，看看裸考能过的可能性
 
-<DeeplinkBtn :href="$hfutScheduleDeepLinks.failRate()" text="在聚在工大 App 查询挂科率"/>
+<DeeplinkBtn :href="hfutScheduleDeepLinks.failRate()" text="在聚在工大 App 查询挂科率"/>
 
 ## 类型
 
@@ -65,7 +69,7 @@
 
 从 2025-2026 第二学期开始，斩杀线有所变化，从原有的 45 分提升至 50 分[^1]
 
-<DeeplinkBtn :href="$hfutScheduleDeepLinks.grade" text="在聚在工大 App 查询成绩"/>
+<DeeplinkBtn :href="hfutScheduleDeepLinks.grade" text="在聚在工大 App 查询成绩"/>
 
 ## 作弊处理
 
