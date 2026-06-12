@@ -1,5 +1,9 @@
 # 校园网
 
+<script setup>
+import { hfutScheduleDeepLinks } from '@theme/utils/hfutScheduleDeepLinks';
+</script>
+
 校园网是指学院或大学校园内在各种建筑物之间互连的网络，属于园区网络中的一种。在本指南中，其广义上可指代合肥工业大学校园中的所有网络的总和，包括但不限于接入校园的中国教育和科研计算机网（`CERNET`）、教育无线漫游（`EDUROAM`）、中国移动（`CHINA MOBILE`）、中国电信（`CHINA TELECOM`）和校内局域网等
 
 而对于在校学生，我们常说的校园网一般指的是合工大官方的公用网络，用户通过学生公寓有线（`172.16.*`）或校园无线（HFUT-WiFi：`10.*`; HFUT-EDU:：`114.213.*` ）接入校园局域网、中国教育和科研计算机网（`CERNET`，连接到中国科学技术大学）出口、中国电信（`CHINA TELECOM`）出口和中国移动（`CHINA MOBILE`）出口等网络，除校内局域网和 IPv6 网络以外，通常需要登录由`Drcom`提供的计费认证系统，才能连接到互联网
@@ -9,6 +13,8 @@
 :::tip
 
 使用部分校内服务不一定得连校园网，可以使用[合肥工业大学 WEBVPN 系统](https://webvpn.hfut.edu.cn)，即使不在学校也能访问部分校园网内部资源
+
+<DeeplinkBtn :href="hfutScheduleDeepLinks.webVpn" text="在聚在工大 App 打开 WebVPN 快捷转换"/>
 
 :::
 
