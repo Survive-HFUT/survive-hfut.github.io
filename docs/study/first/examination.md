@@ -2,8 +2,11 @@
 
 考试通常在结课后的一周至一个月内进行，具体时间和考试教室可在 教务系统→我的考试 中或 [教务办公室·考试信息（宣城校区）](https://xcjwb.hfut.edu.cn/1178/list.htm) 查询
 
-<!-- 查看考试通知 -->
-<DeeplinkBtn href="hfut_schedule://all_exam" text="通过聚在工大App查询考试通知"/>
+<AppBtn href="hfut_schedule://exam" text="在聚在工大 App 查看你的个人考试安排"/>
+
+## 挂科率
+
+<AppBtn href="hfut_schedule://fail_rate" text="在聚在工大 App 查询挂科率"/>
 
 ## 类型
 
@@ -56,6 +59,8 @@
 <mark>若期末考试卷面分数低于此分数，该课程直接被认定为不及格。</mark>换句话说，这是确保这门课程能不挂科的期末考最低分数
 
 从 2025-2026 第二学期开始，斩杀线有所变化，从原有的 45 分提升至 50 分[^1]
+
+<AppBtn href="hfut_schedule://grade" text="在聚在工大 App 查询成绩"/>
 
 ## 作弊处理
 

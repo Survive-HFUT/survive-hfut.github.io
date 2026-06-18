@@ -2,9 +2,6 @@
 
 ## 校车
 
-<!-- 校车 / 班车 -->
-<DeeplinkBtn href="hfut_schedule://bus" text="通过聚在工大App查询班车运行情况"/>
-
 :::tabs key:campus
 
 == 合肥校区
@@ -12,6 +9,8 @@
 目前有往返于三个校区（[屯溪路校区](../../campus/txl/)、[翡翠湖校区](../../campus/fch/)、[六安路校区](../../campus/lal/)）之间的校车。学生和教职工均可免费乘坐<Note>未找到具体的官方来源</Note>
 
 具体时刻表可以查看[校车信息](https://www.hfut.edu.cn/xcxx.htm)，其中节假日和放假期间的时刻表会有相应调整，可以参考放假前发布的通知
+
+<AppBtn href="hfut_schedule://bus" text="通过聚在工大App查询班车运行情况"></AppBtn>
 
 == 宣城校区
 

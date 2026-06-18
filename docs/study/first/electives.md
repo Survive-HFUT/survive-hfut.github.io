@@ -1,5 +1,9 @@
 # 选课
 
+<AppBtn href="hfut_schedule://teacher_search" text="在聚在工大 App 查询授课教师"/>
+
+<AppBtn href="hfut_schedule://term_courses" text="在聚在工大 App 查看你的学期课程"/>
+
 ## 分类
 
 选修课分为以下几种
