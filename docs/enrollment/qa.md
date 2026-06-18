@@ -105,8 +105,6 @@
 - 部分网点可能要求持卡人年满 18 周岁、出示新生手册上的具体学费或其他资料
 - 开学报到期间可在[大学生活动中心](../campus/xc/activity_center.md)的缴费咨询处直接激活
 
-<DeeplinkBtn href="hfut_schedule://fee" text="在聚在工大 App 缴纳学费"/>
-
 :::
 
 ### 校园卡

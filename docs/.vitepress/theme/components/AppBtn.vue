@@ -1,21 +1,19 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
+const TIMEOUT = 2500;
+const FALLBACK_PATH =
+  '/life/app?deeplink_failed=1#%E8%81%9A%E5%9C%A8%E5%B7%A5%E5%A4%A7';
+
 const props = withDefaults(
   defineProps<{
     /** DeepLink 地址，格式：hfut_schedule://host */
     href: string;
     /** 按钮文本 */
     text?: string;
-    /** Android 包名，默认：com.hfut.schedule */
-    packageName?: string;
-    /** 跳转失败后的回退路径 */
-    fallbackPath?: string;
   }>(),
   {
     text: '在聚在工大 App 打开',
-    packageName: 'com.hfut.schedule',
-    fallbackPath: '/life/app?deeplink_failed=1#%E8%81%9A%E5%9C%A8%E5%B7%A5%E5%A4%A7',
   },
 );
 
@@ -37,7 +35,7 @@ onMounted(() => {
  * 注意：不使用 S.browser_fallback_url，因为 App 未安装时会立即触发，
  * 而不是等待我们自己的定时器来处理 fallback。
  */
-const toAndroidIntentUrl = (rawUrl: string): string => {
+const toAndroidIntentUrl = (rawUrl: string, packageName: string): string => {
   if (typeof window === 'undefined') return rawUrl;
 
   const match = rawUrl.match(/^([a-zA-Z][a-zA-Z0-9+._-]*):\/\/(.+)$/);
@@ -49,49 +47,64 @@ const toAndroidIntentUrl = (rawUrl: string): string => {
   // 只转换 hfut_schedule scheme
   if (scheme !== 'hfut_schedule') return rawUrl;
 
-  return `intent://${body}#Intent;scheme=${scheme};package=${props.packageName};end`;
+  return `intent://${body}#Intent;scheme=${scheme};package=${packageName};end`;
 };
 
-const handleClick = (e: Event) => {
+/**
+ * 尝试通过指定包名打开 App，在超时内返回是否成功打开
+ */
+const tryOpenApp = (
+  packageName: string,
+  timeout: number = TIMEOUT,
+): Promise<boolean> => {
+  return new Promise((resolve) => {
+    const targetUrl = toAndroidIntentUrl(props.href, packageName);
+    let hasLeft = false;
+
+    const visibilityChangeHandler = () => {
+      if (document.visibilityState === 'hidden') {
+        hasLeft = true;
+        document.removeEventListener(
+          'visibilitychange',
+          visibilityChangeHandler,
+        );
+        resolve(true);
+      }
+    };
+    document.addEventListener('visibilitychange', visibilityChangeHandler, {
+      once: true,
+    });
+
+    window.location.href = targetUrl;
+
+    setTimeout(() => {
+      document.removeEventListener('visibilitychange', visibilityChangeHandler);
+      resolve(false);
+    }, timeout);
+  });
+};
+
+const handleClick = async (e: Event) => {
   e.preventDefault();
   e.stopPropagation();
 
   if (!isAndroid.value || !props.href) return;
 
-  const targetUrl = toAndroidIntentUrl(props.href);
-  const fallbackUrl = window.location.origin + props.fallbackPath;
+  // 尝试主包
+  if (await tryOpenApp('com.hfut.schedule')) return;
+  // 尝试 debug 包（等待时间减半）
+  if (await tryOpenApp('com.hfut.schedule.debug', 1500)) return;
 
-  // 标记是否成功跳转到 App
-  let hasLeft = false;
-
-  // 监听页面可见性变化（跳转到 App 时会触发）
-  const visibilityChangeHandler = () => {
-    if (document.visibilityState === 'hidden') {
-      hasLeft = true;
-    }
-  };
-  document.addEventListener('visibilitychange', visibilityChangeHandler, {
-    once: true,
-  });
-
-  // 尝试跳转
-  window.location.href = targetUrl;
-
-  // 2.5 秒内没有跳出，则跳转 fallback 页面
-  setTimeout(() => {
-    document.removeEventListener('visibilitychange', visibilityChangeHandler);
-    if (!hasLeft) {
-      window.location.href = fallbackUrl;
-    }
-  }, 2500);
+  // 两个包都打不开，跳转 fallback 页面
+  window.location.href = window.location.origin + FALLBACK_PATH;
 };
 </script>
 
 <template>
-  <div class="deeplink-container">
+  <div class="wrapper">
     <button
-      class="deeplink-btn"
-      :class="{ 'is-disabled': !isAndroid }"
+      class="btn"
+      :class="{ disabled: !isAndroid }"
       :title="isAndroid ? text : '仅支持安卓系统手机'"
       @click="handleClick"
     >
@@ -102,24 +115,26 @@ const handleClick = (e: Event) => {
           d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"
         />
       </svg>
-      <span><slot>{{ text }}</slot></span>
+      <span>
+        <slot>{{ text }}</slot>
+      </span>
     </button>
     <div class="tip">*仅支持安卓系统手机</div>
   </div>
 </template>
 
 <style scoped>
-.deeplink-container {
+.wrapper {
   margin: 10px 0;
 }
 
-.deeplink-btn {
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   padding: 4px 12px;
-  background: var(--vp-c-brand-soft);
+  background: var(--vp-c-brand-2);
   color: var(--vp-c-brand-1);
   border-radius: 6px;
   font-size: 13px;
@@ -130,23 +145,23 @@ const handleClick = (e: Event) => {
   margin: 4px 0;
 }
 
-.deeplink-btn:hover:not(.is-disabled) {
+.btn:hover:not(.disabled) {
   background: var(--vp-c-brand-1);
   color: white;
 }
 
-.deeplink-btn:active:not(.is-disabled) {
+.btn:active:not(.disabled) {
   transform: translateY(1px);
 }
 
-.deeplink-btn.is-disabled {
+.btn.disabled {
   background: var(--vp-c-bg-soft);
   color: var(--vp-c-text-3);
   cursor: not-allowed;
   border: 1px solid var(--vp-c-divider);
 }
 
-.deeplink-btn.is-disabled:hover {
+.btn.disabled:hover {
   background: var(--vp-c-bg-mute);
 }
 
