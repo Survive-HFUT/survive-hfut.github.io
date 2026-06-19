@@ -43,7 +43,7 @@
     "vite-plugin-pwa": "^1.3.0",
     "vitepress": "^2.0.0-alpha.17",
     "vitepress-markdown-timeline": "^1.2.2",
-    "vitepress-mermaid-renderer": "^1.1.26",
+    "vitepress-mermaid-renderer": "^1.1.27",
     "vitepress-plugin-back-to-top": "^1.0.1",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-pagefind": "^0.4.20",

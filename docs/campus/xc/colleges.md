@@ -1,8 +1,5 @@
 # 教学楼
 
-想在教室自习？你可以提前查一查空教室！
-<DeeplinkBtn :href="$hfutScheduleDeepLinks.classroom" text="在聚在工大 App 查询教室"/>
-
 ## 敬亭学堂
 
 原来的第一教学楼，一共有五层（五层只有南侧有几间教室）

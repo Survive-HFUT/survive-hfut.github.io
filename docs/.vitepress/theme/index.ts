@@ -6,12 +6,11 @@ import vitepressBackToTop from 'vitepress-plugin-back-to-top';
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
 import locales from '../i18n/locales';
+import AppBtn from './components/AppBtn.vue';
 import BackToTopTip from './components/BackToTopTip.vue';
-import DeeplinkBtn from './components/DeeplinkBtn.vue';
 import Note from './components/Note.vue';
 import ToDo from './components/ToDo.vue';
 import Layout from './Layout.vue';
-import { hfutScheduleDeepLinks } from './utils/hfutScheduleDeepLinks';
 
 export default {
   extends: DefaultTheme,
@@ -26,10 +25,7 @@ export default {
     app.component('Note', Note);
     app.component('ToDo', ToDo);
     app.component('BackToTopTip', BackToTopTip);
-    app.component('DeeplinkBtn', DeeplinkBtn);
-
-    // 注册 DeepLink 映射为全局属性，页面中可通过 $hfutScheduleDeepLinks 访问
-    app.config.globalProperties.$hfutScheduleDeepLinks = hfutScheduleDeepLinks;
+    app.component('AppBtn', AppBtn);
 
     app.use(NolebaseGitChangelogPlugin);
     app.use(

@@ -10,8 +10,6 @@
 
 使用部分校内服务不一定得连校园网，可以使用[合肥工业大学 WEBVPN 系统](https://webvpn.hfut.edu.cn)，即使不在学校也能访问部分校园网内部资源
 
-<DeeplinkBtn :href="$hfutScheduleDeepLinks.webVpn" text="在聚在工大 App 打开 WebVPN 快捷转换"/>
-
 :::
 
 ## 运营商网络
