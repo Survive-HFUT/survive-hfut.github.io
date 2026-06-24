@@ -2,38 +2,6 @@
   "$schema": "./ongoing.schema.json",
   "events": [
     {
-      "title": "屯溪路校区大学生医保报销",
-      "campus": [
-        "屯溪路校区"
-      ],
-      "start": "2026-06-08",
-      "end": "2026-06-11",
-      "href": "/life/medical_treatment/medical_insurance#门诊报销",
-      "note": "6 月 8 日为毕业生专场，6 月 9 日至 11 日为非毕业生"
-    },
-    {
-      "title": "宣城校区大学生医保报销",
-      "campus": [
-        "宣城校区"
-      ],
-      "start": "2026-05-21",
-      "end": "2026-05-22",
-      "href": "/life/medical_treatment/medical_insurance#门诊报销",
-      "note": "记得去校区医院301报销哦"
-    },
-    {
-      "title": "第一学期期末考试周",
-      "campus": [
-        "屯溪路校区",
-        "翡翠湖校区",
-        "宣城校区"
-      ],
-      "start": "2025-12-19",
-      "end": "2025-12-25",
-      "href": "/life/calendar",
-      "note": "来源于 2025-2026 学年校历"
-    },
-    {
       "title": "第二学期期末考试月",
       "campus": [
         "屯溪路校区",
@@ -66,15 +34,6 @@
       "end": "2026-09-30",
       "href": "/campus/xc/colleges",
       "note": "别忘了查看课表寻找更新后的教室~"
-    },
-    {
-      "title": "2026年参保毕业生门诊医药费报销",
-      "campus": [
-        "宣城校区"
-      ],
-      "start": "2026-06-11 08:30",
-      "end": "2026-06-11 17:00",
-      "href": "https://xc.hfut.edu.cn/a2/32/c1955a41522/page.htm"
     },
     {
       "title": "宣城校区超市、餐厅征名活动",

@@ -2,7 +2,7 @@ import { defineLoader } from 'vitepress';
 import { SidebarItem } from 'vitepress-sidebar/types';
 import sidebar from '../sidebar';
 
-export type SidebarLink = [string, string];
+export type SidebarLink = { href: string; text: string };
 export type SidebarData = SidebarLink[];
 
 declare const data: SidebarData;
@@ -18,9 +18,12 @@ export default defineLoader({
     function add(item: SidebarItem) {
       if (item.link && item.text) {
         if (item.link.endsWith('.md')) {
-          links.push([item.link.replace('.md', ''), item.text]);
+          links.push({
+            href: item.link.replace('.md', ''),
+            text: item.text,
+          });
         } else {
-          links.push([item.link, item.text]);
+          links.push({ href: item.link, text: item.text });
         }
       }
 

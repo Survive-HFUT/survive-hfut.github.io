@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Author } from '@nolebase/vitepress-plugin-git-changelog';
 import { data as contributors } from '../../data/contributors.data';
+import { data as links, type SidebarData } from '../../data/links.data';
 import { data as recentChanges } from '../../data/recentChanges.data';
-import { data as links } from '../../data/links.data';
 import LinkCard from './LinkCard.vue';
 
 type RecentChange = {
@@ -31,19 +31,19 @@ for (const item of recentChanges as {
   sectionSlug: string;
   excerpt: string;
 }[]) {
-  const match = (links as [string, string][]).find(
+  const match = (links as SidebarData).find(
     (x) =>
-      item.path.replace('.md', '').replace('docs/', '') === x[0] &&
+      item.path.replace('.md', '').replace('docs/', '') === x.href &&
       !item.path.includes('random'),
   );
 
   if (match) {
-    const basePath = resolveRoutePath(match[0]);
+    const basePath = resolveRoutePath(match.href);
 
     d.push({
       path: basePath,
       updatedAt: item.updatedAt,
-      title: match[1],
+      title: match.text,
       href: item.sectionSlug ? `${basePath}#${item.sectionSlug}` : basePath,
       authorName: getContributorName(item.authorName),
       sectionTitle: item.sectionTitle,
@@ -92,7 +92,7 @@ function formatRelativeTime(value: Date | string): string {
       :subtitle="value.sectionTitle"
     >
       <template #right>
-        <span style="font-size: 13px;">
+        <span style="font-size: 13px">
           {{ formatRelativeTime(value.updatedAt) }}
         </span>
       </template>

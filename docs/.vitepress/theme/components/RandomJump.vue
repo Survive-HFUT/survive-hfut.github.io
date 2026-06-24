@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { useRouter } from 'vitepress';
 
-// @ts-expect-error
 import { data } from '../../data/links.data';
 import { onMounted } from 'vue';
 
 const url = data[Math.floor(Math.random() * data.length)];
-onMounted(() => useRouter().go(url[0]));
+onMounted(() => useRouter().go(url.href));
 </script>
 
 <template>
@@ -28,7 +27,7 @@ onMounted(() => useRouter().go(url[0]));
 
     <div class="tip">
       <span>如果长时间未跳转，请尝试刷新页面或</span>
-      <a :href="url[0]">直接跳转</a>
+      <a :href="url.href">直接跳转</a>
     </div>
   </div>
 </template>

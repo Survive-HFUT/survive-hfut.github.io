@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useData } from 'vitepress';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 
 const { frontmatter } = useData();
 
