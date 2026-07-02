@@ -13,21 +13,21 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@lint-md/cli": "^2.0.0",
-    "@types/node": "^25.9.3",
+    "@lint-md/cli": "^2.1.1",
+    "@types/node": "^26.1.0",
     "@types/remove-markdown": "^0.3.4",
     "husky": "^9.1.7",
-    "prettier": "^3.8.4"
+    "prettier": "^3.9.4"
   },
   "dependencies": {
     "@actions/core": "^3.0.1",
     "@actions/github": "^9.1.1",
-    "@mdit/plugin-align": "^0.24.2",
-    "@mdit/plugin-figure": "^0.23.2",
-    "@mdit/plugin-footnote": "^0.23.2",
-    "@mdit/plugin-katex": "^0.25.2",
-    "@mdit/plugin-spoiler": "^0.23.2",
-    "@mdit/plugin-sup": "^0.24.2",
+    "@mdit/plugin-align": "^1.0.1",
+    "@mdit/plugin-figure": "^1.0.1",
+    "@mdit/plugin-footnote": "^1.0.1",
+    "@mdit/plugin-katex": "^1.0.1",
+    "@mdit/plugin-spoiler": "^1.0.1",
+    "@mdit/plugin-sup": "^1.0.1",
     "@nolebase/markdown-it-unlazy-img": "^2.18.2",
     "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.2",
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.2",
@@ -50,7 +50,7 @@
     "vitepress-plugin-rss": "^0.4.4",
     "vitepress-plugin-tabs": "^0.9.0",
     "vitepress-sidebar": "^1.34.0",
-    "vue": "^3.5.38",
-    "markdownlint-cli2": "^0.22.1"
+    "vue": "^3.5.39",
+    "markdownlint-cli2": "^0.23.0"
   }
 }
