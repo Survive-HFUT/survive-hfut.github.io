@@ -76,7 +76,7 @@
 
 :::info
 
-寄信、收发快递用收货地址详见[生活§快递#地址](../life/couriers#地址)
+寄信、收发快递用收货地址详见[生活§快递#地址](../life/services/couriers#地址)
 
 :::
 
@@ -131,7 +131,7 @@
 
 #### ❔ 丢失后怎么补办
 
-在[慧新易校 APP](../life/app#慧新易校)进行挂失
+在[慧新易校 APP](../life/digital/app#慧新易校)进行挂失
 
 然后到[图书馆 104 一站式业务服务学生社区](../campus/xc/library.md#一站式服务中心-勤工助学中心-104-办公室)办理补办手续
 
@@ -391,7 +391,7 @@
 
 :::info
 
-详见[生活§公共交通](../life/transportation/)
+详见[生活§公共交通](../life/transportation/public.md)
 
 :::
 
@@ -399,7 +399,7 @@
 
 :::info
 
-此节内容可详见[生活§校园网](../life/network.md)
+此节内容可详见[生活§校园网](../life/digital/network.md)
 
 :::
 
@@ -507,7 +507,7 @@
 
 :::info
 
-详见[生活§生活费](../life/alimony.md)
+详见[生活§生活费](../life/more/alimony.md)
 
 :::
 
@@ -579,7 +579,7 @@
 
 :::info
 
-详见[学习§转专业](../study/first/change_major.md)
+详见[学习§转专业](../academics/courses-and-exams/change_major.md)
 
 :::
 
@@ -617,7 +617,7 @@
 
 :::info
 
-详见[生活§早操晚自习](../life/exercise.md)
+详见[生活§早操晚自习](../life/more/exercise.md)
 
 :::
 
@@ -639,7 +639,7 @@
 
 :::info
 
-详见[学习§第二课堂](../study/second.md)
+详见[学习§第二课堂](../academics/practice/second.md)
 
 :::
 
@@ -661,15 +661,15 @@
 
 :::info
 
-详见[学习§奖学金](../study/scholarships)
+详见[学习§奖学金](../academics/awards/scholarships)
 
 :::
 
 #### ❔ 有哪些类型的奖学金
 
-- [国家级奖学金](../study/scholarships#国家级)
-- [校级奖学金](../study/scholarships#校级)
-- [社会捐赠奖学金](../study/scholarships#社会捐赠奖学金)
+- [国家级奖学金](../academics/awards/scholarships#国家级)
+- [校级奖学金](../academics/awards/scholarships#校级)
+- [社会捐赠奖学金](../academics/awards/scholarships#社会捐赠奖学金)
 
 [^1]:
     合肥工业大学宣城校区.校区简介[DB/OL]. [2025-05-17].  

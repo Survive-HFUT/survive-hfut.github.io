@@ -25,7 +25,7 @@ import keywords from './data/keywords.json';
 import contributors from './helpers/contributors';
 import customElements from './helpers/customElements';
 import locales from './i18n/locales';
-import sidebar from './sidebar';
+import sidebar, { excludedPages } from './sidebar';
 
 const time =
   new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
@@ -200,6 +200,8 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://survive-hfut.cc',
   },
+
+  srcExclude: excludedPages,
 });
 
 function getHead() {
