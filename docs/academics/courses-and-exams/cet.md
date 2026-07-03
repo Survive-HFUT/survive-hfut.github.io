@@ -125,7 +125,7 @@
 
 ## 难度
 
-![meme](./media/cet_meme.jpg)
+![meme](../media/cet_meme.jpg)
 
 感觉难是正常的🤓
 

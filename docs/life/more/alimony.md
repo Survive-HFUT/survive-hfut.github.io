@@ -32,8 +32,8 @@
 
 ### 兼职
 
-详见[非官方群聊](../contact/unofficial)
+详见[非官方群聊](../../contact/unofficial)
 
 ### 奖学金
 
-通过自己的努力获得奖学金也是不错的选择，详见[学业§奖学金](../study/scholarships)
+通过自己的努力获得奖学金也是不错的选择，详见[学业§奖学金](../../academics/awards/scholarships)

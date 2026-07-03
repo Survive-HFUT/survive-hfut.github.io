@@ -8,6 +8,9 @@ import type {
 
 export const excludedPages: string[] = [];
 
+// 需要折叠的文件夹链接
+const shouldCollapse = ['more/', 'organizations/', 'city/'];
+
 function whetherToExcludeLink(path?: string): boolean {
   if (path && path != '/' && existsSync(`docs/${path}`)) {
     const content = readFileSync(`docs/${path}`, 'utf-8');
@@ -43,7 +46,9 @@ function postProcessSidebar(sidebar: SidebarMulti) {
       const link = item.link?.replace(/\/?index\.md$/, '/');
 
       if (item.link && link) {
-        item.collapsed = true;
+        if (shouldCollapse.includes(link)) {
+          item.collapsed = true;
+        }
 
         if (whetherToExcludeLink(item.link)) {
           excludedPages.push(item.link);
