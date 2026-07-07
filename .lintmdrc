@@ -1,0 +1,5 @@
+{
+  "rules": {
+    "no-half-width-punctuation": 0
+  }
+}
