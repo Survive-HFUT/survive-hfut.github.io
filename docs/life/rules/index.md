@@ -26,4 +26,3 @@ order: 5
 [^1]:
     合肥工业大学学生工作处.规章制度[DB/OL]. \[2026-07-07].  
     <http://xgzx.hfut.edu.cn/686/list.htm>
-
