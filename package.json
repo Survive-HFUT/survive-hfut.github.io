@@ -13,7 +13,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@lint-md/cli": "^2.1.1",
+    "@lint-md/cli": "2.1.1",
     "@types/node": "^26.1.0",
     "@types/remove-markdown": "^0.3.4",
     "husky": "^9.1.7",
