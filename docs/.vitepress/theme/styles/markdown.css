@@ -63,3 +63,18 @@ iframe[src*='player.bilibili.com'] {
   max-height: 400px;
   height: 50vh;
 }
+
+.vp-doc h2 {
+  position: relative;
+  counter-increment: section-counter;
+}
+
+.vp-doc h2::before {
+  content: counter(section-counter);
+  position: absolute;
+  left: -2rem;
+  font-size: 5rem;
+  font-weight: 700;
+  z-index: -1;
+  opacity: 0.05;
+}
