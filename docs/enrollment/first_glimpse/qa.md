@@ -1,3 +1,7 @@
+---
+order: 10
+---
+
 # 猜你想问
 
 整合一些常见问题或零碎的小问题，方便新生查阅
@@ -9,7 +13,7 @@
   - 搜索框位于页面上方（移动端位于右上角，电脑端位于左上角）
 - 搜索时<mark>使用关键词更容易找到你想要的的答案</mark>，例如你应该搜索`转专业`而不是`要怎么转专业`、`转专业需要哪些准备`
 - <mark>找不到想要的内容？</mark>
-  - 去[贴吧](../contact/unofficial#贴吧)问问
+  - 去[贴吧](../../contact/unofficial#贴吧)问问
   - 在 [GitHub Discussion](https://github.com/orgs/Survive-HFUT/discussions/new?category=%E5%88%9D%E6%9D%A5%E4%B9%8D%E5%88%B0) 上提问
   - 直接在相关页面底部的讨论区留言
 
@@ -20,7 +24,8 @@
 本页的问题参考了以下来源
 
 - [大学生活质量指北](https://colleges.chat/universities/he-fei-gong-ye-da-xue-xuan-cheng-xiao-qu/)
-- [~~2025 冰糖答新生问~~](https://www.kdocs.cn/l/ccPLB8FE5ZRP)（已被清空）
+- [~~2025 冰糖答新生问~~](https://www.kdocs.cn/l/ccPLB8FE5ZRP)
+  - _已被清空_
 
 :::
 
@@ -76,7 +81,7 @@
 
 :::info
 
-寄信、收发快递用收货地址详见[生活§快递#地址](../life/services/couriers#地址)
+寄信、收发快递用收货地址详见[生活§快递#地址](../../life/services/couriers#地址)
 
 :::
 
@@ -103,7 +108,7 @@
 :::tip
 
 - 部分网点可能要求持卡人年满 18 周岁、出示新生手册上的具体学费或其他资料
-- 开学报到期间可在[大学生活动中心](../campus/xc/activity_center.md)的缴费咨询处直接激活
+- 开学报到期间可在[大学生活动中心](../../campus/xc/activity_center.md)的缴费咨询处直接激活
 
 :::
 
@@ -111,13 +116,13 @@
 
 :::tip
 
-此节的主要内容为**由学校官方发放的、合肥宣城两校区通用的、可用于食堂超市支付和开宿舍门禁等的实体卡片**<mark>（又称饭卡、学生卡、一卡通）</mark>。如果你想要找的是可插入手机作为电话卡使用的<mark>「校园流量卡」、「校园电话卡」</mark>，请参考[此页](./calling_card.md)
+此节的主要内容为**由学校官方发放的、合肥宣城两校区通用的、可用于食堂超市支付和开宿舍门禁等的实体卡片**<mark>（又称饭卡、学生卡、一卡通）</mark>。如果你想要找的是可插入手机作为电话卡使用的<mark>「校园流量卡」、「校园电话卡」</mark>，请参考[此页](../approaching/calling_card.md)
 
 :::
 
 :::info
 
-此节内容可详见[校园卡](./campus_card.md)
+此节内容可详见[校园卡](../approaching/campus_card.md)
 
 :::
 
@@ -131,15 +136,15 @@
 
 #### ❔ 丢失后怎么补办
 
-在[慧新易校 APP](../life/digital/app#慧新易校)进行挂失
+在[慧新易校 APP](../../life/digital/app#慧新易校)进行挂失
 
-然后到[图书馆 104 一站式业务服务学生社区](../campus/xc/library.md#一站式服务中心-勤工助学中心-104-办公室)办理补办手续
+然后到[图书馆 104 一站式业务服务学生社区](../../campus/xc/library.md#一站式服务中心-勤工助学中心-104-办公室)办理补办手续
 
 ### 军训
 
 :::info
 
-此节内容可详见[军训](./military_training.md)
+此节内容可详见[军训](../getting_started/military_training.md)
 
 :::
 
@@ -155,7 +160,7 @@
 
 #### ❔ 我该去哪个校区报到
 
-取决于录取通知书中或填报志愿所选的校区。若为合肥校区，则到位于合肥的[翡翠湖校区](../campus/fch/)报到；否则在[宣城校区](../campus/xc/)报到
+取决于录取通知书中或填报志愿所选的校区。若为合肥校区，则到位于合肥的[翡翠湖校区](../../campus/fch/)报到；否则在[宣城校区](../../campus/xc/)报到
 
 #### ❔ 流程是什么样的
 
@@ -170,7 +175,7 @@
 
 :::info
 
-详见[入学准备](./preparation.md)
+详见[入学准备](../approaching/preparation.md)
 
 :::
 
@@ -178,7 +183,7 @@
 
 :::info
 
-有关学生票的优惠政策和抢票攻略可参考[交通出行](./transport)
+有关学生票的优惠政策和抢票攻略可参考[交通出行](../approaching/transport.md)
 
 :::
 
@@ -198,7 +203,7 @@
 
 :::info
 
-此节内容可详见[生活§宿舍](../life/dormitory/index)
+此节内容可详见[生活§宿舍](../../life/dormitory/index)
 
 :::
 
@@ -347,7 +352,7 @@
 
 :::info
 
-此节内容可详见[生活§校内交通工具](../life/transportation/intramural)
+此节内容可详见[生活§校内交通工具](../../life/transportation/intramural)
 
 :::
 
@@ -369,7 +374,7 @@
 
 #### ❔ 校内有共享单车吗
 
-有[哈啰单车](../life/transportation/intramural#共享单车)
+有[哈啰单车](../../life/transportation/intramural#共享单车)
 
 #### ❔ 校内有共享电瓶车吗
 
@@ -381,7 +386,7 @@
 
 :::info
 
-详见[生活§校内交通工具#充电点位](../life/transportation/intramural#充电点位)
+详见[生活§校内交通工具#充电点位](../../life/transportation/intramural#充电点位)
 
 :::
 
@@ -391,7 +396,7 @@
 
 :::info
 
-详见[生活§公共交通](../life/transportation/public.md)
+详见[生活§公共交通](../../life/transportation/public.md)
 
 :::
 
@@ -399,7 +404,7 @@
 
 :::info
 
-此节内容可详见[生活§校园网](../life/digital/network.md)
+此节内容可详见[生活§校园网](../../life/digital/network.md)
 
 :::
 
@@ -473,7 +478,7 @@
 
 :::info
 
-此节内容可详见[生活§校园跑](../life/sports_fitness/running_and_fitness)
+此节内容可详见[生活§校园跑](../../life/sports_fitness/running_and_fitness)
 
 :::
 
@@ -493,7 +498,7 @@
 
 :::info
 
-详见[生活§医保](../life/medical_treatment/medical_insurance.md)
+详见[生活§医保](../../life/medical_treatment/medical_insurance.md)
 
 :::
 
@@ -507,7 +512,7 @@
 
 :::info
 
-详见[生活§生活费](../life/more/alimony.md)
+详见[生活§生活费](../../life/more/alimony.md)
 
 :::
 
@@ -531,8 +536,8 @@
 
 == 宣城校区
 
-- [南漪湖餐厅](../campus/xc/cafeterias/north.md)
-- [青弋江餐厅](../campus/xc/cafeterias/south.md)
+- [南漪湖餐厅](../../campus/xc/cafeterias/north.md)
+- [青弋江餐厅](../../campus/xc/cafeterias/south.md)
 
 :::
 
@@ -546,7 +551,7 @@
 
 #### ❔ 怎么消费/支持微信或支付宝吗
 
-刷校园卡支付，几乎所有窗口都不支持移动支付（[宣区北区三楼谦谦餐厅](../campus/xc/cafeterias/north#谦谦餐厅)总是支持移动支付）
+刷校园卡支付，几乎所有窗口都不支持移动支付（[宣区北区三楼谦谦餐厅](../../campus/xc/cafeterias/north#谦谦餐厅)总是支持移动支付）
 
 开学期间或有重大活动期间（如毕业典礼、校园开放日、研究生招生考试），为方便校外人员就餐，大部分窗口支持刷卡支付和移动支付
 
@@ -561,7 +566,7 @@
 
 :::info
 
-具体位置详见[校园§连锁餐饮店](../campus/xc/cafeterias/chain_stores.md)
+具体位置详见[校园§连锁餐饮店](../../campus/xc/cafeterias/chain_stores.md)
 
 :::
 
@@ -579,7 +584,7 @@
 
 :::info
 
-详见[学习§转专业](../academics/courses-and-exams/change_major.md)
+详见[学习§转专业](../../academics/courses-and-exams/change_major.md)
 
 :::
 
@@ -617,7 +622,7 @@
 
 :::info
 
-详见[生活§早操晚自习](../life/more/exercise.md)
+详见[生活§早操晚自习](../../life/more/exercise.md)
 
 :::
 
@@ -639,7 +644,7 @@
 
 :::info
 
-详见[学习§第二课堂](../academics/practice/second.md)
+详见[学习§第二课堂](../../academics/practice/second.md)
 
 :::
 
@@ -661,15 +666,15 @@
 
 :::info
 
-详见[学习§奖学金](../academics/awards/scholarships)
+详见[学习§奖学金](../../academics/awards/scholarships)
 
 :::
 
 #### ❔ 有哪些类型的奖学金
 
-- [国家级奖学金](../academics/awards/scholarships#国家级)
-- [校级奖学金](../academics/awards/scholarships#校级)
-- [社会捐赠奖学金](../academics/awards/scholarships#社会捐赠奖学金)
+- [国家级奖学金](../../academics/awards/scholarships#国家级)
+- [校级奖学金](../../academics/awards/scholarships#校级)
+- [社会捐赠奖学金](../../academics/awards/scholarships#社会捐赠奖学金)
 
 [^1]:
     合肥工业大学宣城校区.校区简介[DB/OL]. [2025-05-17].  

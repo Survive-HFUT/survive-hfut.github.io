@@ -22,7 +22,7 @@
 
 加群后请注意安全，谨防诈骗
 
-➡️[防诈骗秘籍](../enrollment/anti_fraud)
+➡️[防诈骗秘籍](../enrollment/first_glimpse/anti_fraud)
 
 :::
 

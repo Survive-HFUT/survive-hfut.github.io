@@ -12,7 +12,7 @@
 
 :::warning
 
-不支持小程序点单，仅支持使用[校园卡](../../../enrollment/campus_card)支付
+不支持小程序点单，仅支持使用[校园卡](../../../enrollment/approaching/campus_card)支付
 
 :::
 
@@ -20,17 +20,17 @@
 
 位于北区食堂一楼
 
+:::warning
+
+支持小程序点单，但需到店使用[校园卡](../../../enrollment/approaching/campus_card)支付
+
+:::
+
 ### 茶小沏
 
 果茶、奶茶、水果汁等
 
 位于北区食堂二楼
-
-:::warning
-
-不支持小程序点单，仅支持使用[校园卡](../../../enrollment/campus_card)支付
-
-:::
 
 ## 南区
 

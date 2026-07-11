@@ -17,11 +17,11 @@ hero:
 
     - theme: alt
       text: 🧐 猜你想问
-      link: /enrollment/qa
+      link: /enrollment/first_glimpse/qa
 
     - theme: alt
       text: 👮 反诈骗
-      link: /enrollment/anti_fraud
+      link: /enrollment/first_glimpse/anti_fraud
 
     - theme: emergency
       text: 🚨 紧急情况
@@ -32,7 +32,7 @@ features:
     title: 别忘了利用侧边栏和搜索栏查找资料
     details: · 移动端可点击页面左上角的 ≡ 展开侧边栏<br>
       · 桌面端可直接在页面左侧看到侧边栏
-    link: /enrollment/qa
+    link: /enrollment/first_glimpse/qa
     linkText: 初入肥宣§猜你想问
 
   - icon: 💡
