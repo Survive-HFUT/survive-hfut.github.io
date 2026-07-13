@@ -1,5 +1,4 @@
-import * as github from '@actions/github';
-import * as core from '@actions/core';
+import * as os from 'os';
 import { defineLoader } from 'vitepress';
 
 type Nullable<T> = T | null;
@@ -38,8 +37,6 @@ export { data };
 
 export default defineLoader({
   async load(): Promise<MetadataData> {
-    const platformDetails = await core.platform.getDetails();
-
     return {
       time: new Date().toISOString(),
       node: {
@@ -47,27 +44,34 @@ export default defineLoader({
       },
 
       platform: {
-        type: clean(platformDetails.platform),
-        arch: clean(platformDetails.arch),
-        version: clean(platformDetails.version),
-        name: clean(platformDetails.name),
+        type: clean(os.platform()),
+        arch: clean(os.arch()),
+        version: clean(os.release()),
+        name: clean(os.type()),
       },
 
       context: {
-        repository: tryGet(() => github.context.repo),
-        sha: tryGet(() => github.context.sha),
-        ref: tryGet(() => github.context.ref),
+        repository: tryGet(() => {
+          const repo = process.env.GITHUB_REPOSITORY;
+          if (repo) {
+            const [owner, name] = repo.split('/');
+            return { owner, repo: name };
+          }
+          return null;
+        }),
+        sha: tryGet(() => process.env.GITHUB_SHA || null),
+        ref: tryGet(() => process.env.GITHUB_REF || null),
 
         workflow: {
-          name: tryGet(() => github.context.workflow),
-          event: tryGet(() => github.context.eventName),
-          actor: tryGet(() => github.context.actor),
+          name: tryGet(() => process.env.GITHUB_WORKFLOW || null),
+          event: tryGet(() => process.env.GITHUB_EVENT_NAME || null),
+          actor: tryGet(() => process.env.GITHUB_ACTOR || null),
 
           job: {
-            name: tryGet(() => github.context.job),
-            id: tryGet(() => github.context.runId),
-            number: tryGet(() => github.context.runNumber),
-            attempt: tryGet(() => github.context.runAttempt),
+            name: tryGet(() => process.env.GITHUB_JOB || null),
+            id: tryGet(() => process.env.GITHUB_RUN_ID ? parseInt(process.env.GITHUB_RUN_ID) : null),
+            number: tryGet(() => process.env.GITHUB_RUN_NUMBER ? parseInt(process.env.GITHUB_RUN_NUMBER) : null),
+            attempt: tryGet(() => process.env.GITHUB_RUN_ATTEMPT ? parseInt(process.env.GITHUB_RUN_ATTEMPT) : null),
           },
         },
       },
