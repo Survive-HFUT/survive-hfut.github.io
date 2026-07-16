@@ -8,7 +8,7 @@
 
 :::details 相关视频
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1556251652&bvid=BV1T1421876B&cid=1634670818&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1556251652&bvid=BV1T1421876B&cid=1634670818&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 :::
 
