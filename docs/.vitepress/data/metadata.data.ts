@@ -1,5 +1,4 @@
 import * as github from '@actions/github';
-import * as core from '@actions/core';
 import { defineLoader } from 'vitepress';
 
 type Nullable<T> = T | null;
@@ -12,8 +11,6 @@ export type MetadataData = {
   platform: {
     type: string;
     arch: string;
-    version: string;
-    name: string;
   };
   context: {
     repository: Nullable<{ owner: string; repo: string }>;
@@ -38,8 +35,6 @@ export { data };
 
 export default defineLoader({
   async load(): Promise<MetadataData> {
-    const platformDetails = await core.platform.getDetails();
-
     return {
       time: new Date().toISOString(),
       node: {
@@ -47,10 +42,8 @@ export default defineLoader({
       },
 
       platform: {
-        type: clean(platformDetails.platform),
-        arch: clean(platformDetails.arch),
-        version: clean(platformDetails.version),
-        name: clean(platformDetails.name),
+        type: process.platform,
+        arch: process.version,
       },
 
       context: {
