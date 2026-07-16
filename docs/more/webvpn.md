@@ -1,19 +1,29 @@
 # 内网资源访问助手
 
-## 准备 Access Token
+:::info
 
 请先在[WebVPN 系统](https://webvpn.hfut.edu.cn/)登录，以确保 cookie 中带有 access token。
+
+:::
+
+:::tip
+
+你也可以通过“聚在工大”App 实现类似的转换功能
+
+<AppBtn href="hfut_schedule://webvpn" text="在聚在工大 App 打开WebVPN转换"/>
+
+:::
 
 ## 输入
 
 <script setup>
-import WebVPN from '../.vitepress/theme/components/WebVPN.vue'
+import WebVPNConverter from '../.vitepress/theme/components/WebVPNConverter.vue'
 import { ref } from 'vue'
 
 const w = ref({});
 </script>
 
-<WebVPN ref="w" />
+<WebVPNConverter ref="w" />
 
 ## 输出
 
