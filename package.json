@@ -34,12 +34,14 @@
     "@nolebase/vitepress-plugin-git-changelog": "^2.18.2",
     "@nolebase/vitepress-plugin-page-properties": "^2.18.2",
     "@vueuse/core": "^14.3.0",
+    "markdownlint-cli2": "^0.23.0",
     "medium-zoom": "^1.1.0",
     "nprogress-v2": "^1.1.10",
     "octokit": "^5.0.5",
     "pagefind": "^1.5.2",
     "remove-markdown": "^0.6.4",
     "simple-git": "^3.28.0",
+    "typescript": "^6.0.3",
     "vite-plugin-pwa": "^1.3.0",
     "vitepress": "^2.0.0-alpha.18",
     "vitepress-markdown-timeline": "^1.2.2",
@@ -50,7 +52,6 @@
     "vitepress-plugin-rss": "^0.4.4",
     "vitepress-plugin-tabs": "^0.9.1",
     "vitepress-sidebar": "^1.34.0",
-    "vue": "^3.5.40",
-    "markdownlint-cli2": "^0.23.0"
+    "vue": "^3.5.40"
   }
 }
