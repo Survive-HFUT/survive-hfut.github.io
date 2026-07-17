@@ -27,6 +27,9 @@ const { Layout } = DefaultTheme;
 const route = useRoute();
 const { frontmatter, isDark } = toRefs(useData());
 const isTransitionsEnabled = ref(false);
+let activeAppearanceTransition: ViewTransition | null = null;
+let appearanceToggleId = 0;
+let requestedDark: boolean | null = null;
 
 // 强制在浏览器内判断是否支持视图过渡 API，以避免在SSG时出现错误
 // https://vitepress.dev/zh/guide/extending-default-theme#%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E8%BF%87%E6%B8%A1-api
@@ -71,33 +74,112 @@ onMounted(() => {
 });
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+  requestedDark = !(requestedDark ?? isDark.value);
+  const targetDark = requestedDark;
+
   if (!isTransitionsEnabled.value) {
-    isDark.value = !isDark.value;
+    isDark.value = targetDark;
     return;
   }
 
-  const clipPath = [
-    `circle(0px at ${x}px ${y}px)`,
-    `circle(${Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y),
-    )}px at ${x}px ${y}px)`,
-  ];
+  const toggleId = ++appearanceToggleId;
 
-  await document.startViewTransition(async () => {
-    isDark.value = !isDark.value;
-    await nextTick();
-  }).ready;
+  // 新的切换接管旧动画，避免连续点击时堆积多个全屏视图过渡。
+  const interruptedTransition = activeAppearanceTransition;
+  interruptedTransition?.skipTransition();
 
-  document.documentElement.animate(
-    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
-    {
-      duration: 300,
-      easing: 'ease-in',
-      fill: 'forwards',
-      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`,
-    },
+  if (interruptedTransition) {
+    try {
+      // 等待浏览器清理旧快照树，不能在 skipTransition() 后立即开启新过渡。
+      await interruptedTransition.finished;
+    } catch {
+      // 旧过渡已经被取代，清理失败不影响最新主题请求。
+    }
+
+    if (toggleId !== appearanceToggleId) {
+      return;
+    }
+  }
+
+  const radius = Math.hypot(
+    Math.max(x, innerWidth - x),
+    Math.max(y, innerHeight - y),
   );
+  const transitionDirection = targetDark ? 'to-dark' : 'to-light';
+  document.documentElement.dataset.appearanceTransition = transitionDirection;
+  document.documentElement.style.setProperty(
+    '--appearance-transition-x',
+    `${x}px`,
+  );
+  document.documentElement.style.setProperty(
+    '--appearance-transition-y',
+    `${y}px`,
+  );
+  document.documentElement.style.setProperty(
+    '--appearance-transition-radius',
+    `${radius}px`,
+  );
+
+  const clearTransitionDirection = () => {
+    if (
+      document.documentElement.dataset.appearanceTransition ===
+      transitionDirection
+    ) {
+      delete document.documentElement.dataset.appearanceTransition;
+      document.documentElement.style.removeProperty('--appearance-transition-x');
+      document.documentElement.style.removeProperty('--appearance-transition-y');
+      document.documentElement.style.removeProperty(
+        '--appearance-transition-radius',
+      );
+    }
+  };
+
+  const transition = document.startViewTransition(async () => {
+    // 被更新的点击取代后，旧过渡仍可能执行回调，此时不再改写主题。
+    if (toggleId !== appearanceToggleId) {
+      return;
+    }
+
+    isDark.value = targetDark;
+    await nextTick();
+  });
+  activeAppearanceTransition = transition;
+
+  try {
+    await transition.ready;
+  } catch {
+    // skipTransition() 会拒绝 ready；这是连续点击时的预期行为。
+    if (activeAppearanceTransition === transition) {
+      activeAppearanceTransition = null;
+    }
+    clearTransitionDirection();
+    return;
+  }
+
+  if (toggleId !== appearanceToggleId) {
+    transition.skipTransition();
+    try {
+      await transition.finished;
+    } catch {
+      // 新点击会继续处理最终主题状态。
+    }
+    if (activeAppearanceTransition === transition) {
+      activeAppearanceTransition = null;
+    }
+    clearTransitionDirection();
+    return;
+  }
+
+  try {
+    await transition.finished;
+  } catch {
+    // 主题已完成切换，过渡收尾失败时无需继续向外抛出异常。
+  } finally {
+    if (activeAppearanceTransition === transition) {
+      activeAppearanceTransition = null;
+    }
+    clearTransitionDirection();
+  }
 });
 
 // 初始化Mermaid
@@ -174,14 +256,52 @@ giscusTalk(
   mix-blend-mode: normal;
 }
 
-::view-transition-old(root),
-.dark::view-transition-new(root) {
+[data-appearance-transition='to-dark']::view-transition-old(root),
+[data-appearance-transition='to-light']::view-transition-new(root) {
+  z-index: 9999;
+}
+
+[data-appearance-transition='to-dark']::view-transition-old(root) {
+  animation: appearance-contract 300ms ease-in both;
+}
+
+[data-appearance-transition='to-light']::view-transition-new(root) {
+  animation: appearance-expand 300ms ease-in both;
+}
+
+[data-appearance-transition='to-dark']::view-transition-new(root),
+[data-appearance-transition='to-light']::view-transition-old(root) {
   z-index: 1;
 }
 
-::view-transition-new(root),
-.dark::view-transition-old(root) {
-  z-index: 9999;
+@keyframes appearance-contract {
+  from {
+    clip-path: circle(
+      var(--appearance-transition-radius) at var(--appearance-transition-x)
+        var(--appearance-transition-y)
+    );
+  }
+
+  to {
+    clip-path: circle(
+      0 at var(--appearance-transition-x) var(--appearance-transition-y)
+    );
+  }
+}
+
+@keyframes appearance-expand {
+  from {
+    clip-path: circle(
+      0 at var(--appearance-transition-x) var(--appearance-transition-y)
+    );
+  }
+
+  to {
+    clip-path: circle(
+      var(--appearance-transition-radius) at var(--appearance-transition-x)
+        var(--appearance-transition-y)
+    );
+  }
 }
 
 .transitions-enabled .VPSwitchAppearance {
