@@ -173,6 +173,23 @@ function aesCfbEncrypt(plaintext: number[], key: number[], iv: number[]): number
   return ciphertext;
 }
 
+function aesCfbDecrypt(ciphertext: number[], key: number[], iv: number[]): number[] {
+  const w = keyExpansion(key);
+  const plaintext: number[] = [];
+  let prev = iv.slice();
+
+  for (let i = 0; i < ciphertext.length; i += 16) {
+    const encrypted = aesEncryptBlock(prev, w);
+    const block = ciphertext.slice(i, i + 16);
+    for (let j = 0; j < block.length; j++) {
+      plaintext.push(block[j] ^ encrypted[j]);
+    }
+    prev = block;
+  }
+
+  return plaintext;
+}
+
 function utf8ToBytes(str: string): number[] {
   const bytes: number[] = [];
   for (let i = 0; i < str.length; i++) {
@@ -192,11 +209,31 @@ function bytesToHex(bytes: number[]): string {
   return bytes.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+function hexToBytes(hex: string): number[] {
+  if (!/^[0-9a-f]+$/i.test(hex) || hex.length % 2 !== 0) {
+    throw new Error('Invalid hexadecimal string');
+  }
+
+  const bytes: number[] = [];
+  for (let i = 0; i < hex.length; i += 2) {
+    bytes.push(parseInt(hex.slice(i, i + 2), 16));
+  }
+  return bytes;
+}
+
+function bytesToAscii(bytes: number[]): string {
+  if (bytes.some(byte => byte < 0x20 || byte > 0x7e)) {
+    throw new Error('Invalid hostname');
+  }
+  return String.fromCharCode(...bytes);
+}
+
 // --- 业务逻辑 ---
 
 const inputUrl = ref('');
 const inputError = ref('');
 const copied = ref(false);
+const direction = ref<'to-vpn' | 'from-vpn'>('to-vpn');
 
 const quickLinks = [
   { name: '校园门户', url: 'https://one.hfut.edu.cn' }
@@ -221,13 +258,54 @@ function encryptHost(hostname: string): string {
   return ivHex + truncated;
 }
 
+function decryptHost(encryptedHostname: string): string {
+  if (encryptedHostname.length <= 32) {
+    throw new Error('Missing encrypted hostname');
+  }
+
+  const ivBytes = hexToBytes(encryptedHostname.slice(0, 32));
+  const cipherBytes = hexToBytes(encryptedHostname.slice(32));
+  const keyBytes = utf8ToBytes(CRYPT_KEY);
+  return bytesToAscii(aesCfbDecrypt(cipherBytes, keyBytes, ivBytes));
+}
+
 function toVPNUrl(url: string): string {
   const parsed = new URL(url);
+  if (!['http:', 'https:'].includes(parsed.protocol) || !parsed.hostname) {
+    throw new Error('Unsupported URL');
+  }
   const protocol = parsed.protocol.replace(':', '');
   const encHost = encryptHost(parsed.hostname);
   const portPart = parsed.port ? `-${parsed.port}` : '';
   const path = parsed.pathname + parsed.search + parsed.hash;
   return `https://${WEBVPN_HOST}/${protocol}${portPart}/${encHost}${path}`;
+}
+
+function fromVPNUrl(url: string): string {
+  const parsed = new URL(url);
+  if (parsed.hostname.toLowerCase() !== WEBVPN_HOST || parsed.port) {
+    throw new Error('Not a HFUT WebVPN URL');
+  }
+
+  const match = parsed.pathname.match(/^\/([^/]+)\/([0-9a-f]+)(\/.*)?$/i);
+  if (!match) {
+    throw new Error('Invalid WebVPN path');
+  }
+
+  let protocol = match[1];
+  let port = '';
+  const portMatch = protocol.match(/^(.*)-(\d+)$/);
+  if (portMatch) {
+    protocol = portMatch[1];
+    port = portMatch[2];
+  }
+  if (!['http', 'https'].includes(protocol.toLowerCase())) {
+    throw new Error('Invalid protocol');
+  }
+
+  const hostname = decryptHost(match[2]);
+  const path = (match[3] || '') + parsed.search + parsed.hash;
+  return new URL(`${protocol}://${hostname}${port ? `:${port}` : ''}${path}`).href;
 }
 
 const result = computed(() => {
@@ -236,13 +314,20 @@ const result = computed(() => {
   inputError.value = '';
 
   try {
-    new URL(url);
-    return toVPNUrl(url);
+    return direction.value === 'to-vpn' ? toVPNUrl(url) : fromVPNUrl(url);
   } catch {
-    inputError.value = '请输入有效的 URL';
+    inputError.value = direction.value === 'to-vpn'
+      ? '请输入有效的网址'
+      : '请输入有效的合工大 WebVPN 网址';
     return '';
   }
 });
+
+function setDirection(value: 'to-vpn' | 'from-vpn') {
+  direction.value = value;
+  inputError.value = '';
+  copied.value = false;
+}
 
 function copyResult() {
   if (!result.value) return;
@@ -260,18 +345,35 @@ defineExpose({ result });
 
 <template>
   <div class="webvpn-converter">
+    <div class="direction-switch" aria-label="转换方向">
+      <button
+        :class="{ active: direction === 'to-vpn' }"
+        type="button"
+        @click="setDirection('to-vpn')"
+      >
+        转为 WebVPN 网址
+      </button>
+      <button
+        :class="{ active: direction === 'from-vpn' }"
+        type="button"
+        @click="setDirection('from-vpn')"
+      >
+        还原原网址
+      </button>
+    </div>
+
     <div class="form-group">
-      <label for="url">输入网址</label>
+      <label for="url">{{ direction === 'to-vpn' ? '原网址' : 'WebVPN 网址' }}</label>
       <input
         id="url"
         type="text"
         v-model="inputUrl"
-        placeholder="需要解除内网隔离的网址"
+        :placeholder="direction === 'to-vpn' ? '需要通过 WebVPN 访问的网址' : '需要还原的 WebVPN 网址'"
       />
       <span v-if="inputError" class="error">{{ inputError }}</span>
     </div>
 
-    <div class="quick-links">
+    <div v-if="direction === 'to-vpn'" class="quick-links">
       <p class="quick-label">常用内网网址</p>
       <div class="link-chips">
         <button
@@ -293,6 +395,33 @@ defineExpose({ result });
   padding: 20px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
+}
+
+.direction-switch {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background: var(--vp-c-bg-soft);
+}
+
+.direction-switch button {
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.direction-switch button.active {
+  background: var(--vp-c-bg);
+  color: var(--vp-c-brand-1);
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
 }
 
 .form-group {
