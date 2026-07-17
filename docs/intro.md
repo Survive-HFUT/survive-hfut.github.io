@@ -25,7 +25,8 @@ Survive-HFUT
 
 :::tip
 
-手册持续完善中...[快来帮忙！](about/contribute/index)
+- 手册持续完善中...[快来帮忙！](about/contribute/index)
+- 如果你觉得某些页面对你有所帮助的话，欢迎点亮页面下方评论区的👍或是 GitHub 项目主页的 Star⭐
 
 :::
 
