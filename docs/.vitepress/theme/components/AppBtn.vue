@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { useRouter } from 'vitepress';
 import { onMounted, ref } from 'vue';
 
 const TIMEOUT = 2500;
 const FALLBACK_PATH =
-  '/life/app?deeplink_failed=1#%E8%81%9A%E5%9C%A8%E5%B7%A5%E5%A4%A7';
+  '/life/digital/app?deeplink_failed=1#%E8%81%9A%E5%9C%A8%E5%B7%A5%E5%A4%A7';
 
 const props = withDefaults(
   defineProps<{
@@ -18,6 +19,7 @@ const props = withDefaults(
 );
 
 const isAndroid = ref(false);
+const router = useRouter();
 
 onMounted(() => {
   if (typeof navigator !== 'undefined') {
@@ -96,7 +98,7 @@ const handleClick = async (e: Event) => {
   if (await tryOpenApp('com.hfut.schedule.debug', 1500)) return;
 
   // 两个包都打不开，跳转 fallback 页面
-  window.location.href = window.location.origin + FALLBACK_PATH;
+  await router.go(FALLBACK_PATH);
 };
 </script>
 
@@ -119,7 +121,7 @@ const handleClick = async (e: Event) => {
         <slot>{{ text }}</slot>
       </span>
     </button>
-    <div class="tip">*仅支持安卓系统手机</div>
+    <div class="tip" v-if="!isAndroid">*仅支持安卓系统手机</div>
   </div>
 </template>
 
@@ -135,19 +137,19 @@ const handleClick = async (e: Event) => {
   gap: 6px;
   padding: 4px 12px;
   background: var(--vp-c-brand-2);
-  color: var(--vp-c-brand-1);
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
   border: 1px solid transparent;
   cursor: pointer;
   transition: all 0.2s ease;
+  color: white;
   margin: 4px 0;
+  user-select: none;
 }
 
 .btn:hover:not(.disabled) {
   background: var(--vp-c-brand-1);
-  color: white;
 }
 
 .btn:active:not(.disabled) {
@@ -159,10 +161,6 @@ const handleClick = async (e: Event) => {
   color: var(--vp-c-text-3);
   cursor: not-allowed;
   border: 1px solid var(--vp-c-divider);
-}
-
-.btn.disabled:hover {
-  background: var(--vp-c-bg-mute);
 }
 
 .icon {
