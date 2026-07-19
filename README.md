@@ -33,8 +33,6 @@
 
 ## 统计
 
-[![Star Chart](https://starchart.cc/Survive-HFUT/survive-hfut.github.io.svg)](https://gitHub.com/Survive-HFUT/survive-hfut.github.io)
-
 ![Repobeats analytics image](https://repobeats.axiom.co/api/embed/a9983db774e154fe8dfb942005351e6c53d18880.svg)
 
 ## LICENSE

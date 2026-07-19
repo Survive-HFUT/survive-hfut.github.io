@@ -43,7 +43,7 @@ export default defineLoader({
 
       platform: {
         type: process.platform,
-        arch: process.version,
+        arch: process.arch,
       },
 
       context: {
