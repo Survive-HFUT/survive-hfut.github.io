@@ -92,7 +92,7 @@ pnpm install
 ### 运行即时预览
 
 ```sh
-pnpm run docs:dev
+pnpm run dev
 ```
 
 浏览器会自动打开 `http://localhost:5173`，修改文件后页面会自动刷新。
@@ -100,7 +100,7 @@ pnpm run docs:dev
 ### 构建文档
 
 ```sh
-pnpm run docs:build
+pnpm run build
 ```
 
 :::tip
@@ -112,7 +112,7 @@ pnpm run docs:build
 构建产物在`docs/.vitepress/dist`目录下，可以用以下命令预览：
 
 ```sh
-pnpm run docs:preview
+pnpm run preview
 ```
 
 ### 格式检查
@@ -120,7 +120,7 @@ pnpm run docs:preview
 提交前建议运行格式检查：
 
 ```sh
-pnpm run docs:format
+pnpm run format
 ```
 
 ## 3. 修改内容
@@ -139,7 +139,7 @@ pnpm run docs:format
 
 - `正在发生` 的内容来自 `docs/.vitepress/helpers/ongoing.ts`
 - 新增事项时，直接往 `events` 数组里补一条即可，日期统一使用 `YYYY-MM-DD`
-- 改完后建议执行一次 `pnpm run docs:build`，确认页面仍可正常构建
+- 改完后建议执行一次 `pnpm run build`，确认页面仍可正常构建
 
 ## 4. 提交与推送
 
