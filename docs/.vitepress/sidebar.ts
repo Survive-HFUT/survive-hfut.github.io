@@ -75,9 +75,11 @@ function postProcessSidebar(sidebar: SidebarMulti) {
         }
       }
 
-      // 将校区徽标追加到条目文本（VPSidebarItem 用 v-html 渲染 text）
+      // 将校区徽标追加到条目文本：复用 VitePress 原生 <Badge> 的 .VPBadge 类，
+      // VPSidebarItem 用 v-html 渲染 text，故直接写 Badge 组件产出的 HTML 结构。
+      // 保留 data-city 供 campusSwitch.css 做校区过滤。
       if (city && item.text) {
-        item.text += `<span class="vp-sidebar-city" data-city="${city}">${cityLabel[city] ?? city}</span>`;
+        item.text += `<span class="VPBadge tip" data-city="${city}">${cityLabel[city] ?? city}</span>`;
       }
 
       if (item.items?.length) {
