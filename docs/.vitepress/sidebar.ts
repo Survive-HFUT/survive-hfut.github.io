@@ -39,11 +39,30 @@ function whetherToExcludeLink(path?: string): boolean {
   return false;
 }
 
+// 校区代号 → 中文标签
+const cityLabel: Record<string, string> = { xc: '宣城', hf: '合肥' };
+
+// 从 item.link 对应文件的 frontmatter 读取 city 字段
+// item.link 是 clean URL：叶子文章 foo.md 或目录索引 foo/index.md，都要试
+function readCityFromLink(link?: string): string | undefined {
+  if (!link) return undefined;
+  const rel = link.replace(/^\//, '').replace(/\/$/, '');
+  const file = (
+    rel.endsWith('.md') ? [`docs/${rel}`] : [`docs/${rel}.md`, `docs/${rel}/index.md`]
+  ).find((p) => existsSync(p));
+  if (!file) return undefined;
+  const fm = readFileSync(file, 'utf-8').match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1];
+  return fm?.match(/^city:\s*(\S+)/m)?.[1];
+}
+
 // 后处理侧边栏数据，根据需要折叠或删除链接
 function postProcessSidebar(sidebar: SidebarMulti) {
   const walk = (items: SidebarItem[]) => {
     items.forEach((item) => {
       const link = item.link?.replace(/\/?index\.md$/, '/');
+
+      // 读取 frontmatter 中的 city 字段，用于在侧边栏渲染校区标签
+      const city = readCityFromLink(item.link);
 
       if (item.link && link) {
         if (shouldCollapse.includes(link)) {
@@ -54,6 +73,11 @@ function postProcessSidebar(sidebar: SidebarMulti) {
           excludedPages.push(item.link);
           delete item.link;
         }
+      }
+
+      // 将校区徽标追加到条目文本（VPSidebarItem 用 v-html 渲染 text）
+      if (city && item.text) {
+        item.text += `<span class="vp-sidebar-city" data-city="${city}">${cityLabel[city] ?? city}</span>`;
       }
 
       if (item.items?.length) {

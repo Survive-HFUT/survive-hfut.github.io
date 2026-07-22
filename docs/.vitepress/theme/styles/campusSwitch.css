@@ -1,0 +1,32 @@
+/**
+ * 校区切换相关样式
+ *
+ * - .vp-sidebar-city：侧边栏条目右侧的校区徽标，由 sidebar.ts 构建期注入
+ *   到 item.text（VPSidebarItem 用 v-html 渲染）。
+ * - html[data-campus] 过滤：CampusSwitch 组件把当前校区写入 <html data-campus>，
+ *   这里据此隐藏非选中校区的侧边栏条目。双城(both) 不匹配任何规则，全部显示。
+ */
+
+/* 侧边栏校区标签 */
+.vp-sidebar-city {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 4px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  vertical-align: middle;
+  border-radius: 3px;
+  color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-soft);
+}
+
+/* 校区切换：按 <html data-campus> 过滤侧边栏条目
+   :has(> .item ...) 用直接子选择器 .item，精确定位到徽标所在条目自身，
+   不会误伤 merely 含同校区子项的父分组（子项徽标在 .items 里，不在 .item 里） */
+html[data-campus='xc'] .VPSidebar .VPSidebarItem:has(> .item .vp-sidebar-city[data-city='hf']) {
+  display: none;
+}
+html[data-campus='hf'] .VPSidebar .VPSidebarItem:has(> .item .vp-sidebar-city[data-city='xc']) {
+  display: none;
+}

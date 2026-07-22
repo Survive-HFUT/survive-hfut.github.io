@@ -19,6 +19,7 @@ import {
 } from 'vue';
 import { data } from '../data/metadata.data';
 import locales from '../i18n/locales';
+import CampusSwitch from './components/CampusSwitch.vue';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
 import Footer from './components/Footer.vue';
 import Toast from './components/Toast.vue';
@@ -242,6 +243,10 @@ giscusTalk(
 
 <template>
   <Layout>
+    <template #sidebar-nav-before>
+      <CampusSwitch />
+    </template>
+
     <template #nav-bar-content-after>
       <NolebaseEnhancedReadabilitiesMenu />
     </template>
