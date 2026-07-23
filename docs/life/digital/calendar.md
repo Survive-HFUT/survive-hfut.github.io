@@ -38,5 +38,5 @@
     <https://www.hfut.edu.cn/gdxl.htm> -->
 
 [^2]:
-    合肥工业大学教务处.合肥工业大学 2026-2027 学年校历（合肥校区）[DB/OL]. (2026-06-12)\[2026-07-19].
+    合肥工业大学教务处.合肥工业大学 2026-2027 学年校历（合肥校区）[DB/OL]. (2026-06-12)\[2026-07-19].  
     <http://jwc.hfut.edu.cn/info2025.jsp?urltype=news.NewsContentUrl&wbtreeid=1293&wbnewsid=5664>

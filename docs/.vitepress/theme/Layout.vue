@@ -7,6 +7,8 @@ import mediumZoom from 'medium-zoom';
 import { inBrowser, useData, useRoute } from 'vitepress';
 import { createMermaidRenderer } from 'vitepress-mermaid-renderer';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+import { NolebaseHighlightTargetedHeading } from '@nolebase/vitepress-plugin-highlight-targeted-heading/client';
+
 import DefaultTheme from 'vitepress/theme';
 import {
   nextTick,
@@ -253,6 +255,8 @@ giscusTalk(
     <template #home-hero-info>
       <CustomHeroInfo />
     </template>
+
+    <template #layout-top> <NolebaseHighlightTargetedHeading /> </template>
 
     <template #layout-bottom>
       <Footer />

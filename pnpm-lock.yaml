@@ -47,6 +47,9 @@ importers:
       '@nolebase/vitepress-plugin-git-changelog':
         specifier: ^2.18.2
         version: 2.18.2(vitepress@2.0.0-alpha.18(@types/node@26.1.1)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.19)(terser@5.49.0)(typescript@6.0.3))(vue@3.5.40(typescript@6.0.3))
+      '@nolebase/vitepress-plugin-highlight-targeted-heading':
+        specifier: ^2.18.2
+        version: 2.18.2(vitepress@2.0.0-alpha.18(@types/node@26.1.1)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.19)(terser@5.49.0)(typescript@6.0.3))
       '@nolebase/vitepress-plugin-page-properties':
         specifier: ^2.18.2
         version: 2.18.2(vitepress@2.0.0-alpha.18(@types/node@26.1.1)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.19)(terser@5.49.0)(typescript@6.0.3))(vue@3.5.40(typescript@6.0.3))
@@ -1312,6 +1315,11 @@ packages:
 
   '@nolebase/vitepress-plugin-git-changelog@2.18.2':
     resolution: {integrity: sha512-TT1nxP+iS+5K8OLtkEr1EZ4bhCa4iqggly0JTD7TsO01hcwzMovr0lRaxPTo/4i/0bwMiPcaKxpKJ2zJIiu4Kw==}
+    peerDependencies:
+      vitepress: ^1.5.0 || ^2.0.0-alpha.1
+
+  '@nolebase/vitepress-plugin-highlight-targeted-heading@2.18.2':
+    resolution: {integrity: sha512-RVrT7FgyjxrnFFR9twc1OJI/5B09+biVbSiO36Yiu2YC+kRMz1Mb553l2DyioLtWJgVNTJ7sj66ZJi40JpDh7g==}
     peerDependencies:
       vitepress: ^1.5.0 || ^2.0.0-alpha.1
 
@@ -3176,8 +3184,8 @@ packages:
   mdast-util-to-hast@13.2.1:
     resolution: {integrity: sha512-cctsq2wp5vTsLIcaymblUriiTcZd0CwWtCbLvrOzYCDZoWyMNV8sZ7krj09FSnsiJi3WVsHLM4k6Dq/yaPyCXA==}
 
-  mdurl@2.0.0:
-    resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
+  mdurl@2.1.0:
+    resolution: {integrity: sha512-1+HBaOx0zi/dQWht8rNv9MYf9qqpqL/kxI0hXImU6Y547zM6Sni8BQibt7ifgMcYtQg41ao3Ivd6cnSM86inpg==}
 
   medium-zoom@1.1.0:
     resolution: {integrity: sha512-ewyDsp7k4InCUp3jRmwHBRFGyjBimKps/AJLjRSox+2q/2H4p/PNpQf+pwONWlJiOudkBXtbdmVbFjqyybfTmQ==}
@@ -5333,6 +5341,11 @@ snapshots:
     transitivePeerDependencies:
       - vue
 
+  '@nolebase/vitepress-plugin-highlight-targeted-heading@2.18.2(vitepress@2.0.0-alpha.18(@types/node@26.1.1)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.19)(terser@5.49.0)(typescript@6.0.3))':
+    dependencies:
+      less: 4.6.7
+      vitepress: 2.0.0-alpha.18(@types/node@26.1.1)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.19)(terser@5.49.0)(typescript@6.0.3)
+
   '@nolebase/vitepress-plugin-page-properties@2.18.2(vitepress@2.0.0-alpha.18(@types/node@26.1.1)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.19)(terser@5.49.0)(typescript@6.0.3))(vue@3.5.40(typescript@6.0.3))':
     dependencies:
       '@iconify-json/icon-park-outline': 1.2.4
@@ -7192,7 +7205,7 @@ snapshots:
       argparse: 2.0.1
       entities: 4.4.0
       linkify-it: 5.0.2
-      mdurl: 2.0.0
+      mdurl: 2.1.0
       punycode.js: 2.3.1
       uc.micro: 2.1.0
 
@@ -7244,7 +7257,7 @@ snapshots:
       unist-util-visit: 5.1.0
       vfile: 6.0.3
 
-  mdurl@2.0.0: {}
+  mdurl@2.1.0: {}
 
   medium-zoom@1.1.0: {}
 
