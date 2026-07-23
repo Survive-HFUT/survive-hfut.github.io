@@ -1,4 +1,8 @@
-# 宣区宿舍缴费编号生成器
+---
+campus: xc
+---
+
+# 宿舍缴费编号生成器
 
 <script setup>
 import DormitoryIdGenerator from '../.vitepress/theme/components/DormitoryIdGenerator.vue'

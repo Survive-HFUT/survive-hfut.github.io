@@ -1,5 +1,4 @@
 ---
-title: 飞行器创新实验室
 campus: xc
 ---
 
