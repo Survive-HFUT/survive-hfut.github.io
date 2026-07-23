@@ -1,0 +1,7 @@
+.VPSidebar .VPBadge {
+  padding: 0 6px;
+  line-height: 18px;
+  font-size: 10px;
+  border-radius: 9px;
+  transform: translateY(-1px);
+}
