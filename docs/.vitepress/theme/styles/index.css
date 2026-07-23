@@ -12,6 +12,7 @@
 @import './search.css';
 @import './markdown.css';
 @import './figure.css';
+@import './sidebar.css';
 
 @import 'https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.css';
 @import '@mdit/plugin-spoiler/style';

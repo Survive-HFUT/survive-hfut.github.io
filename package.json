@@ -6,10 +6,10 @@
   "license": "CC0-1.0",
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
-    "docs:format": "lint-md docs/** --fix && prettier docs/**/*.md -w && pnpm exec markdownlint-cli2 --fix",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "format": "lint-md docs/** --fix && prettier docs/**/*.md -w && pnpm exec markdownlint-cli2 --fix",
     "prepare": "husky"
   },
   "devDependencies": {

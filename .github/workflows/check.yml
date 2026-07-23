@@ -31,7 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           pnpm install
-          pnpm run docs:build
+          pnpm run build
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
