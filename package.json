@@ -28,6 +28,7 @@
     "@mdit/plugin-katex": "^1.0.1",
     "@mdit/plugin-spoiler": "^2.0.0",
     "@mdit/plugin-sup": "^1.0.2",
+    "@nolebase/markdown-it-bi-directional-links": "^2.18.2",
     "@nolebase/markdown-it-unlazy-img": "^2.18.2",
     "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.2",
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.2",

@@ -23,6 +23,7 @@ import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import keywords from './data/keywords.json';
 import contributors from './helpers/contributors';
+import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
 import customElements from './helpers/customElements';
 import locales from './i18n/locales';
 import sidebar, { excludedPages } from './sidebar';
@@ -53,6 +54,7 @@ export default defineConfig({
         .use(align)
         .use(katex)
         .use(timeline)
+        .use(BiDirectionalLinks({ dir: 'docs' }))
         .use(tabsMarkdownPlugin),
     toc: {
       level: [2, 3, 4],

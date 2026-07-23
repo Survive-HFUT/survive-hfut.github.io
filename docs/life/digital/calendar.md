@@ -6,11 +6,13 @@
 
 == 合肥校区
 
-![2026](../media/hf.jpg) [^2]
+![[canlendar-hf.jpg]] [^2]
 
 == 宣城校区
 
-![2026](../media/xc.jpg) <Note>缺少来源</Note>
+![[canlendar-xc.jpg]]
+
+<Note>缺少来源</Note>
 
 :::
 

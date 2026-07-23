@@ -103,7 +103,7 @@
 
 :::tip
 
-你可以使用[这个在线工具](../../more/dormitory_id_generator)来生成宿舍的缴费编号
+你可以使用[[dormitory_id_generator|这个在线工具]]来生成宿舍的缴费编号
 
 :::
 

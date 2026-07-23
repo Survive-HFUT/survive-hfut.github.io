@@ -2,7 +2,7 @@
 
 ## 英语分班
 
-详见[入学考试](../../enrollment/getting_started/exam.md#英语分级考试)
+详见[[exam#英语分级考试|入学考试]]
 
 ## 报名要求
 
