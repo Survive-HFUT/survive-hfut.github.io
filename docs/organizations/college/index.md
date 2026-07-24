@@ -8,6 +8,6 @@ title: 院系级
 
 - [计算机与信息学院](./computer_information/)
 - 机械工程学院
-    - [机械工程系（宣城）](./mechanical_engineering/)
+  - [机械工程系（宣城）](./mechanical_engineering/)
 
 <ToDo :list="['补充系级组织和校级组织的差异']" />
