@@ -17,7 +17,7 @@
     "@types/node": "^26.1.1",
     "@types/remove-markdown": "^0.3.4",
     "husky": "^9.1.7",
-    "prettier": "^3.9.5"
+    "prettier": "^3.9.6"
   },
   "dependencies": {
     "@actions/core": "^3.0.1",
@@ -28,13 +28,15 @@
     "@mdit/plugin-katex": "^1.0.1",
     "@mdit/plugin-spoiler": "^2.0.0",
     "@mdit/plugin-sup": "^1.0.2",
+    "@nolebase/markdown-it-bi-directional-links": "^2.18.2",
     "@nolebase/markdown-it-unlazy-img": "^2.18.2",
     "@nolebase/vitepress-plugin-enhanced-mark": "^2.18.2",
     "@nolebase/vitepress-plugin-enhanced-readabilities": "^2.18.2",
     "@nolebase/vitepress-plugin-git-changelog": "^2.18.2",
+    "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.18.2",
     "@nolebase/vitepress-plugin-page-properties": "^2.18.2",
     "@vueuse/core": "^14.3.0",
-    "markdownlint-cli2": "^0.23.0",
+    "markdownlint-cli2": "^0.23.1",
     "medium-zoom": "^1.1.0",
     "nprogress-v2": "^1.1.10",
     "octokit": "^5.0.5",

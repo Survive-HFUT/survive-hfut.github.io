@@ -584,7 +584,7 @@ order: 10
 
 :::info
 
-详见[学习§转专业](../../academics/courses-and-exams/change_major.md)
+详见[[change_major|转专业]]一章
 
 :::
 
