@@ -5,6 +5,12 @@ const CRYPT_KEY = 'wrdvpnisthebest!';
 const CRYPT_IV = 'wrdvpnisthebest!';
 const WEBVPN_HOST = 'webvpn.hfut.edu.cn';
 
+const quickLinks = [
+  { name: '校园门户', url: 'https://one.hfut.edu.cn' },
+  { name: '软件正版化', url: 'http://ms.hfut.edu.cn/' },
+  { name: '知网', url: 'https://www.cnki.net' }
+];
+
 // --- AES-128-CFB 纯 JS 实现 ---
 
 const SBOX = [
@@ -235,10 +241,6 @@ const inputError = ref('');
 const copied = ref(false);
 const direction = ref<'to-vpn' | 'from-vpn'>('to-vpn');
 
-const quickLinks = [
-  { name: '校园门户', url: 'https://one.hfut.edu.cn' }
-];
-
 function encryptHost(hostname: string): string {
   const keyBytes = utf8ToBytes(CRYPT_KEY);
   const ivBytes = utf8ToBytes(CRYPT_IV);
@@ -325,6 +327,7 @@ const result = computed(() => {
 
 function setDirection(value: 'to-vpn' | 'from-vpn') {
   direction.value = value;
+  inputUrl.value = '';
   inputError.value = '';
   copied.value = false;
 }
@@ -346,6 +349,7 @@ defineExpose({ result });
 <template>
   <div class="webvpn-converter">
     <div class="direction-switch" aria-label="转换方向">
+      <div class="slider" :class="{ 'slide-right': direction === 'from-vpn' }"></div>
       <button
         :class="{ active: direction === 'to-vpn' }"
         type="button"
@@ -398,6 +402,7 @@ defineExpose({ result });
 }
 
 .direction-switch {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
@@ -405,9 +410,28 @@ defineExpose({ result });
   margin-bottom: 16px;
   border-radius: 6px;
   background: var(--vp-c-bg-soft);
+  overflow: hidden;
+}
+
+.direction-switch .slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  border-radius: 4px;
+  background: var(--vp-c-bg);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.direction-switch .slider.slide-right {
+  transform: translateX(100%);
 }
 
 .direction-switch button {
+  position: relative;
+  z-index: 1;
   padding: 7px 12px;
   border: 0;
   border-radius: 4px;
@@ -415,13 +439,12 @@ defineExpose({ result });
   color: var(--vp-c-text-2);
   cursor: pointer;
   font-size: 13px;
+  transition: color 0.2s ease;
 }
 
 .direction-switch button.active {
-  background: var(--vp-c-bg);
   color: var(--vp-c-brand-1);
   font-weight: 500;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
 }
 
 .form-group {
