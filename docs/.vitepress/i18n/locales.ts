@@ -33,6 +33,7 @@ const search: Partial<SearchConfig> = {
   btnPlaceholder: '搜索',
   placeholder: '搜索文档',
   emptyText: '空空如也',
+  loadingText: '加载中...',
   heading: '共 {{searchResult}} 条结果',
   toSelect: '跳转到选定结果',
   toClose: '关闭',
