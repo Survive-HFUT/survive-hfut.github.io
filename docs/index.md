@@ -40,19 +40,19 @@ features:
     details: · 此文档目前主要由学生维护，所有内容<b>均不代表校方官方观点和意见</b><br>
       · 因更新滞后或其他问题，部分内容可能与实际情况存在出入，请以学校发布的相关管理办法为准
 
-  # - icon: ⛏️
-  #   title: 快加入我们一起使这个文档变得更好
-  #   details: 此文档还在不断完善中……<br>
-  #     使用右上角导航栏的反馈功能或直接点击此卡片跳转
-  #   link: /about/contribute
-  #   linkText: 关于§参与进来
+  - icon: ⛏️
+    title: 快加入我们一起使这个文档变得更好
+    details: 此文档还在不断完善中……<br>
+      使用右上角导航栏的反馈功能或直接点击此卡片跳转
+    link: /about/contribute
+    linkText: 关于§参与进来
 
   # 招生特辑 7月中旬后换下
-  - icon: 🎓
-    title: 欢迎报考合肥工业大学
-    details: <b>世界小，合工大</b><br>
-      2026 年高考志愿填报在即……<br>
-      期待在金秋九月，与你在斛兵塘边的晚风里，乘风破浪且歌且行
-    link: https://bkzs.hfut.edu.cn/
-    linkText: 合肥工业大学 · 本科招生
+  # - icon: 🎓
+  #   title: 欢迎报考合肥工业大学
+  #   details: <b>世界小，合工大</b><br>
+  #     2026 年高考志愿填报在即……<br>
+  #     期待在金秋九月，与你在斛兵塘边的晚风里，乘风破浪且歌且行
+  #   link: https://bkzs.hfut.edu.cn/
+  #   linkText: 合肥工业大学 · 本科招生
 ---
