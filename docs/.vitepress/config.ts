@@ -2,8 +2,10 @@ import { align } from '@mdit/plugin-align';
 import { figure } from '@mdit/plugin-figure';
 import { footnote } from '@mdit/plugin-footnote';
 import { katex } from '@mdit/plugin-katex';
+import { mark } from "@mdit/plugin-mark";
 import { spoiler } from '@mdit/plugin-spoiler';
 import { sup } from '@mdit/plugin-sup';
+import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
 import {
   GitChangelog,
   GitChangelogMarkdownSection,
@@ -23,7 +25,6 @@ import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import keywords from './data/keywords.json';
 import contributors from './helpers/contributors';
-import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
 import customElements from './helpers/customElements';
 import locales from './i18n/locales';
 import sidebar, { excludedPages } from './sidebar';
@@ -52,6 +53,7 @@ export default defineConfig({
         .use(figure, { linkImage: false })
         .use(footnote)
         .use(align)
+        .use(mark)
         .use(katex)
         .use(timeline)
         .use(BiDirectionalLinks({ dir: 'docs' }))

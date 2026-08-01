@@ -26,6 +26,9 @@ importers:
       '@mdit/plugin-katex':
         specifier: ^1.0.2
         version: 1.0.2(markdown-it@14.3.0)
+      '@mdit/plugin-mark':
+        specifier: ^2.0.1
+        version: 2.0.1(markdown-it@14.3.0)
       '@mdit/plugin-spoiler':
         specifier: ^2.0.1
         version: 2.0.1(markdown-it@14.3.0)
@@ -1126,6 +1129,15 @@ packages:
       markdown-it:
         optional: true
 
+  '@mdit/plugin-mark@2.0.1':
+    resolution: {integrity: sha512-5/i5Ab4Wi5NiApcx7dS4NKhQDuZrjVSvlKaqLXidw/ZtGOmc1XP70eRAMFUNw9QciDbWZRX7VzyFGyZwSsaTzA==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      markdown-it: ^14.2.0
+    peerDependenciesMeta:
+      markdown-it:
+        optional: true
+
   '@mdit/plugin-spoiler@2.0.1':
     resolution: {integrity: sha512-x+8iIidkzeru2MT1eoDo27p4S87PRlfwEU+sR2Db1bkJf5k8t8zDupRxMjMtOTFvZrwgW4N/s3hXpaGu2avKxQ==}
     engines: {node: '>=22'}
@@ -2003,8 +2015,8 @@ packages:
   '@types/d3-format@3.0.4':
     resolution: {integrity: sha512-fALi2aI6shfg7vM5KiR1wNJnZ7r6UuggVqtDA+xiEdPZQwy/trcQaHnwShLuLdta2rTymCNpxYTiMZX/e09F4g==}
 
-  '@types/d3-geo@3.1.0':
-    resolution: {integrity: sha512-856sckF0oP/diXtS4jNsiQw/UuK5fQG8l/a9VVLeSouf1/PPbBE1i1W852zVwKwYCBkFJJB7nCFTbk6UMEXBOQ==}
+  '@types/d3-geo@3.1.1':
+    resolution: {integrity: sha512-65Emv9fQiQQqphLlRkuQ5ypPsOmWPhtBGCMv61JDPEPMvsx+gzhGf74yw1a78xFKPj6zw4AgQICJoQv0vK9M2w==}
 
   '@types/d3-hierarchy@3.1.7':
     resolution: {integrity: sha512-tJFtNoYBtRtkNysX1Xq4sxtjK8YgoWUNpIiUee0/jHGRwqvzYxkq0hGVbbOGSz+JgFxxRu4K8nb3YpG3CMARtg==}
@@ -2846,7 +2858,6 @@ packages:
   glob@11.1.0:
     resolution: {integrity: sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==}
     engines: {node: 20 || >=22}
-    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@13.0.6:
@@ -5319,6 +5330,13 @@ snapshots:
     optionalDependencies:
       markdown-it: 14.3.0
 
+  '@mdit/plugin-mark@2.0.1(markdown-it@14.3.0)':
+    dependencies:
+      '@mdit/plugin-inline-rule': 2.0.1(markdown-it@14.3.0)
+      '@types/markdown-it': 14.1.2
+    optionalDependencies:
+      markdown-it: 14.3.0
+
   '@mdit/plugin-spoiler@2.0.1(markdown-it@14.3.0)':
     dependencies:
       '@mdit/plugin-inline-rule': 2.0.1(markdown-it@14.3.0)
@@ -6049,7 +6067,7 @@ snapshots:
 
   '@types/d3-format@3.0.4': {}
 
-  '@types/d3-geo@3.1.0':
+  '@types/d3-geo@3.1.1':
     dependencies:
       '@types/geojson': 7946.0.16
 
@@ -6110,7 +6128,7 @@ snapshots:
       '@types/d3-fetch': 3.0.7
       '@types/d3-force': 3.0.10
       '@types/d3-format': 3.0.4
-      '@types/d3-geo': 3.1.0
+      '@types/d3-geo': 3.1.1
       '@types/d3-hierarchy': 3.1.7
       '@types/d3-interpolate': 3.0.4
       '@types/d3-path': 3.1.1

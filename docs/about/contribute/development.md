@@ -42,7 +42,7 @@
 - [Markdown All in One](https://marketplace.visualstudio.com/items/?itemName=yzhang.markdown-all-in-one)
   - 提供一些快捷键和缩进辅助
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-  - <mark>推荐将此扩展作为默认的格式化工具</mark>
+  - ==推荐将此扩展作为默认的格式化工具==
 
 ### 项目结构
 
