@@ -43,7 +43,7 @@ for (const item of recentChanges as {
     d.push({
       path: basePath,
       updatedAt: item.updatedAt,
-      title: match.text,
+      title: match.text.replace(/<[^>]+>/g, ''),
       href: item.sectionSlug ? `${basePath}#${item.sectionSlug}` : basePath,
       authorName: getContributorName(item.authorName),
       sectionTitle: item.sectionTitle,
