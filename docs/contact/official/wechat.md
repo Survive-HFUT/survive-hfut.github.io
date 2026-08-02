@@ -16,6 +16,7 @@
 | 合工大教务         | _`gh_4438b9dfe174`_ | <img alt="二维码" src="https://open.weixin.qq.com/qr/code?username=gh_4438b9dfe174" width="100"> |
 | 合肥工业大学信息化 |      `hfutxxh`      |     <img alt="二维码" src="https://open.weixin.qq.com/qr/code?username=hfutxxh" width="100">     |
 | 合肥工业大学财务处 |      `hfutcwc`      |     <img alt="二维码" src="https://open.weixin.qq.com/qr/code?username=hfutcwc" width="100">     |
+| 微言合工大         |      `gdxzfwt`      |     <img alt="二维码" src="https://open.weixin.qq.com/qr/code?username=gdxzfwt" width="100">     |
 
 ## 小程序
 
