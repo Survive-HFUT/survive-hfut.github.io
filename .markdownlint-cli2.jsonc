@@ -5,6 +5,7 @@
     "no-inline-html": false,
     "line-length": false,
     "no-duplicate-heading": false,
+    "first-line-heading": false,
     "single-title": false
   }
 }
