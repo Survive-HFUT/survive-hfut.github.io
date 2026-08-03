@@ -22,7 +22,7 @@ jobs:
           version: 11
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           cache: 'pnpm'
 
@@ -52,7 +52,7 @@ jobs:
           version: 9
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           cache: 'pnpm'
 
@@ -63,4 +63,4 @@ jobs:
 
       - name: Run markdownlint
         if: failure() || success()
-        uses: DavidAnson/markdownlint-cli2-action@v23
+        uses: DavidAnson/markdownlint-cli2-action@v24

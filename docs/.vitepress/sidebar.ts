@@ -9,7 +9,11 @@ import type {
 export const excludedPages: string[] = [];
 
 // 需要折叠的文件夹链接
-const shouldCollapse = ['more/', 'organizations/', 'city/'];
+const shouldCollapse: string[] = [
+  'more/',
+  // 'organizations/',
+  // 'city/'
+];
 
 function whetherToExcludeLink(path?: string): boolean {
   if (path && path != '/' && existsSync(`docs/${path}`)) {
