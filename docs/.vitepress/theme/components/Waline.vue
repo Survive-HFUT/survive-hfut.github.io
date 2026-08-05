@@ -3,7 +3,7 @@ import { Waline } from '@waline/client/component';
 import { useRoute } from 'vitepress';
 import { computed } from 'vue';
 
-const url = 'https://api.survive-hfut.cc/';
+const url = 'https://survive-hfut.cc/';
 const route = useRoute();
 const path = computed(() => route.path);
 </script>
