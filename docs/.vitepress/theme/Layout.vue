@@ -7,7 +7,6 @@ import { NolebaseHighlightTargetedHeading } from '@nolebase/vitepress-plugin-hig
 import mediumZoom from 'medium-zoom';
 import { inBrowser, useData, useRoute } from 'vitepress';
 import { createMermaidRenderer } from 'vitepress-mermaid-renderer';
-import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import DefaultTheme from 'vitepress/theme';
 import {
   nextTick,
@@ -23,6 +22,7 @@ import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
 import Footer from './components/Footer.vue';
 import Toast from './components/Toast.vue';
+import Waline from './components/Waline.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
@@ -220,25 +220,6 @@ onMounted(() => {
     () => nextTick(initZoom),
   );
 }
-
-giscusTalk(
-  {
-    repo: 'Survive-HFUT/survive-hfut.github.io',
-    repoId: 'R_kgDOKE2TfA',
-    category: 'Giscus',
-    categoryId: 'DIC_kwDOKE2TfM4CqW7d',
-    mapping: 'pathname',
-    inputPosition: 'top',
-    lang: 'zh-CN',
-    lightTheme: 'light',
-    darkTheme: 'transparent_dark',
-  },
-  {
-    frontmatter,
-    route,
-  },
-  true,
-);
 </script>
 
 <template>
@@ -253,6 +234,10 @@ giscusTalk(
 
     <template #home-hero-info>
       <CustomHeroInfo />
+    </template>
+
+    <template #doc-after>
+      <Waline />
     </template>
 
     <template #layout-top> <NolebaseHighlightTargetedHeading /> </template>
