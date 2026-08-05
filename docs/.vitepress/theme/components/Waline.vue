@@ -1,15 +1,9 @@
 <script lang="ts" setup>
-import { WalineInitOptions } from '@waline/client';
 import { Waline } from '@waline/client/component';
 import { useRoute } from 'vitepress';
 import { computed } from 'vue';
 
-const url = 'https://waline-on-worker.gforoosge.workers.dev/'; // 临时
-
-const emoji: WalineInitOptions['emoji'] = [
-  'https://unpkg.com/@waline/emojis@1.4.0/tieba',
-];
-
+const url = 'https://api.survive-hfut.cc/';
 const route = useRoute();
 const path = computed(() => route.path);
 </script>
@@ -19,11 +13,11 @@ const path = computed(() => route.path);
     class="waline-container"
     :serverURL="url"
     :path="path"
-    :emoji="emoji"
+    :emoji="[]"
     login="force"
     dark="html.dark"
     :pageSize="15"
-    :wordLimit="[5, 500]"
+    :wordLimit="[1, 1000]"
     noRss
     noCopyright
   />
@@ -53,5 +47,15 @@ const path = computed(() => route.path);
 :deep(textarea) {
   color: var(--vp-c-text-1) !important;
   font-family: inherit;
+}
+
+:deep(label.wl-action[for='wl-image-upload']),
+:deep(.wl-image-upload) {
+  display: none;
+  visibility: hidden;
+}
+
+:deep(.wl-editor) {
+  font-size: 14px;
 }
 </style>
