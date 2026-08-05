@@ -21,6 +21,13 @@ const main: Partial<DefaultTheme.Config> = {
     next: '下一篇',
   },
 
+  notFound: {
+    quote:
+      '你来到了一片荒芜之地，什么都没有。如果你确信这不是你的问题，你可以刷新本页面或反馈此问题。',
+    linkLabel: '返回首页',
+    linkText: '返回首页',
+  },
+
   darkModeSwitchLabel: '外观',
   returnToTopLabel: '返回顶部',
   sidebarMenuLabel: '菜单',
@@ -46,7 +53,7 @@ const markdown: UserConfig<DefaultTheme.Config>['markdown'] = {
     warningLabel: '⚠️ 注意',
     dangerLabel: '‼️ 警告',
     infoLabel: '📖 信息',
-    detailsLabel: '📜 详细信息',
+    detailsLabel: '点击展开/折叠',
   },
 };
 

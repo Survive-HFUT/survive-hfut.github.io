@@ -30,7 +30,7 @@
 $hfut-doc-style docs/待修改页面.md
 ```
 
-该技能位于`.agents/skills/hfut-doc-style`目录下，用于减少 AI 味，并统一加粗、`==`、Emoji、引用来源和提示块等写法
+该技能位于`.agents/skills/hfut-doc-style`目录下，用于减少 AI 味，并统一加粗、行内高亮`==`、Emoji、引用来源和提示块等写法
 
 ## 广告
 
