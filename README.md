@@ -30,7 +30,7 @@
 
 目前的问题主要是维护者较少，而且合肥校区那边的资料缺失了很多，**在此希望有相关能力的同学能帮忙一起编写文档，让这份爱传承下去**🥺🥺无论是简单一点的错别字纠错还是更新文档，我们都非常欢迎❤️🫶
 
-详见➡️[参与进来](https://survive-hfut.github.io/about/contribute)和[Todo](https://github.com/Survive-HFUT/survive-hfut.github.io/issues/44)
+详见➡️[参与进来](https://survive-hfut.cc/about/contribute/)和[Todo](https://github.com/Survive-HFUT/survive-hfut.github.io/issues/44)
 
 如果觉得这个网站对你有帮助的话也欢迎点个 Star 鼓励一下我们
 
