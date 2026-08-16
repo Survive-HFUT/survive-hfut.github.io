@@ -129,6 +129,10 @@ export default defineConfig({
     ],
 
     optimizeDeps: {
+      include: [
+        '@nolebase/vitepress-plugin-page-properties > date-fns',
+        '@nolebase/vitepress-plugin-page-properties > date-fns/locale',
+      ],
       exclude: [
         '@nolebase/vitepress-plugin-enhanced-readabilities/client',
         '@nolebase/ui',
