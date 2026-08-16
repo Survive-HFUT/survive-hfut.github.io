@@ -70,6 +70,14 @@ function readCampusFromLink(link?: string): string | undefined {
   return fm?.match(/^campus:\s*(\S+)/m)?.[1];
 }
 
+function normalizeReadingPath(link: string): string {
+  const clean = link
+    .split(/[?#]/, 1)[0]
+    .replace(/\.md$/, '')
+    .replace(/\/+$/, '');
+  return clean ? `/${clean.replace(/^\/+/, '')}` : '/';
+}
+
 // 后处理侧边栏数据，根据需要折叠或删除链接
 function postProcessSidebar(sidebar: SidebarMulti) {
   const walk = (items: SidebarItem[]) => {
@@ -94,6 +102,11 @@ function postProcessSidebar(sidebar: SidebarMulti) {
       // VPSidebarItem 用 v-html 渲染 text，故直接写 Badge 组件产出的 HTML 结构。
       if (campus && item.text) {
         item.text += `<span class="VPBadge info">${campusLabel[campus] ?? campus}</span>`;
+      }
+
+      if (item.link && item.text && !whetherToExcludeLink(item.link)) {
+        const readingPath = normalizeReadingPath(item.link);
+        item.text += `<span class="reading-status-marker" data-reading-path="${readingPath}" aria-hidden="true"></span>`;
       }
 
       if (item.items?.length) {

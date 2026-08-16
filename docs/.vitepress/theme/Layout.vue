@@ -8,25 +8,22 @@ import mediumZoom from 'medium-zoom';
 import { inBrowser, useData, useRoute } from 'vitepress';
 import { createMermaidRenderer } from 'vitepress-mermaid-renderer';
 import DefaultTheme from 'vitepress/theme';
-import {
-  nextTick,
-  onBeforeMount,
-  onMounted,
-  provide,
-  ref,
-  watch,
-} from 'vue';
+import { nextTick, onBeforeMount, onMounted, provide, ref, watch } from 'vue';
 import { data } from '../data/metadata.data';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
 import Footer from './components/Footer.vue';
+import ArticleUpdateBanner from './components/ArticleUpdateBanner.vue';
+import ReadingStatus from './components/ReadingStatus.vue';
 import Toast from './components/Toast.vue';
 import Waline from './components/Waline.vue';
+import { useReadingProgress } from './composables/useReadingProgress.ts';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
 const { frontmatter, isDark } = useData();
 const isTransitionsEnabled = ref(false);
+const readingProgress = useReadingProgress();
 
 const showToast = ref(false);
 const toastMessage = ref('');
@@ -235,7 +232,12 @@ onMounted(() => {
       <CustomHeroInfo />
     </template>
 
+    <template #doc-before>
+      <ArticleUpdateBanner :reading="readingProgress" />
+    </template>
+
     <template #doc-after>
+      <ReadingStatus :reading="readingProgress" />
       <Waline />
     </template>
 
