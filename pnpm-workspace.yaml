@@ -4,6 +4,7 @@ packages:
 allowBuilds:
   "@parcel/watcher": true
   esbuild: true
+  micromark: true
   sharp: true
 
 minimumReleaseAge: 30
