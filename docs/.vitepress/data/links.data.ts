@@ -1,6 +1,6 @@
 import { defineLoader } from 'vitepress';
 import { SidebarItem } from 'vitepress-sidebar/types';
-import sidebar from '../sidebar';
+import sidebar from '../sidebar.ts';
 
 export type SidebarLink = { href: string; text: string };
 export type SidebarData = SidebarLink[];

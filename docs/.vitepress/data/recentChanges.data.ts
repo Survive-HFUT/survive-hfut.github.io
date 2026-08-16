@@ -1,6 +1,6 @@
 import simpleGit, { type SimpleGit } from 'simple-git';
 import { defineLoader } from 'vitepress';
-import contributors from '../helpers/contributors';
+import contributors from '../helpers/contributors.ts';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import removeMarkdown from 'remove-markdown';
