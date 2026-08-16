@@ -4,6 +4,7 @@
  */
 @import './colors.css';
 
+@import './fix.css';
 @import './blur.css';
 @import './customBlock.css';
 @import './goToTop.css';

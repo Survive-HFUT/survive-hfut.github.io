@@ -8,14 +8,7 @@ import mediumZoom from 'medium-zoom';
 import { inBrowser, useData, useRoute } from 'vitepress';
 import { createMermaidRenderer } from 'vitepress-mermaid-renderer';
 import DefaultTheme from 'vitepress/theme';
-import {
-  nextTick,
-  onBeforeMount,
-  onMounted,
-  provide,
-  ref,
-  watch,
-} from 'vue';
+import { nextTick, onBeforeMount, onMounted, provide, ref, watch } from 'vue';
 import { data } from '../data/metadata.data';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';

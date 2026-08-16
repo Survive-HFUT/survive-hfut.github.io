@@ -1,0 +1,14 @@
+/*
+  https://github.com/vuejs/vitepress/issues/4971
+  https://github.com/vuejs/vitepress/pull/5309/changes
+  https://github.com/vuejs/vitepress/commit/91b06b67a302ebfa210e888fe9d03d27fb291b31
+ */
+body {
+  font-synthesis: style; /* 恢复旧行为，禁止合成粗体 */
+}
+
+:root {
+  --vp-font-family-base:
+    'Inter', -apple-system, BlinkMacSystemFont, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
