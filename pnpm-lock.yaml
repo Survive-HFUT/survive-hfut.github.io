@@ -20,9 +20,6 @@ importers:
       '@mdit/plugin-figure':
         specifier: ^1.1.0
         version: 1.1.0(markdown-it@14.3.0)
-      '@mdit/plugin-footnote':
-        specifier: ^1.0.2
-        version: 1.0.2(markdown-it@14.3.0)
       '@mdit/plugin-katex':
         specifier: ^1.0.2
         version: 1.0.2(markdown-it@14.3.0)
@@ -1133,12 +1130,6 @@ packages:
     peerDependenciesMeta:
       markdown-it:
         optional: true
-
-  '@mdit/plugin-footnote@1.0.2':
-    resolution: {integrity: sha512-G7pzoczbzVph9s9eyLuG9T24//ub9vK7A8jFCESQIzZj83ZJF3BHs7r/wcQx4KzmH+kDpLiAbhvzT/Y3+7OUig==}
-    engines: {node: '>=22'}
-    peerDependencies:
-      markdown-it: ^14.2.0
 
   '@mdit/plugin-inline-rule@2.0.1':
     resolution: {integrity: sha512-l1pLarAVfPpyVoJ1dyGaP+F904Cb5ZXu+nyM38QH0gy9jxKJvYi1sYUUHfJXBeKIbllcgQLuSggW/EV/5JIk4g==}
@@ -3018,7 +3009,6 @@ packages:
   glob@11.1.0:
     resolution: {integrity: sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==}
     engines: {node: 20 || >=22}
-    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@13.0.6:
@@ -5574,11 +5564,6 @@ snapshots:
     dependencies:
       '@types/markdown-it': 14.1.2
     optionalDependencies:
-      markdown-it: 14.3.0
-
-  '@mdit/plugin-footnote@1.0.2(markdown-it@14.3.0)':
-    dependencies:
-      '@types/markdown-it': 14.1.2
       markdown-it: 14.3.0
 
   '@mdit/plugin-inline-rule@2.0.1(markdown-it@14.3.0)':

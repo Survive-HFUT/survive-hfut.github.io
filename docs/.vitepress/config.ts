@@ -1,8 +1,7 @@
 import { align } from '@mdit/plugin-align';
 import { figure } from '@mdit/plugin-figure';
-import { footnote } from '@mdit/plugin-footnote';
 import { katex } from '@mdit/plugin-katex';
-import { mark } from "@mdit/plugin-mark";
+import { mark } from '@mdit/plugin-mark';
 import { spoiler } from '@mdit/plugin-spoiler';
 import { sup } from '@mdit/plugin-sup';
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
@@ -23,11 +22,11 @@ import {
 } from 'vitepress-plugin-pagefind';
 import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
-import keywords from './data/keywords.json';
-import contributors from './helpers/contributors';
-import customElements from './helpers/customElements';
-import locales from './i18n/locales';
-import sidebar, { excludedPages } from './sidebar';
+import keywords from './data/keywords.json' with { type: 'json' };
+import contributors from './helpers/contributors.ts';
+import customElements from './helpers/customElements.ts';
+import locales from './i18n/locales.ts';
+import sidebar, { excludedPages } from './sidebar.ts';
 
 const time =
   new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
@@ -101,7 +100,6 @@ export default defineConfig({
         .use(spoiler)
         .use(sup)
         .use(figure, { linkImage: false })
-        .use(footnote)
         .use(align)
         .use(mark)
         .use(katex)
