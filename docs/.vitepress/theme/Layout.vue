@@ -238,7 +238,7 @@ onMounted(() => {
 
     <template #doc-after>
       <ReadingStatus :reading="readingProgress" />
-      <Waline />
+      <Waline v-if="frontmatter.comments !== false" />
     </template>
 
     <template #layout-top> <NolebaseHighlightTargetedHeading /> </template>

@@ -83,3 +83,12 @@ export async function deleteArticleSnapshot(path: string): Promise<boolean> {
     return false;
   }
 }
+
+export async function clearArticleSnapshots(): Promise<boolean> {
+  try {
+    await runTransaction<undefined>('readwrite', (store) => store.clear());
+    return true;
+  } catch {
+    return false;
+  }
+}

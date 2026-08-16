@@ -15,6 +15,30 @@ export function stripFrontmatter(markdown: string): string {
   return markdown.replace(/^\uFEFF/, '').replace(FRONTMATTER_RE, '');
 }
 
+function cleanTitle(value: string): string {
+  return value
+    .replace(/^['"]|['"]$/g, '')
+    .replace(/!\[([^\]]*)]\([^)]+\)/g, '$1')
+    .replace(/\[([^\]]+)]\([^)]+\)/g, '$1')
+    .replace(/[`*_~]/g, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function extractMarkdownTitle(
+  markdown: string,
+  fallback = '未命名篇目',
+): string {
+  const source = markdown.replace(/^\uFEFF/, '');
+  const frontmatter = source.match(FRONTMATTER_RE)?.[0] ?? '';
+  const frontmatterTitle = frontmatter.match(/^title:\s*(.+?)\s*$/m)?.[1];
+  if (frontmatterTitle) return cleanTitle(frontmatterTitle) || fallback;
+
+  const heading = stripFrontmatter(source).match(/^#\s+(.+?)\s*#*$/m)?.[1];
+  return heading ? cleanTitle(heading) || fallback : fallback;
+}
+
 function normalizeInlineMarkdown(value: string): string {
   return value
     .normalize('NFKC')

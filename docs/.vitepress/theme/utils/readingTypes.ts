@@ -56,6 +56,7 @@ export interface ReadingState {
 
 export interface ArticleVersionInfo {
   version: string;
+  title: string;
 }
 
 export type ArticleVersionsData = Record<string, ArticleVersionInfo>;

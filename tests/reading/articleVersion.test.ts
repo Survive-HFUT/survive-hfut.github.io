@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   createArticleVersion,
+  extractMarkdownTitle,
   hasSubstantiveMarkdown,
   normalizeMarkdownContent,
 } from '../../docs/.vitepress/theme/utils/articleVersion.ts';
@@ -46,4 +47,12 @@ test('代码块内容保留在标准化版本中', () => {
     normalizeMarkdownContent('```ts\nconst value = 1;\n```'),
     /const value = 1/,
   );
+});
+
+test('优先读取 frontmatter 标题，并清理 Markdown 标记', () => {
+  assert.equal(
+    extractMarkdownTitle('---\ntitle: 阅读记录\n---\n\n# 旧标题'),
+    '阅读记录',
+  );
+  assert.equal(extractMarkdownTitle('# **校园网**'), '校园网');
 });

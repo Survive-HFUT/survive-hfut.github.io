@@ -105,6 +105,20 @@ export function writeReadingState(state: ReadingState): boolean {
   }
 }
 
+export function clearReadingState(): boolean {
+  if (typeof localStorage === 'undefined') {
+    return false;
+  }
+
+  try {
+    localStorage.removeItem(READING_STORAGE_KEY);
+    window.dispatchEvent(new CustomEvent(READING_STATE_EVENT));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function updateArticleReadingState(
   path: string,
   update: (article: ArticleReadingState) => ArticleReadingState,

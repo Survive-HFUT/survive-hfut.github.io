@@ -4,13 +4,19 @@ import { fileURLToPath } from 'node:url';
 import { defineLoader } from 'vitepress';
 import {
   createArticleVersion,
+  extractMarkdownTitle,
   hasSubstantiveMarkdown,
 } from '../theme/utils/articleVersion.ts';
 import type { ArticleVersionsData } from '../theme/utils/readingTypes.ts';
 
 const DATA_DIR = dirname(fileURLToPath(import.meta.url));
 const DOCS_DIR = resolve(DATA_DIR, '../..');
-const UTILITY_PAGES = new Set(['/ongoing', '/random', '/recent_update']);
+const UTILITY_PAGES = new Set([
+  '/ongoing',
+  '/random',
+  '/reading',
+  '/recent_update',
+]);
 
 declare const data: ArticleVersionsData;
 export { data };
@@ -45,7 +51,12 @@ export default defineLoader({
         continue;
       }
 
-      versions[route] = { version: createArticleVersion(markdown) };
+      const fallbackTitle =
+        route.split('/').at(-1)?.replaceAll('_', ' ') || '未命名篇目';
+      versions[route] = {
+        version: createArticleVersion(markdown),
+        title: extractMarkdownTitle(markdown, fallbackTitle),
+      };
     }
 
     return versions;
