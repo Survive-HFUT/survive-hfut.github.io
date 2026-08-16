@@ -14,7 +14,6 @@ import {
   onMounted,
   provide,
   ref,
-  toRefs,
   watch,
 } from 'vue';
 import { data } from '../data/metadata.data';
@@ -26,7 +25,7 @@ import Waline from './components/Waline.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
-const { frontmatter, isDark } = toRefs(useData());
+const { frontmatter, isDark } = useData();
 const isTransitionsEnabled = ref(false);
 
 const showToast = ref(false);
