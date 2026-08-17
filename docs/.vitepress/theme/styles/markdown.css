@@ -19,7 +19,7 @@
     overflow-y: auto;
   }
 
-  img {
+  img:not(.vp-nolebase-git-changelog-contributors img) {
     max-height: 60vh;
     max-width: 100%;
     width: auto;
