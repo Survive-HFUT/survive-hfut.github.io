@@ -42,7 +42,7 @@
 ### 获取书单
 
 - <Badge type="warning" text="✨推荐"/> 询问任课教师
-- <Badge type="warning" text="✨推荐"/> 在 教务系统学生端→课程→学生教程查询 可以看到当前学期所需书目的名称和 ISBN 号
+- <Badge type="warning" text="✨推荐"/> 在 教务系统学生端→课程→[学生教程查询](http://jxglstu.hfut.edu.cn/eams5-student/for-std/lesson-textbook/) 可以看到当前学期所需书目的名称和 ISBN 号，根据这两个信息再去电商平台或二手书店购买即可
 - 询问直系的学长学姐
   - 因培养方案或任课教师存在差异，具体用书版本或书名可能不同
 

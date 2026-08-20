@@ -8,7 +8,7 @@ hero:
     - 你的翡翠路420号指南
     - 你的屯溪路193号指南
 
-  tagline: 更适合合工大学生的生活指南
+  tagline: 更适合合工大所有校区学生的生活指南
   image: /book.png
   actions:
     - theme: brand
@@ -33,7 +33,7 @@ features:
     details: · 移动端可点击页面左上角的 ≡ 展开侧边栏<br>
       · 桌面端可直接在页面左侧看到侧边栏
     link: /enrollment/first_glimpse/qa
-    linkText: 初入肥宣§猜你想问
+    linkText: 初入肥工§猜你想问
 
   - icon: 💡
     title: 这不是合肥工业大学的官方文档

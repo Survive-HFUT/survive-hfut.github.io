@@ -14,7 +14,15 @@ import {
   PagePropertiesMarkdownSection,
 } from '@nolebase/vitepress-plugin-page-properties/vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
+import {
+  type DefaultTheme,
+  defineConfig,
+  type HeadConfig,
+  type PageData,
+  resolveSiteDataByRoute,
+  type TransformPageContext,
+  type UserConfig,
+} from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
 import {
   chineseSearchOptimize,
@@ -210,8 +218,40 @@ export default defineConfig({
     hostname: 'https://survive-hfut.cc',
   },
 
-  srcExclude: excludedPages,
+  srcExclude: excludedPages.concat(['**/part_*.md']),
+
+  transformPageData,
 });
+
+function transformPageData(
+  pageData: PageData,
+  ctx: TransformPageContext<NoInfer<DefaultTheme.Config>>,
+) {
+  if (process.env.NODE_ENV !== 'production') {
+    return;
+  }
+
+  const url = new URL(
+    pageData.relativePath.replace(/(?:(^|\/)index)?\.md$/, '$1'),
+    'https://survive-hfut.cc',
+  ).href;
+  const site = resolveSiteDataByRoute(
+    ctx.siteConfig.site,
+    pageData.relativePath,
+  );
+  const title = pageData.title ? `${pageData.title} | VitePress` : site.title;
+  const description = pageData.description || site.description;
+
+  ((pageData.frontmatter.head ??= []) as HeadConfig[]).push(
+    ['meta', { property: 'og:url', content: url }],
+    ['meta', { property: 'og:title', content: title }],
+    ['meta', { property: 'og:locale', content: 'zh_CN' }],
+    ['meta', { property: 'og:description', content: description }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: '活在肥宣' }],
+    ['link', { rel: 'canonical', href: url }],
+  );
+}
 
 function getHead() {
   const head: UserConfig<DefaultTheme.Config>['head'] = [
