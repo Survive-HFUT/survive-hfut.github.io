@@ -33,7 +33,7 @@ order: 10
 <BackToTopTip/>
 
 <!--
-  以下内容采用导入功能以便于拆分文件便于维护时查找
+  以下内容采用导入功能以拆分文件，便于维护和查找
   https://vitepress.dev/zh/guide/markdown#markdown-file-inclusion
 -->
 

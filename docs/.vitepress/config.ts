@@ -260,6 +260,15 @@ function getHead() {
     ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-title', content: '活在肥宣' }],
+    ['meta', { name: 'theme-color', content: '#3451b2' }],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.css',
+        crossorigin: 'anonymous',
+      },
+    ],
     [
       'meta',
       {
@@ -271,7 +280,6 @@ function getHead() {
       'meta',
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
-    ['meta', { name: 'theme-color', content: '#3451b2' }],
     [
       'script',
       {},
