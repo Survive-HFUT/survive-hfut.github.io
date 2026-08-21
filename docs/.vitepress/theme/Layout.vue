@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import {
-  NolebaseEnhancedReadabilitiesMenu,
-  NolebaseEnhancedReadabilitiesScreenMenu,
-} from '@nolebase/vitepress-plugin-enhanced-readabilities';
 import { NolebaseHighlightTargetedHeading } from '@nolebase/vitepress-plugin-highlight-targeted-heading/client';
 import mediumZoom from 'medium-zoom';
 import { inBrowser, useData, useRoute } from 'vitepress';
@@ -216,14 +212,6 @@ onMounted(() => {
 
 <template>
   <Layout>
-    <template #nav-bar-content-after>
-      <NolebaseEnhancedReadabilitiesMenu />
-    </template>
-
-    <template #nav-screen-content-after>
-      <NolebaseEnhancedReadabilitiesScreenMenu />
-    </template>
-
     <template #home-hero-info>
       <CustomHeroInfo />
     </template>
