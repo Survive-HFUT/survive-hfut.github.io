@@ -12,6 +12,16 @@ import Note from './components/Note.vue';
 import ToDo from './components/ToDo.vue';
 import Layout from './Layout.vue';
 
+import '@mdit/plugin-spoiler/style';
+import '@nolebase/vitepress-plugin-enhanced-mark/client/style.css';
+import '@nolebase/vitepress-plugin-git-changelog/client/style.css';
+import '@nolebase/vitepress-plugin-highlight-targeted-heading/client/style.css';
+import '@nolebase/vitepress-plugin-page-properties/client/style.css';
+import '@waline/client/waline.css';
+import 'nprogress-v2/dist/index.css';
+import 'vitepress-markdown-timeline/dist/theme/index.css';
+import 'vitepress-plugin-back-to-top/dist/style.css';
+
 export default {
   extends: DefaultTheme,
 

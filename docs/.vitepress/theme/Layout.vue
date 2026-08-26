@@ -1,22 +1,10 @@
 <script setup lang="ts">
-import {
-  NolebaseEnhancedReadabilitiesMenu,
-  NolebaseEnhancedReadabilitiesScreenMenu,
-} from '@nolebase/vitepress-plugin-enhanced-readabilities';
 import { NolebaseHighlightTargetedHeading } from '@nolebase/vitepress-plugin-highlight-targeted-heading/client';
 import mediumZoom from 'medium-zoom';
 import { inBrowser, useData, useRoute } from 'vitepress';
 import { createMermaidRenderer } from 'vitepress-mermaid-renderer';
 import DefaultTheme from 'vitepress/theme';
-import {
-  nextTick,
-  onBeforeMount,
-  onMounted,
-  provide,
-  ref,
-  toRefs,
-  watch,
-} from 'vue';
+import { nextTick, onBeforeMount, onMounted, provide, ref, watch } from 'vue';
 import { data } from '../data/metadata.data';
 import locales from '../i18n/locales';
 import CustomHeroInfo from './components/CustomHeroInfo.vue';
@@ -26,7 +14,7 @@ import Waline from './components/Waline.vue';
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
-const { frontmatter, isDark } = toRefs(useData());
+const { frontmatter, isDark } = useData();
 const isTransitionsEnabled = ref(false);
 
 const showToast = ref(false);
@@ -224,14 +212,6 @@ onMounted(() => {
 
 <template>
   <Layout>
-    <template #nav-bar-content-after>
-      <NolebaseEnhancedReadabilitiesMenu />
-    </template>
-
-    <template #nav-screen-content-after>
-      <NolebaseEnhancedReadabilitiesScreenMenu />
-    </template>
-
     <template #home-hero-info>
       <CustomHeroInfo />
     </template>

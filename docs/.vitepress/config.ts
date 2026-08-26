@@ -1,8 +1,7 @@
 import { align } from '@mdit/plugin-align';
 import { figure } from '@mdit/plugin-figure';
-import { footnote } from '@mdit/plugin-footnote';
 import { katex } from '@mdit/plugin-katex';
-import { mark } from "@mdit/plugin-mark";
+import { mark } from '@mdit/plugin-mark';
 import { spoiler } from '@mdit/plugin-spoiler';
 import { sup } from '@mdit/plugin-sup';
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
@@ -15,7 +14,15 @@ import {
   PagePropertiesMarkdownSection,
 } from '@nolebase/vitepress-plugin-page-properties/vite';
 import { VitePWA } from 'vite-plugin-pwa';
-import { DefaultTheme, defineConfig, UserConfig } from 'vitepress';
+import {
+  type DefaultTheme,
+  defineConfig,
+  type HeadConfig,
+  type PageData,
+  resolveSiteDataByRoute,
+  type TransformPageContext,
+  type UserConfig,
+} from 'vitepress';
 import timeline from 'vitepress-markdown-timeline';
 import {
   chineseSearchOptimize,
@@ -23,11 +30,12 @@ import {
 } from 'vitepress-plugin-pagefind';
 import { RssPlugin } from 'vitepress-plugin-rss';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
-import keywords from './data/keywords.json';
-import contributors from './helpers/contributors';
-import customElements from './helpers/customElements';
-import locales from './i18n/locales';
-import sidebar, { excludedPages } from './sidebar';
+import keywords from './data/keywords.json' with { type: 'json' };
+import contributors from './helpers/contributors.ts';
+import customElements from './helpers/customElements.ts';
+import locales from './i18n/locales.ts';
+import preserveMarkSyntaxInsideContainers from './plugins/preserveMarkSyntaxInsideContainers.ts';
+import sidebar, { excludedPages } from './sidebar.ts';
 
 const time =
   new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
@@ -51,13 +59,13 @@ export default defineConfig({
         .use(spoiler)
         .use(sup)
         .use(figure, { linkImage: false })
-        .use(footnote)
         .use(align)
         .use(mark)
         .use(katex)
         .use(timeline)
         .use(BiDirectionalLinks({ dir: 'docs' }))
-        .use(tabsMarkdownPlugin),
+        .use(tabsMarkdownPlugin)
+        .use(preserveMarkSyntaxInsideContainers),
     toc: {
       level: [2, 3, 4],
     },
@@ -129,6 +137,10 @@ export default defineConfig({
     ],
 
     optimizeDeps: {
+      include: [
+        '@nolebase/vitepress-plugin-page-properties > date-fns',
+        '@nolebase/vitepress-plugin-page-properties > date-fns/locale',
+      ],
       exclude: [
         '@nolebase/vitepress-plugin-enhanced-readabilities/client',
         '@nolebase/ui',
@@ -206,8 +218,40 @@ export default defineConfig({
     hostname: 'https://survive-hfut.cc',
   },
 
-  srcExclude: excludedPages,
+  srcExclude: excludedPages.concat(['**/part_*.md']),
+
+  transformPageData,
 });
+
+function transformPageData(
+  pageData: PageData,
+  ctx: TransformPageContext<NoInfer<DefaultTheme.Config>>,
+) {
+  if (process.env.NODE_ENV !== 'production') {
+    return;
+  }
+
+  const url = new URL(
+    pageData.relativePath.replace(/(?:(^|\/)index)?\.md$/, '$1'),
+    'https://survive-hfut.cc',
+  ).href;
+  const site = resolveSiteDataByRoute(
+    ctx.siteConfig.site,
+    pageData.relativePath,
+  );
+  const title = pageData.title ? `${pageData.title} | VitePress` : site.title;
+  const description = pageData.description || site.description;
+
+  ((pageData.frontmatter.head ??= []) as HeadConfig[]).push(
+    ['meta', { property: 'og:url', content: url }],
+    ['meta', { property: 'og:title', content: title }],
+    ['meta', { property: 'og:locale', content: 'zh_CN' }],
+    ['meta', { property: 'og:description', content: description }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: '活在肥宣' }],
+    ['link', { rel: 'canonical', href: url }],
+  );
+}
 
 function getHead() {
   const head: UserConfig<DefaultTheme.Config>['head'] = [
@@ -216,6 +260,15 @@ function getHead() {
     ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-title', content: '活在肥宣' }],
+    ['meta', { name: 'theme-color', content: '#3451b2' }],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.css',
+        crossorigin: 'anonymous',
+      },
+    ],
     [
       'meta',
       {
@@ -227,8 +280,6 @@ function getHead() {
       'meta',
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
-    ['meta', { name: 'theme-color', content: '#3451b2' }],
-    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
     [
       'script',
       {},
@@ -237,15 +288,18 @@ function getHead() {
   ];
 
   if (process.env.NODE_ENV === 'production') {
-    head.push([
-      'script',
-      {
-        defer: 'true',
-        src: 'https://cloud.umami.is/script.js',
-        'data-website-id': 'e4fe9a73-74ca-4c11-99e5-585d60267170',
-        // dashboard: https://cloud.umami.is/share/TO6zOo7xWbS2gcFF/survive-hfut.cc
-      },
-    ]);
+    head.push(
+      [
+        'script',
+        {
+          defer: 'true',
+          src: 'https://cloud.umami.is/script.js',
+          'data-website-id': 'e4fe9a73-74ca-4c11-99e5-585d60267170',
+          // dashboard: https://cloud.umami.is/share/TO6zOo7xWbS2gcFF/survive-hfut.cc
+        },
+      ],
+      ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
+    );
   }
 
   return head;

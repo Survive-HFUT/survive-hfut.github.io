@@ -21,17 +21,16 @@ declare const data: OngoingData;
 export { data };
 
 const schemaRef = './ongoing.schema.json';
-const allowedCampus = new Set<Campus>([
-  '宣城校区',
-  '屯溪路校区',
-  '翡翠湖校区',
-]);
+const allowedCampus = new Set<Campus>(['宣城校区', '屯溪路校区', '翡翠湖校区']);
 
 function isNonEmptyString(value: unknown): value is string {
   return typeof value === 'string' && value.trim().length > 0;
 }
 
-function assertEvent(event: unknown, index: number): asserts event is OngoingEvent {
+function assertEvent(
+  event: unknown,
+  index: number,
+): asserts event is OngoingEvent {
   if (!event || typeof event !== 'object') {
     throw new Error(`ongoing.json: event[${index}] is not an object`);
   }
@@ -48,7 +47,9 @@ function assertEvent(event: unknown, index: number): asserts event is OngoingEve
 
   for (const key of Object.keys(record)) {
     if (!allowedKeys.has(key)) {
-      throw new Error(`ongoing.json: event[${index}] has unexpected key: ${key}`);
+      throw new Error(
+        `ongoing.json: event[${index}] has unexpected key: ${key}`,
+      );
     }
   }
 

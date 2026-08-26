@@ -15,26 +15,23 @@ importers:
         specifier: ^9.1.1
         version: 9.1.1
       '@mdit/plugin-align':
-        specifier: ^1.0.2
-        version: 1.0.2(markdown-it@14.3.0)
-      '@mdit/plugin-figure':
         specifier: ^1.1.0
-        version: 1.1.0(markdown-it@14.3.0)
-      '@mdit/plugin-footnote':
-        specifier: ^1.0.2
-        version: 1.0.2(markdown-it@14.3.0)
+        version: 1.1.0(markdown-it@15.0.0)
+      '@mdit/plugin-figure':
+        specifier: ^1.2.0
+        version: 1.2.0(markdown-it@15.0.0)
       '@mdit/plugin-katex':
-        specifier: ^1.0.2
-        version: 1.0.2(markdown-it@14.3.0)
+        specifier: ^1.1.0
+        version: 1.1.0(markdown-it@15.0.0)
       '@mdit/plugin-mark':
-        specifier: ^2.0.1
-        version: 2.0.1(markdown-it@14.3.0)
+        specifier: ^2.1.0
+        version: 2.1.0(markdown-it@15.0.0)
       '@mdit/plugin-spoiler':
-        specifier: ^2.0.1
-        version: 2.0.1(markdown-it@14.3.0)
+        specifier: ^2.1.0
+        version: 2.1.0(markdown-it@15.0.0)
       '@mdit/plugin-sup':
-        specifier: ^1.0.3
-        version: 1.0.3(markdown-it@14.3.0)
+        specifier: ^1.1.0
+        version: 1.1.0(markdown-it@15.0.0)
       '@nolebase/markdown-it-bi-directional-links':
         specifier: ^2.18.2
         version: 2.18.2(markdown-it@14.3.0)
@@ -44,9 +41,6 @@ importers:
       '@nolebase/vitepress-plugin-enhanced-mark':
         specifier: ^2.18.2
         version: 2.18.2(vitepress@2.0.0-alpha.19(@types/node@26.2.0)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.26)(terser@5.50.0)(typescript@6.0.3))
-      '@nolebase/vitepress-plugin-enhanced-readabilities':
-        specifier: ^2.18.2
-        version: 2.18.2(vitepress@2.0.0-alpha.19(@types/node@26.2.0)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.26)(terser@5.50.0)(typescript@6.0.3))(vue@3.5.41(typescript@6.0.3))
       '@nolebase/vitepress-plugin-git-changelog':
         specifier: ^2.18.2
         version: 2.18.2(vitepress@2.0.0-alpha.19(@types/node@26.2.0)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.26)(terser@5.50.0)(typescript@6.0.3))(vue@3.5.41(typescript@6.0.3))
@@ -877,9 +871,6 @@ packages:
     peerDependencies:
       tailwindcss: ^3.0 || ^4.0
 
-  '@iconify-json/carbon@1.2.24':
-    resolution: {integrity: sha512-b7u/eTWE3xFa7UXlRJBSEm6At1y6+F0P3imBEip5/8QeRzouxVjBf80Y2xnu1GYsFo9MYlHA0bZfxxMd5givfw==}
-
   '@iconify-json/icon-park-outline@1.2.4':
     resolution: {integrity: sha512-NyZxXe2gD2TbTOyoRRMdtEJhr6i2KQCdDlYYoOn5oZLndQjwpIhw79hzeFhXvP38/o40D3gQ+l+IaSJgbB+0TQ==}
 
@@ -1098,98 +1089,92 @@ packages:
     resolution: {integrity: sha512-tgnfSiid5qxFs+i9gFeJcuQDhWmPNQnVns8G2FwIhE0PhbKglEXiuVvowE3cns+4scRBE+VWI4JXzAvBQYK69g==}
     engines: {node: '>=20'}
 
-  '@mdit/helper@1.0.1':
-    resolution: {integrity: sha512-zAzShsRZmkqjuoOFg6/zTCYVpvghj9a30Cl/eOGkE0xzRJJJG8T18eqb2lgceQhjVLWHK02HNVkzyfNHc429lQ==}
+  '@mdit/helper@1.1.0':
+    resolution: {integrity: sha512-IWOUioaLobXA4ueulPfJopKaOHEGAH2pYDyK3u0cy4ItzxHXFssIJYksvdhUOC4JSHWfSjCArw41LBQdKOgFiw==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-align@1.0.2':
-    resolution: {integrity: sha512-U78ahccxNrUfR5GooMsBgF5xxQb6+EoErmaWu9z6QLtso0zXDlGaBTpONHmIA+LxAwXTrP6EvtFGnrEo6IFAsA==}
+  '@mdit/plugin-align@1.1.0':
+    resolution: {integrity: sha512-Yks7Q+Oa0skhIga0knjTOV8Yl9Qbkn05FihlgYR9AfSoU8a9wppnd5D/gm2zEmLTB7cJ5wlJQlo/vuIyKu9pYA==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-container@1.0.2':
-    resolution: {integrity: sha512-gCpqmadamWVbDI7+OgkywDGjfgqxrjZo3U+iK+sH7vERnZyX4sx1X65pXbqrem8Q5/4yO5t0d+kWkPC733ceRw==}
+  '@mdit/plugin-container@2.0.0':
+    resolution: {integrity: sha512-g5dcpOpXRrpp0Sy3A6HPuAKPHb5oo6m4V/1Ba4xnGV3MNSQ6ca0jRXGZmKkqQLGbXdTv4jNp/9UINm6NetDH2g==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-figure@1.1.0':
-    resolution: {integrity: sha512-FWg2cDX8JT6o/f+aAk0vU644JDCLzwJWIpJBJzLcxNEOiJQ3zL8dLr36wjhV6ySwaFntBVvCnSuhteJwUACdlQ==}
+  '@mdit/plugin-figure@1.2.0':
+    resolution: {integrity: sha512-seNlrG9p1czrGFfid9lXt0+YZSen+Mrdjjo+UpHUKEXme0Ha27XN7kCCxXHmigU1Zmj24UJ0mXWSBIMDmjesgA==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-footnote@1.0.2':
-    resolution: {integrity: sha512-G7pzoczbzVph9s9eyLuG9T24//ub9vK7A8jFCESQIzZj83ZJF3BHs7r/wcQx4KzmH+kDpLiAbhvzT/Y3+7OUig==}
+  '@mdit/plugin-inline-rule@2.2.0':
+    resolution: {integrity: sha512-Ce/GHczV8NZUgZU/3A085Ew7Ru1hY4NK8j0/Y+vp/NHXj+M7Hn1ANg8NHWlb3+NqQpJDuUq5TI2hA+DCQ1uUxw==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
-
-  '@mdit/plugin-inline-rule@2.0.1':
-    resolution: {integrity: sha512-l1pLarAVfPpyVoJ1dyGaP+F904Cb5ZXu+nyM38QH0gy9jxKJvYi1sYUUHfJXBeKIbllcgQLuSggW/EV/5JIk4g==}
-    engines: {node: '>=22'}
-    peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-katex@1.0.2':
-    resolution: {integrity: sha512-L8kmNrqCqU7EBjY2cuCTxBonP4X3td88JBRPD4u5s+DhHESTpa4m35TFE7O7x0Eim4QKaUmE4V+oczikrR5e0w==}
+  '@mdit/plugin-katex@1.1.0':
+    resolution: {integrity: sha512-/YGaXjDg3Xf88Xb8YtX1WgvfBAuMdSxAlbPE1s4d7NIRNzb8/RlWlQglNODOvTrye0RZgWz4Ep4mxH4A+pynwg==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-mark@2.0.1':
-    resolution: {integrity: sha512-5/i5Ab4Wi5NiApcx7dS4NKhQDuZrjVSvlKaqLXidw/ZtGOmc1XP70eRAMFUNw9QciDbWZRX7VzyFGyZwSsaTzA==}
+  '@mdit/plugin-mark@2.1.0':
+    resolution: {integrity: sha512-1SImTKhs1TeFRRqXyuPamliB/uUCLLX2oHHp+ml/7GZEFxxbCPAmaofLUFDM7QR+q3bbMJcuhXq5AQGA88ugHA==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-spoiler@2.0.1':
-    resolution: {integrity: sha512-x+8iIidkzeru2MT1eoDo27p4S87PRlfwEU+sR2Db1bkJf5k8t8zDupRxMjMtOTFvZrwgW4N/s3hXpaGu2avKxQ==}
+  '@mdit/plugin-spoiler@2.1.0':
+    resolution: {integrity: sha512-JC/t7heo5062XxeoWdAvagY1acZCwPfprxd5E30ClwO8Hrqd+kmv5fRnEJZmvk3ipCkeicITtXhw3LiCqrTZpQ==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-sup@1.0.3':
-    resolution: {integrity: sha512-Diq1cKuchvHZLupZEwO39hc4Dg+hPw3sKzj3f0ASE9ALUkz8sDeQTIA2IXg9GobnwADHA1q7bzsqdulm1ACgYQ==}
+  '@mdit/plugin-sup@1.1.0':
+    resolution: {integrity: sha512-EqCoChg0l/4Si/8mW07kfjRLZaBVxYqpxBrFhwUEDM4IjpiJPZgCC9kpkHI4GH3edQsPFG+2/Pj7Sh0NRXjq5w==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
 
-  '@mdit/plugin-tex@1.0.2':
-    resolution: {integrity: sha512-pj4xSLKT7ag7oTSLwQTW+QjEi8+/DgEzDXOI1r9bTX9dmFH15H8kbcZMs6wI5bgW26r4+yIU5OBaVsnesBgzYg==}
+  '@mdit/plugin-tex@1.1.0':
+    resolution: {integrity: sha512-rKQ0D5+PHE7d78aTvy1XNukPonXEHbo3Ca7NilIJmIUDfZACnatZ060t8Cjqnw/ajJyk+X+Ukv1p/ByeIPC3rg==}
     engines: {node: '>=22'}
     peerDependencies:
-      markdown-it: ^14.2.0
+      markdown-it: ^15.0.0
     peerDependenciesMeta:
       markdown-it:
         optional: true
@@ -1427,11 +1412,6 @@ packages:
 
   '@nolebase/vitepress-plugin-enhanced-mark@2.18.2':
     resolution: {integrity: sha512-MwdzJuUoGBZLuhKttXs5UX7APqYU37mBywle3hRAlythXIOrnCT1fQyU6zQ8SJCXkojuCUS3N3whQTA2Cmf16Q==}
-    peerDependencies:
-      vitepress: ^1.5.0 || ^2.0.0-alpha.1
-
-  '@nolebase/vitepress-plugin-enhanced-readabilities@2.18.2':
-    resolution: {integrity: sha512-fDhdZBSJL2qs/1xac0PtJfU5UI7b36ffVPYgzM8Ig2NjqMJ7cBvrTTPGq03lUeMjK7GD7fItAKudaP+ZrtMg8w==}
     peerDependencies:
       vitepress: ^1.5.0 || ^2.0.0-alpha.1
 
@@ -2403,6 +2383,9 @@ packages:
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
 
+  argparse@3.0.0:
+    resolution: {integrity: sha512-BOp5NMrHqKxmq/OLr+clzzrRxgOKSLkcjmkWuChp7Irqwn4s74WjOBPIgWfA/HMcBnVkZ5XEuf9uUqzlpfCQ6A==}
+
   aria-hidden@1.2.6:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
     engines: {node: '>=10'}
@@ -2455,8 +2438,8 @@ packages:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
     engines: {node: 18 || 20 || >=22}
 
-  baseline-browser-mapping@2.11.13:
-    resolution: {integrity: sha512-k9HNuUVMlqVjQ9UHzfPjIqiDbWw7WqT1AoT7GL8VwvF3r0ZfArtgiSPAlmupyNquNgOJHTuH4CKYf8ttMTWBTQ==}
+  baseline-browser-mapping@2.11.14:
+    resolution: {integrity: sha512-JyJ954WzuIR8/FFzX0o5krdSTrBAkcCSRfWSleRsIHSWV+cZe2FI1PKggVkFke1hBldRs+LRxUczzE9iPmgZww==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -2775,6 +2758,9 @@ packages:
   dayjs@1.11.21:
     resolution: {integrity: sha512-98IT+HOahAisibz/yjKbzuOBwYcjJ7BCLPzARyHiyEBmRz4fatF+KPJszEHXsGYjUG234aH/cOjW1wwTbKUZlA==}
 
+  dayjs@1.11.22:
+    resolution: {integrity: sha512-1YRnxzt/AabP3GHxnaB9/b+ZScCKu5TeF+co+BWG+lnWVIwEcTFc1FVE0WLNmNO3sA6GGXL40i5qkHfbLzpwrg==}
+
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
     engines: {node: '>=6.0'}
@@ -2828,8 +2814,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.405:
-    resolution: {integrity: sha512-bNglH7lPH5l+yHOes7Zr4VqxhOy4BQ9ZBUX4VdoFgxMpzJk7W1ZoO3Vgd9Pxa9PyjQ76sfm2aKH/nzEcCNRlew==}
+  electron-to-chromium@1.5.408:
+    resolution: {integrity: sha512-SLoprcYpJ/OH2v2ps0+N5biv9H4/KBT3+YmmDew64TwK5y9j2wv7pMOFY7IorVkyMtEyLSCRlXKLsNlakeAlPw==}
 
   entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
@@ -2838,6 +2824,10 @@ packages:
   entities@7.0.1:
     resolution: {integrity: sha512-TWrgLOFUQTH994YUyl1yT4uyavY5nNB5muff+RtWaqNVCAK408b5ZnnbNAUEWLTCpum9w6arT70i1XdQ4UeOPA==}
     engines: {node: '>=0.12'}
+
+  entities@8.0.0:
+    resolution: {integrity: sha512-zwfzJecQ/Uej6tusMqwAqU/6KL2XaB2VZ2Jg54Je6ahNBGNH6Ek6g3jjNCF0fG9EWQKGZNddNjU5F1ZQn/sBnA==}
+    engines: {node: '>=20.19.0'}
 
   errno@0.1.8:
     resolution: {integrity: sha512-dJ6oBr5SQ1VSd9qkk7ByRgb/1SH4JZjCHSW/mr63/QcXO9zLVxvJ6Oy13nio03rxpSnVDDjFor75SjVeZWPW/A==}
@@ -2874,8 +2864,8 @@ packages:
   es-toolkit@1.49.0:
     resolution: {integrity: sha512-G5iZ6Pc/FNRY/soKZHC+TxGDD83rHUDXxzaWhGCX44vAv/tMs56WMusnm/KMNK+luUPsgA9U28cGr4RDlSzL2g==}
 
-  es-toolkit@1.50.0:
-    resolution: {integrity: sha512-OyZKhUVvEep9ITEiwHn8GKnMRQIVqoSIX7WnRbkWgJkllCujilqP2rD0u979tkl8wqyc8ICwlc1UBVv/Sl1G6w==}
+  es-toolkit@1.51.0:
+    resolution: {integrity: sha512-zC2lQGkM7QX+Gm6iM3+WIdZJzthsEd14LvRNJneSO2hzyz/zNBENR8+YXWo1cKxgPBtV6ksPYHELbcwBRzmdCw==}
 
   esbuild@0.28.1:
     resolution: {integrity: sha512-HrJrvZv5ayxBzPfwphOoNzkzOIIlifzk0KJrGK2c8R4+LKpMtpYLQeUdjnwjWv/LZlkH2laZk+4w78pi99D4Vw==}
@@ -3018,7 +3008,6 @@ packages:
   glob@11.1.0:
     resolution: {integrity: sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==}
     engines: {node: 20 || >=22}
-    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   glob@13.0.6:
@@ -3368,8 +3357,8 @@ packages:
     resolution: {integrity: sha512-Eeo8Ys1doU1z+x8AZsPpQu+p/QcZBI5PeOo7QGQdy2x2m0MU/hYagBbGOmXwr5KVbEfVuWv9LpnQWeehogurjg==}
     hasBin: true
 
-  katex@0.18.1:
-    resolution: {integrity: sha512-Td8GCYSxDAoMhHOlKmCFMJ/hz5qlAAb71n66Dryw9nfCVfumLo7nhuotbvKom/XPADmrYC3O5QR71EPq4DarJQ==}
+  katex@0.18.4:
+    resolution: {integrity: sha512-IMPntbRLOU+eu88XDiFKqQ8Akhr9Tv7jDMXqPhjG9SI1JMA4DIgXk4x9k4skJz2NZJXBRbC+2pYBLj9olqcZow==}
     hasBin: true
 
   khroma@2.1.0:
@@ -3471,6 +3460,9 @@ packages:
   linkify-it@5.0.2:
     resolution: {integrity: sha512-ONTm2jCMAVZjgQa/Fy1kScXsuOoF5NPTsoFBdE1KVIZ2vAh/r9+Bqo+0jINCBYnavTPQZz38QzFTme79ENoN3Q==}
 
+  linkify-it@6.1.0:
+    resolution: {integrity: sha512-wJ/TwpSDTLepCrQoYWYIExIKg5Zchex2Nn5yk2mFnB+6PtdkHtyLx742md9csRjjOnGkKIS/RrbY7l8D6gT9Vw==}
+
   lodash-es@4.18.1:
     resolution: {integrity: sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==}
 
@@ -3499,6 +3491,10 @@ packages:
 
   markdown-it@14.3.0:
     resolution: {integrity: sha512-RCEsPjR+sr0x+AuYp601tKTkgFG4YEPLCzHST3cQ/fhlJkqAkz1L2/Qbp1j9qw5SBwQHFBoW8+hoN5xssOF0Tw==}
+    hasBin: true
+
+  markdown-it@15.0.0:
+    resolution: {integrity: sha512-Lf8ajvVNdRpzSNB4VegxNy7gjs8gU35l4b4+ET49LrQC5PKYwLZ72u60LeJ9gv3qiaesuYjJWCyVeQmv/QWKQw==}
     hasBin: true
 
   markdownlint-cli2-formatter-default@0.0.6:
@@ -4190,6 +4186,9 @@ packages:
 
   uc.micro@2.1.0:
     resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
+
+  uc.micro@3.0.0:
+    resolution: {integrity: sha512-U3PppEkleoTnIfi8BozMx3yju3qc/L6SwqWo2Sw+54PX+PX0q9I+r1Um5HCmqD7n9VDX5/v3vQH/AjA6deDdtw==}
 
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
@@ -5367,10 +5366,6 @@ snapshots:
     dependencies:
       tailwindcss: 4.3.3
 
-  '@iconify-json/carbon@1.2.24':
-    dependencies:
-      '@iconify/types': 2.0.0
-
   '@iconify-json/icon-park-outline@1.2.4':
     dependencies:
       '@iconify/types': 2.0.0
@@ -5551,78 +5546,69 @@ snapshots:
     dependencies:
       '@types/mdast': 3.0.15
 
-  '@mdit/helper@1.0.1(markdown-it@14.3.0)':
-    dependencies:
-      '@types/markdown-it': 14.1.2
+  '@mdit/helper@1.1.0(markdown-it@15.0.0)':
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
-  '@mdit/plugin-align@1.0.2(markdown-it@14.3.0)':
+  '@mdit/plugin-align@1.1.0(markdown-it@15.0.0)':
     dependencies:
-      '@mdit/plugin-container': 1.0.2(markdown-it@14.3.0)
-      '@types/markdown-it': 14.1.2
+      '@mdit/helper': 1.1.0(markdown-it@15.0.0)
+      '@mdit/plugin-container': 2.0.0(markdown-it@15.0.0)
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
-  '@mdit/plugin-container@1.0.2(markdown-it@14.3.0)':
+  '@mdit/plugin-container@2.0.0(markdown-it@15.0.0)':
     dependencies:
-      '@types/markdown-it': 14.1.2
+      '@mdit/helper': 1.1.0(markdown-it@15.0.0)
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
-  '@mdit/plugin-figure@1.1.0(markdown-it@14.3.0)':
+  '@mdit/plugin-figure@1.2.0(markdown-it@15.0.0)':
     dependencies:
-      '@types/markdown-it': 14.1.2
+      '@mdit/helper': 1.1.0(markdown-it@15.0.0)
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
-  '@mdit/plugin-footnote@1.0.2(markdown-it@14.3.0)':
+  '@mdit/plugin-inline-rule@2.2.0(markdown-it@15.0.0)':
     dependencies:
-      '@types/markdown-it': 14.1.2
-      markdown-it: 14.3.0
-
-  '@mdit/plugin-inline-rule@2.0.1(markdown-it@14.3.0)':
-    dependencies:
-      '@mdit/helper': 1.0.1(markdown-it@14.3.0)
-      '@types/markdown-it': 14.1.2
+      '@mdit/helper': 1.1.0(markdown-it@15.0.0)
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
-  '@mdit/plugin-katex@1.0.2(markdown-it@14.3.0)':
+  '@mdit/plugin-katex@1.1.0(markdown-it@15.0.0)':
     dependencies:
-      '@mdit/helper': 1.0.1(markdown-it@14.3.0)
-      '@mdit/plugin-tex': 1.0.2(markdown-it@14.3.0)
-      '@types/markdown-it': 14.1.2
-      katex: 0.18.1
+      '@mdit/helper': 1.1.0(markdown-it@15.0.0)
+      '@mdit/plugin-tex': 1.1.0(markdown-it@15.0.0)
+      katex: 0.18.4
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
-  '@mdit/plugin-mark@2.0.1(markdown-it@14.3.0)':
+  '@mdit/plugin-mark@2.1.0(markdown-it@15.0.0)':
     dependencies:
-      '@mdit/plugin-inline-rule': 2.0.1(markdown-it@14.3.0)
-      '@types/markdown-it': 14.1.2
+      '@mdit/helper': 1.1.0(markdown-it@15.0.0)
+      '@mdit/plugin-inline-rule': 2.2.0(markdown-it@15.0.0)
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
-  '@mdit/plugin-spoiler@2.0.1(markdown-it@14.3.0)':
+  '@mdit/plugin-spoiler@2.1.0(markdown-it@15.0.0)':
     dependencies:
-      '@mdit/plugin-inline-rule': 2.0.1(markdown-it@14.3.0)
-      '@types/markdown-it': 14.1.2
+      '@mdit/helper': 1.1.0(markdown-it@15.0.0)
+      '@mdit/plugin-inline-rule': 2.2.0(markdown-it@15.0.0)
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
-  '@mdit/plugin-sup@1.0.3(markdown-it@14.3.0)':
+  '@mdit/plugin-sup@1.1.0(markdown-it@15.0.0)':
     dependencies:
-      '@mdit/plugin-inline-rule': 2.0.1(markdown-it@14.3.0)
-      '@types/markdown-it': 14.1.2
+      '@mdit/helper': 1.1.0(markdown-it@15.0.0)
+      '@mdit/plugin-inline-rule': 2.2.0(markdown-it@15.0.0)
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
-  '@mdit/plugin-tex@1.0.2(markdown-it@14.3.0)':
+  '@mdit/plugin-tex@1.1.0(markdown-it@15.0.0)':
     dependencies:
-      '@types/markdown-it': 14.1.2
+      '@mdit/helper': 1.1.0(markdown-it@15.0.0)
     optionalDependencies:
-      markdown-it: 14.3.0
+      markdown-it: 15.0.0
 
   '@mermaid-js/mermaid-zenuml@0.2.3(@babel/core@7.29.7)(@babel/template@7.29.7)(mermaid@11.16.0)(tailwindcss@4.3.3)':
     dependencies:
@@ -5813,16 +5799,6 @@ snapshots:
     dependencies:
       less: 4.6.7
       vitepress: 2.0.0-alpha.19(@types/node@26.2.0)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.26)(terser@5.50.0)(typescript@6.0.3)
-
-  '@nolebase/vitepress-plugin-enhanced-readabilities@2.18.2(vitepress@2.0.0-alpha.19(@types/node@26.2.0)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.26)(terser@5.50.0)(typescript@6.0.3))(vue@3.5.41(typescript@6.0.3))':
-    dependencies:
-      '@iconify-json/carbon': 1.2.24
-      '@iconify-json/icon-park-outline': 1.2.4
-      '@nolebase/ui': 2.18.2(vitepress@2.0.0-alpha.19(@types/node@26.2.0)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.26)(terser@5.50.0)(typescript@6.0.3))(vue@3.5.41(typescript@6.0.3))
-      less: 4.6.7
-      vitepress: 2.0.0-alpha.19(@types/node@26.2.0)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.26)(terser@5.50.0)(typescript@6.0.3)
-    transitivePeerDependencies:
-      - vue
 
   '@nolebase/vitepress-plugin-git-changelog@2.18.2(vitepress@2.0.0-alpha.19(@types/node@26.2.0)(esbuild@0.28.1)(less@4.6.7)(postcss@8.5.26)(terser@5.50.0)(typescript@6.0.3))(vue@3.5.41(typescript@6.0.3))':
     dependencies:
@@ -6700,6 +6676,9 @@ snapshots:
 
   argparse@2.0.1: {}
 
+  argparse@3.0.0:
+    optional: true
+
   aria-hidden@1.2.6:
     dependencies:
       tslib: 2.8.1
@@ -6759,7 +6738,7 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  baseline-browser-mapping@2.11.13: {}
+  baseline-browser-mapping@2.11.14: {}
 
   before-after-hook@4.0.0: {}
 
@@ -6781,9 +6760,9 @@ snapshots:
 
   browserslist@4.28.8:
     dependencies:
-      baseline-browser-mapping: 2.11.13
+      baseline-browser-mapping: 2.11.14
       caniuse-lite: 1.0.30001809
-      electron-to-chromium: 1.5.405
+      electron-to-chromium: 1.5.408
       node-releases: 2.0.53
       update-browserslist-db: 1.3.1(browserslist@4.28.8)
 
@@ -7091,6 +7070,8 @@ snapshots:
 
   dayjs@1.11.21: {}
 
+  dayjs@1.11.22: {}
+
   debug@4.4.3:
     dependencies:
       ms: 2.1.3
@@ -7141,11 +7122,14 @@ snapshots:
     dependencies:
       jake: 10.9.4
 
-  electron-to-chromium@1.5.405: {}
+  electron-to-chromium@1.5.408: {}
 
   entities@4.5.0: {}
 
   entities@7.0.1: {}
+
+  entities@8.0.0:
+    optional: true
 
   errno@0.1.8:
     dependencies:
@@ -7242,7 +7226,7 @@ snapshots:
 
   es-toolkit@1.49.0: {}
 
-  es-toolkit@1.50.0: {}
+  es-toolkit@1.51.0: {}
 
   esbuild@0.28.1:
     optionalDependencies:
@@ -7744,7 +7728,7 @@ snapshots:
     dependencies:
       commander: 8.3.0
 
-  katex@0.18.1:
+  katex@0.18.4:
     dependencies:
       commander: 8.3.0
 
@@ -7824,6 +7808,11 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
+  linkify-it@6.1.0:
+    dependencies:
+      uc.micro: 3.0.0
+    optional: true
+
   lodash-es@4.18.1: {}
 
   lodash.debounce@4.0.8: {}
@@ -7853,6 +7842,16 @@ snapshots:
       mdurl: 2.1.0
       punycode.js: 2.3.1
       uc.micro: 2.1.0
+
+  markdown-it@15.0.0:
+    dependencies:
+      argparse: 3.0.0
+      entities: 8.0.0
+      linkify-it: 6.1.0
+      mdurl: 2.1.0
+      punycode.js: 2.3.1
+      uc.micro: 3.0.0
+    optional: true
 
   markdownlint-cli2-formatter-default@0.0.6(markdownlint-cli2@0.23.2):
     dependencies:
@@ -7929,9 +7928,9 @@ snapshots:
       d3: 7.9.0
       d3-sankey: 0.12.3
       dagre-d3-es: 7.0.14
-      dayjs: 1.11.21
+      dayjs: 1.11.22
       dompurify: 3.4.13
-      es-toolkit: 1.50.0
+      es-toolkit: 1.51.0
       katex: 0.16.47
       khroma: 2.1.0
       marked: 16.4.2
@@ -8820,6 +8819,9 @@ snapshots:
   typescript@6.0.3: {}
 
   uc.micro@2.1.0: {}
+
+  uc.micro@3.0.0:
+    optional: true
 
   unbox-primitive@1.1.0:
     dependencies:

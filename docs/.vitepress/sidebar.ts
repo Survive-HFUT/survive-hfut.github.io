@@ -128,7 +128,7 @@ export default postProcessSidebar(
           documentRootPath: '/docs',
           resolvePath: '/',
           excludeFilesByFrontmatterFieldName: 'exclude',
-          excludeByGlobPattern: ['about/**', 'achievements/**'],
+          excludeByGlobPattern: ['about/**', 'achievements/**', 'part_*.md'],
           collapsed: false,
           collapseDepth: 2,
           manualSortFileNameByPriority: ['intro.md', 'qa.md'],
