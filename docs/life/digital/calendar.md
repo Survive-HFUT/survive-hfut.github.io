@@ -10,9 +10,7 @@
 
 == 宣城校区
 
-![[canlendar-xc.jpg]]
-
-<Note>缺少来源</Note>
+![[canlendar-xc.jpg]] [^8]
 
 :::
 
@@ -40,3 +38,7 @@
 [^2]:
     合肥工业大学教务处.合肥工业大学 2026-2027 学年校历（合肥校区）[DB/OL]. (2026-06-12)\[2026-07-19].  
     <http://jwc.hfut.edu.cn/info2025.jsp?urltype=news.NewsContentUrl&wbtreeid=1293&wbnewsid=5664>
+
+[^8]:
+    合肥工业大学.宣城校区校园生活指南来啦！快来解锁你的大学攻略[DB/OL]. (2026-08-27)\[2026-08-28].  
+    <https://mp.weixin.qq.com/s/5cM1vhEiGk6RkXkklxV54A>
