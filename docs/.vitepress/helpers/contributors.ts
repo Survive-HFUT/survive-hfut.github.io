@@ -39,6 +39,10 @@ const customAuthors: CustomAuthor[] = [
     id: 273101381,
     mapByNameAliases: ['dfghj345'],
   },
+  {
+    id: 92634605,
+    mapByNameAliases: ['cxmnbt'],
+  },
 ];
 
 const authors: Author[] = [
