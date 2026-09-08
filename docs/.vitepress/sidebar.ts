@@ -5,6 +5,7 @@ import type {
   SidebarMulti,
   VitePressSidebarOptions,
 } from 'vitepress-sidebar/types';
+import { canonicalArticlePath } from './theme/utils/articlePath.ts';
 
 export const excludedPages: string[] = [];
 
@@ -94,6 +95,11 @@ function postProcessSidebar(sidebar: SidebarMulti) {
       // VPSidebarItem 用 v-html 渲染 text，故直接写 Badge 组件产出的 HTML 结构。
       if (campus && item.text) {
         item.text += `<span class="VPBadge info">${campusLabel[campus] ?? campus}</span>`;
+      }
+
+      if (item.link && item.text && !whetherToExcludeLink(item.link)) {
+        const readingPath = canonicalArticlePath(item.link);
+        item.text += `<span class="reading-status-marker" data-reading-path="${readingPath}" aria-hidden="true"></span>`;
       }
 
       if (item.items?.length) {
