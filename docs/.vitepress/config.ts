@@ -41,7 +41,7 @@ const time =
   new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }) +
   ' GMT+8:00';
 
-const excludes = ['index.md', 'random.md'];
+const excludes = ['index.md', 'random.md', 'reading.md'];
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -168,6 +168,7 @@ export default defineConfig({
     nav: [
       { text: '猜你想问', link: '/enrollment/first_glimpse/qa' },
       { text: '正在发生', link: '/ongoing' },
+      { text: '阅读记录', link: '/reading' },
       { text: '关于', link: '/about' },
       {
         text: '反馈',
