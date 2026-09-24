@@ -14,10 +14,10 @@
   },
   "devDependencies": {
     "@lint-md/cli": "2.4.0",
-    "@types/node": "^26.5.1",
+    "@types/node": "^26.6.2",
     "@types/remove-markdown": "^0.3.4",
     "husky": "^9.1.7",
-    "prettier": "^3.9.6"
+    "prettier": "^3.9.8"
   },
   "dependencies": {
     "@actions/core": "^3.0.1",
@@ -34,9 +34,9 @@
     "@nolebase/vitepress-plugin-git-changelog": "^2.18.2",
     "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.18.2",
     "@nolebase/vitepress-plugin-page-properties": "^2.18.2",
-    "@vueuse/core": "^14.4.0",
+    "@vueuse/core": "^15.0.0",
     "@waline/client": "^3.15.2",
-    "markdownlint-cli2": "^0.23.2",
+    "markdownlint-cli2": "^0.23.3",
     "medium-zoom": "^1.1.0",
     "nprogress-v2": "^1.1.10",
     "octokit": "^5.0.5",
@@ -49,10 +49,10 @@
     "vitepress-markdown-timeline": "^1.2.2",
     "vitepress-mermaid-renderer": "^1.2.2",
     "vitepress-plugin-back-to-top": "^1.0.1",
-    "vitepress-plugin-pagefind": "^0.4.24",
-    "vitepress-plugin-rss": "^0.4.4",
+    "vitepress-plugin-pagefind": "^0.4.25",
+    "vitepress-plugin-rss": "^0.4.5",
     "vitepress-plugin-tabs": "^0.9.1",
     "vitepress-sidebar": "^1.40.0",
-    "vue": "^3.5.42"
+    "vue": "^3.5.43"
   }
 }
