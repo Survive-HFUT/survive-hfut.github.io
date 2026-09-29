@@ -4,7 +4,7 @@
 
 :::info
 
-具体要求、历年通知详见[[change_major|转专业]]一章
+具体要求、历年通知详见[转专业](../../../academics/courses-and-exams/change_major.md)一章
 
 :::
 

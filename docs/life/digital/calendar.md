@@ -6,11 +6,11 @@
 
 == 合肥校区
 
-![[canlendar-hf.jpg]] [^2]
+![合肥校区校历](../media/canlendar-hf.jpg) [^2]
 
 == 宣城校区
 
-![[canlendar-xc.jpg]] [^8]
+![宣城校区校历](../media/canlendar-xc.jpg) [^8]
 
 :::
 
