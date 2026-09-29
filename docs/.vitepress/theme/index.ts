@@ -22,6 +22,64 @@ import 'nprogress-v2/dist/index.css';
 import 'vitepress-markdown-timeline/dist/theme/index.css';
 import 'vitepress-plugin-back-to-top/dist/style.css';
 
+/**
+ * Browsers can reduce the macOS version in navigator.userAgent to 10.15.7.
+ * Attach the available User-Agent Client Hint to Waline's submitted UA so the
+ * server can display the actual macOS version without changing other requests.
+ */
+function installWalineMacOSVersionHint() {
+  const nativeFetch = window.fetch.bind(window);
+  const communityOrigin = 'https://community.survive-hfut.cc';
+
+  window.fetch = async (input, init) => {
+    const inputUrl = input instanceof Request ? input.url : String(input);
+    const requestUrl = new URL(inputUrl, window.location.href);
+    const method = (
+      init?.method || (input instanceof Request ? input.method : 'GET')
+    ).toUpperCase();
+
+    if (
+      requestUrl.origin === communityOrigin &&
+      requestUrl.pathname === '/api/comment' &&
+      method === 'POST' &&
+      typeof init?.body === 'string'
+    ) {
+      try {
+        const userAgentData = (
+          navigator as Navigator & {
+            userAgentData?: {
+              platform: string;
+              getHighEntropyValues: (hints: string[]) => Promise<{
+                platformVersion?: string;
+              }>;
+            };
+          }
+        ).userAgentData;
+
+        if (userAgentData?.platform === 'macOS') {
+          const { platformVersion } = await userAgentData.getHighEntropyValues([
+            'platformVersion',
+          ]);
+          const version = platformVersion?.match(/^\d+(?:\.\d+){0,3}$/)?.[0];
+
+          // WebKit intentionally reports 10.15.7 as a frozen compatibility value.
+          if (version && !/^10\.15(?:\.7)?$/.test(version)) {
+            const body = JSON.parse(init.body) as { ua?: unknown };
+            if (typeof body.ua === 'string') {
+              body.ua += ` [macOS platform version=${version}]`;
+              init = { ...init, body: JSON.stringify(body) };
+            }
+          }
+        }
+      } catch {
+        // Keep the original UA when the browser does not expose this hint.
+      }
+    }
+
+    return nativeFetch(input, init);
+  };
+}
+
 export default {
   extends: DefaultTheme,
 
@@ -48,6 +106,8 @@ export default {
     );
 
     if (inBrowser) {
+      installWalineMacOSVersionHint();
+
       NProgress.configure({ showSpinner: false });
 
       const scrollActiveSidebarItem = () => {
