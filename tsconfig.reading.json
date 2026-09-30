@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "lib": ["ES2023", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2022",
+    "types": ["node"]
+  },
+  "include": [
+    "docs/.vitepress/data/articleVersions.data.ts",
+    "docs/.vitepress/theme/composables/useReadingProgress.ts",
+    "docs/.vitepress/theme/utils/**/*.ts",
+    "tests/reading/**/*.test.ts"
+  ]
+}

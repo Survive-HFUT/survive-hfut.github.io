@@ -1,0 +1,141 @@
+import { createHash } from 'node:crypto';
+
+const FRONTMATTER_RE = /^---\r?\n[\s\S]*?\r?\n---\r?\n?/;
+
+export function stripFrontmatter(markdown: string): string {
+  return markdown.replace(/^\uFEFF/, '').replace(FRONTMATTER_RE, '');
+}
+
+function cleanTitle(value: string): string {
+  return value
+    .replace(/^['"]|['"]$/g, '')
+    .replace(/!\[([^\]]*)]\([^)]+\)/g, '$1')
+    .replace(/\[([^\]]+)]\([^)]+\)/g, '$1')
+    .replace(/[`*_~]/g, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+export function extractMarkdownTitle(
+  markdown: string,
+  fallback = '未命名篇目',
+): string {
+  const source = markdown.replace(/^\uFEFF/, '');
+  const frontmatter = source.match(FRONTMATTER_RE)?.[0] ?? '';
+  const frontmatterTitle = frontmatter.match(/^title:\s*(.+?)\s*$/m)?.[1];
+  if (frontmatterTitle) return cleanTitle(frontmatterTitle) || fallback;
+
+  const heading = stripFrontmatter(source).match(/^#\s+(.+?)\s*#*$/m)?.[1];
+  return heading ? cleanTitle(heading) || fallback : fallback;
+}
+
+function normalizeInlineMarkdown(value: string): string {
+  return value
+    .normalize('NFKC')
+    .replace(/!\[([^\]]*)]\(([^)]+)\)/g, '图片:$1|$2')
+    .replace(/\[([^\]]+)]\(([^)]+)\)/g, '链接:$1|$2')
+    .replace(/\[([^\]]+)]\[([^\]]*)]/g, '链接:$1|$2')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .replace(/[\s*_~]+/g, '')
+    .trim();
+}
+
+/**
+ * Produces a stable, semantic-ish representation of Markdown. It intentionally
+ * ignores line endings, wrapping, emphasis markers, list marker style and
+ * table alignment, while retaining headings, visible text and link targets.
+ */
+export function normalizeMarkdownContent(markdown: string): string {
+  const source = stripFrontmatter(markdown)
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, '')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, '')
+    .replace(/\r\n?/g, '\n');
+  const semanticParts: string[] = [];
+  let fence = '';
+  let code = '';
+
+  for (const sourceLine of source.split('\n')) {
+    const trimmed = sourceLine.trim();
+    const fenceMatch = trimmed.match(/^(```+|~~~+)/);
+
+    if (fence) {
+      if (fenceMatch?.[1].startsWith(fence[0])) {
+        semanticParts.push(`代码:${code.trimEnd()}`);
+        fence = '';
+        code = '';
+      } else {
+        code += `${sourceLine.replace(/[ \t]+$/g, '')}\n`;
+      }
+      continue;
+    }
+
+    if (fenceMatch) {
+      fence = fenceMatch[1];
+      continue;
+    }
+
+    if (
+      !trimmed ||
+      /^:{3,}\s*$/.test(trimmed) ||
+      /^:{3,}\w+/.test(trimmed) ||
+      /^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(trimmed)
+    ) {
+      continue;
+    }
+
+    if (
+      /^<[A-Z][\w.-]*(?:\s[^>]*)?\s*\/?>(?:<\/[A-Z][\w.-]*>)?$/.test(trimmed)
+    ) {
+      semanticParts.push(
+        `组件:${trimmed.normalize('NFKC').replace(/\s+/g, ' ')}`,
+      );
+      continue;
+    }
+
+    const heading = trimmed.match(/^(#{1,6})\s+(.+?)\s*#*$/);
+    if (heading) {
+      semanticParts.push(
+        `标题${heading[1].length}:${normalizeInlineMarkdown(heading[2])}`,
+      );
+      continue;
+    }
+
+    const normalized = normalizeInlineMarkdown(
+      trimmed
+        .replace(/^>+\s*/, '')
+        .replace(/^[-+*]\s+/, '')
+        .replace(/^\d+[.)]\s+/, ''),
+    );
+    if (normalized) {
+      semanticParts.push(normalized);
+    }
+  }
+
+  if (code) {
+    semanticParts.push(`代码:${code.trimEnd()}`);
+  }
+
+  return semanticParts.join('\n');
+}
+
+export function createArticleVersion(markdown: string): string {
+  return createHash('sha256')
+    .update(normalizeMarkdownContent(markdown), 'utf8')
+    .digest('hex')
+    .slice(0, 24);
+}
+
+export function hasSubstantiveMarkdown(markdown: string): boolean {
+  const normalized = normalizeMarkdownContent(markdown);
+  return normalized
+    .split('\n')
+    .some(
+      (part) =>
+        part.length > 0 &&
+        !part.startsWith('标题') &&
+        !part.startsWith('组件:'),
+    );
+}
