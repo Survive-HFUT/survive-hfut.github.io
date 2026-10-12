@@ -24,6 +24,7 @@ order: 10
 本页的问题参考了以下来源
 
 - [大学生活质量指北](https://colleges.chat/universities/he-fei-gong-ye-da-xue-xuan-cheng-xiao-qu/)
+- [宣城校区校园生活指南](https://mp.weixin.qq.com/s/5cM1vhEiGk6RkXkklxV54A)
 - [2026 冰糖答新生问](https://docs.qq.com/sheet/DYUZDWmhIU3dRS2pi?tab=BB08J2)
 - [~~2025 冰糖答新生问~~](https://www.kdocs.cn/l/ccPLB8FE5ZRP)
   - _已被清空_

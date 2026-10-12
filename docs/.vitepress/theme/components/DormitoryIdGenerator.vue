@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 
 const buildingNumber = ref(1);
 const roomNumber = ref('');
 const selectedDirection = ref('north');
 const type = ref('ac');
 const roomError = ref('');
+
+// 7、8 栋不区分南北，按南楼（方向代码 1）处理
+const isSingleBuilding = computed(
+  () => buildingNumber.value === 7 || buildingNumber.value === 8,
+);
 
 const id = computed(() => {
   if (
@@ -17,17 +22,25 @@ const id = computed(() => {
     return '';
   }
 
-  // 方向代码
-  const directionCode = selectedDirection.value === 'south' ? '1' : '2';
+  // 方向代码（7、8 栋固定为南边）
+  const directionCode =
+    selectedDirection.value === 'south' || isSingleBuilding.value ? '1' : '2';
 
   if (buildingNumber.value < 6) {
-    // 北生活区：楼宇编号+房间号+方向代码+方向代码
-    return `300${buildingNumber.value}${roomNumber.value}${directionCode}1`;
+    // 北生活区（1~5 栋）：30+楼号+房间号+方向代码+1
+    return `30${buildingNumber.value.toString().padStart(2, '0')}${roomNumber.value}${directionCode}1`;
   } else {
-    // 南生活区：楼宇编号+房间号+方向代码+用电类型代码
+    // 南生活区（6~10 栋）：30+楼号+房间号+方向代码+用电类型代码
     const typeCode = type.value === 'lighting' ? '1' : '2';
 
     return `30${buildingNumber.value.toString().padStart(2, '0')}${roomNumber.value}${directionCode}${typeCode}`;
+  }
+});
+
+// 切换到 7、8 栋时，方向自动归为南边
+watch(buildingNumber, (val) => {
+  if (val === 7 || val === 8) {
+    selectedDirection.value = 'south';
   }
 });
 
@@ -73,10 +86,17 @@ defineExpose({ id });
 
     <div class="form-group">
       <label for="direction">方向</label>
-      <select id="direction" v-model="selectedDirection">
+      <select
+        id="direction"
+        v-model="selectedDirection"
+        :disabled="isSingleBuilding"
+      >
         <option value="south">南边</option>
         <option value="north">北边</option>
       </select>
+      <span v-if="isSingleBuilding" class="hint"
+        >7、8 栋不分南北，按南楼计费</span
+      >
     </div>
 
     <div class="form-group">
@@ -132,6 +152,13 @@ defineExpose({ id });
 
 .error {
   color: var(--vp-c-danger-1);
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.hint {
+  color: var(--vp-c-text-2);
   font-size: 12px;
   margin-top: 4px;
   display: block;

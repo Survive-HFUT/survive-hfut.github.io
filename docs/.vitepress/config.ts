@@ -4,7 +4,6 @@ import { katex } from '@mdit/plugin-katex';
 import { mark } from '@mdit/plugin-mark';
 import { spoiler } from '@mdit/plugin-spoiler';
 import { sup } from '@mdit/plugin-sup';
-import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links';
 import {
   GitChangelog,
   GitChangelogMarkdownSection,
@@ -63,7 +62,6 @@ export default defineConfig({
         .use(mark)
         .use(katex)
         .use(timeline)
-        .use(BiDirectionalLinks({ dir: 'docs' }))
         .use(tabsMarkdownPlugin)
         .use(preserveMarkSyntaxInsideContainers),
     toc: {

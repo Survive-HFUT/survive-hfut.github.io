@@ -41,7 +41,7 @@
 
 :::
 
-除此之外，合肥校区的[宅基地协会官网](https://acgzjd.cn/2026/04/10/acggroups/)上也收录了不少游戏群
+除此之外，合肥校区[宅基地](../organizations/associations/zhaijidi)的[同好群一览](https://acgzjd.cn/2026/04/10/acggroups/)上也收录了不少游戏群
 
 ### 二手群
 
