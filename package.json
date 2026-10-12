@@ -9,6 +9,8 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
+    "test:reading": "node --experimental-strip-types --test tests/reading/*.test.ts",
+    "typecheck:reading": "tsc -p tsconfig.reading.json",
     "format": "lint-md docs/** --fix && prettier docs/**/*.{md,ts,vue} -w && pnpm exec markdownlint-cli2 --fix",
     "prepare": "husky"
   },
