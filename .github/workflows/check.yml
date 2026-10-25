@@ -4,6 +4,12 @@ on:
   push:
     paths:
       - '**/*.md'
+      - '**/*.ts'
+      - '**/*.vue'
+      - '**/*.css'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig.reading.json'
   pull_request:
   workflow_dispatch:
 
@@ -31,6 +37,8 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           pnpm install
+          pnpm test:reading
+          pnpm typecheck:reading
           pnpm run build
 
       - name: Upload artifact
