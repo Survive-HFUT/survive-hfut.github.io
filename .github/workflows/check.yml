@@ -63,4 +63,4 @@ jobs:
 
       - name: Run markdownlint
         if: failure() || success()
-        uses: DavidAnson/markdownlint-cli2-action@v24
+        uses: DavidAnson/markdownlint-cli2-action@v25
